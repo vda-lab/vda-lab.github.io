@@ -18,7 +18,7 @@ The results from the 2005 Tour de France are stored in the TDF2005 folder in jso
 
 ### 1. Visualization ###
 
-See [here](visualization/index.html).
+See [here](visualization.html).
 
 ### 2. Mapreduce ###
 
