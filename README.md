@@ -4,3 +4,6 @@ This repository holds slides and exercises for the course I0U19A of Master of Bi
 
 Lecturer: Jan Aerts
 Teaching Assistants: Toni Verbeiren, Ryo Sakai, Raf Winand
+
+To convert markdown files to html:
+  `pandoc -f markdown -t html my_file.md > my_file.html`
