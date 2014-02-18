@@ -101,3 +101,102 @@ How would *you* describe "big data"? Can you give examples?
 
 <br>
 Example datasets available at http://www.datasciencecentral.com/profiles/blogs/big-data-sets-available-for-free
+
+
+## Big data - the bigger picture
+
+"Fourth Paradigm" of scientific research (Jim Grey, Microsoft)
+
+|     |                  |                  |                                      |
+|:----|:-----------------|:-----------------|:-------------------------------------|
+| 1st | 1,000s years ago | empirical        | describing natural phenomena         |
+| 2nd | 100s years ago   | theoretical      | theoretical "laws" (Kepler, Newton) |
+| 3rd | last few decades | computational    | modeling, simulation                 |
+| 4rd | today            | data exploration | data processing                      |
+
+
+## Some terms you might encounter
+
+* OLTP = On Line Transaction Processing (*batch layer*)
+* OLAP = On Line Analytic Processing (*serving layer*)
+
+	OLTP	OLAP
+application	operational	analysis
+refresh	immediate	periodic
+data model	entity-relationship	multi-dimensional
+schema	normalized	star
+emphasis	update	retrieval
+
+
+## Some factors playing a role in working with (big) data
+
+* **Data collection** - is the easy part. Every individual is not only a data collector but also generator (clicks, comments on Facebook, ...)
+ * Some restrictions might apply, e.g. more difficult to get patient data, potentially identifiable information, ...
+* **Ingesting and cleaning** (a.k.a. ETL: Extract-Transform-Load) - putting the right data in the right column in the right format
+ * big data: often unstructured data => how does this fit in a relational database?
+ * = 80% of effort in data collection
+ * OpenRefine - www.openrefine.org
+
+
+* **Hardware** - With big data: still need storage, processing and network. But it changes how these are used (e.g. virtualization, cloud computing)
+* **Platforms** - When big data need to be processed we will often try to speed this up using parallelization. Still: not fast enough if (1) we’re working in an interactive user interface, or (2) we want to analyze unstructured data iteratively
+* **Human exploration** - While machine learning is an important tool in data analysis, there’s no substitute for human eyes => with big data: stretching the limits of multi-dimensional visualization
+* **Storage** - raw data + transformed data + virtual machines to analyze the data + analysis results + legacy formats; mix: cloud + on-premise storage
+
+
+
+## What is big data?
+
+* big data = data that exceeds processing capacity of conventional database systems (too big, moves too fast, doesn’t fit in database structure)
+* Being able to process every item of data in reasonable time removes the troublesome need for sampling
+* Necessary counterpart: agility - successful exploitation of big data requires experimentation and exploration
+* Because it’s big: bring computation to the data instead of the data to the computation
+
+<br>
+*Different way of thinking*
+
+
+## The Three V's
+
+### 1. Volume ###
+
+* most immediate challenge to conventional IT structures; principle of big data: *if you can, keep everything*
+* need scalable storage + distributed querying
+* structured vs unstructured data -> Hadoop: MapReduce + HDFS
+ * MapReduce: map = distributing a dataset among multiple servers and operating on the data; reduce = recombining the partial results
+ * HDFS = Hadoop Distributed File System
+ * Hadoop: for batch jobs (not interactive)
+
+
+### 2. Variety ###
+
+*Data is messy*
+
+* 80% of effort in dealing with data = cleaning up
+* process of moving from source data to processed application data involves loss of information
+* relational databases: not always best destination for the data, even when tidied up (network data -> graph database; XML data -> dedicated XML store; ...)
+* disadvantage of relational database: fixed schema <=> results of computations will evolve with detection and extraction of more signals => semi-structured NoSQL databases provide this flexibility: provide enough structure to organize data but do not require the exact schema of the data before storing it
+
+
+### 3. Velocity ###
+
+* increasing rate at which data flows into an organization, but also of system’s output
+* origins: (1) velocity of incoming data; (2) speed of taking data from input through to decision
+* often not possible to simple wait for a report to run or Hadoop job to complete
+* streaming: important to consider, because (1) if input data too fast to store in its entirety (e.g. Large Hedron Collider @ CERN); (2) application might mandate immediate response to the data
+* => need for speed (--> has driven development of key-value stores and columnar databases)
+
+
+
+## Why do relational databases break down with big datasets? ##
+
+![Unnormalized genotypes](images/relational_not_normalized.png)
+
+
+## Normal forms
+
+![SNPs](images/relational_snps.png)
+
+![Individuals](images/relational_individuals.png)
+
+![Genotypes](images/relational_genotypes.png)
