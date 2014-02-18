@@ -19,3 +19,10 @@ $(DOC1).html : $(DOC1).md
 
 $(DOC2).html : $(DOC2).md
 	pandoc $(DOC2).md -t html5 -o $(DOC2).html  --highlight-style=tango --css $(TEMPLATE) --self-contained
+
+clean:
+	rm $(DOC0).html
+	rm $(DOC1).html
+	rm $(DOC2).html
+
+
