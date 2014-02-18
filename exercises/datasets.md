@@ -1,24 +1,32 @@
+# Datasets
+
 The different datasets are categorized in their own directory. Please read what follows, because it gives you information on how the data was gathered, processed and what is represented in the data.
 
 You are allowed to copy the data to your personal home directory or to a different/personal PC. Just make sure to use the original version for the final result of the assignments.
 
-### Genotype ###
+## Genotype ##
 
-*description of the dataset*
+We selected the first 100K basepairs from chromosome 1 from the [1000 genome project](http://www.1000genomes.org/). The is data for all 1000 samples is in `chr1-0-100000.vcf`. For convenience, this file has already been converted to JSON format in `chr1-0-100000.json`.
 
-#### Questions we want to answer ####
+A subset of the data (only sample `HG000096`) can be found in the smaller files.
+
+### Questions we want to answer ###
 
 * Does mutation X exist in the dataset? (Think of big data approach!)
 * What mutations does HG000096 have?
 * Report the person with the most mutations.
 
-### Beers ###
 
-The belgian beers dataset on Wikipedia contains around 1500 beers with data about the kind of beer, the percentage alcohol and the brewery.
+## Beers ##
 
-#### Questions we want to answer ####
+The [belgian beers dataset on Wikipedia](http://nl.wikipedia.org/wiki/Lijst_van_Belgische_bieren) contains around 1500 beers with data about the kind of beer, the percentage alcohol and the brewery.
 
-If we define the distance between beers as follows:
+The data has been downloaded from the web and converted to two formats: `beers.csv` and `beers.json`.
+
+### Questions we want to answer ###
+
+If we define the _distance_ between beers as follows:
+
 ```
 distance(x,y) = (alcohol_x - alcohol_y) 
                 + 0 if same brewer, 1 otherwise
@@ -30,13 +38,19 @@ distance(x,y) = (alcohol_x - alcohol_y)
 * Given a beer, find all beers that have distance 0
 * Why does AB Inbev not occur in the top-10?
 
-### Drugs ###
 
-*need to provide description*
+## Drugs ##
 
-#### Questions we want to answer ####
+The database of drugs that can be sold in Belgium from the [Federal Government](http://www.fagg-afmps.be/nl/items/gegevensbank_vergunde_geneesmiddelen/). 
 
-If we define a distance between companies as
+The datasets consists of 2 files: `AMM_det_H.csv` and `AMM_H.csv`. The latter contains all the data, the first is a subset of the features from the full dataset.
+
+For convenience, the full dataset has been converted to JSON as well: `AMM_H.json`.
+
+### Questions we want to answer ###
+
+If we define a _distance_ between companies as
+
 ```
 distance = number of drug compounds that they have in common
 ```
@@ -45,14 +59,15 @@ distance = number of drug compounds that they have in common
 * Query for drugs that have been added to the list in the last 2 years.
 * Which companies are most/least alike?
 
-### Tour de France ###
+
+## Tour de France ##
 
 The results from the 2005 Tour de France are stored in the TDF2005 folder in json format. The datafiles are:
 
-* riders.json - Names of all riders with (among others) team, nationality, etc.
-* times.json - For each rider: his time for each trip.
-* rankings.json - For each rider: his ranking for each trip.
+* `riders.json` - Names of all riders with (among others) team, nationality, etc.
+* `times.json` - For each rider: his time for each trip.
+* `rankings.json` - For each rider: his ranking for each trip.
 
-#### Questions we want to answer ####
+### Questions we want to answer ###
 
 We actually don't know. This dataset will be used for a visualization exercise to find out if we can find interesting hypotheses that could be tested.
