@@ -1,6 +1,10 @@
-# I0U19A - Management of large-scale omics data
+# I0U19A
+
+Management of large-scale omics data
 
 Prof Jan Aerts - Faculty of Engineering ESAT/STADIUS
+
+- - - 
 
 jan.aerts@esat.kuleuven.be - http://visualanalyticsleuven.be
 
@@ -12,7 +16,9 @@ Teaching assistants:
 
 
 
-## Course overview
+# Course overview
+
+- - -
 
 ![Concept map of the course](images/conceptmap_I0U19A.png "Conceptmap of the course")
 
