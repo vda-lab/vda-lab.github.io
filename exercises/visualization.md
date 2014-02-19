@@ -6,14 +6,23 @@ For the visualization exercises, we will use the [paper.js](http://paperjs.org) 
 
 To prepare for the visualization exercise session, we would like you to:
 
-* Follow the Javascript course on [Codecademy](http://www.codecademy.com/tracks/javascript).
-* Have a look at the tutorials and reference material on [paper.js](http://paperjs.org).
-* Using [sketch.paperjs.org](http://sketch.paperjs.org) create a very simple data visualization, e.g. a line-plot or scatterplot of 10 points that you choose at random. Try playing with sizes of points, colours, placement on the screen, etc.
-* Replace the code in the `visualization/simple.js` file in your home directory on the server with the code that you wrote in sketch.paperjs.org, so that we can have a look at it during the exercise session itself. You can see if it works by going to [http://50.16.33.38:8000/visualization/index.html](http://50.16.33.38:8000/visualization/index.html) and clicking on your username.
+* Search literature and/or the internet to find an example of bad data visualization. Upload the picture to Toledo.
+* Get acquainted with paper.js - paper.js is a data visualization library to create custom data visualizations
+    * Follow the Javascript course on [Codecademy](http://www.codecademy.com/tracks/javascript).
+    * Have a look at the tutorials and reference material on [paper.js](http://paperjs.org).
+    * Using [sketch.paperjs.org](http://sketch.paperjs.org) create a very simple data visualization, e.g. a line-plot or scatterplot of 10 points that you choose at random. Try playing with sizes of points, colours, placement on the screen, etc.
+    * Replace the code in the `visualization/simple.js` file in your home directory on the server with the code that you wrote in sketch.paperjs.org, so that we can have a look at it during the exercise session itself. You can see if it works by going to [http://50.16.33.38:8000/visualization/index.html](http://50.16.33.38:8000/visualization/index.html) and clicking on your username.
 
 ## Exercise ##
 
-*Ryo: we need some help here*
+**TO BE DONE**
+
+Using Martin's examples:
+
+* critique bad visualizations
+* first iteration of new design
+* second iteration of new design
+* implementation
 
 ### Design ###
 
