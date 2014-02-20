@@ -46,6 +46,7 @@ for ( var i = 0; i < data.length; i++ ) {
     var size = 5
     var circle = new Path.Circle(new Point(data[i].x, data[i].y), size)
     circle.fillColor = data[i].colour
+    console.log(data[i].x + " - " + data[i].colour)
 }
 ```
 
