@@ -1,18 +1,54 @@
 
-# RDMS and SQL
+# RDBMS and SQL
 
-In the following exercises, we will be using `sqlite3`. It is a lightweight system for dealing with RDBMS databases that can be stored in normal files on a file system.
+In the following exercises, we will be using `sqlite3`. It is a lightweight system for dealing with RDBMS databases that can be stored in normal files on a file system. This is in contrast to systems like MySQL which are more widely used, but require to run a dedicated database server. Consider `sqlite` is like Microsoft Access, where the whole database itself is nothing more than a file in your directory.
 
 A tutorial on `sqlite` can be found [here](http://zetcode.com/db/sqlite/) and instruction videos can be found on Youtube.
 
 We refer to the [description of the datasets](datasets) for more information about what each of them contains.
 
+For this exercise session, we will consider
+
+* data modeling
+* data loading
+* data querying
+
+**CAUTION**: When using sqlite3, make sure that you know whether you are on the **unix command line** (the place you already know and love: for running commands such as `ls`, `cd some_directory`, `less some_file.txt`, etc), and the **sqlite3 command line** (where you can issue SQL commands such as `SELECT column1, column2 FROM some_table;`). The **unix command line** is similar to this:
+
+    jaerts@ip-10-158-90-118:~$
+
+The **sqlite3 command line** looks like this:
+
+    sqlite> 
+
+To go from the unix command line to the sqlite3 command line, type:
+
+    sqlite3 name_of_my_database.db
+
+To exit the sqlite3 command line and return to the unix command line, type:
+
+    .quit
+
+Do *not* try to run SQL commands on the unix command line; do *not* try to run unix commands on the sqlite3 command line...
+
+Example use for sqlite3 if we want to create a new database called `students`. Here's a sample session (obviously do **not** type in the text of the prompt itself...):
+
+    jaerts@ip-10-158-90-118:~$ sqlite3 students.db
+    sqlite> CREATE TABLE individuals (id INTEGER AUTO_INCREMENT, s_number STRING, first_name STRING, last_name STRING);
+    sqlite> CREATE TABLE courses (id INTEGER AUTO_INCREMENT, course_number STRING, name STRING);
+    sqlite> INSERT INTO individuals (s_number, first_name, last_name) VALUES ('s123456','Tom','Thompson');
+    sqlite> INSERT INTO individuals (s_number, first_name, last_name) VALUES ('s987654','John','Jones');
+    sqlite> SELECT * FROM individuals;
+    sqlite> .quit
+    jaerts@ip-10-158-90-118:~$
+
+When on the `sqlite3` prompt, type `.help` for a list of `sqlite3`-specific commands (such as `.quit`).
 
 ## Beers
 
 Creating the table to hold the data.
 
-    CREATE TABLE beers(key INTEGER, beer TEXT, type TEXT, alc FLOAT, brewery TEXT);
+    CREATE TABLE beers(id INTEGER, beer TEXT, type TEXT, alc FLOAT, brewery TEXT);
 
 Select the appropriate field delimiter.
 
@@ -22,9 +58,9 @@ Import the data. This is easiest from the CSV data.
 
     .import beers.csv beers
 
-Review whether this was succesful and whether the result makes sense.
+Review whether this was successful and whether the result makes sense.
 
-    select * from beers limit 5;
+    SELECT * FROM beers LIMIT 5;
 
 Don't forget the `;` symbol at the end of the line! The first entry in the data is the header, which should be removed.
 
@@ -32,15 +68,15 @@ Don't forget the `;` symbol at the end of the line! The first entry in the data 
 
 Get the top-10 of brewerys based on the number of beers they produce.
 
-    select brewery, count(beer) from beers Group By brewery order by count(beer) DESC limit 10;
+    SELECT brewery, COUNT(beer) FROM beers GROUP BY brewery ORDER BY COUNT(beer) DESC LIMIT 10;
 
 Why is AB Inbev not in the top 10? List all beers that are brewed by a brewery that contains the word 'Inbev'. 
 
-    select * from beers where brewery like "%Inbev%";
+    SELECT * FROM beers WHERE brewery LIKE "%Inbev%";
 
 Correct that in the database, giving all entries related to AB Inbev the same name.
 
-    update beers set brewery="AB Inbev" where brewery like "%Inbev%";
+    UPDATE beers SET brewery="AB Inbev" WHERE brewery LIKE "%Inbev%";
 
 Suddenly, probably as expected, AB Inbev ranks highest. 
 
@@ -61,7 +97,7 @@ Is this data normalized? What is the key that joins both datasets together? Does
 First import the full database.
 
 ```
-create table drugs1 (
+CREATE TABLE drugs1 (
     nr INTEGER,
     cti INTEGER,
     mpname TEXT,
@@ -101,7 +137,7 @@ create table drugs1 (
 Do the same for the subset database.
 
 ```
-create table drugs2 (
+CREATE TABLE drugs2 (
     nr INTEGER,
     cti INTEGER,
     ActSubstName TEXT,
@@ -124,20 +160,20 @@ Which one is bigger? Join the data and look at some entries.
 Note: to make life easier, you can change the _output mode_ of sqlite: `.mode column` for instance.
 
 ```
-create table joined 
-    as select cti,mpname,mah,ActSubstName,dosis from drugs1 
-    join drugs2 
-    using (cti);
+CREATE TABLE joined 
+    AS SELECT cti,mpname,mah,ActSubstName,dosis
+    FROM drugs1, drugs2
+    WHERE drugs1.cti = drugs2.cti;
 ```
 
 What is the top-10 of compounds with the most active substances?
 
 ```
-select cti,count(actsubstname) 
-    from joined 
-    group by cti 
-    order by count(actsubstname) 
-    desc limit 10;
+SELECT cti,COUNT(actsubstname) 
+    FROM joined 
+    GROUP BY cti 
+    ORDER BY COUNT(actsubstname) DESC
+    LIMIT 10;
 ```
 
 What type of compounds/products are in the top-10? Is this normal?
@@ -145,21 +181,21 @@ What type of compounds/products are in the top-10? Is this normal?
 Which companies have compounds on the market with more than 10 active substances? Put this information in a table.
 
 ```
-create table companies
-    as select mah,count(actsubstname) 
-    from joined 
-    group by cti 
-    having count(actsubstname) > 10 
-    order by count(actsubstname) desc;
+CREATE TABLE companies
+    AS SELECT mah, COUNT(actsubstname) 
+    FROM joined 
+    GROUP BY cti 
+    HAVING COUNT(actsubstname) > 10 
+    ORDER BY COUNT(actsubstname) DESC;
 ```
 
 From this data, create a table that shows for every of the companies in the table, how many complex compounds they have on the market.
 
 ```
-select mah,count(mpname) 
-    from companies 
-    group by mah 
-    order by count(mpname) desc;
+SELECT mah, COUNT(mpname) 
+    FROM companies 
+    GROUP BY mah 
+    ORDER BY COUNT(mpname) DESC;
 ```
 
 
@@ -172,7 +208,7 @@ We will focus first on the limited dataset for the first sample.
 Create the table.
 
 ```
-create table geno(
+CREATE TABLE geno(
    chrom CHARACTER,
    pos INTEGER,
    id TEXT,
@@ -197,10 +233,10 @@ How many mutations are known for this genomic region on chromosome 1?
 How many of these are there in this region for sample HG00096? If you don't know the way this information is encoded in the vcf file, refer to the web for more information. What is a good way to get all the mutations for this sample? Think about it.
 
 ```
-select count(*) from geno;
+SELECT COUNT(*) FROM geno;
 ```
 
 ```
-select count(*) from geno where HG00096 not like "0|0%";
+SELECT COUNT(*) FROM geno WHERE HG00096 NOT LIKE "0|0%";
 ```
 
