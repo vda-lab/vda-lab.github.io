@@ -43,9 +43,15 @@ distance(x,y) = (alcohol_x - alcohol_y)
 
 The database of drugs that can be sold in Belgium from the [Federal Government](http://www.fagg-afmps.be/nl/items/gegevensbank_vergunde_geneesmiddelen/). 
 
-The datasets consists of 2 files: `AMM_det_H.csv` and `AMM_H.csv`. The latter contains all the data, the first is a subset of the features from the full dataset.
+The datasets consists of 2 files: `AMM_det_H.csv` and `AMM_H.csv`:
 
-For convenience, the full dataset has been converted to JSON as well: `AMM_H.json`.
+* `AMM_det_H` contains the active substances in the doses they have been granted permission to use in drug compounds.
+* `AMM_H` contains the drug compounds that can be sold on the market.
+
+What is the key that joins both datasets together?
+
+For convenience, the compounds dataset has been converted to JSON as well: `AMM_H.json`. Easy conversion to JSON can be done for example via [http://www.convertcsv.com](http://www.convertcsv.com/csv-to-json.htm).
+
 
 ### Questions we want to answer ###
 
