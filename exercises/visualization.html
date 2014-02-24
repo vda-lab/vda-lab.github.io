@@ -18,11 +18,11 @@
 <p>The following links can help in preparing:</p>
 <ul>
 <li>Follow the Javascript course on <a href="http://www.codecademy.com/tracks/javascript">Codecademy</a>.</li>
-<li>Have a look at the tutorials and reference material on <a href="http://paperjs.org">paper.js</a>.</li>
+<li>Have a look at the tutorials and reference material on <a href="http://paperjs.org">paper.js</a>, especially the parts &quot;Paths (Working with Path Items, Creating Predefined Shapes, and Using Color and Style)&quot; and &quot;Geometry (Point, Size and Rectangle)&quot;.</li>
 </ul>
 <p>The preparation assignment consists of two parts.</p>
 <h3 id="part-1-bad-data-visualization-example">Part 1: Bad data visualization example</h3>
-<p>Search literature and/or the internet to find an example of bad data visualization. <strong>Upload the picture to Toledo.</strong></p>
+<p>Search literature and/or the internet to find an example of bad data visualization. <strong>Upload the picture to Toledo.</strong> During the exercise session itself, some of you will be asked to come to the front and explain what is wrong with the visualization.</p>
 <h3 id="part-2-paper.js-implementation">Part 2: Paper.js implementation</h3>
 <p>Get acquainted with paper.js - paper.js is a data visualization library to create custom data visualizations.</p>
 <p>The following code displays a scatterplot using paper.js:</p>
@@ -50,14 +50,11 @@ for ( var i = 0; i &lt; data.length; i++ ) {
     var size = 5
     var circle = new Path.Circle(new Point(data[i].x, data[i].y), size)
     circle.fillColor = data[i].colour
+    console.log(data[i].x + &quot; - &quot; + data[i].colour)
 }</code></pre>
-<p>You can use <a href="http://sketch.paperjs.org">sketch.paperjs.org</a> to check if it works and to make some simple changes: changing the color and size of the dots.</p>
-<p>Replace the code in the <code>visualization/simple.js</code> file in your home directory on the server with the code that you wrote in sketch.paperjs.org, so that we can have a look at it during the exercise session itself.</p>
-<p>You can see if it works <a href="visualization/index.html">by going to</a></p>
-<pre><code>http://50.16.33.38:8000/exercises/visualization</code></pre>
-<p>and clicking on your username. A template file has been provided in (a subdirectory of) your home directory on the teaching server. It can be found here:</p>
-<pre><code>~/visualization/simple.js</code></pre>
-<p>If this works, modify the code such that it draws a <em>parallel coordinate</em> plot of the <em>3 dimensions</em> in the data provided. <strong>Update the version on the server with your new parallel coordinate version.</strong> This will be checked the morning of the exercise session.</p>
+<p>You can copy/paste this code into <a href="http://sketch.paperjs.org">sketch.paperjs.org</a> to check if it works and try out some simple changes such as changing the color and size of the dots based on the data.</p>
+<p>You can see that the data has 3 dimensions (x, y and z), but only 2 are shown in the scatterplot. Your assignment is to at least <strong>make a parallel coordinates plot that shows all 3 dimensions</strong>. If you desire you can add additional subplots such as a histogram for each of the dimensions, etc. Feel free to be creative!</p>
+<p>When the code works, copy it into the file ~/visualization/simple.js in your home directory on the server. That will make it viewable via <a href="http://50.16.33.38:8000/exercises/visualization/index.html">http://50.16.33.38:8000/exercises/visualization/index.html</a> and clicking on your username. Deadline to put it there: the morning of the exercise session at 9am.</p>
 <h2 id="exercise-session">Exercise Session</h2>
 <p>During the exercise session, you will be given a visualization. In groups, you will discuss what aspects of this visualization are good and bad and come up with possible improvements.</p>
 <p>Each group will then present its analysis.</p>

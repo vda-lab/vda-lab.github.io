@@ -7,13 +7,13 @@ For the visualization exercises, we will use the [paper.js](http://paperjs.org) 
 The following links can help in preparing:
 
 * Follow the Javascript course on [Codecademy](http://www.codecademy.com/tracks/javascript).
-* Have a look at the tutorials and reference material on [paper.js](http://paperjs.org).
+* Have a look at the tutorials and reference material on [paper.js](http://paperjs.org), especially the parts "Paths (Working with Path Items, Creating Predefined Shapes, and Using Color and Style)" and "Geometry (Point, Size and Rectangle)".
 
 The preparation assignment consists of two parts.
 
 ### Part 1: Bad data visualization example
 
-Search literature and/or the internet to find an example of bad data visualization. **Upload the picture to Toledo.**
+Search literature and/or the internet to find an example of bad data visualization. **Upload the picture to Toledo.** During the exercise session itself, some of you will be asked to come to the front and explain what is wrong with the visualization.
 
 ### Part 2: Paper.js implementation
 
@@ -46,23 +46,15 @@ for ( var i = 0; i < data.length; i++ ) {
     var size = 5
     var circle = new Path.Circle(new Point(data[i].x, data[i].y), size)
     circle.fillColor = data[i].colour
+    console.log(data[i].x + " - " + data[i].colour)
 }
 ```
 
-You can use [sketch.paperjs.org](http://sketch.paperjs.org) to check if it works and to make some simple changes: changing the color and size of the dots.
+You can copy/paste this code into [sketch.paperjs.org](http://sketch.paperjs.org) to check if it works and try out some simple changes such as changing the color and size of the dots based on the data.
 
-Replace the code in the `visualization/simple.js` file in your home directory on the server with the code that you wrote in sketch.paperjs.org, so that we can have a look at it during the exercise session itself. 
+You can see that the data has 3 dimensions (x, y and z), but only 2 are shown in the scatterplot. Your assignment is to at least **make a parallel coordinates plot that shows all 3 dimensions**. If you desire you can add additional subplots such as a histogram for each of the dimensions, etc. Feel free to be creative!
 
-You can see if it works [by going to](visualization/index.html) 
-
-    http://50.16.33.38:8000/exercises/visualization
-
-and clicking on your username. A template file has been provided in (a subdirectory of) your home directory on the teaching server. It can be found here:
-
-    ~/visualization/simple.js
-
-If this works, modify the code such that it draws a _parallel coordinate_ plot of the _3 dimensions_ in the data provided. **Update the version on the server with your new parallel coordinate version.** This will be checked the morning of the exercise session.
-
+When the code works, copy it into the file ~/visualization/simple.js in your home directory on the server. That will make it viewable via [http://50.16.33.38:8000/exercises/visualization/index.html](http://50.16.33.38:8000/exercises/visualization/index.html) and clicking on your username. Deadline to put it there: the morning of the exercise session at 9am.
 
 ## Exercise Session ##
 
