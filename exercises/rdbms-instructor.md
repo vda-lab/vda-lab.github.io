@@ -5,7 +5,7 @@ In the following exercises, we will be using `sqlite3`. It is a lightweight syst
 
 A tutorial on `sqlite` can be found [here](http://zetcode.com/db/sqlite/) and instruction videos can be found on Youtube.
 
-We refer to the [description of the datasets](datasets.html) for more information about what each of them contains.
+We refer to the [description of the datasets](datasets) for more information about what each of them contains.
 
 For this exercise session, we will consider
 
@@ -53,12 +53,11 @@ There are two types of questions:
 1. Questions that require you to write a respone in text. For instance: *Is this dataset normalized?* For this kind of datasets you are asked to answer not only *yes* or *no*, but rather *This dataset is/is not normalized*. 
 2. Questions that require you to write a SQL statement (code). In this case, **copy the code as well as the output in your assignment report**.
 
-The report should be in PDF, but you are free to choose any intermediate word editor (Word, Pages, ...) as long as you convert to PDF in order to hand it in. **Your report can at most have 2 pages!**
+The report should be in PDF, but you are free to choose any intermediate word editor (Word, Pages, ...) as long as you convert to PDF in order to hand it in.
 
 
 ## Beers
 
-### SQL
 Creating the table to hold the data.
 
     CREATE TABLE beers(id INTEGER, beer TEXT, type TEXT, alc FLOAT, brewery TEXT);
@@ -71,31 +70,33 @@ Import the data. This is easiest from the CSV data.
 
     .import beers.csv beers
 
-Review whether this was successful and whether the result makes sense. Don't forget the `;` symbol at the end of the line! The first entry in the data is the header, which should be removed.
+Review whether this was successful and whether the result makes sense.
 
-**Get the top-10 of brewerys based on the number of beers they produce.**
+    SELECT * FROM beers LIMIT 5;
+
+Don't forget the `;` symbol at the end of the line! The first entry in the data is the header, which should be removed.
+
+    DELETE FROM beers WHERE beer="Merk";
+
+Get the top-10 of brewerys based on the number of beers they produce.
+
+    SELECT brewery, COUNT(beer) FROM beers GROUP BY brewery ORDER BY COUNT(beer) DESC LIMIT 10;
 
 Why is AB Inbev not in the top 10? List all beers that are brewed by a brewery that contains the word 'Inbev'. 
 
-**Correct that in the database, giving all entries related to AB Inbev the same name.**
+    SELECT * FROM beers WHERE brewery LIKE "%Inbev%";
 
-Suddenly, probably as expected, AB Inbev ranks highest.
+Correct that in the database, giving all entries related to AB Inbev the same name.
 
-**How many times does it occur? What is the top-10 now?**
+    UPDATE beers SET brewery="AB Inbev" WHERE brewery LIKE "%Inbev%";
 
+Suddenly, probably as expected, AB Inbev ranks highest. 
 
-### Data Model
-
-**Is this dataset normalized?**
-
-**Is this the proper way to deal with the data, given the questions above?**
-
-**How would you do it differently?**
+How many times does it occur? What is the top-10 now?
 
 
-## Drugdb
 
-### SQL
+## drugdb
 
 We mentioned that one of the two datafiles contains a subset of the parameters of the large one. Check this explicitely. Make sure you save the routine for importing the data into `sqlite`.
 
@@ -161,33 +162,57 @@ CREATE TABLE drugs2 (
 .import AMM_det_H.csv drugs2
 ```
 
-**What are the dimensions of both tables?**
+What are the dimensions of both tables?
+```
+    select count(*) from drugs1;
+    select count(*) from drugs2;
+```
 
-**Which one is bigger? Join the two data tables and look at some entries.**
+Which one is bigger? Join the data and look at some entries.
 
 Note: to make life easier, you can change the _output mode_ of sqlite: `.mode column` for instance.
 
-**What is the top-10 of compounds with the most active substances?**
+```
+CREATE TABLE joined 
+    AS SELECT cti,mpname,mah,ActSubstName,dosis
+    FROM drugs1, drugs2
+    WHERE drugs1.cti = drugs2.cti;
+```
+
+What is the top-10 of compounds with the most active substances?
+
+```
+SELECT cti,COUNT(actsubstname) 
+    FROM joined 
+    GROUP BY cti 
+    ORDER BY COUNT(actsubstname) DESC
+    LIMIT 10;
+```
 
 What type of compounds/products are in the top-10? Is this normal?
 
-**Which companies have compounds on the market with more than 10 active substances? Put this information in a table.**
+Which companies have compounds on the market with more than 10 active substances? Put this information in a table.
 
-**From this data, create a table that shows for every of the companies in the table, how many complex compounds they have on the market.**
+```
+CREATE TABLE companies
+    AS SELECT mah, COUNT(actsubstname) 
+    FROM joined 
+    GROUP BY cti 
+    HAVING COUNT(actsubstname) > 10 
+    ORDER BY COUNT(actsubstname) DESC;
+```
 
+From this data, create a table that shows for every of the companies in the table, how many complex compounds they have on the market.
 
-### Data Model
-
-**Is this dataset normalized?**
-
-**Is this the proper way to deal with the data, given the questions above?**
-
-**How would you do it differently?**
+```
+SELECT mah, COUNT(mpname) 
+    FROM companies 
+    GROUP BY mah 
+    ORDER BY COUNT(mpname) DESC;
+```
 
 
 ## Genotypes
-
-### SQL
 
 Look at the data. Is this it normalized? Is this a handy form for querying the data?
 
@@ -209,23 +234,22 @@ CREATE TABLE geno(
    HG00096 TEXT);
 ```
 
-Import the data. In order to make life easy, start from the HG00096 sample and manually remove the comments and header row. Then import the data.
+Import the data. In order to make life easy, start from the HG000096 sample and manually remove the comments and header row. Then import the data.
 
 ```
 .mode tabs
 .import test.vcf geno
 ```
 
-**How many mutations are known for this genomic region on chromosome 1?**
+How many mutations are known for this genomic region on chromosome 1?
 
-**How many of these are there in this region for sample HG00096?**
+How many of these are there in this region for sample HG00096? If you don't know the way this information is encoded in the vcf file, refer to the web for more information. What is a good way to get all the mutations for this sample? Think about it.
 
-If you don't know the way this information is encoded in the vcf file, refer to the web for more information. What is a good way to get all the mutations for this sample? Think about it.
+```
+SELECT COUNT(*) FROM geno;
+```
 
-### Data Model
+```
+SELECT COUNT(*) FROM geno WHERE HG00096 NOT LIKE "0|0%";
+```
 
-**Is this dataset normalized?**
-
-**Is this the proper way to deal with the data, given the questions above?**
-
-**How would you do it differently?**
