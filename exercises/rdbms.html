@@ -48,7 +48,7 @@ jaerts@ip-10-158-90-118:~$</code></pre>
 <li>Questions that require you to write a respone in text. For instance: <em>Is this dataset normalized?</em> For this kind of datasets you are asked to answer not only <em>yes</em> or <em>no</em>, but rather <em>This dataset is/is not normalized</em>.</li>
 <li>Questions that require you to write a SQL statement (code). In this case, <strong>copy the code as well as the output in your assignment report</strong>.</li>
 </ol>
-<p>The report should be in PDF, but you are free to choose any intermediate word editor (Word, Pages, ...) as long as you convert to PDF in order to hand it in.</p>
+<p>The report should be in PDF, but you are free to choose any intermediate word editor (Word, Pages, ...) as long as you convert to PDF in order to hand it in. <strong>Your report can at most have 2 pages!</strong></p>
 <h2 id="beers">Beers</h2>
 <h3 id="sql">SQL</h3>
 <p>Creating the table to hold the data.</p>
@@ -56,9 +56,9 @@ jaerts@ip-10-158-90-118:~$</code></pre>
 <p>Select the appropriate field delimiter.</p>
 <pre><code>.separator &quot;,&quot;</code></pre>
 <p>Import the data. This is easiest from the CSV data.</p>
-<pre><code>.import beers.csv beers</code></pre>
+<pre><code>.import /mnt/bioinformatics_leuven/i0u19a/data/beer/beers.csv beers</code></pre>
 <p>Review whether this was successful and whether the result makes sense. Don't forget the <code>;</code> symbol at the end of the line! The first entry in the data is the header, which should be removed.</p>
-<p><strong>Get the top-10 of brewerys based on the number of beers they produce.</strong></p>
+<p><strong>Get the top-10 of breweries based on the number of beers they produce.</strong></p>
 <p>Why is AB Inbev not in the top 10? List all beers that are brewed by a brewery that contains the word 'Inbev'.</p>
 <p><strong>Correct that in the database, giving all entries related to AB Inbev the same name.</strong></p>
 <p>Suddenly, probably as expected, AB Inbev ranks highest.</p>
@@ -111,7 +111,7 @@ jaerts@ip-10-158-90-118:~$</code></pre>
     GenPK TEXT
     );
 .separator &quot;,&quot;
-.import AMM_H.csv drugs1</code></pre>
+.import /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_H.csv drugs1</code></pre>
 <p>Do the same for the subset database.</p>
 <pre><code>CREATE TABLE drugs2 (
     nr INTEGER,
@@ -122,7 +122,7 @@ jaerts@ip-10-158-90-118:~$</code></pre>
     DateNew DATE
 );
 .separator &quot;,&quot;
-.import AMM_det_H.csv drugs2</code></pre>
+.import /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv drugs2</code></pre>
 <p><strong>What are the dimensions of both tables?</strong></p>
 <p><strong>Which one is bigger? Join the two data tables and look at some entries.</strong></p>
 <p>Note: to make life easier, you can change the <em>output mode</em> of sqlite: <code>.mode column</code> for instance.</p>
@@ -149,10 +149,11 @@ jaerts@ip-10-158-90-118:~$</code></pre>
    filter TEXT,
    info TEXT,
    format TEXT,
-   HG00096 TEXT);</code></pre>
-<p>Import the data. In order to make life easy, start from the HG00096 sample and manually remove the comments and header row. Then import the data.</p>
-<pre><code>.mode tabs
-.import test.vcf geno</code></pre>
+   HG00096 TEXT);
+
+.mode tabs
+.separator &quot;\t&quot;
+.import /mnt/bioinformatics_leuven/i0u19a/data/genotypes/chr1-0-100000_HG000096.tsv geno</code></pre>
 <p><strong>How many mutations are known for this genomic region on chromosome 1?</strong></p>
 <p><strong>How many of these are there in this region for sample HG00096?</strong></p>
 <p>If you don't know the way this information is encoded in the vcf file, refer to the web for more information. What is a good way to get all the mutations for this sample? Think about it.</p>
