@@ -69,11 +69,11 @@ Select the appropriate field delimiter.
 
 Import the data. This is easiest from the CSV data.
 
-    .import beers.csv beers
+    .import /mnt/bioinformatics_leuven/i0u19a/data/beer/beers.csv beers
 
 Review whether this was successful and whether the result makes sense. Don't forget the `;` symbol at the end of the line! The first entry in the data is the header, which should be removed.
 
-**Get the top-10 of brewerys based on the number of beers they produce.**
+**Get the top-10 of breweries based on the number of beers they produce.**
 
 Why is AB Inbev not in the top 10? List all beers that are brewed by a brewery that contains the word 'Inbev'. 
 
@@ -143,7 +143,7 @@ CREATE TABLE drugs1 (
     GenPK TEXT
     );
 .separator ","
-.import AMM_H.csv drugs1
+.import /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_H.csv drugs1
 ```
 
 Do the same for the subset database.
@@ -158,7 +158,7 @@ CREATE TABLE drugs2 (
     DateNew DATE
 );
 .separator ","
-.import AMM_det_H.csv drugs2
+.import /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv drugs2
 ```
 
 **What are the dimensions of both tables?**
@@ -207,13 +207,10 @@ CREATE TABLE geno(
    info TEXT,
    format TEXT,
    HG00096 TEXT);
-```
 
-Import the data. In order to make life easy, start from the HG00096 sample and manually remove the comments and header row. Then import the data.
-
-```
 .mode tabs
-.import test.vcf geno
+.separator "\t"
+.import /mnt/bioinformatics_leuven/i0u19a/data/genotypes/chr1-0-100000_HG000096.tsv geno
 ```
 
 **How many mutations are known for this genomic region on chromosome 1?**
