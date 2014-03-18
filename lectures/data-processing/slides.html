@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Toni Verbeiren &amp; Jan Aerts" />
+  <title>Data Processing</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+
+
+    <!-- For syntax highlighting using highlight.js-->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+  <link rel="stylesheet" media="print" href="reveal.js/css/print/pdf.css"/>
+ <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Data Processing</h1>
+    <h2 class="author">Toni Verbeiren &amp; Jan Aerts</h2>
+    <h3 class="date">20/3/2014</h3>
+</section>
+
+<section id="introduction" class="slide level1">
+<h1>Introduction</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="contents">Contents</h2>
+<ul>
+<li>Introduction</li>
+<li>Parallel Word Count</li>
+<li>Functional Programming</li>
+<li>Map Reduce</li>
+<li>Hadoop Implementation</li>
+<li>Distributed File System</li>
+<li>Alternatives to Hadoop</li>
+<li>Streaming Data</li>
+<li>Hadoop Ecosystem</li>
+<li>Links</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="what-this-session-is-about">What this session is about</h2>
+<p>Processing data, <em>big</em> data</p>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="pics/course-overview.png" alt="An overview of where we are in the course" /><figcaption>An overview of where we are in the course</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+<h2 id="hpc-versus-htc">HPC versus HTC</h2>
+<ul>
+<li>High Performance Computing:
+<ul>
+<li>Focus on computation</li>
+<li><em>small</em> data</li>
+<li>Parallelism is hard</li>
+<li>Examples: matrix transformations, large scale simulations, ...</li>
+</ul></li>
+<li>High Throughput Computing:
+<ul>
+<li>Focus on volume, throughput</li>
+<li><em>big</em> data</li>
+<li>Parallelism is often obvious</li>
+<li>Examples: finding patterns (genes) in genome, filtering data, ...</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="how-this-fits-in-the-whole">How this fits in the whole</h2>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="pics/la-overview.png" alt="Lambda Architecture overview" /><figcaption>Lambda Architecture overview</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="pics/la-example.png" alt="Lambda Architecture example" /><figcaption>Lambda Architecture example</figcaption>
+</figure>
+</section>
+<section id="parallel-word-count" class="slide level1">
+<h1>Parallel Word Count</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="what-to-count">What to count?</h2>
+<p>Take <a href="http://www.gutenberg.org/ebooks/4300">Ulysses</a> (James Joyce)</p>
+<ul>
+<li>How many occurrences of every word are there?</li>
+<li>Top-10?</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<blockquote>
+<p>ULYSSES</p>
+<p>by James Joyce</p>
+<p>-- I --</p>
+<p>Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed. A yellow dressinggown, ungirdled, was sustained gently behind him on the mild morning air. He held the bowl aloft and intoned:</p>
+<p>--<em>Introibo ad altare Dei</em>.</p>
+<p>Halted, he peered down the dark winding stairs and called out coarsely:</p>
+<p>...</p>
+</blockquote>
+<p> </p>
+<p><a href="http://www.gutenberg.org/ebooks/4300">http://www.gutenberg.org/ebooks/4300</a></p>
+</section>
+<section class="slide level1">
+
+<h2 id="traditional-approach">Traditional approach</h2>
+<pre class="python"><code>#!/usr/bin/python
+
+import sys
+
+wordcount={}
+
+for line in sys.stdin:
+  line = line.strip()
+  for word in line.split():
+    if word not in wordcount:
+        wordcount[word] = 1
+    else:
+        wordcount[word] += 1
+for k,v in wordcount.items():
+  print k, v</code></pre>
+<p> </p>
+<p>Keep a log of the counts !</p>
+</section>
+<section class="slide level1">
+
+<p>The top-10 of the words in the text:</p>
+<pre class="shell"><code>cat Joyce-Ulysses.txt | wordcount.py | sort -r -k2,2 | head</code></pre>
+<p>The result:</p>
+<pre class="shell"><code>life 99
+hands 98
+No 97
+looked 96
+fellow 96
+door 96
+big 96
+them. 95
+men 95
+thought 94</code></pre>
+<p>We do not consider special characters, sentence endings, capitals, etc.</p>
+<p> </p>
+<p>What about all works of Shakespeare? Or all books in the library?</p>
+</section>
+<section class="slide level1">
+
+<h2 id="parallel-version">Parallel version?</h2>
+</section>
+<section class="slide level1">
+
+<p>Split up the problems in chunks!</p>
+<ul>
+<li>Words to look for?</li>
+<li>Chunks of text?</li>
+</ul>
+<pre class="python"><code>
+wordcount={}
+
+runWordCountOnChunk1()
+runWordCountOnChunk2()
+runWordCountOnChunk3()</code></pre>
+</section>
+<section class="slide level1">
+
+<div class="sticky">
+A mutable data structure is hard to work with in a distributed fashion!
+</div>
+<p> </p>
+<p>Remember mutable databases?</p>
+</section>
+<section id="functional-programming" class="slide level1">
+<h1>Functional Programming</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="what-went-wrong-in-the-first-version">What went wrong in the first version?</h2>
+<ul>
+<li>Big loop</li>
+<li>Mutable data structure for intermediate results</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p>Underlying issue:</p>
+<p> </p>
+<h3 id="what-to-do-is-intermixed-with-how-to-do-it"><em>What</em> to do is intermixed with <em>how</em> to do it</h3>
+</section>
+<section class="slide level1">
+
+<h2 id="functional-approach">Functional approach</h2>
+<p>Ideas:</p>
+<ul>
+<li>Stick to <em>what</em> to compute</li>
+<li>Functions take input and produce output without side-effects</li>
+<li>No mutable data structures</li>
+<li>AND: higher-order functions</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="examples">Examples</h2>
+<p>A typical implementation of <em>exponential</em> in Python:</p>
+<pre class="python"><code>def loopExp(x,n):
+    tmp = 1
+    for i in range(0,n):
+        tmp = tmp * x
+    return tmp</code></pre>
+</section>
+<section class="slide level1">
+
+<p>A Functional alternative:</p>
+<pre class="python"><code>def exp(x, n):
+    if n == 0:
+        return 1
+    else:
+        return x * exp(x, n-1)</code></pre>
+</section>
+<section class="slide level1">
+
+<h2 id="higher-order-functions">Higher-order functions</h2>
+<p>Define the following square function:</p>
+<pre class="python"><code>def exp2(x):
+    return exp(x,2)</code></pre>
+<p> </p>
+<p>We can then apply this function to all elements in a list:</p>
+<pre class="python"><code>&gt;&gt;&gt; map(exp2,[1,2,3,4])
+[1, 4, 9, 16]</code></pre>
+</section>
+<section class="slide level1">
+
+<p>Define the following sum function:</p>
+<pre class="python"><code>def sum(x,y):
+   return x + y</code></pre>
+<p> </p>
+<p>We can now calculate the sum of all elements in a list:</p>
+<pre class="python"><code>&gt;&gt;&gt; reduce(sum,[1,2,3,4])
+10</code></pre>
+</section>
+<section class="slide level1">
+
+<p>This is where the fun starts:</p>
+<pre class="python"><code>&gt;&gt;&gt; reduce(sum,map(exp2,[1,2,3,4]))
+30</code></pre>
+</section>
+<section class="slide level1">
+
+<p>One more important function:</p>
+<pre class="python"><code>&gt;&gt;&gt; filter(lambda x: x&gt;2 ,[1,2,3,4])
+[3, 4]</code></pre>
+<p> </p>
+<p>Here, we introduced Lambda expression in Python. The above is the same as:</p>
+<pre class="python"><code>def filter2(x):
+    return x&gt;2
+filter(filter2 ,[1,2,3,4])</code></pre>
+</section>
+<section class="slide level1">
+
+<h2 id="whats-all-the-buzz-about">What's all the buzz about?</h2>
+<p>We only described <em>what</em> to do, not <em>how</em>!</p>
+<p>The compiler can fill in the blanks!</p>
+</section>
+<section id="mapreduce" class="slide level1">
+<h1>MapReduce</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="google-to-the-rescue...">Google to the rescue...</h2>
+<p>Engineers at Google came up with the idea (2003!).</p>
+<p>Open Source developers copied the ideas and implemented Hadoop.</p>
+</section>
+<section class="slide level1">
+
+<h2 id="idea">Idea</h2>
+<p>Chain <code>map</code> and <code>reduce</code> calls.</p>
+<p> </p>
+<p>That's it!</p>
+</section>
+<section class="slide level1">
+
+<h2 id="no-it-is-not...">No, it is not...</h2>
+<p>But it could be...</p>
+<p> </p>
+<p>Situation:</p>
+<blockquote>
+<p>A lot of mainstream programming languages do not support Functional Programming in a standard way.</p>
+</blockquote>
+<p> </p>
+<p>Think of Java, C, C++, ...</p>
+</section>
+<section class="slide level1">
+
+<h2 id="workaround">Workaround</h2>
+<p>The workaround:</p>
+<blockquote>
+<p>Make very strict assumptions on what is passed back and forth between <code>map</code> and <code>reduce</code>.</p>
+</blockquote>
+<p> </p>
+<p>Key-Value pairs to the rescue !</p>
+<p> </p>
+<p>But: make sure fault-tolerance is built in...</p>
+</section>
+<section id="mapreduce-in-real-life" class="slide level1">
+<h1>MapReduce in real-life</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="mapper">Mapper</h2>
+<p>Each of you gets some lines from Ulysses.</p>
+<p> </p>
+<p>Script:</p>
+<pre><code>Add a 1 for every occurrence of &#39;the&#39;
+Add a 1 for every occurrence of &#39;a&#39;</code></pre>
+</section>
+<section class="slide level1">
+
+<h2 id="reducer">Reducer</h2>
+<p>Script:</p>
+<pre><code>Sum the total for &#39;the&#39;
+Sum the total for &#39;a&#39;</code></pre>
+</section>
+<section id="hadoop-implementation" class="slide level1">
+<h1>Hadoop implementation</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="java-example">Java example</h2>
+<pre class="java"><code>package org.myorg;
+        
+import java.io.IOException;
+import java.util.*;
+        
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.conf.*;
+import org.apache.hadoop.io.*;
+import org.apache.hadoop.mapreduce.*;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
+        
+public class WordCount {
+        
+ public static class Map extends Mapper&lt;LongWritable, Text, Text, IntWritable&gt; {
+    private final static IntWritable one = new IntWritable(1);
+    private Text word = new Text();
+        
+    public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        String line = value.toString();
+        StringTokenizer tokenizer = new StringTokenizer(line);
+        while (tokenizer.hasMoreTokens()) {
+            word.set(tokenizer.nextToken());
+            context.write(word, one);
+        }
+    }
+ } </code></pre>
+</section>
+<section class="slide level1">
+
+<pre class="java"><code> public static class Reduce extends Reducer&lt;Text, IntWritable, Text, IntWritable&gt; {
+
+    public void reduce(Text key, Iterable&lt;IntWritable&gt; values, Context context) 
+      throws IOException, InterruptedException {
+        int sum = 0;
+        for (IntWritable val : values) {
+            sum += val.get();
+        }
+        context.write(key, new IntWritable(sum));
+    }
+ }</code></pre>
+</section>
+<section class="slide level1">
+
+<pre class="java"><code> public static void main(String[] args) throws Exception {
+    Configuration conf = new Configuration();
+        
+    Job job = new Job(conf, &quot;wordcount&quot;);
+    
+    job.setOutputKeyClass(Text.class);
+    job.setOutputValueClass(IntWritable.class);
+        
+    job.setMapperClass(Map.class);
+    job.setReducerClass(Reduce.class);
+        
+    job.setInputFormatClass(TextInputFormat.class);
+    job.setOutputFormatClass(TextOutputFormat.class);
+        
+    FileInputFormat.addInputPath(job, new Path(args[0]));
+    FileOutputFormat.setOutputPath(job, new Path(args[1]));
+        
+    job.waitForCompletion(true);
+ }
+        
+}</code></pre>
+</section>
+<section id="example-with-hadoop-streaming" class="slide level1">
+<h1>Example with Hadoop Streaming</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="easy-input-file">Easy input file</h2>
+<pre class="shell"><code>&gt; cat easy_file.txt
+a b c a b a</code></pre>
+<p>Initial word count script:</p>
+<pre class="shell"><code>&gt; cat easy_file.txt | ./wordcount.py
+a 3
+c 1
+b 2</code></pre>
+</section>
+<section class="slide level1">
+
+<h2 id="mapper-1">Mapper</h2>
+<pre class="python"><code>#!/usr/bin/env python
+
+import sys
+
+for line in sys.stdin:
+    line = line.strip()
+    words = line.split()
+    for word in words:
+        print &#39;%s\t%s&#39; % (word, 1)</code></pre>
+<pre class="shell"><code>&gt; cat easy_file.txt | ./mapper.py
+a   1
+b   1
+c   1
+a   1
+b   1
+a   1</code></pre>
+</section>
+<section class="slide level1">
+
+<h2 id="reducer-1">Reducer</h2>
+<pre class="python"><code>#!/usr/bin/env python
+
+from operator import itemgetter
+import sys
+
+current_word = None
+current_count = 0
+word = None
+
+for line in sys.stdin:
+    line = line.strip()
+    word, count = line.split(&#39;\t&#39;, 1)
+
+    try:
+        count = int(count)
+    except ValueError:
+        continue
+
+    if current_word == word:
+        current_count += count
+    else:
+        if current_word:
+            print &#39;%s\t%s&#39; % (current_word, current_count)
+        current_count = count
+        current_word = word
+
+# do not forget to output the last word if needed!
+if current_word == word:
+    print &#39;%s\t%s&#39; % (current_word, current_count)</code></pre>
+</section>
+<section class="slide level1">
+
+<pre class="shell"><code>&gt; cat easy_file.txt | ./mapper.py | ./reducer.py
+a   1
+b   1
+c   1
+a   1
+b   1
+a   1</code></pre>
+<p>What happened?</p>
+</section>
+<section class="slide level1">
+
+<pre class="python"><code>#!/usr/bin/env python
+
+from operator import itemgetter
+import sys
+
+. . .
+
+for line in sys.stdin:
+    . . .
+
+    # this IF-switch only works because Hadoop sorts map output
+    # by key (here: word) before it is passed to the reducer
+    if current_word == word:
+        current_count += count
+    else:
+        if current_word:
+            # write result to STDOUT
+            print &#39;%s\t%s&#39; % (current_word, current_count)
+        current_count = count
+        current_word = word
+
+. . .</code></pre>
+</section>
+<section class="slide level1">
+
+<p>Sorting added:</p>
+<pre class="shell"><code>&gt; cat easy_file.txt | ./mapper.py | sort -k 1,1 | ./reducer.py
+a   3
+b   2
+c   1</code></pre>
+<p>This is bascially what Hadoop does!</p>
+<p> </p>
+<p>Please note: <em>value</em> can be scalar, list, data structure, ...</p>
+</section>
+<section class="slide level1">
+
+<h2 id="mapreduce-with-hadoop">MapReduce with Hadoop</h2>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="pics/WordCountFlow.jpg" alt="Overview of how word count can be implemented in Hadoop" /><figcaption>Overview of how word count can be implemented in Hadoop</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+<h2 id="using-hadoop-streaming">Using Hadoop streaming</h2>
+<p>On a Mac:</p>
+<pre class="shell"><code>&gt; hadoop jar /usr/local/Cellar/hadoop/1.2.1/libexec/contrib/streaming/hadoop-streaming-1.2.1.jar \
+  -file mapper.py -mapper mapper.py \
+  -file reducer.py -reducer reducer.py \
+  -input Joyce-Ulysses.txt \
+  -output output</code></pre>
+<p>The result is a <strong>folder</strong>:</p>
+<pre class="shell"><code>&gt; ls output
+_SUCCESS   part-00000</code></pre>
+</section>
+<section class="slide level1">
+
+<p>Via Hadoop on teaching server:</p>
+<pre class="shell"><code>&gt; hadoop jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+  -file mapper.py -mapper mapper.py \
+  -file reducer.py -reducer reducer.py \
+  -input Joyce-Ulysses.txt \
+  -output wc</code></pre>
+<p> </p>
+<p>The result is the same.</p>
+</section>
+<section id="distributing-the-file-system" class="slide level1">
+<h1>Distributing the File System</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="questions">Questions</h2>
+<p>Some questions:</p>
+<ol type="1">
+<li>What about GBs or TBs or ... of data?</li>
+<li>What about distributing that using MR?</li>
+</ol>
+</section>
+<section class="slide level1">
+
+<h2 id="distributed-fs">Distributed FS</h2>
+<p>Concept:</p>
+<ul>
+<li>Split file in blocks of 64MB</li>
+<li>Distribute blocks accross cluster</li>
+<li>Keep 3 copies for redundancy</li>
+<li><strong>Computation goes to the data</strong></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="a-picture-...">A picture ...</h2>
+<p> </p>
+<figure>
+<img src="pics/hdfs2.jpg" alt="Overview of HDFS" /><figcaption>Overview of HDFS</figcaption>
+</figure>
+<p>Source: <a href="http://hadoopilluminated.com/">http://hadoopilluminated.com/</a></p>
+</section>
+<section class="slide level1">
+
+<h2 id="dfs-and-mr-better-together">DFS and MR: Better Together</h2>
+<p>Traditional processing: Bring data to computation</p>
+<p>Big Data: Bring computation to data</p>
+</section>
+<section id="alternatives-to-hadoop" class="slide level1">
+<h1>Alternatives to Hadoop</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="google">Google</h2>
+<p>Links:</p>
+<ul>
+<li><a href="http://research.google.com/archive/mapreduce.html">http://research.google.com/archive/mapreduce.html</a></li>
+<li><a href="http://research.google.com/archive/gfs.html">http://research.google.com/archive/gfs.html</a></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="spark">Spark</h2>
+<p>Also <a href="http://spark.incubator.apache.org/examples.html">Apache product</a></p>
+<p>Based on functional language (Scala).</p>
+<p> </p>
+<p>Example word count in Scala:</p>
+<pre class="scala"><code>val file = spark.textFile(&quot;hdfs://...&quot;)
+val counts = file.flatMap(line =&gt; line.split(&quot; &quot;))
+                 .map(word =&gt; (word, 1))
+                 .reduceByKey(_ + _)
+counts.saveAsTextFile(&quot;hdfs://...&quot;)</code></pre>
+</section>
+<section class="slide level1">
+
+<p><a href="http://spark.apache.org/docs/0.9.0/python-programming-guide.html">Python interface</a> : <code>pyspark</code></p>
+<p> </p>
+<p>Word count in Python:</p>
+<pre class="python"><code>file = sc.textFile(&quot;Joyce-Ulysses.txt&quot;)
+counts = file.flatMap(lambda line: line.split(&quot; &quot;)) \
+             .map(lambda word: (word, 1)) \
+             .reduceByKey(lambda a, b: a + b)
+counts.collect()</code></pre>
+<p>In order to write the output to a file, replace the last line by:</p>
+<pre class="python"><code>counts.saveAsTextFile(&quot;output_file.txt&quot;)</code></pre>
+</section>
+<section id="streaming-data" class="slide level1">
+<h1>Streaming data</h1>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="pics/la-overview.png" alt="Lambda Architecture overview" /><figcaption>Lambda Architecture overview</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+<p>Requires different algorithms and processing</p>
+<p>Solutions exist:</p>
+<ul>
+<li>Kafka: manage the queue</li>
+<li>Storm: process the queue</li>
+</ul>
+<p>Spark can do it too!</p>
+</section>
+<section id="hadoop-ecosystem" class="slide level1">
+<h1>Hadoop ecosystem</h1>
+</section>
+<section class="slide level1">
+
+<p>See also: <a href="http://hadoopecosystemtable.github.io/">http://hadoopecosystemtable.github.io/</a></p>
+</section>
+<section class="slide level1">
+
+<h2 id="some-notable-projectstools">Some notable projects/tools</h2>
+</section>
+<section class="slide level1">
+
+<h3 id="alternative-languages">Alternative Languages</h3>
+<p>Want to use MR, but without <em>heavy</em> Java?</p>
+<ul>
+<li>Pig: new <em>language</em> (Telenet, Netflix, ...)</li>
+<li>Scalding: implemented in Scala (Twitter, ...)</li>
+<li>Cascalog: implemented in Clojure</li>
+<li>Etc.</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p>Example of Pig word count:</p>
+<pre><code>a = load &#39;. . .&#39;;
+b = foreach a generate flatten(TOKENIZE((chararray)$0)) as word;
+c = group b by word;
+d = foreach c generate COUNT(b), group;
+store d into &#39;. . .&#39;;</code></pre>
+</section>
+<section class="slide level1">
+
+<h3 id="databases-on-top-of-hadoop">Databases on top of Hadoop</h3>
+<ul>
+<li>HBase:
+<ul>
+<li>key/value store on top of Hadoop</li>
+<li>Based on <a href="http://research.google.com/archive/bigtable.html">Google BigTable</a></li>
+</ul></li>
+<li>Parquet:
+<ul>
+<li>Columnar storage</li>
+<li>Based on ideas from <a href="http://research.google.com/pubs/pub36632.html">Google Dremel</a></li>
+</ul></li>
+<li>Drill:
+<ul>
+<li>Columnar storage</li>
+<li>Based on Dremel</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="sql-support">SQL support</h3>
+<p>MR, Spark, Pig, ... not familiar to traditional RDBM experts.</p>
+<ul>
+<li>Hive:
+<ul>
+<li>SQL on Hadoop,</li>
+<li>On top of: HDFS, HBase, Parquet, ...</li>
+</ul></li>
+<li>Shark:
+<ul>
+<li>SQL on top of Spark</li>
+</ul></li>
+</ul>
+</section>
+<section id="roundup" class="slide level1">
+<h1>Roundup</h1>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="pics/DBvsMR.png" alt="RDBMS versus MapReduce" /><figcaption>RDBMS versus MapReduce</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+<h2 id="links">Links</h2>
+<p>Some links:</p>
+<ul>
+<li><a href="http://architects.dzone.com/articles/how-hadoop-mapreduce-works">http://architects.dzone.com/articles/how-hadoop-mapreduce-works</a></li>
+<li><a href="https://files.ifi.uzh.ch/dbtg/sdbs13/T10.0.pdf">https://files.ifi.uzh.ch/dbtg/sdbs13/T10.0.pdf</a></li>
+<li><a href="http://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf">http://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf</a></li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
+        progress: true,
+        history: true,
+        center: true,
+        // Factor of the display size that should remain empty around the content
+        margin: 0.2,
+        theme: 'course', // available themes are in /css/theme
+        transition: 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>
