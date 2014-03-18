@@ -4,6 +4,7 @@ DOC0=datasets
 DOC1=visualization
 DOC2=index
 DOC3=rdbms
+DOC4=data-processing
 
 TEMPLATE=stylesheets/doc-template.css
 
@@ -12,6 +13,7 @@ all:
 	make $(DOC1).html
 	make $(DOC2).html
 	make $(DOC3).html
+	make $(DOC4).html
 
 $(DOC0).html : $(DOC0).md
 	pandoc $(DOC0).md -t html5 -o $(DOC0).html  --highlight-style=tango --css $(TEMPLATE) --self-contained
@@ -24,3 +26,7 @@ $(DOC2).html : $(DOC2).md
 
 $(DOC3).html : $(DOC3).md
 	pandoc $(DOC3).md -t html5 -o $(DOC3).html  --highlight-style=tango --css $(TEMPLATE) --self-contained	
+
+$(DOC4).html : $(DOC4).md
+	pandoc $(DOC4).md -t html5 -o $(DOC4).html  --highlight-style=tango --css $(TEMPLATE) --self-contained	
+
