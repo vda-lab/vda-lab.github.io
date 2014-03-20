@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-from operator import itemgetter
 import sys
 
 current_word = None
@@ -8,8 +7,7 @@ current_count = 0
 word = None
 
 for line in sys.stdin:
-    line = line.strip()
-    word, count = line.split('\t', 1)
+    word, count = line.strip().split('\t', 1)
 
     try:
         count = int(count)
