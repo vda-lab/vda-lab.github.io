@@ -58,10 +58,10 @@ What is your opinion on normalization? Is it a good thing?
 
 ## Spark
 
-Do the same exercise as above, but now using the Spark interactive shell. It can be launched in the following way:
+Do the same exercise as above with the drug database, but now using the Spark interactive shell. It can be launched in the following way:
 
 ```
-/mnt/bioinformatics_leuven/incubator-spark/bin/spark-shell
+/mnt/bioinformatics_leuven/incubator-spark/bin/pyspark
 ```
 
 Refer to the examples given in the lecture and see how far you can get.
