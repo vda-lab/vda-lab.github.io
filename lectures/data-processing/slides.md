@@ -653,7 +653,7 @@ Via Hadoop on teaching server:
   -file mapper.py -mapper mapper.py \
   -file reducer.py -reducer reducer.py \
   -input Joyce-Ulysses.txt \
-  -output wc
+  -output output
 ```
 
 \ 
