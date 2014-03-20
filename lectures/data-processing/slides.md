@@ -535,8 +535,6 @@ a   1
 
 ```python
 #!/usr/bin/env python
-
-from operator import itemgetter
 import sys
 
 current_word = None
@@ -544,8 +542,7 @@ current_count = 0
 word = None
 
 for line in sys.stdin:
-    line = line.strip()
-    word, count = line.split('\t', 1)
+    word, count = line.strip().split('\t', 1)
 
     count = int(count)
 
@@ -556,7 +553,6 @@ for line in sys.stdin:
         current_count = count
         current_word = word
 
-# do not forget to output the last word if needed!
 if current_word == word:
     print '%s\t%s' % (current_word, current_count)
 ```
@@ -581,8 +577,6 @@ What happened?
 
 ```python
 #!/usr/bin/env python
-
-from operator import itemgetter
 import sys
 
 . . .
@@ -600,7 +594,6 @@ for line in sys.stdin:
             print '%s\t%s' % (current_word, current_count)
         current_count = count
         current_word = word
-
 . . .
 ```
 
