@@ -20,7 +20,6 @@
 * Links
 
 
-
 - - -
 
 ## What this session is about
@@ -128,24 +127,28 @@ Keep a log of the counts !
 
 The top-10 of the words in the text:
 
-```shell
-cat Joyce-Ulysses.txt | wordcount.py | sort -r -k2,2 | head
+```bash
+> cat Joyce-Ulysses.txt | wordcount.py | sort -r -g -k2,2 | head
 ```
+
+\ 
 
 The result:
 
-```shell
-life 99
-hands 98
-No 97
-looked 96
-fellow 96
-door 96
-big 96
-them. 95
-men 95
-thought 94
+```bash
+the 13600
+of 8127
+and 6542
+a 5842
+to 4787
+in 4606
+his 3035
+he 2712
+I 2432
+with 2391
 ```
+
+\ 
 
 We do not consider special characters, sentence endings, capitals, etc.
 
@@ -163,6 +166,7 @@ Split up the problems in chunks!
 
 - Words to look for?
 - Chunks of text?
+
 
 ```python
 
@@ -528,6 +532,7 @@ a   1
 
 ## Reducer
 
+
 ```python
 #!/usr/bin/env python
 
@@ -542,16 +547,12 @@ for line in sys.stdin:
     line = line.strip()
     word, count = line.split('\t', 1)
 
-    try:
-        count = int(count)
-    except ValueError:
-        continue
+    count = int(count)
 
     if current_word == word:
         current_count += count
     else:
-        if current_word:
-            print '%s\t%s' % (current_word, current_count)
+        print '%s\t%s' % (current_word, current_count)
         current_count = count
         current_word = word
 
@@ -560,9 +561,11 @@ if current_word == word:
     print '%s\t%s' % (current_word, current_count)
 ```
 
+
 - - -
 
-```shell
+
+```bash
 > cat easy_file.txt | ./mapper.py | ./reducer.py
 a   1
 b   1
@@ -605,7 +608,7 @@ for line in sys.stdin:
 
 Sorting added:
 
-```shell
+```bash
 > cat easy_file.txt | ./mapper.py | sort -k 1,1 | ./reducer.py
 a   3
 b   2
@@ -633,7 +636,7 @@ Please note: _value_ can be scalar, list, data structure, ...
 
 On a Mac:
 
-```shell
+```bash
 > hadoop jar /usr/local/Cellar/hadoop/1.2.1/libexec/contrib/streaming/hadoop-streaming-1.2.1.jar \
   -file mapper.py -mapper mapper.py \
   -file reducer.py -reducer reducer.py \
@@ -643,7 +646,7 @@ On a Mac:
 
 The result is a **folder**:
 
-```shell
+```bash
 > ls output
 _SUCCESS   part-00000
 ```
@@ -652,7 +655,7 @@ _SUCCESS   part-00000
 
 Via Hadoop on teaching server:
 
-```shell
+```bash
 > hadoop jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
   -file mapper.py -mapper mapper.py \
   -file reducer.py -reducer reducer.py \
@@ -691,11 +694,32 @@ Concept:
 
 ## A picture ...
 
+![Overview of HDFS (<http://hadoopilluminated.com/>)](pics/hdfs2.jpg)
+
+
+- - -
+
+## Consequences of distribution and immutability
+
+Remember?
+
+```bash
+> ls output
+_SUCCESS   part-00000
+```
+
 \ 
 
-![Overview of HDFS](pics/hdfs2.jpg)
+* Output: 1 file / reducer.
+* Input: Folder, but can be file as well
 
-Source: <http://hadoopilluminated.com/>
+\ 
+
+Combining:
+
+```
+hadoop fs –getmerge output/ WordCount.txt
+```
 
 - - -
 
@@ -794,6 +818,16 @@ See also: <http://hadoopecosystemtable.github.io/>
 
 - - -
 
+## Cluster OS
+
+Manage resources across the cluster:
+
+* Yarn
+* Mesos
+
+- - -
+
+
 ## Some notable projects/tools
 
 - - -
@@ -817,6 +851,29 @@ b = foreach a generate flatten(TOKENIZE((chararray)$0)) as word;
 c = group b by word;
 d = foreach c generate COUNT(b), group;
 store d into '. . .';
+```
+
+- - -
+
+Example of Scalding word count:
+
+```
+package com.twitter.scalding.examples
+
+import com.twitter.scalding._
+
+class WordCountJob(args : Args) extends Job(args) {
+  TextLine( args("input") )
+    .flatMap('line -> 'word) { line : String => tokenize(line) }
+    .groupBy('word) { _.size }
+    .write( Tsv( args("output") ) )
+
+  // Split a piece of text into individual words.
+  def tokenize(text : String) : Array[String] = {
+    // Lowercase each word and remove punctuation.
+    text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
+  }
+}
 ```
 
 - - -
@@ -863,4 +920,4 @@ Some links:
 
 - <http://architects.dzone.com/articles/how-hadoop-mapreduce-works>
 - <https://files.ifi.uzh.ch/dbtg/sdbs13/T10.0.pdf>
-- <http://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf>
+- <http://research.google.com/archive/mapreduce-osdi04.pdf>
