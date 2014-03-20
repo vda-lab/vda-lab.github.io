@@ -360,15 +360,16 @@ import org.apache.hadoop.mapreduce.*;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
-        
-public class WordCount {
-        
- public static class Map extends Mapper&lt;LongWritable, Text, Text, IntWritable&gt; {
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;</code></pre>
+</section>
+<section class="slide level1">
+
+<pre class="java"><code> public static class Map extends Mapper&lt;LongWritable, Text, Text, IntWritable&gt; {
     private final static IntWritable one = new IntWritable(1);
     private Text word = new Text();
         
-    public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+    public void map(LongWritable key, Text value, Context context) \
+            throws IOException, InterruptedException {
         String line = value.toString();
         StringTokenizer tokenizer = new StringTokenizer(line);
         while (tokenizer.hasMoreTokens()) {
@@ -376,7 +377,7 @@ public class WordCount {
             context.write(word, one);
         }
     }
- } </code></pre>
+ }</code></pre>
 </section>
 <section class="slide level1">
 
@@ -401,10 +402,10 @@ public class WordCount {
     
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(IntWritable.class);
-        
+
     job.setMapperClass(Map.class);
     job.setReducerClass(Reduce.class);
-        
+
     job.setInputFormatClass(TextInputFormat.class);
     job.setOutputFormatClass(TextOutputFormat.class);
         
@@ -412,9 +413,7 @@ public class WordCount {
     FileOutputFormat.setOutputPath(job, new Path(args[1]));
         
     job.waitForCompletion(true);
- }
-        
-}</code></pre>
+ }</code></pre>
 </section>
 <section id="example-with-hadoop-streaming" class="slide level1">
 <h1>Example with Hadoop Streaming</h1>
@@ -442,7 +441,7 @@ for line in sys.stdin:
     words = line.split()
     for word in words:
         print &#39;%s\t%s&#39; % (word, 1)</code></pre>
-<pre class="shell"><code>&gt; cat easy_file.txt | ./mapper.py
+<pre class="bash"><code>&gt; cat easy_file.txt | ./mapper.py
 a   1
 b   1
 c   1
@@ -549,7 +548,7 @@ _SUCCESS   part-00000</code></pre>
   -file mapper.py -mapper mapper.py \
   -file reducer.py -reducer reducer.py \
   -input Joyce-Ulysses.txt \
-  -output wc</code></pre>
+  -output output</code></pre>
 <p> </p>
 <p>The result is the same.</p>
 </section>
@@ -704,7 +703,7 @@ store d into &#39;. . .&#39;;</code></pre>
 <section class="slide level1">
 
 <p>Example of Scalding word count:</p>
-<pre><code>package com.twitter.scalding.examples
+<pre class="scala"><code>package com.twitter.scalding.examples
 
 import com.twitter.scalding._
 

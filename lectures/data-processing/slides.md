@@ -2,6 +2,7 @@
 % Toni Verbeiren & Jan Aerts
 % 20/3/2014
 
+
 # Introduction
 
 - - -
@@ -421,14 +422,17 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
-        
-public class WordCount {
-        
+```
+
+- - -
+
+```java        
  public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
     private final static IntWritable one = new IntWritable(1);
     private Text word = new Text();
         
-    public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+    public void map(LongWritable key, Text value, Context context) \
+            throws IOException, InterruptedException {
         String line = value.toString();
         StringTokenizer tokenizer = new StringTokenizer(line);
         while (tokenizer.hasMoreTokens()) {
@@ -436,12 +440,12 @@ public class WordCount {
             context.write(word, one);
         }
     }
- } 
+ }
 ```
 
 - - -
 
-```java        
+```java      
  public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable> {
 
     public void reduce(Text key, Iterable<IntWritable> values, Context context) 
@@ -465,10 +469,10 @@ public class WordCount {
     
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(IntWritable.class);
-        
+
     job.setMapperClass(Map.class);
     job.setReducerClass(Reduce.class);
-        
+
     job.setInputFormatClass(TextInputFormat.class);
     job.setOutputFormatClass(TextOutputFormat.class);
         
@@ -477,8 +481,6 @@ public class WordCount {
         
     job.waitForCompletion(true);
  }
-        
-}
 ```
 
 
@@ -518,7 +520,7 @@ for line in sys.stdin:
         print '%s\t%s' % (word, 1)
 ```
 
-```shell
+```bash
 > cat easy_file.txt | ./mapper.py
 a   1
 b   1
@@ -850,7 +852,7 @@ store d into '. . .';
 
 Example of Scalding word count:
 
-```
+```scala
 package com.twitter.scalding.examples
 
 import com.twitter.scalding._
