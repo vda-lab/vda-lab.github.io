@@ -116,18 +116,18 @@ wordcount={}
   <span class="dt">print</span> k, v</code></pre>
 <p>Keep a log of the counts !</p>
 <p>The top-10 of the words in the text:</p>
-<pre class="shell"><code>cat Joyce-Ulysses.txt | wordcount.py | sort -r -k2,2 | head</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">&gt;</span> <span class="kw">cat</span> Joyce-Ulysses.txt <span class="kw">|</span> <span class="kw">wordcount.py</span> <span class="kw">|</span> <span class="kw">sort</span> -r -g -k2,2 <span class="kw">|</span> <span class="kw">head</span></code></pre>
 <p>The result:</p>
-<pre class="shell"><code>life 99
-hands 98
-No 97
-looked 96
-fellow 96
-door 96
-big 96
-them. 95
-men 95
-thought 94</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">the</span> 13600
+<span class="kw">of</span> 8127
+<span class="kw">and</span> 6542
+<span class="kw">a</span> 5842
+<span class="kw">to</span> 4787
+<span class="kw">in</span> <span class="kw">4606</span>
+<span class="kw">his</span> 3035
+<span class="kw">he</span> 2712
+<span class="kw">I</span> 2432
+<span class="kw">with</span> 2391</code></pre>
 <p>We do not consider special characters, sentence endings, capitals, etc.</p>
 <p>What about all works of Shakespeare? Or all books in the library?</p>
 <h2 id="parallel-version">Parallel version?</h2>
@@ -335,29 +335,25 @@ word = <span class="ot">None</span>
     line = line.strip()
     word, count = line.split(<span class="st">'</span><span class="ch">\t</span><span class="st">'</span>, <span class="dv">1</span>)
 
-    <span class="kw">try</span>:
-        count = <span class="dt">int</span>(count)
-    <span class="kw">except</span> <span class="ot">ValueError</span>:
-        <span class="kw">continue</span>
+    count = <span class="dt">int</span>(count)
 
     <span class="kw">if</span> current_word == word:
         current_count += count
     <span class="kw">else</span>:
-        <span class="kw">if</span> current_word:
-            <span class="dt">print</span> <span class="st">'</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="st">'</span> % (current_word, current_count)
+        <span class="dt">print</span> <span class="st">'</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="st">'</span> % (current_word, current_count)
         current_count = count
         current_word = word
 
 <span class="co"># do not forget to output the last word if needed!</span>
 <span class="kw">if</span> current_word == word:
     <span class="dt">print</span> <span class="st">'</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="st">'</span> % (current_word, current_count)</code></pre>
-<pre class="shell"><code>&gt; cat easy_file.txt | ./mapper.py | ./reducer.py
-a   1
-b   1
-c   1
-a   1
-b   1
-a   1</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">&gt;</span> <span class="kw">cat</span> easy_file.txt <span class="kw">|</span> <span class="kw">./mapper.py</span> <span class="kw">|</span> <span class="kw">./reducer.py</span>
+<span class="kw">a</span>   1
+<span class="kw">b</span>   1
+<span class="kw">c</span>   1
+<span class="kw">a</span>   1
+<span class="kw">b</span>   1
+<span class="kw">a</span>   1</code></pre>
 <p>What happened?</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 
@@ -382,10 +378,10 @@ a   1</code></pre>
 
 . . .</code></pre>
 <p>Sorting added:</p>
-<pre class="shell"><code>&gt; cat easy_file.txt | ./mapper.py | sort -k 1,1 | ./reducer.py
-a   3
-b   2
-c   1</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">&gt;</span> <span class="kw">cat</span> easy_file.txt <span class="kw">|</span> <span class="kw">./mapper.py</span> <span class="kw">|</span> <span class="kw">sort</span> -k 1,1 <span class="kw">|</span> <span class="kw">./reducer.py</span>
+<span class="kw">a</span>   3
+<span class="kw">b</span>   2
+<span class="kw">c</span>   1</code></pre>
 <p>This is bascially what Hadoop does!</p>
 <p>Please note: <em>value</em> can be scalar, list, data structure, ...</p>
 <h2 id="mapreduce-with-hadoop">MapReduce with Hadoop</h2>
@@ -394,20 +390,20 @@ c   1</code></pre>
 </figure>
 <h2 id="using-hadoop-streaming">Using Hadoop streaming</h2>
 <p>On a Mac:</p>
-<pre class="shell"><code>&gt; hadoop jar /usr/local/Cellar/hadoop/1.2.1/libexec/contrib/streaming/hadoop-streaming-1.2.1.jar \
-  -file mapper.py -mapper mapper.py \
-  -file reducer.py -reducer reducer.py \
-  -input Joyce-Ulysses.txt \
-  -output output</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">&gt;</span> <span class="kw">hadoop</span> jar /usr/local/Cellar/hadoop/1.2.1/libexec/contrib/streaming/hadoop-streaming-1.2.1.jar \
+  <span class="kw">-file</span> mapper.py -mapper mapper.py \
+  <span class="kw">-file</span> reducer.py -reducer reducer.py \
+  <span class="kw">-input</span> Joyce-Ulysses.txt \
+  <span class="kw">-output</span> output</code></pre>
 <p>The result is a <strong>folder</strong>:</p>
 <pre class="shell"><code>&gt; ls output
 _SUCCESS   part-00000</code></pre>
 <p>Via Hadoop on teaching server:</p>
-<pre class="shell"><code>&gt; hadoop jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
-  -file mapper.py -mapper mapper.py \
-  -file reducer.py -reducer reducer.py \
-  -input Joyce-Ulysses.txt \
-  -output wc</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">&gt;</span> <span class="kw">hadoop</span> jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+  <span class="kw">-file</span> mapper.py -mapper mapper.py \
+  <span class="kw">-file</span> reducer.py -reducer reducer.py \
+  <span class="kw">-input</span> Joyce-Ulysses.txt \
+  <span class="kw">-output</span> wc</code></pre>
 <p>The result is the same.</p>
 <h1 id="distributing-the-file-system">Distributing the File System</h1>
 <h2 id="questions">Questions</h2>
@@ -470,6 +466,12 @@ counts.collect()</code></pre>
 <p>Spark can do it too!</p>
 <h1 id="hadoop-ecosystem">Hadoop ecosystem</h1>
 <p>See also: <a href="http://hadoopecosystemtable.github.io/">http://hadoopecosystemtable.github.io/</a></p>
+<h2 id="cluster-os">Cluster OS</h2>
+<p>Manage resources across the cluster:</p>
+<ul>
+<li>Yarn</li>
+<li>Mesos</li>
+</ul>
 <h2 id="some-notable-projectstools">Some notable projects/tools</h2>
 <h3 id="alternative-languages">Alternative Languages</h3>
 <p>Want to use MR, but without <em>heavy</em> Java?</p>
@@ -485,6 +487,23 @@ b = foreach a generate flatten(TOKENIZE((chararray)$0)) as word;
 c = group b by word;
 d = foreach c generate COUNT(b), group;
 store d into '. . .';</code></pre>
+<p>Example of Scalding word count:</p>
+<pre><code>package com.twitter.scalding.examples
+
+import com.twitter.scalding._
+
+class WordCountJob(args : Args) extends Job(args) {
+  TextLine( args(&quot;input&quot;) )
+    .flatMap('line -&gt; 'word) { line : String =&gt; tokenize(line) }
+    .groupBy('word) { _.size }
+    .write( Tsv( args(&quot;output&quot;) ) )
+
+  // Split a piece of text into individual words.
+  def tokenize(text : String) : Array[String] = {
+    // Lowercase each word and remove punctuation.
+    text.toLowerCase.replaceAll(&quot;[^a-zA-Z0-9\\s]&quot;, &quot;&quot;).split(&quot;\\s+&quot;)
+  }
+}</code></pre>
 <h3 id="databases-on-top-of-hadoop">Databases on top of Hadoop</h3>
 <ul>
 <li>HBase:

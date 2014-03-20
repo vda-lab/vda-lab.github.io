@@ -15,7 +15,11 @@ Look up the meaning and function of the following libraries and tools:
 
 Think about finding the minimum and maximum in a dataset using a MapReduce approach. Find a way to do this using 1 iteration.
 
-**Q2. How would you tackle this? Describe the solution.**
+**Q2a. How would you tackle this? Describe the solution.**
+
+**Q2b. How would you calculate an average using MapReduce?**
+
+Make a drawing for yourself of the map and reduce phase.
 
 
 # Exercise 3
