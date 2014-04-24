@@ -6,6 +6,8 @@ DOC2=index
 DOC3=rdbms
 DOC4=data-processing
 DOC5=data-processing-ex
+DOC6=nosql
+
 
 TEMPLATE=stylesheets/doc-template.css
 
@@ -16,6 +18,7 @@ all:
 	make $(DOC3).html
 	make $(DOC4).html
 	make $(DOC5).html
+	make $(DOC6).html
 
 $(DOC0).html : $(DOC0).md
 	pandoc $(DOC0).md -t html5 -o $(DOC0).html  --highlight-style=tango --css $(TEMPLATE) --self-contained
@@ -34,3 +37,7 @@ $(DOC4).html : $(DOC4).md
 
 $(DOC5).html : $(DOC5).md
 	pandoc $(DOC5).md -t html5 -o $(DOC5).html  --highlight-style=tango --css $(TEMPLATE) --self-contained	
+
+$(DOC6).html : $(DOC6).md
+	pandoc $(DOC6).md -t html5 -o $(DOC6).html  --highlight-style=tango --css $(TEMPLATE) --self-contained	
+
