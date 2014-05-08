@@ -111,13 +111,41 @@ Open the `Data Browser` and in the search field type: 17
 * What is the meaning of it?
 * What is the alcoholpercentage of the beer corresponding to node with id 17?
 
-Do the same searches from the `Console` (3d tab on top).
+Do the same searches from the `Console` (3rd tab on top).
 
-## 2.b. Simple Queries 
+## 2.b. Simple Queries using Cypher
 
-Do some simple queries using Cypher in the Console window:
+Cypher is a powerful query language for graph databases that is inspired by ASCII art. Basically, you define the pattern that you're looking for as a picture. For example, looking for a node that is connected through a relationship to a second node could in ASCII art be represented as `()-->()` (imagine 2 circles connected with an arrow). We call the left `()` the *source* of the relationship, and the `()` on the right the *sink*. The parentheses are optional and can be left out. In addition, square brackets can be used in the middle of the arrow for indicating constraints or variables. For example: `a-[rel]->b`.
 
-* What Node ID does "Orval" (BeerBrand) have?
+You can perform these queries in the webinterface to neo4j (see the URL mentioned above), but also on the linux command line. To do this, connect to the server through ssh (as you normally do), and issue the command `/mnt/bioinformatics_leuven/Software/neo4j-community-1.7.2/bin/neo4j-shell`.
+
+Cypher queries consist minimally of a `START` and a `RETURN` clause. Getting all nodes in a graph:
+```
+START n=node(*) RETURN n
+```
+An optional `MATCH` can be used that represents (in ASCII art) the pattern that you're looking for. The command below return all possible relationships in a graph database:
+```
+START n=node(*) MATCH n-[r]->m RETURN n,r,m
+```
+Similar to SQL, a `WHERE` clause lets you filter the data. For example, suppose that there are nodes with a property `type`. To get all relationships where the sink type = 'BeerBrand', we issue the following search:
+```
+START n=node(*) MATCH n-[r]->m WHERE m.type = 'BeerBrand' RETURN n,r,m
+```
+
+The `START n=node(*)` signifies that you start your pattern search from any node. There are 2 ways to start from a particular node. If you happen to know the ID, just substitute that for the `*`, for example
+```
+START n=node(17) MATCH n-[r]->m RETURN n,r,m
+```
+In case you don't know the node ID, but want to do a search on a particular property, you use the `node_auto_index` like this:
+```
+START n=node:node_auto_index(name="Inbev Belgium") RETURN n
+```
+
+For a more extensive introduction to the Cypher language, see the video "Cypher for SQL Professionals" at http://www.neo4j.org/tracks/cypher_track_use
+
+As an exercise, do some simple queries using Cypher in the Console window:
+
+* What Node ID does the beer "Orval" have?
 * What about "Duvel"?
 * What is the Node ID of Brewery node "AB Inbev"?
 
@@ -127,7 +155,7 @@ Do some simple queries using Cypher in the Console window:
 Find the following:
 
 * In the first exercise, we have found the brewery that brews the most beers. Get a list of these beers using Cypher.
-* All the bears that are brewed by the brewery of the beer "Duvel".
+* All the beers that are brewed by the brewery of the beer "Duvel".
 * All Belgian Trappist beers if you know Orval is a Belgian Trappist
 * The shortest paths in the graph between two beers, say "Orval" and "Duvel"
 
