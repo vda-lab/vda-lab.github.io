@@ -1,5 +1,3 @@
-# themes. blood is dark, smoot font. beige is lighter
-
 DOC0=datasets
 DOC1=visualization
 DOC2=index
@@ -7,7 +5,7 @@ DOC3=rdbms
 DOC4=data-processing
 DOC5=data-processing-ex
 DOC6=nosql
-
+DOC7=nosql-ex
 
 TEMPLATE=stylesheets/doc-template.css
 
@@ -19,6 +17,7 @@ all:
 	make $(DOC4).html
 	make $(DOC5).html
 	make $(DOC6).html
+	make $(DOC7).html
 
 $(DOC0).html : $(DOC0).md
 	pandoc $(DOC0).md -t html5 -o $(DOC0).html  --highlight-style=tango --css $(TEMPLATE) --self-contained
@@ -40,4 +39,7 @@ $(DOC5).html : $(DOC5).md
 
 $(DOC6).html : $(DOC6).md
 	pandoc $(DOC6).md -t html5 -o $(DOC6).html  --highlight-style=tango --css $(TEMPLATE) --self-contained	
+
+$(DOC7).html : $(DOC7).md
+	pandoc $(DOC7).md -t html5 -o $(DOC7).html  --highlight-style=tango --css $(TEMPLATE) --self-contained	
 
