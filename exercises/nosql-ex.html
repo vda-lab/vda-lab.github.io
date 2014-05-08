@@ -26,19 +26,53 @@ connecting to: test
 &gt; </code></pre>
 <p>You now get the MongoDB prompt in which we will work now. At the end, you can escape the MongoDB shell by typing exit. Connect to the database for this exercise:</p>
 <pre><code>&gt; use exercises</code></pre>
+<p>To exit the MongoDB shell and return to your linux prompt, use</p>
+<pre><code>&gt; quit()</code></pre>
 <p>Based on what you have learned from the assignment for this session, you should be able to answer the following questions:</p>
 <ul>
 <li>How many beers in the database are of type <em>hoge gisting</em>? The type of beer corresponds to the field <code>Soort</code> in the database.</li>
 <li>How many beers have a percentage alcohol of more than 8 degrees?</li>
 </ul>
 <h2 id="b.-mapreduce-in-mongodb">1.b. MapReduce in MongoDB</h2>
-<p>Implement a map reduce approach to get the number of beers per brewery.</p>
+<p>To use mapreduce, you will define two functions: a <em>map</em> function and a <em>reduce</em> function. Suppose we have a collection of documents that describe purchases made by a customer. These documents therefore look like this:</p>
+<pre><code>{
+    _id: ObjectId(&quot;50a8240b927d5d8b5891743c&quot;),
+    cust_id: &quot;abc123&quot;,
+    ord_date: new Date(&quot;Oct 04, 2012&quot;),
+    status: 'A',
+    price: 25,
+    items: [ { sku: &quot;mmm&quot;, qty: 5, price: 2.5 },
+             { sku: &quot;nnn&quot;, qty: 5, price: 2.5 } ]
+}</code></pre>
+<p>Suppose that we have returning customers who spend different amounts every visit. If we want to calculate how much each customer spent in total (across visits), we can do this using a mapreduce approach. Taken from http://docs.mongodb.org/manual/tutorial/map-reduce-examples/ :</p>
+<p>[1] Define the map function to process each input document:</p>
 <ul>
-<li>Store the result in a collection called <code>&lt;username&gt;Brewery</code>.</li>
+<li>In the function, the keyword <code>this</code> refers to the document that the map-reduce operation is processing.</li>
+<li><p>The function maps the price to the <code>cust_id</code> for each document and emits the <code>cust_id</code> and <code>price</code> pair.</p>
+<pre><code>var mapFunction1 = function() {
+                        emit(this.cust_id, this.price);
+                   };</code></pre>
+<p>[2] Define the corresponding reduce function with two arguments <code>keyCustId</code> and <code>valuesPrices</code>:</p></li>
+<li><code>valuesPrices</code> is an array whose elements are the price values emitted by the map function and grouped by <code>keyCustId</code>.</li>
+<li><p>The function reduces the <code>valuesPrices</code> array to the sum of its elements.</p>
+<pre><code>var reduceFunction1 = function(keyCustId, valuesPrices) {
+                          return Array.sum(valuesPrices);
+                      };</code></pre>
+<p>[3] Perform the map-reduce on all documents in the <code>orders</code> collection using the <code>mapFunction1</code> map function and the <code>reduceFunction1</code> reduce function.</p>
+<pre><code>db.orders.mapReduce(
+                 mapFunction1,
+                 reduceFunction1,
+                 { out: &quot;map_reduce_example&quot; }
+               )</code></pre>
+<p>This command will create a new collection named <code>map_reduce_example</code> that will contain the results.</p></li>
+</ul>
+<p>Actual exercise:</p>
+<ul>
+<li>Using a mapreduce approach (create a <code>mapFunction2</code> and <code>reduceFunction2</code>), get the number of beers per brewery. Store the result in a collection called <code>&lt;username&gt;Brewery</code> (<em>e.g.</em> <code>jaertsBrewery</code>; <strong>not</strong> a collection called <code>map_reduce_example</code>).</li>
 <li>Get the top-10 of the breweries.</li>
 <li>Find all entries in the collection <code>&lt;username&gt;Brewery</code>, that contain the word 'Inbev' in the brewery field.</li>
 </ul>
-<p>You can find info about map reduce in MongoDB here: <a href="http://docs.mongodb.org/manual/core/map-reduce/">http://docs.mongodb.org/manual/core/map-reduce/</a>. The mongoDB shell uses Javascript syntax.</p>
+<p>You can find info about map reduce in MongoDB here: <a href="http://docs.mongodb.org/manual/core/map-reduce/">http://docs.mongodb.org/manual/core/map-reduce/</a> and <a href="http://docs.mongodb.org/manual/tutorial/map-reduce-examples/">http://docs.mongodb.org/manual/tutorial/map-reduce-examples/</a>. The mongoDB shell uses Javascript syntax.</p>
 <p>The way to approach the solution can be found in the exercises concerning MapReduce.</p>
 <h2 id="c-getting-ready-for-the-next-step">1.c Getting ready for the next step</h2>
 <p>Although the data is now in a schema-free database, it still is very similar to a RDBMS database system. Since we gradually want to move to graph databases, think about how the beer data could be reformulated in terms of a graph schema.</p>
