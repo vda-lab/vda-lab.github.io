@@ -141,7 +141,7 @@ In case you don't know the node ID, but want to do a search on a particular prop
 START n=node:node_auto_index(name="Inbev Belgium") RETURN n
 ```
 
-For a more extensive introduction to the Cypher language, see the video "Cypher for SQL Professionals" at http://www.neo4j.org/tracks/cypher_track_use
+For a more extensive introduction to the Cypher language, see the video "Cypher for SQL Professionals" at http://www.neo4j.org/tracks/cypher_track_use. A reference card can be found at http://docs.neo4j.org/refcard/2.0/
 
 As an exercise, do some simple queries using Cypher in the Console window:
 
