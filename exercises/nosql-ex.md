@@ -20,6 +20,10 @@ You now get the MongoDB prompt in which we will work now. At the end, you can es
 
     > use exercises
 
+To exit the MongoDB shell and return to your linux prompt, use
+
+    > quit()
+
 Based on what you have learned from the assignment for this session, you should be able to answer the following questions:
 
 * How many beers in the database are of type _hoge gisting_? The type of beer corresponds to the field `Soort` in the database.
@@ -27,13 +31,55 @@ Based on what you have learned from the assignment for this session, you should 
 
 ## 1.b. MapReduce in MongoDB
 
-Implement a map reduce approach to get the number of beers per brewery. 
+To use mapreduce, you will define two functions: a *map* function and a *reduce* function. Suppose we have a collection of documents that describe purchases made by a customer. These documents therefore look like this:
 
-* Store the result in a collection called `<username>Brewery`.
+    {
+        _id: ObjectId("50a8240b927d5d8b5891743c"),
+        cust_id: "abc123",
+        ord_date: new Date("Oct 04, 2012"),
+        status: 'A',
+        price: 25,
+        items: [ { sku: "mmm", qty: 5, price: 2.5 },
+                 { sku: "nnn", qty: 5, price: 2.5 } ]
+    }
+
+Suppose that we have returning customers who spend different amounts every visit. If we want to calculate how much each customer spent in total (across visits), we can do this using a mapreduce approach. Taken from http://docs.mongodb.org/manual/tutorial/map-reduce-examples/ :
+
+[1] Define the map function to process each input document:
+
+* In the function, the keyword `this` refers to the document that the map-reduce operation is processing.
+* The function maps the price to the `cust_id` for each document and emits the `cust_id` and `price` pair.
+```
+var mapFunction1 = function() {
+                        emit(this.cust_id, this.price);
+                   };
+```
+[2] Define the corresponding reduce function with two arguments `keyCustId` and `valuesPrices`:
+
+* `valuesPrices` is an array whose elements are the price values emitted by the map function and grouped by `keyCustId`.
+* The function reduces the `valuesPrices` array to the sum of its elements.
+```
+var reduceFunction1 = function(keyCustId, valuesPrices) {
+                          return Array.sum(valuesPrices);
+                      };
+```
+[3] Perform the map-reduce on all documents in the `orders` collection using the `mapFunction1` map function and the `reduceFunction1` reduce function.
+```
+db.orders.mapReduce(
+                 mapFunction1,
+                 reduceFunction1,
+                 { out: "map_reduce_example" }
+               )
+```
+This command will create a new collection named `map_reduce_example` that will contain the results.
+
+Actual exercise:
+
+* Using a mapreduce approach (create a `mapFunction2` and `reduceFunction2`), get the number of beers per brewery. Store the result in a collection called `<username>Brewery` (*e.g.* `jaertsBrewery`; **not** a collection called `map_reduce_example`).
 * Get the top-10 of the breweries.
 * Find all entries in the collection `<username>Brewery`, that contain the word 'Inbev' in the brewery field.
 
-You can find info about map reduce in MongoDB here: <http://docs.mongodb.org/manual/core/map-reduce/>. The mongoDB shell uses Javascript syntax. 
+You can find info about map reduce in MongoDB here: <http://docs.mongodb.org/manual/core/map-reduce/> and <http://docs.mongodb.org/manual/tutorial/map-reduce-examples/>. The mongoDB shell uses Javascript syntax. 
 
 The way to approach the solution can be found in the exercises concerning MapReduce.
 
