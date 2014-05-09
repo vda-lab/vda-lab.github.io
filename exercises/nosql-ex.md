@@ -16,9 +16,19 @@ Connect to the mongoDB instance using the `mongo` shell. This is done by typing 
     connecting to: test
     > 
 
-You now get the MongoDB prompt in which we will work now. At the end, you can escape the MongoDB shell by typing exit. Connect to the database for this exercise:
+You now get the MongoDB prompt in which we will work. At the end, you can escape the MongoDB shell by typing exit. Type
+
+    > show dbs
+
+to know what databases are available. Connect to the database for this exercise:
 
     > use exercises
+
+The command
+
+    > show collections
+
+returns the list of collections ("tables") that are stored in the collection
 
 To exit the MongoDB shell and return to your linux prompt, use
 
