@@ -23,7 +23,7 @@
 <li>data querying</li>
 </ul>
 <p><strong>CAUTION</strong>: When using sqlite3, make sure that you know whether you are on the <strong>unix command line</strong> (the place you already know and love: for running commands such as <code>ls</code>, <code>cd some_directory</code>, <code>less some_file.txt</code>, etc), and the <strong>sqlite3 command line</strong> (where you can issue SQL commands such as <code>SELECT column1, column2 FROM some_table;</code>). The <strong>unix command line</strong> is similar to this:</p>
-<pre><code>jaerts@ip-10-158-90-118:~$</code></pre>
+<pre><code>jaerts@ip-172-31-4-160:~$</code></pre>
 <p>The <strong>sqlite3 command line</strong> looks like this:</p>
 <pre><code>sqlite&gt; </code></pre>
 <p>To go from the unix command line to the sqlite3 command line, type:</p>
@@ -32,14 +32,14 @@
 <pre><code>.quit</code></pre>
 <p>Do <em>not</em> try to run SQL commands on the unix command line; do <em>not</em> try to run unix commands on the sqlite3 command line...</p>
 <p>Example use for sqlite3 if we want to create a new database called <code>students</code>. Here's a sample session (obviously do <strong>not</strong> type in the text of the prompt itself...):</p>
-<pre><code>jaerts@ip-10-158-90-118:~$ sqlite3 students.db
+<pre><code>jaerts@ip-172-31-4-160:~$ sqlite3 students.db
 sqlite&gt; CREATE TABLE individuals (id INTEGER AUTO_INCREMENT, s_number STRING, first_name STRING, last_name STRING);
 sqlite&gt; CREATE TABLE courses (id INTEGER AUTO_INCREMENT, course_number STRING, name STRING);
 sqlite&gt; INSERT INTO individuals (s_number, first_name, last_name) VALUES ('s123456','Tom','Thompson');
 sqlite&gt; INSERT INTO individuals (s_number, first_name, last_name) VALUES ('s987654','John','Jones');
 sqlite&gt; SELECT * FROM individuals;
 sqlite&gt; .quit
-jaerts@ip-10-158-90-118:~$</code></pre>
+jaerts@ip-172-31-4-160:~$</code></pre>
 <p>When on the <code>sqlite3</code> prompt, type <code>.help</code> for a list of <code>sqlite3</code>-specific commands (such as <code>.quit</code>).</p>
 <h2 id="what-and-how-to-hand-in">What and how to hand in?</h2>
 <p>The three datasets each have a set of questions related to it. The questions to answer are put in <strong>bold</strong>. We ask you to prepare a <strong>PDF</strong> document with the answers to the questions and upload it to the correct location on Toledo.</p>

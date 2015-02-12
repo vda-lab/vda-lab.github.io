@@ -15,6 +15,8 @@
 <h1 id="datasets">Datasets</h1>
 <p>The different datasets are categorized in their own directory. Please read what follows, because it gives you information on how the data was gathered, processed and what is represented in the data.</p>
 <p>You are allowed to copy the data to your personal home directory or to a different/personal PC. Just make sure to use the original version for the final result of the assignments.</p>
+<p>All the file are located under the following directory:</p>
+<pre><code>/mnt/bioinformatics_leuven/i0u19a/data/</code></pre>
 <h2 id="genotype">Genotype</h2>
 <p>We selected the first 100K basepairs from chromosome 1 from the <a href="http://www.1000genomes.org/">1000 genome project</a>. The is data for all 1000 samples is in <code>chr1-0-100000.vcf</code>. For convenience, this file has already been converted to JSON format in <code>chr1-0-100000.json</code>.</p>
 <p>A subset of the data (only sample <code>HG000096</code>) can be found in the smaller files.</p>
@@ -28,15 +30,10 @@
 <p>The <a href="http://nl.wikipedia.org/wiki/Lijst_van_Belgische_bieren">belgian beers dataset on Wikipedia</a> contains around 1500 beers with data about the kind of beer, the percentage alcohol and the brewery.</p>
 <p>The data has been downloaded from the web and converted to two formats: <code>beers.csv</code> and <code>beers.json</code>.</p>
 <h3 id="questions-we-want-to-answer-1">Questions we want to answer</h3>
-<p>If we define the <em>distance</em> between beers as follows:</p>
-<pre><code>distance(x,y) = (alcohol_x - alcohol_y) 
-                + 0 if same brewer, 1 otherwise
-                + 0 if same type, 1 otherwise</code></pre>
 <ul>
 <li>Report the beers brewed by brewery X</li>
 <li>What is the distribution of beers per brewery, beers per alcohol percentage?</li>
-<li>Given a beer, find all beers that have distance 0</li>
-<li>Why does AB Inbev not occur in the top-10?</li>
+<li>Why does AB Inbev not appear to occur in the top-10 op breweries?</li>
 </ul>
 <h2 id="drugs">Drugs</h2>
 <p>The database of drugs that can be sold in Belgium from the <a href="http://www.fagg-afmps.be/nl/items/gegevensbank_vergunde_geneesmiddelen/">Federal Government</a>.</p>
@@ -48,8 +45,6 @@
 <p>What is the key that joins both datasets together?</p>
 <p>For convenience, the compounds dataset has been converted to JSON as well: <code>AMM_H.json</code>. Easy conversion to JSON can be done for example via <a href="http://www.convertcsv.com/csv-to-json.htm">http://www.convertcsv.com</a>.</p>
 <h3 id="questions-we-want-to-answer-2">Questions we want to answer</h3>
-<p>If we define a <em>distance</em> between companies as</p>
-<pre><code>distance = number of drug compounds that they have in common</code></pre>
 <ul>
 <li>Query the dataset for a certain drug and report possible companies that sell this drug.</li>
 <li>Query for drugs that have been added to the list in the last 2 years.</li>

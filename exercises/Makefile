@@ -6,6 +6,7 @@ DOC4=data-processing
 DOC5=data-processing-ex
 DOC6=nosql
 DOC7=nosql-ex
+DOC8=nosql-ex-solutions
 
 TEMPLATE=stylesheets/doc-template.css
 
@@ -18,6 +19,7 @@ all:
 	make $(DOC5).html
 	make $(DOC6).html
 	make $(DOC7).html
+	make $(DOC8).html
 
 $(DOC0).html : $(DOC0).md
 	pandoc $(DOC0).md -t html5 -o $(DOC0).html  --highlight-style=tango --css $(TEMPLATE) --self-contained
@@ -42,4 +44,7 @@ $(DOC6).html : $(DOC6).md
 
 $(DOC7).html : $(DOC7).md
 	pandoc $(DOC7).md -t html5 -o $(DOC7).html  --highlight-style=tango --css $(TEMPLATE) --self-contained	
+
+$(DOC8).html : $(DOC8).md
+	pandoc $(DOC8).md -t html5 -o $(DOC8).html  --highlight-style=tango --css $(TEMPLATE) --self-contained	
 

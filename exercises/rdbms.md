@@ -15,7 +15,7 @@ For this exercise session, we will consider
 
 **CAUTION**: When using sqlite3, make sure that you know whether you are on the **unix command line** (the place you already know and love: for running commands such as `ls`, `cd some_directory`, `less some_file.txt`, etc), and the **sqlite3 command line** (where you can issue SQL commands such as `SELECT column1, column2 FROM some_table;`). The **unix command line** is similar to this:
 
-    jaerts@ip-10-158-90-118:~$
+    jaerts@ip-172-31-4-160:~$
 
 The **sqlite3 command line** looks like this:
 
@@ -33,14 +33,14 @@ Do *not* try to run SQL commands on the unix command line; do *not* try to run u
 
 Example use for sqlite3 if we want to create a new database called `students`. Here's a sample session (obviously do **not** type in the text of the prompt itself...):
 
-    jaerts@ip-10-158-90-118:~$ sqlite3 students.db
+    jaerts@ip-172-31-4-160:~$ sqlite3 students.db
     sqlite> CREATE TABLE individuals (id INTEGER AUTO_INCREMENT, s_number STRING, first_name STRING, last_name STRING);
     sqlite> CREATE TABLE courses (id INTEGER AUTO_INCREMENT, course_number STRING, name STRING);
     sqlite> INSERT INTO individuals (s_number, first_name, last_name) VALUES ('s123456','Tom','Thompson');
     sqlite> INSERT INTO individuals (s_number, first_name, last_name) VALUES ('s987654','John','Jones');
     sqlite> SELECT * FROM individuals;
     sqlite> .quit
-    jaerts@ip-10-158-90-118:~$
+    jaerts@ip-172-31-4-160:~$
 
 When on the `sqlite3` prompt, type `.help` for a list of `sqlite3`-specific commands (such as `.quit`).
 
@@ -59,6 +59,7 @@ The report should be in PDF, but you are free to choose any intermediate word ed
 ## Beers
 
 ### SQL
+
 Creating the table to hold the data.
 
     CREATE TABLE beers(id INTEGER, beer TEXT, type TEXT, alc FLOAT, brewery TEXT);
