@@ -24,21 +24,60 @@
 MongoDB shell version: 2.0.4
 connecting to: test
 &gt; </code></pre>
-<p>You now get the MongoDB prompt in which we will work now. At the end, you can escape the MongoDB shell by typing exit. Connect to the database for this exercise:</p>
+<p>You now get the MongoDB prompt in which we will work. At the end, you can escape the MongoDB shell by typing exit. Type</p>
+<pre><code>&gt; show dbs</code></pre>
+<p>to know what databases are available. Connect to the database for this exercise:</p>
 <pre><code>&gt; use exercises</code></pre>
+<p>The command</p>
+<pre><code>&gt; show collections</code></pre>
+<p>returns the list of collections (&quot;tables&quot;) that are stored in the collection</p>
+<p>To exit the MongoDB shell and return to your linux prompt, use</p>
+<pre><code>&gt; quit()</code></pre>
 <p>Based on what you have learned from the assignment for this session, you should be able to answer the following questions:</p>
 <ul>
 <li>How many beers in the database are of type <em>hoge gisting</em>? The type of beer corresponds to the field <code>Soort</code> in the database.</li>
 <li>How many beers have a percentage alcohol of more than 8 degrees?</li>
 </ul>
 <h2 id="b.-mapreduce-in-mongodb">1.b. MapReduce in MongoDB</h2>
-<p>Implement a map reduce approach to get the number of beers per brewery.</p>
+<p>To use mapreduce, you will define two functions: a <em>map</em> function and a <em>reduce</em> function. Suppose we have a collection of documents that describe purchases made by a customer. These documents therefore look like this:</p>
+<pre><code>{
+    _id: ObjectId(&quot;50a8240b927d5d8b5891743c&quot;),
+    cust_id: &quot;abc123&quot;,
+    ord_date: new Date(&quot;Oct 04, 2012&quot;),
+    status: 'A',
+    price: 25,
+    items: [ { sku: &quot;mmm&quot;, qty: 5, price: 2.5 },
+             { sku: &quot;nnn&quot;, qty: 5, price: 2.5 } ]
+}</code></pre>
+<p>Suppose that we have returning customers who spend different amounts every visit. If we want to calculate how much each customer spent in total (across visits), we can do this using a mapreduce approach. Taken from http://docs.mongodb.org/manual/tutorial/map-reduce-examples/ :</p>
+<p>[1] Define the map function to process each input document:</p>
 <ul>
-<li>Store the result in a collection called <code>&lt;username&gt;Brewery</code>.</li>
+<li>In the function, the keyword <code>this</code> refers to the document that the map-reduce operation is processing.</li>
+<li><p>The function maps the price to the <code>cust_id</code> for each document and emits the <code>cust_id</code> and <code>price</code> pair.</p>
+<pre><code>var mapFunction1 = function() {
+                        emit(this.cust_id, this.price);
+                   };</code></pre>
+<p>[2] Define the corresponding reduce function with two arguments <code>keyCustId</code> and <code>valuesPrices</code>:</p></li>
+<li><code>valuesPrices</code> is an array whose elements are the price values emitted by the map function and grouped by <code>keyCustId</code>.</li>
+<li><p>The function reduces the <code>valuesPrices</code> array to the sum of its elements.</p>
+<pre><code>var reduceFunction1 = function(keyCustId, valuesPrices) {
+                          return Array.sum(valuesPrices);
+                      };</code></pre>
+<p>[3] Perform the map-reduce on all documents in the <code>orders</code> collection using the <code>mapFunction1</code> map function and the <code>reduceFunction1</code> reduce function.</p>
+<pre><code>db.orders.mapReduce(
+                 mapFunction1,
+                 reduceFunction1,
+                 { out: &quot;map_reduce_example&quot; }
+               )</code></pre>
+<p>This command will create a new collection named <code>map_reduce_example</code> that will contain the results.</p></li>
+</ul>
+<p>Actual exercise:</p>
+<ul>
+<li>Using a mapreduce approach (create a <code>mapFunction2</code> and <code>reduceFunction2</code>), get the number of beers per brewery. Store the result in a collection called <code>&lt;username&gt;Brewery</code> (<em>e.g.</em> <code>jaertsBrewery</code>; <strong>not</strong> a collection called <code>map_reduce_example</code>).</li>
 <li>Get the top-10 of the breweries.</li>
 <li>Find all entries in the collection <code>&lt;username&gt;Brewery</code>, that contain the word 'Inbev' in the brewery field.</li>
 </ul>
-<p>You can find info about map reduce in MongoDB here: <a href="http://docs.mongodb.org/manual/core/map-reduce/">http://docs.mongodb.org/manual/core/map-reduce/</a>. The mongoDB shell uses Javascript syntax.</p>
+<p>You can find info about map reduce in MongoDB here: <a href="http://docs.mongodb.org/manual/core/map-reduce/">http://docs.mongodb.org/manual/core/map-reduce/</a> and <a href="http://docs.mongodb.org/manual/tutorial/map-reduce-examples/">http://docs.mongodb.org/manual/tutorial/map-reduce-examples/</a>. The mongoDB shell uses Javascript syntax.</p>
 <p>The way to approach the solution can be found in the exercises concerning MapReduce.</p>
 <h2 id="c-getting-ready-for-the-next-step">1.c Getting ready for the next step</h2>
 <p>Although the data is now in a schema-free database, it still is very similar to a RDBMS database system. Since we gradually want to move to graph databases, think about how the beer data could be reformulated in terms of a graph schema.</p>
@@ -58,11 +97,24 @@ connecting to: test
 <li>What is the meaning of it?</li>
 <li>What is the alcoholpercentage of the beer corresponding to node with id 17?</li>
 </ul>
-<p>Do the same searches from the <code>Console</code> (3d tab on top).</p>
-<h2 id="b.-simple-queries">2.b. Simple Queries</h2>
-<p>Do some simple queries using Cypher in the Console window:</p>
+<p>Do the same searches from the <code>Console</code> (3rd tab on top).</p>
+<h2 id="b.-simple-queries-using-cypher">2.b. Simple Queries using Cypher</h2>
+<p>Cypher is a powerful query language for graph databases that is inspired by ASCII art. Basically, you define the pattern that you're looking for as a picture. For example, looking for a node that is connected through a relationship to a second node could in ASCII art be represented as <code>()--&gt;()</code> (imagine 2 circles connected with an arrow). We call the left <code>()</code> the <em>source</em> of the relationship, and the <code>()</code> on the right the <em>sink</em>. The parentheses are optional and can be left out. In addition, square brackets can be used in the middle of the arrow for indicating constraints or variables. For example: <code>a-[rel]-&gt;b</code>.</p>
+<p>You can perform these queries in the webinterface to neo4j (see the URL mentioned above), but also on the linux command line. To do this, connect to the server through ssh (as you normally do), and issue the command <code>/mnt/bioinformatics_leuven/Software/neo4j-community-1.7.2/bin/neo4j-shell</code>.</p>
+<p>Cypher queries consist minimally of a <code>START</code> and a <code>RETURN</code> clause. Getting all nodes in a graph:</p>
+<pre><code>START n=node(*) RETURN n</code></pre>
+<p>An optional <code>MATCH</code> can be used that represents (in ASCII art) the pattern that you're looking for. The command below return all possible relationships in a graph database:</p>
+<pre><code>START n=node(*) MATCH n-[r]-&gt;m RETURN n,r,m</code></pre>
+<p>Similar to SQL, a <code>WHERE</code> clause lets you filter the data. For example, suppose that there are nodes with a property <code>type</code>. To get all relationships where the sink type = 'BeerBrand', we issue the following search:</p>
+<pre><code>START n=node(*) MATCH n-[r]-&gt;m WHERE m.type = 'BeerBrand' RETURN n,r,m</code></pre>
+<p>The <code>START n=node(*)</code> signifies that you start your pattern search from any node. There are 2 ways to start from a particular node. If you happen to know the ID, just substitute that for the <code>*</code>, for example</p>
+<pre><code>START n=node(17) MATCH n-[r]-&gt;m RETURN n,r,m</code></pre>
+<p>In case you don't know the node ID, but want to do a search on a particular property, you use the <code>node_auto_index</code> like this:</p>
+<pre><code>START n=node:node_auto_index(name=&quot;Inbev Belgium&quot;) RETURN n</code></pre>
+<p>For a more extensive introduction to the Cypher language, see the video &quot;Cypher for SQL Professionals&quot; at http://www.neo4j.org/tracks/cypher_track_use. A reference card can be found at http://docs.neo4j.org/refcard/2.0/</p>
+<p>As an exercise, do some simple queries using Cypher in the Console window:</p>
 <ul>
-<li>What Node ID does &quot;Orval&quot; (BeerBrand) have?</li>
+<li>What Node ID does the beer &quot;Orval&quot; have?</li>
 <li>What about &quot;Duvel&quot;?</li>
 <li>What is the Node ID of Brewery node &quot;AB Inbev&quot;?</li>
 </ul>
@@ -70,7 +122,7 @@ connecting to: test
 <p>Find the following:</p>
 <ul>
 <li>In the first exercise, we have found the brewery that brews the most beers. Get a list of these beers using Cypher.</li>
-<li>All the bears that are brewed by the brewery of the beer &quot;Duvel&quot;.</li>
+<li>All the beers that are brewed by the brewery of the beer &quot;Duvel&quot;.</li>
 <li>All Belgian Trappist beers if you know Orval is a Belgian Trappist</li>
 <li>The shortest paths in the graph between two beers, say &quot;Orval&quot; and &quot;Duvel&quot;</li>
 </ul>
