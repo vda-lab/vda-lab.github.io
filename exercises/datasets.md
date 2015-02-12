@@ -4,6 +4,10 @@ The different datasets are categorized in their own directory. Please read what 
 
 You are allowed to copy the data to your personal home directory or to a different/personal PC. Just make sure to use the original version for the final result of the assignments.
 
+All the file are located under the following directory:
+
+    /mnt/bioinformatics_leuven/i0u19a/data/
+
 ## Genotype ##
 
 We selected the first 100K basepairs from chromosome 1 from the [1000 genome project](http://www.1000genomes.org/). The is data for all 1000 samples is in `chr1-0-100000.vcf`. For convenience, this file has already been converted to JSON format in `chr1-0-100000.json`.
@@ -25,18 +29,9 @@ The data has been downloaded from the web and converted to two formats: `beers.c
 
 ### Questions we want to answer ###
 
-If we define the _distance_ between beers as follows:
-
-```
-distance(x,y) = (alcohol_x - alcohol_y) 
-                + 0 if same brewer, 1 otherwise
-                + 0 if same type, 1 otherwise
-```
-
 * Report the beers brewed by brewery X
 * What is the distribution of beers per brewery, beers per alcohol percentage?
-* Given a beer, find all beers that have distance 0
-* Why does AB Inbev not occur in the top-10?
+* Why does AB Inbev not appear to occur in the top-10 op breweries?
 
 
 ## Drugs ##
@@ -54,12 +49,6 @@ For convenience, the compounds dataset has been converted to JSON as well: `AMM_
 
 
 ### Questions we want to answer ###
-
-If we define a _distance_ between companies as
-
-```
-distance = number of drug compounds that they have in common
-```
 
 * Query the dataset for a certain drug and report possible companies that sell this drug.
 * Query for drugs that have been added to the list in the last 2 years.

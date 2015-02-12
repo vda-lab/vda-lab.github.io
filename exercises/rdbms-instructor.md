@@ -144,7 +144,7 @@ CREATE TABLE drugs1 (
     GenPK TEXT
     );
 .separator ","
-.import AMM_H.csv drugs1
+.import /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_H.csv drugs1
 ```
 
 Do the same for the subset database.
@@ -159,7 +159,7 @@ CREATE TABLE drugs2 (
     DateNew DATE
 );
 .separator ","
-.import AMM_det_H.csv drugs2
+.import /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv drugs2
 ```
 
 What are the dimensions of both tables?
@@ -174,7 +174,7 @@ Note: to make life easier, you can change the _output mode_ of sqlite: `.mode co
 
 ```
 CREATE TABLE joined 
-    AS SELECT cti,mpname,mah,ActSubstName,dosis
+    AS SELECT drugs1.cti, mpname, mah, ActSubstName, dosis
     FROM drugs1, drugs2
     WHERE drugs1.cti = drugs2.cti;
 ```
@@ -195,7 +195,7 @@ Which companies have compounds on the market with more than 10 active substances
 
 ```
 CREATE TABLE companies
-    AS SELECT mah, COUNT(actsubstname) 
+    AS SELECT mah, mpname, COUNT(actsubstname) 
     FROM joined 
     GROUP BY cti 
     HAVING COUNT(actsubstname) > 10 
@@ -236,9 +236,11 @@ CREATE TABLE geno(
 
 Import the data. In order to make life easy, start from the HG000096 sample and manually remove the comments and header row. Then import the data.
 
+The datafile has been renamed `.tsv` for ease of understanding...
+
 ```
 .mode tabs
-.import test.vcf geno
+.import /mnt/bioinformatics_leuven/i0u19a/data/genotypes/chr1-0-100000_HG000096.tsv geno
 ```
 
 How many mutations are known for this genomic region on chromosome 1?
