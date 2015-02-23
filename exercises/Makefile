@@ -1,5 +1,5 @@
 DOC0=datasets
-DOC1=visualization
+DOC1=week2
 DOC2=index
 DOC3=rdbms
 DOC4=data-processing
