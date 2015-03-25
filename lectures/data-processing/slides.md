@@ -897,7 +897,7 @@ MR, Spark, Pig, ... not familiar to traditional RDBM experts.
 *  Hive: 
     *  SQL on Hadoop, 
     *  On top of: HDFS, HBase, Parquet, ...
-*  Shark: 
+*  Spark SQL: 
     *  SQL on top of Spark
 
 
