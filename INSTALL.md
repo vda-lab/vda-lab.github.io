@@ -122,6 +122,59 @@ Data now accessible through http://50.16.33.38:8000
 
 http://www.interactivegraphics.org/Datasets_files/TDF2005.txt
 
+### Install Hadoop
+
+Procedure:
+
+  sudo apt-get install build-essential openjdk-7-jdk git maven subversion
+  sudo apt-get install g++ autoconf automake libtool cmake zlib1g-dev pkg-config libssl-dev
+  update-java-alternatives -l
+  apt-cache policy protobuf-compiler
+  sudo apt-get install protobuf-compiler
+
+  git clone --branch release-2.4.0 https://github.com/apache/hadoop-common
+  cd hadoop-common
+  mvn package -Pdist,native -DskipTests -Dtar
+  file hadoop-dist/target/hadoop-2.4.0/lib/native/*
+  export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
+  hadoop-dist/target/hadoop-2.4.0/bin/hadoop version
+
+Add the `bin`-dir to the `$PATH`:
+
+  export PATH="$PATH:/mnt/bioinformatics_leuven/homes/tverbeiren/hadoop-common/hadoop-dist/target/hadoop-2.4.0/bin"
+
+Or, even better, make a symbolic link under `/opt`:
+
+  sudo ln -s /mnt/bioinformatics_leuven/homes/tverbeiren/hadoop-common/ hadoop
+
+And then:
+
+  export PATH="$PATH:/opt/hadoop/hadoop-dist/target/hadoop-2.4.0/bin"
+
+Be careful, the repo is structured differently than before, in order to run hadoop streaming:
+
+  hadoop jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar -file mapper.py -mapper mapper.py -file reducer.py -reducer reducer.py -input Joyce-Ulysses.txt -output output
+
+### Install Spark
+
+  git clone https://github.com/apache/spark
+  export MAVEN_OPTS="-Xmx2g -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=512m"
+  build/mvn -Phadoop-2.4 -Dhadoop.version=2.4.0 -DskipTests clean package
+
+and then:
+
+  sudo ln -s /mnt/bioinformatics_leuven/homes/tverbeiren/spark spark
+  export PATH="$PATH:/opt/spark/bin"
+
+To let other users run it, set the permission so that everyone has read access to the folders and add the following environment variables:
+
+  export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"
+  export PATH="$PATH:/opt/hadoop/hadoop-dist/target/hadoop-2.4.0/bin"
+  export PATH="$PATH:/opt/spark/bin"
+  export SPARK_HOME="/opt/spark"
+
+
+
 ### Install MongoDB
 
 sudo apt-get install mongodb<br/>
