@@ -36,7 +36,7 @@ code > span.er { font-weight: bold; }
 <header>
 <h1 class="title">Data Processing</h1>
 <h2 class="author">Toni Verbeiren &amp; Jan Aerts</h2>
-<h3 class="date">20/3/2014</h3>
+<h3 class="date">19/3/2014</h3>
 </header>
 <h1 id="introduction">Introduction</h1>
 <h2 id="contents">Contents</h2>
@@ -118,16 +118,16 @@ wordcount={}
 <p>The top-10 of the words in the text:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">&gt;</span> <span class="kw">cat</span> Joyce-Ulysses.txt <span class="kw">|</span> <span class="kw">wordcount.py</span> <span class="kw">|</span> <span class="kw">sort</span> -r -g -k2,2 <span class="kw">|</span> <span class="kw">head</span></code></pre>
 <p>The result:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">the</span> 13600
-<span class="kw">of</span> 8127
-<span class="kw">and</span> 6542
-<span class="kw">a</span> 5842
-<span class="kw">to</span> 4787
-<span class="kw">in</span> <span class="kw">4606</span>
-<span class="kw">his</span> 3035
-<span class="kw">he</span> 2712
-<span class="kw">I</span> 2432
-<span class="kw">with</span> 2391</code></pre>
+<pre><code># the 13600
+# of 8127
+# and 6542
+# a 5842
+# to 4787
+# in 4606
+# his 3035
+# he 2712
+# I 2432
+# with 2391</code></pre>
 <p>We do not consider special characters, sentence endings, capitals, etc.</p>
 <p>What about all works of Shakespeare? Or all books in the library?</p>
 <h2 id="parallel-version">Parallel version?</h2>
@@ -136,8 +136,7 @@ wordcount={}
 <li>Words to look for?</li>
 <li>Chunks of text?</li>
 </ul>
-<pre class="sourceCode python"><code class="sourceCode python">
-wordcount={}
+<pre class="sourceCode python"><code class="sourceCode python">wordcount={}
 
 runWordCountOnChunk1()
 runWordCountOnChunk2()
@@ -169,7 +168,7 @@ A mutable data structure is hard to work with in a distributed fashion!
     <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">0</span>,n):
         tmp = tmp * x
     <span class="kw">return</span> tmp</code></pre>
-<p>A Functional alternative:</p>
+<p>A Functional alternative, using recursion:</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> exp(x, n):
     <span class="kw">if</span> n == <span class="dv">0</span>:
         <span class="kw">return</span> <span class="dv">1</span>
@@ -180,19 +179,26 @@ A mutable data structure is hard to work with in a distributed fashion!
 <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> exp2(x):
     <span class="kw">return</span> exp(x,<span class="dv">2</span>)</code></pre>
 <p>We can then apply this function to all elements in a list:</p>
-<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">map</span>(exp2,[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">map</span>(exp2, [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])
 [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">16</span>]</code></pre>
 <p>Define the following sum function:</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> <span class="dt">sum</span>(x,y):
    <span class="kw">return</span> x + y</code></pre>
 <p>We can now calculate the sum of all elements in a list:</p>
-<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">reduce</span>(<span class="dt">sum</span>,[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">reduce</span>(<span class="dt">sum</span>, [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])
 <span class="dv">10</span></code></pre>
+<p>Reduce works as follows:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="dt">sum</span>(<span class="dt">sum</span>(<span class="dt">sum</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dv">3</span>), <span class="dv">4</span>)</code></pre>
+<p>or:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="dt">sum</span>(<span class="dt">sum</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">sum</span>(<span class="dv">3</span>, <span class="dv">4</span>))</code></pre>
+<p>or:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="dt">sum</span>(<span class="dv">1</span>, <span class="dt">sum</span>(<span class="dv">2</span>, <span class="dt">sum</span>(<span class="dv">3</span>, <span class="dv">4</span>)))</code></pre>
+<p>or: ....</p>
 <p>This is where the fun starts:</p>
-<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">reduce</span>(<span class="dt">sum</span>,<span class="dt">map</span>(exp2,[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]))
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">reduce</span>(<span class="dt">sum</span>, <span class="dt">map</span>(exp2, [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]))
 <span class="dv">30</span></code></pre>
 <p>One more important function:</p>
-<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">filter</span>(<span class="kw">lambda</span> x: x&gt;<span class="dv">2</span> ,[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dt">filter</span>(<span class="kw">lambda</span> x: x&gt;<span class="dv">2</span> , [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])
 [<span class="dv">3</span>, <span class="dv">4</span>]</code></pre>
 <p>Here, we introduced Lambda expression in Python. The above is the same as:</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> filter2(x):
@@ -214,7 +220,7 @@ A mutable data structure is hard to work with in a distributed fashion!
 <blockquote>
 <p>A lot of mainstream programming languages do not support Functional Programming in a standard way.</p>
 </blockquote>
-<p>Think of Java, C, C++, ...</p>
+<p>Think of Java (&lt; v8), C, C++, ...</p>
 <h2 id="workaround">Workaround</h2>
 <p>The workaround:</p>
 <blockquote>
@@ -247,12 +253,12 @@ Sum the total for 'a'</code></pre>
 <span class="kw">import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;</span>
 <span class="kw">import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span>
 <span class="kw">import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;</span></code></pre>
-<pre class="sourceCode java"><code class="sourceCode java"> <span class="kw">public</span> <span class="dt">static</span> <span class="kw">class</span> Map <span class="kw">extends</span> Mapper&lt;LongWritable, Text, Text, IntWritable&gt; {
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">static</span> <span class="kw">class</span> Map <span class="kw">extends</span> Mapper&lt;LongWritable, Text, Text, IntWritable&gt; {
     <span class="kw">private</span> <span class="dt">final</span> <span class="dt">static</span> IntWritable one = <span class="kw">new</span> <span class="fu">IntWritable</span>(<span class="dv">1</span>);
     <span class="kw">private</span> Text word = <span class="kw">new</span> Text();
         
-    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">map</span>(LongWritable key, Text value, Context context) \
-            <span class="kw">throws</span> IOException, InterruptedException {
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">map</span>(LongWritable key, Text value, Context context)
+           <span class="kw">throws</span> IOException, InterruptedException {
         String line = value.<span class="fu">toString</span>();
         StringTokenizer tokenizer = <span class="kw">new</span> StringTokenizer(line);
         <span class="kw">while</span> (tokenizer.<span class="fu">hasMoreTokens</span>()) {
@@ -260,23 +266,24 @@ Sum the total for 'a'</code></pre>
             context.<span class="fu">write</span>(word, one);
         }
     }
- }</code></pre>
-<pre class="sourceCode java"><code class="sourceCode java"> <span class="kw">public</span> <span class="dt">static</span> <span class="kw">class</span> Reduce <span class="kw">extends</span> Reducer&lt;Text, IntWritable, Text, IntWritable&gt; {
+}</code></pre>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">static</span> <span class="kw">class</span> Reduce <span class="kw">extends</span> Reducer&lt;Text, IntWritable, Text, IntWritable&gt; {
 
-    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">reduce</span>(Text key, Iterable&lt;IntWritable&gt; values, Context context) 
-      <span class="kw">throws</span> IOException, InterruptedException {
-        <span class="dt">int</span> sum = <span class="dv">0</span>;
-        <span class="kw">for</span> (IntWritable val : values) {
-            sum += val.<span class="fu">get</span>();
-        }
-        context.<span class="fu">write</span>(key, <span class="kw">new</span> <span class="fu">IntWritable</span>(sum));
-    }
- }</code></pre>
-<pre class="sourceCode java"><code class="sourceCode java"> <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) <span class="kw">throws</span> Exception {
+   <span class="kw">public</span> <span class="dt">void</span> <span class="fu">reduce</span>(Text key, Iterable&lt;IntWritable&gt; values, Context context)
+          <span class="kw">throws</span> IOException, InterruptedException {
+       <span class="dt">int</span> sum = <span class="dv">0</span>;
+       <span class="kw">for</span> (IntWritable val : values) {
+           sum += val.<span class="fu">get</span>();
+       }
+       context.<span class="fu">write</span>(key, <span class="kw">new</span> <span class="fu">IntWritable</span>(sum));
+   }
+}</code></pre>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String[] args) <span class="kw">throws</span> Exception {
+
     Configuration conf = <span class="kw">new</span> Configuration();
-        
+
     Job job = <span class="kw">new</span> <span class="fu">Job</span>(conf, <span class="st">&quot;wordcount&quot;</span>);
-    
+
     job.<span class="fu">setOutputKeyClass</span>(Text.<span class="fu">class</span>);
     job.<span class="fu">setOutputValueClass</span>(IntWritable.<span class="fu">class</span>);
 
@@ -285,21 +292,21 @@ Sum the total for 'a'</code></pre>
 
     job.<span class="fu">setInputFormatClass</span>(TextInputFormat.<span class="fu">class</span>);
     job.<span class="fu">setOutputFormatClass</span>(TextOutputFormat.<span class="fu">class</span>);
-        
+
     FileInputFormat.<span class="fu">addInputPath</span>(job, <span class="kw">new</span> <span class="fu">Path</span>(args[<span class="dv">0</span>]));
     FileOutputFormat.<span class="fu">setOutputPath</span>(job, <span class="kw">new</span> <span class="fu">Path</span>(args[<span class="dv">1</span>]));
-        
+
     job.<span class="fu">waitForCompletion</span>(<span class="kw">true</span>);
- }</code></pre>
+}</code></pre>
 <h1 id="example-with-hadoop-streaming">Example with Hadoop Streaming</h1>
 <h2 id="easy-input-file">Easy input file</h2>
-<pre class="shell"><code>&gt; cat easy_file.txt
-a b c a b a</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">&gt;</span> <span class="kw">cat</span> easy_file.txt
+<span class="kw">a</span> b c a b a</code></pre>
 <p>Initial word count script:</p>
-<pre class="shell"><code>&gt; cat easy_file.txt | ./wordcount.py
-a 3
-c 1
-b 2</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">&gt;</span> <span class="kw">cat</span> easy_file.txt <span class="kw">|</span> <span class="kw">./wordcount.py</span>
+<span class="kw">a</span> 3
+<span class="kw">c</span> 1
+<span class="kw">b</span> 2</code></pre>
 <h2 id="mapper-1">Mapper</h2>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 
@@ -388,7 +395,7 @@ word = <span class="ot">None</span>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">&gt;</span> <span class="kw">ls</span> output
 <span class="kw">_SUCCESS</span>   part-00000</code></pre>
 <p>Via Hadoop on teaching server:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">&gt;</span> <span class="kw">hadoop</span> jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">&gt;</span> <span class="kw">hadoop</span> jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   <span class="kw">-file</span> mapper.py -mapper mapper.py \
   <span class="kw">-file</span> reducer.py -reducer reducer.py \
   <span class="kw">-input</span> Joyce-Ulysses.txt \
@@ -424,8 +431,8 @@ word = <span class="ot">None</span>
 <p>Combining:</p>
 <pre><code>hadoop fs –getmerge output/ WordCount.txt</code></pre>
 <h2 id="dfs-and-mr-better-together">DFS and MR: Better Together</h2>
-<p>Traditional processing: Bring data to computation</p>
-<p>Big Data: Bring computation to data</p>
+<p><strong>Traditional processing</strong>: Bring data to computation</p>
+<p><strong>Big Data</strong>: Bring computation to data</p>
 <h1 id="alternatives-to-hadoop">Alternatives to Hadoop</h1>
 <h2 id="google">Google</h2>
 <p>Links:</p>
@@ -492,8 +499,8 @@ store d into '. . .';</code></pre>
 
 <span class="kw">class</span> <span class="fu">WordCountJob</span>(args : Args) <span class="kw">extends</span> <span class="fu">Job</span>(args) {
   <span class="fu">TextLine</span>( <span class="fu">args</span>(<span class="st">&quot;input&quot;</span>) )
-    .<span class="fu">flatMap</span>('line -&gt; 'word) { line : String =&gt; <span class="fu">tokenize</span>(line) }
-    .<span class="fu">groupBy</span>('word) { _.<span class="fu">size</span> }
+    .<span class="fu">flatMap</span>(line -&gt; word) { line : String =&gt; <span class="fu">tokenize</span>(line) }
+    .<span class="fu">groupBy</span>(word) { _.<span class="fu">size</span> }
     .<span class="fu">write</span>( <span class="fu">Tsv</span>( <span class="fu">args</span>(<span class="st">&quot;output&quot;</span>) ) )
 
   <span class="co">// Split a piece of text into individual words.</span>
@@ -528,7 +535,7 @@ store d into '. . .';</code></pre>
 <li>SQL on Hadoop,</li>
 <li>On top of: HDFS, HBase, Parquet, ...</li>
 </ul></li>
-<li>Shark:
+<li>Spark SQL:
 <ul>
 <li>SQL on top of Spark</li>
 </ul></li>

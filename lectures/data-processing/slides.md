@@ -1,6 +1,6 @@
 % Data Processing
 % Toni Verbeiren & Jan Aerts
-% 20/3/2014
+% 19/3/2014
 
 
 # Introduction
@@ -136,17 +136,17 @@ The top-10 of the words in the text:
 
 The result:
 
-```bash
-the 13600
-of 8127
-and 6542
-a 5842
-to 4787
-in 4606
-his 3035
-he 2712
-I 2432
-with 2391
+```
+# the 13600
+# of 8127
+# and 6542
+# a 5842
+# to 4787
+# in 4606
+# his 3035
+# he 2712
+# I 2432
+# with 2391
 ```
 
 \ 
@@ -170,7 +170,6 @@ Split up the problems in chunks!
 
 
 ```python
-
 wordcount={}
 
 runWordCountOnChunk1()
@@ -235,7 +234,7 @@ def loopExp(x,n):
 
 - - -
 
-A Functional alternative:
+A Functional alternative, using recursion:
 
 ```python
 def exp(x, n):
@@ -261,7 +260,7 @@ def exp2(x):
 We can then apply this function to all elements in a list:
 
 ```python
->>> map(exp2,[1,2,3,4])
+>>> map(exp2, [1,2,3,4])
 [1, 4, 9, 16]
 ```
 
@@ -279,24 +278,48 @@ def sum(x,y):
 We can now calculate the sum of all elements in a list:
 
 ```python
->>> reduce(sum,[1,2,3,4])
+>>> reduce(sum, [1,2,3,4])
 10
 ```
+
+- - - 
+
+Reduce works as follows:
+
+```python
+sum(sum(sum(1, 2), 3), 4)
+```
+
+or:
+
+```python
+sum(sum(1, 2), sum(3, 4))
+```
+
+or:
+
+```python
+sum(1, sum(2, sum(3, 4)))
+```
+
+or: ....
+
 
 - - -
 
 This is where the fun starts:
 
 ```python
->>> reduce(sum,map(exp2,[1,2,3,4]))
+>>> reduce(sum, map(exp2, [1,2,3,4]))
 30
 ```
 
 - - -
 
 One more important function:
+
 ```python
->>> filter(lambda x: x>2 ,[1,2,3,4])
+>>> filter(lambda x: x>2 , [1,2,3,4])
 [3, 4]
 ```
 
@@ -317,7 +340,6 @@ filter(filter2 ,[1,2,3,4])
 We only described _what_ to do, not _how_!
 
 The compiler can fill in the blanks!
-
 
 
 # MapReduce
@@ -356,7 +378,7 @@ Situation:
 
 \ 
 
-Think of Java, C, C++, ...
+Think of Java (< v8), C, C++, ...
 
 - - -
 
@@ -374,7 +396,6 @@ Key-Value pairs to the rescue !
 \ 
 
 But: make sure fault-tolerance is built in...
-
 
 
 # MapReduce in real-life
@@ -427,12 +448,12 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 - - -
 
 ```java        
- public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
+public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
     private final static IntWritable one = new IntWritable(1);
     private Text word = new Text();
         
-    public void map(LongWritable key, Text value, Context context) \
-            throws IOException, InterruptedException {
+    public void map(LongWritable key, Text value, Context context)
+           throws IOException, InterruptedException {
         String line = value.toString();
         StringTokenizer tokenizer = new StringTokenizer(line);
         while (tokenizer.hasMoreTokens()) {
@@ -440,33 +461,34 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
             context.write(word, one);
         }
     }
- }
-```
-
-- - -
-
-```java      
- public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable> {
-
-    public void reduce(Text key, Iterable<IntWritable> values, Context context) 
-      throws IOException, InterruptedException {
-        int sum = 0;
-        for (IntWritable val : values) {
-            sum += val.get();
-        }
-        context.write(key, new IntWritable(sum));
-    }
- }
+}
 ```
 
 - - -
 
 ```java
- public static void main(String[] args) throws Exception {
+public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable> {
+
+   public void reduce(Text key, Iterable<IntWritable> values, Context context)
+          throws IOException, InterruptedException {
+       int sum = 0;
+       for (IntWritable val : values) {
+           sum += val.get();
+       }
+       context.write(key, new IntWritable(sum));
+   }
+}
+```
+
+- - -
+
+```java
+public static void main(String[] args) throws Exception {
+
     Configuration conf = new Configuration();
-        
+
     Job job = new Job(conf, "wordcount");
-    
+
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(IntWritable.class);
 
@@ -475,12 +497,12 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
     job.setInputFormatClass(TextInputFormat.class);
     job.setOutputFormatClass(TextOutputFormat.class);
-        
+
     FileInputFormat.addInputPath(job, new Path(args[0]));
     FileOutputFormat.setOutputPath(job, new Path(args[1]));
-        
+
     job.waitForCompletion(true);
- }
+}
 ```
 
 
@@ -490,14 +512,14 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 ## Easy input file
 
-```shell
+```bash
 > cat easy_file.txt
 a b c a b a
 ```
 
 Initial word count script:
 
-```shell
+```bash
 > cat easy_file.txt | ./wordcount.py
 a 3
 c 1
@@ -639,6 +661,8 @@ On a Mac:
   -output output
 ```
 
+\ 
+
 The result is a **folder**:
 
 ```bash
@@ -651,7 +675,7 @@ _SUCCESS   part-00000
 Via Hadoop on teaching server:
 
 ```bash
-> hadoop jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+> hadoop jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   -file mapper.py -mapper mapper.py \
   -file reducer.py -reducer reducer.py \
   -input Joyce-Ulysses.txt \
@@ -721,9 +745,13 @@ hadoop fs –getmerge output/ WordCount.txt
 
 ## DFS and MR: Better Together
 
-Traditional processing: Bring data to computation
+\ 
 
-Big Data: Bring computation to data
+**Traditional processing**: Bring data to computation
+
+\ 
+
+**Big Data**: Bring computation to data
 
 
 
@@ -859,8 +887,8 @@ import com.twitter.scalding._
 
 class WordCountJob(args : Args) extends Job(args) {
   TextLine( args("input") )
-    .flatMap('line -> 'word) { line : String => tokenize(line) }
-    .groupBy('word) { _.size }
+    .flatMap(line -> word) { line : String => tokenize(line) }
+    .groupBy(word) { _.size }
     .write( Tsv( args("output") ) )
 
   // Split a piece of text into individual words.

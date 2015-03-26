@@ -29,7 +29,7 @@
 <section>
     <h1 class="title">Data Processing</h1>
     <h2 class="author">Toni Verbeiren &amp; Jan Aerts</h2>
-    <h3 class="date">20/3/2014</h3>
+    <h3 class="date">19/3/2014</h3>
 </section>
 
 <section id="introduction" class="slide level1">
@@ -151,16 +151,16 @@ for k,v in wordcount.items():
 <pre class="bash"><code>&gt; cat Joyce-Ulysses.txt | wordcount.py | sort -r -g -k2,2 | head</code></pre>
 <p> </p>
 <p>The result:</p>
-<pre class="bash"><code>the 13600
-of 8127
-and 6542
-a 5842
-to 4787
-in 4606
-his 3035
-he 2712
-I 2432
-with 2391</code></pre>
+<pre><code># the 13600
+# of 8127
+# and 6542
+# a 5842
+# to 4787
+# in 4606
+# his 3035
+# he 2712
+# I 2432
+# with 2391</code></pre>
 <p> </p>
 <p>We do not consider special characters, sentence endings, capitals, etc.</p>
 <p> </p>
@@ -177,8 +177,7 @@ with 2391</code></pre>
 <li>Words to look for?</li>
 <li>Chunks of text?</li>
 </ul>
-<pre class="python"><code>
-wordcount={}
+<pre class="python"><code>wordcount={}
 
 runWordCountOnChunk1()
 runWordCountOnChunk2()
@@ -232,7 +231,7 @@ A mutable data structure is hard to work with in a distributed fashion!
 </section>
 <section class="slide level1">
 
-<p>A Functional alternative:</p>
+<p>A Functional alternative, using recursion:</p>
 <pre class="python"><code>def exp(x, n):
     if n == 0:
         return 1
@@ -247,7 +246,7 @@ A mutable data structure is hard to work with in a distributed fashion!
     return exp(x,2)</code></pre>
 <p> </p>
 <p>We can then apply this function to all elements in a list:</p>
-<pre class="python"><code>&gt;&gt;&gt; map(exp2,[1,2,3,4])
+<pre class="python"><code>&gt;&gt;&gt; map(exp2, [1,2,3,4])
 [1, 4, 9, 16]</code></pre>
 </section>
 <section class="slide level1">
@@ -257,19 +256,29 @@ A mutable data structure is hard to work with in a distributed fashion!
    return x + y</code></pre>
 <p> </p>
 <p>We can now calculate the sum of all elements in a list:</p>
-<pre class="python"><code>&gt;&gt;&gt; reduce(sum,[1,2,3,4])
+<pre class="python"><code>&gt;&gt;&gt; reduce(sum, [1,2,3,4])
 10</code></pre>
 </section>
 <section class="slide level1">
 
+<p>Reduce works as follows:</p>
+<pre class="python"><code>sum(sum(sum(1, 2), 3), 4)</code></pre>
+<p>or:</p>
+<pre class="python"><code>sum(sum(1, 2), sum(3, 4))</code></pre>
+<p>or:</p>
+<pre class="python"><code>sum(1, sum(2, sum(3, 4)))</code></pre>
+<p>or: ....</p>
+</section>
+<section class="slide level1">
+
 <p>This is where the fun starts:</p>
-<pre class="python"><code>&gt;&gt;&gt; reduce(sum,map(exp2,[1,2,3,4]))
+<pre class="python"><code>&gt;&gt;&gt; reduce(sum, map(exp2, [1,2,3,4]))
 30</code></pre>
 </section>
 <section class="slide level1">
 
 <p>One more important function:</p>
-<pre class="python"><code>&gt;&gt;&gt; filter(lambda x: x&gt;2 ,[1,2,3,4])
+<pre class="python"><code>&gt;&gt;&gt; filter(lambda x: x&gt;2 , [1,2,3,4])
 [3, 4]</code></pre>
 <p> </p>
 <p>Here, we introduced Lambda expression in Python. The above is the same as:</p>
@@ -309,7 +318,7 @@ filter(filter2 ,[1,2,3,4])</code></pre>
 <p>A lot of mainstream programming languages do not support Functional Programming in a standard way.</p>
 </blockquote>
 <p> </p>
-<p>Think of Java, C, C++, ...</p>
+<p>Think of Java (&lt; v8), C, C++, ...</p>
 </section>
 <section class="slide level1">
 
@@ -364,12 +373,12 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;</code></pre>
 </section>
 <section class="slide level1">
 
-<pre class="java"><code> public static class Map extends Mapper&lt;LongWritable, Text, Text, IntWritable&gt; {
+<pre class="java"><code>public static class Map extends Mapper&lt;LongWritable, Text, Text, IntWritable&gt; {
     private final static IntWritable one = new IntWritable(1);
     private Text word = new Text();
         
-    public void map(LongWritable key, Text value, Context context) \
-            throws IOException, InterruptedException {
+    public void map(LongWritable key, Text value, Context context)
+           throws IOException, InterruptedException {
         String line = value.toString();
         StringTokenizer tokenizer = new StringTokenizer(line);
         while (tokenizer.hasMoreTokens()) {
@@ -377,29 +386,30 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;</code></pre>
             context.write(word, one);
         }
     }
- }</code></pre>
+}</code></pre>
 </section>
 <section class="slide level1">
 
-<pre class="java"><code> public static class Reduce extends Reducer&lt;Text, IntWritable, Text, IntWritable&gt; {
+<pre class="java"><code>public static class Reduce extends Reducer&lt;Text, IntWritable, Text, IntWritable&gt; {
 
-    public void reduce(Text key, Iterable&lt;IntWritable&gt; values, Context context) 
-      throws IOException, InterruptedException {
-        int sum = 0;
-        for (IntWritable val : values) {
-            sum += val.get();
-        }
-        context.write(key, new IntWritable(sum));
-    }
- }</code></pre>
+   public void reduce(Text key, Iterable&lt;IntWritable&gt; values, Context context)
+          throws IOException, InterruptedException {
+       int sum = 0;
+       for (IntWritable val : values) {
+           sum += val.get();
+       }
+       context.write(key, new IntWritable(sum));
+   }
+}</code></pre>
 </section>
 <section class="slide level1">
 
-<pre class="java"><code> public static void main(String[] args) throws Exception {
+<pre class="java"><code>public static void main(String[] args) throws Exception {
+
     Configuration conf = new Configuration();
-        
+
     Job job = new Job(conf, &quot;wordcount&quot;);
-    
+
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(IntWritable.class);
 
@@ -408,12 +418,12 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;</code></pre>
 
     job.setInputFormatClass(TextInputFormat.class);
     job.setOutputFormatClass(TextOutputFormat.class);
-        
+
     FileInputFormat.addInputPath(job, new Path(args[0]));
     FileOutputFormat.setOutputPath(job, new Path(args[1]));
-        
+
     job.waitForCompletion(true);
- }</code></pre>
+}</code></pre>
 </section>
 <section id="example-with-hadoop-streaming" class="slide level1">
 <h1>Example with Hadoop Streaming</h1>
@@ -421,10 +431,10 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;</code></pre>
 <section class="slide level1">
 
 <h2 id="easy-input-file">Easy input file</h2>
-<pre class="shell"><code>&gt; cat easy_file.txt
+<pre class="bash"><code>&gt; cat easy_file.txt
 a b c a b a</code></pre>
 <p>Initial word count script:</p>
-<pre class="shell"><code>&gt; cat easy_file.txt | ./wordcount.py
+<pre class="bash"><code>&gt; cat easy_file.txt | ./wordcount.py
 a 3
 c 1
 b 2</code></pre>
@@ -537,6 +547,7 @@ c   1</code></pre>
   -file reducer.py -reducer reducer.py \
   -input Joyce-Ulysses.txt \
   -output output</code></pre>
+<p> </p>
 <p>The result is a <strong>folder</strong>:</p>
 <pre class="bash"><code>&gt; ls output
 _SUCCESS   part-00000</code></pre>
@@ -544,7 +555,7 @@ _SUCCESS   part-00000</code></pre>
 <section class="slide level1">
 
 <p>Via Hadoop on teaching server:</p>
-<pre class="bash"><code>&gt; hadoop jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+<pre class="bash"><code>&gt; hadoop jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   -file mapper.py -mapper mapper.py \
   -file reducer.py -reducer reducer.py \
   -input Joyce-Ulysses.txt \
@@ -600,8 +611,10 @@ _SUCCESS   part-00000</code></pre>
 <section class="slide level1">
 
 <h2 id="dfs-and-mr-better-together">DFS and MR: Better Together</h2>
-<p>Traditional processing: Bring data to computation</p>
-<p>Big Data: Bring computation to data</p>
+<p> </p>
+<p><strong>Traditional processing</strong>: Bring data to computation</p>
+<p> </p>
+<p><strong>Big Data</strong>: Bring computation to data</p>
 </section>
 <section id="alternatives-to-hadoop" class="slide level1">
 <h1>Alternatives to Hadoop</h1>
@@ -709,8 +722,8 @@ import com.twitter.scalding._
 
 class WordCountJob(args : Args) extends Job(args) {
   TextLine( args(&quot;input&quot;) )
-    .flatMap(&#39;line -&gt; &#39;word) { line : String =&gt; tokenize(line) }
-    .groupBy(&#39;word) { _.size }
+    .flatMap(line -&gt; word) { line : String =&gt; tokenize(line) }
+    .groupBy(word) { _.size }
     .write( Tsv( args(&quot;output&quot;) ) )
 
   // Split a piece of text into individual words.
