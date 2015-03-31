@@ -78,14 +78,24 @@ To run this example in the shell (not Hadoop!)
 cat /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv | ./mapper.py | sort -k 1,1 | ./reducer.py
 ```
 
+We first have to set some environment variables in order for the rest to work properly:
+
+```
+export PATH="$PATH:/mnt/bioinformatics_leuven/homes/tverbeiren/hadoop-common/hadoop-dist/target/hadoop-2.4.0/bin"
+export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"
+export PATH="$PATH:/opt/hadoop/hadoop-dist/target/hadoop-2.4.0/bin"
+export PATH="$PATH:/opt/spark/bin"
+export SPARK_HOME="/opt/spark"
+```
+
 To run the example using Hadoop, use the following:
 
 ```bash
-hadoop jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+hadoop jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   -mapper mapper.py \
   -reducer reducer.py \
   -input /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv \
-  -output output \
+  -output output
 ```
 
 Does this work? Does it give some insight? Why (not)?
@@ -119,11 +129,11 @@ The reducer is the same.
 Hadoop can be initiated like this:
 
 ```bash
-hadoop jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+hadoop jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   -mapper mapper1.py \
   -reducer reducer.py \
   -input /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv \
-  -output output \
+  -output output
 ```
 
 Does this work? Does it give some insight? Why (not)? How many times is PARACETAMOL the active substance?
@@ -143,7 +153,7 @@ Otherwise, spaces are used as delimiters.
 
 We go one step further. In the previous exercise, we did a word count on all columns in the original data. We now select one specific _column_.
 
-Rewrite the mapper script to only send active substance names to the reducer. Call the resulting scripts `mapper2.py` and `reducer2.py`.
+Rewrite the mapper script to only send active substance names to the reducer. Call the resulting mapper script `mapper2.py`.
 
 Mapper:
 
@@ -168,11 +178,11 @@ The reducer remains the same.
 To run Hadoop:
 
 ```bash
-hadoop jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+hadoop jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   -mapper mapper2.py \
   -reducer reducer.py \
   -input /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv \
-  -output output \
+  -output output
 ```
 
 The most active substance? This is the top-10:
@@ -265,11 +275,11 @@ if current_word == word:
 Hadoop run:
 
 ```bash
-hadoop jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+hadoop jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   -mapper mapper3.py \
   -reducer reducer3.py \
   -input /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv \
-  -output output \
+  -output output
 ```
 
 Is this a convenient way to work? What would make your life easier?
@@ -358,19 +368,18 @@ print '%s\t%s\t%s' % (current_cti, current_count, value)%
 What is the top-10?
 
 ```bash
-hadoop jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+hadoop jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   -mapper mapperJoin.py \
   -reducer reducerJoin.py \
   -input mapper.py \
-  -output output \
+  -output output
 ```
 
-The `-input` flag is strange and is actually a dummy file as the real input files are defined in the mapper. Be careful, this would not work as-as on HDFS.
+The `-input` flag is strange and is actually a dummy file as the real input files are defined in the mapper. Be careful, this would not work as-is on HDFS!
 
 To get a sorted listing:
 
     cat  part-00000  | sort -r -g -k2,2 -t$'\t' | head
-
 
 
 ## 3. Spark
@@ -378,12 +387,12 @@ To get a sorted listing:
 Do the same exercise as above with the drug database, but now using the Spark interactive shell. It can be launched in the following way:
 
 ```
-/mnt/bioinformatics_leuven/incubator-spark/bin/pyspark
+pyspark
 ```
 
 Refer to the examples given in the lecture and see how far you can get.
 
-Take a look at: <http://spark.apache.org/docs/0.9.0/api/pyspark/index.html>
+Take a look at: <http://spark.apache.org/docs/latest/programming-guide.html>
 
 Some examples:
 
@@ -409,7 +418,7 @@ result2 = file.map(lambda line: line.split(",")) \
     .map(lambda x: x[2]) \
     .map(lambda word: (word, 1)) \
     .reduceByKey(lambda a, b: a + b)
-result2.filter(lambda x: x[0] == '"PARACETAMOL"')
+result2.filter(lambda x: x[0] == '"PARACETAMOL"').collect()
 ```
 
 Please remark the two types of quotes.

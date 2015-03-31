@@ -94,12 +94,18 @@ word = <span class="ot">None</span>
 <p>Make sure the scripts can be executed (<code>chmod u+x *.py</code> if needed).</p>
 <p>To run this example in the shell (not Hadoop!)</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cat</span> /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv <span class="kw">|</span> <span class="kw">./mapper.py</span> <span class="kw">|</span> <span class="kw">sort</span> -k 1,1 <span class="kw">|</span> <span class="kw">./reducer.py</span></code></pre>
+<p>We first have to set some environment variables in order for the rest to work properly:</p>
+<pre><code>export PATH=&quot;$PATH:/mnt/bioinformatics_leuven/homes/tverbeiren/hadoop-common/hadoop-dist/target/hadoop-2.4.0/bin&quot;
+export JAVA_HOME=&quot;/usr/lib/jvm/java-7-openjdk-amd64/&quot;
+export PATH=&quot;$PATH:/opt/hadoop/hadoop-dist/target/hadoop-2.4.0/bin&quot;
+export PATH=&quot;$PATH:/opt/spark/bin&quot;
+export SPARK_HOME=&quot;/opt/spark&quot;</code></pre>
 <p>To run the example using Hadoop, use the following:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">hadoop</span> jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">hadoop</span> jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   <span class="kw">-mapper</span> mapper.py \
   <span class="kw">-reducer</span> reducer.py \
   <span class="kw">-input</span> /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv \
-  <span class="kw">-output</span> output \</code></pre>
+  <span class="kw">-output</span> output</code></pre>
 <p>Does this work? Does it give some insight? Why (not)?</p>
 <h3 id="attempt-2">1.2 Attempt 2</h3>
 <p>What about splitting the lines (in the mapper) on ',' instead of spaces? Adapt the <code>mapper.py</code> script. Name it <code>mapper1.py</code>. Do we have to change the reducer script?</p>
@@ -120,11 +126,11 @@ word = <span class="ot">None</span>
         <span class="dt">print</span> <span class="st">'</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="st">'</span> % (word, <span class="dv">1</span>)</code></pre>
 <p>The reducer is the same.</p>
 <p>Hadoop can be initiated like this:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">hadoop</span> jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">hadoop</span> jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   <span class="kw">-mapper</span> mapper1.py \
   <span class="kw">-reducer</span> reducer.py \
   <span class="kw">-input</span> /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv \
-  <span class="kw">-output</span> output \</code></pre>
+  <span class="kw">-output</span> output</code></pre>
 <p>Does this work? Does it give some insight? Why (not)? How many times is PARACETAMOL the active substance?</p>
 <p>In order to find Paracetamol: Look in the dataset (using for instance <code>less</code>) and find the word. The answer is 136.</p>
 <p>What is the most used substance?</p>
@@ -133,7 +139,7 @@ word = <span class="ot">None</span>
 <p>Otherwise, spaces are used as delimiters.</p>
 <h3 id="finding-out-about-active-substances-directly">1.3 Finding out about active substances directly</h3>
 <p>We go one step further. In the previous exercise, we did a word count on all columns in the original data. We now select one specific <em>column</em>.</p>
-<p>Rewrite the mapper script to only send active substance names to the reducer. Call the resulting scripts <code>mapper2.py</code> and <code>reducer2.py</code>.</p>
+<p>Rewrite the mapper script to only send active substance names to the reducer. Call the resulting mapper script <code>mapper2.py</code>.</p>
 <p>Mapper:</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">#!/usr/bin/env python</span>
 
@@ -150,11 +156,11 @@ word = <span class="ot">None</span>
     <span class="dt">print</span> <span class="st">'</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="st">'</span> % (words[<span class="dv">2</span>], <span class="dv">1</span>)</code></pre>
 <p>The reducer remains the same.</p>
 <p>To run Hadoop:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">hadoop</span> jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">hadoop</span> jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   <span class="kw">-mapper</span> mapper2.py \
   <span class="kw">-reducer</span> reducer.py \
   <span class="kw">-input</span> /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv \
-  <span class="kw">-output</span> output \</code></pre>
+  <span class="kw">-output</span> output</code></pre>
 <p>The most active substance? This is the top-10:</p>
 <pre><code>cat  part-00000  | sort -r -g -k2,2 -t$'\t' | head</code></pre>
 <h3 id="active-substances-and-maximum-doses">1.4 Active substances and maximum doses</h3>
@@ -227,11 +233,11 @@ word = <span class="ot">None</span>
 <span class="kw">if</span> current_word == word:
     <span class="dt">print</span> <span class="st">'</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="st">'</span> % (current_word, current_count,dose)</code></pre>
 <p>Hadoop run:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">hadoop</span> jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">hadoop</span> jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   <span class="kw">-mapper</span> mapper3.py \
   <span class="kw">-reducer</span> reducer3.py \
   <span class="kw">-input</span> /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv \
-  <span class="kw">-output</span> output \</code></pre>
+  <span class="kw">-output</span> output</code></pre>
 <p>Is this a convenient way to work? What would make your life easier?</p>
 <p>This is a poor way to pass additional data between two phases. We could use different approaches: <code>JSON</code>, ... Another option would be to use a datamodel and work with objects. These objects then need to be converted to a stream of data.</p>
 <h2 id="normalization">2. Normalization</h2>
@@ -294,19 +300,19 @@ for line in sys.stdin:
 # do not forget to output the last word if needed!
 print '%s\t%s\t%s' % (current_cti, current_count, value)%</code></pre>
 <p>What is the top-10?</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">hadoop</span> jar /usr/lib/hadoop/contrib/streaming/hadoop-streaming-0.20.2-cdh3u6.jar \
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">hadoop</span> jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   <span class="kw">-mapper</span> mapperJoin.py \
   <span class="kw">-reducer</span> reducerJoin.py \
   <span class="kw">-input</span> mapper.py \
-  <span class="kw">-output</span> output \</code></pre>
-<p>The <code>-input</code> flag is strange and is actually a dummy file as the real input files are defined in the mapper. Be careful, this would not work as-as on HDFS.</p>
+  <span class="kw">-output</span> output</code></pre>
+<p>The <code>-input</code> flag is strange and is actually a dummy file as the real input files are defined in the mapper. Be careful, this would not work as-is on HDFS!</p>
 <p>To get a sorted listing:</p>
 <pre><code>cat  part-00000  | sort -r -g -k2,2 -t$'\t' | head</code></pre>
 <h2 id="spark">3. Spark</h2>
 <p>Do the same exercise as above with the drug database, but now using the Spark interactive shell. It can be launched in the following way:</p>
-<pre><code>/mnt/bioinformatics_leuven/incubator-spark/bin/pyspark</code></pre>
+<pre><code>pyspark</code></pre>
 <p>Refer to the examples given in the lecture and see how far you can get.</p>
-<p>Take a look at: <a href="http://spark.apache.org/docs/0.9.0/api/pyspark/index.html">http://spark.apache.org/docs/0.9.0/api/pyspark/index.html</a></p>
+<p>Take a look at: <a href="http://spark.apache.org/docs/latest/programming-guide.html">http://spark.apache.org/docs/latest/programming-guide.html</a></p>
 <p>Some examples:</p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="dt">file</span> = sc.textFile(<span class="st">&quot;/mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv&quot;</span>)
 counts = <span class="dt">file</span>.flatMap(<span class="kw">lambda</span> line: line.split(<span class="st">&quot;,&quot;</span>)) \
@@ -321,7 +327,7 @@ counts = <span class="dt">file</span>.flatMap(<span class="kw">lambda</span> lin
     .map(lambda x: x[2]) \
     .map(lambda word: (word, 1)) \
     .reduceByKey(lambda a, b: a + b)
-result2.filter(lambda x: x[0] == '&quot;PARACETAMOL&quot;')</code></pre>
+result2.filter(lambda x: x[0] == '&quot;PARACETAMOL&quot;').collect()</code></pre>
 <p>Please remark the two types of quotes.</p>
 </body>
 </html>
