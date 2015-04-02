@@ -262,14 +262,14 @@ for line in sys.stdin:
     else:
         if current_word:
             # write result to STDOUT
-            print '%s\t%s\t%s' % (current_word, current_count, dose)
+            print '%s\t%s\t%s' % (current_word, current_count, max_dose)
         current_count = count
         current_word = word
         max_dose = dose
 
 # do not forget to output the last word if needed!
 if current_word == word:
-    print '%s\t%s\t%s' % (current_word, current_count,dose)
+    print '%s\t%s\t%s' % (current_word, current_count, max_dose)
 ```
 
 Hadoop run:
@@ -319,8 +319,10 @@ Mapper:
 
 import sys
 
-amm_det = open('../../data/drugdb/AMM_det_H.csv', 'r')
-amm = open('../../data/drugdb/AMM_H.csv', 'r')
+abs_path = '/mnt/bioinformatics_leuven/i0u19a/data/drugdb/'
+
+amm_det = open(abs_path + 'AMM_det_H.csv', 'r')
+amm = open(abs_path + 'AMM_H.csv', 'r')
 
 for line in amm:
     words = line.strip().split(',')
@@ -362,7 +364,7 @@ for line in sys.stdin:
         current_count = current_count + 1
 
 # do not forget to output the last word if needed!
-print '%s\t%s\t%s' % (current_cti, current_count, value)%
+print '%s\t%s\t%s' % (current_cti, current_count, value)
 ```
 
 What is the top-10?
@@ -380,6 +382,8 @@ The `-input` flag is strange and is actually a dummy file as the real input file
 To get a sorted listing:
 
     cat  part-00000  | sort -r -g -k2,2 -t$'\t' | head
+
+One more thing: ask yourself if this approach would work when running on a cluster. Why would this not be a good idea?
 
 
 ## 3. Spark
