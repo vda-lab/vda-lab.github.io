@@ -224,14 +224,14 @@ word = <span class="ot">None</span>
     <span class="kw">else</span>:
         <span class="kw">if</span> current_word:
             <span class="co"># write result to STDOUT</span>
-            <span class="dt">print</span> <span class="st">'</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="st">'</span> % (current_word, current_count, dose)
+            <span class="dt">print</span> <span class="st">'</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="st">'</span> % (current_word, current_count, max_dose)
         current_count = count
         current_word = word
         max_dose = dose
 
 <span class="co"># do not forget to output the last word if needed!</span>
 <span class="kw">if</span> current_word == word:
-    <span class="dt">print</span> <span class="st">'</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="st">'</span> % (current_word, current_count,dose)</code></pre>
+    <span class="dt">print</span> <span class="st">'</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="ch">\t</span><span class="ot">%s</span><span class="st">'</span> % (current_word, current_count, max_dose)</code></pre>
 <p>Hadoop run:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">hadoop</span> jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   <span class="kw">-mapper</span> mapper3.py \
@@ -259,8 +259,10 @@ word = <span class="ot">None</span>
 
 import sys
 
-amm_det = open('../../data/drugdb/AMM_det_H.csv', 'r')
-amm = open('../../data/drugdb/AMM_H.csv', 'r')
+abs_path = '/mnt/bioinformatics_leuven/i0u19a/data/drugdb/'
+
+amm_det = open(abs_path + 'AMM_det_H.csv', 'r')
+amm = open(abs_path + 'AMM_H.csv', 'r')
 
 for line in amm:
     words = line.strip().split(',')
@@ -298,7 +300,7 @@ for line in sys.stdin:
         current_count = current_count + 1
 
 # do not forget to output the last word if needed!
-print '%s\t%s\t%s' % (current_cti, current_count, value)%</code></pre>
+print '%s\t%s\t%s' % (current_cti, current_count, value)</code></pre>
 <p>What is the top-10?</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">hadoop</span> jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   <span class="kw">-mapper</span> mapperJoin.py \
@@ -308,6 +310,7 @@ print '%s\t%s\t%s' % (current_cti, current_count, value)%</code></pre>
 <p>The <code>-input</code> flag is strange and is actually a dummy file as the real input files are defined in the mapper. Be careful, this would not work as-is on HDFS!</p>
 <p>To get a sorted listing:</p>
 <pre><code>cat  part-00000  | sort -r -g -k2,2 -t$'\t' | head</code></pre>
+<p>One more thing: ask yourself if this approach would work when running on a cluster. Why would this not be a good idea?</p>
 <h2 id="spark">3. Spark</h2>
 <p>Do the same exercise as above with the drug database, but now using the Spark interactive shell. It can be launched in the following way:</p>
 <pre><code>pyspark</code></pre>
