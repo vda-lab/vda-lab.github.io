@@ -80,7 +80,7 @@ cat /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv | ./mapper.py | 
 
 We first have to set some environment variables in order for the rest to work properly:
 
-```
+```bash
 export PATH="$PATH:/mnt/bioinformatics_leuven/homes/tverbeiren/hadoop-common/hadoop-dist/target/hadoop-2.4.0/bin"
 export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"
 export PATH="$PATH:/opt/hadoop/hadoop-dist/target/hadoop-2.4.0/bin"

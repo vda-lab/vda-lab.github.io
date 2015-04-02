@@ -95,11 +95,11 @@ word = <span class="ot">None</span>
 <p>To run this example in the shell (not Hadoop!)</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cat</span> /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv <span class="kw">|</span> <span class="kw">./mapper.py</span> <span class="kw">|</span> <span class="kw">sort</span> -k 1,1 <span class="kw">|</span> <span class="kw">./reducer.py</span></code></pre>
 <p>We first have to set some environment variables in order for the rest to work properly:</p>
-<pre><code>export PATH=&quot;$PATH:/mnt/bioinformatics_leuven/homes/tverbeiren/hadoop-common/hadoop-dist/target/hadoop-2.4.0/bin&quot;
-export JAVA_HOME=&quot;/usr/lib/jvm/java-7-openjdk-amd64/&quot;
-export PATH=&quot;$PATH:/opt/hadoop/hadoop-dist/target/hadoop-2.4.0/bin&quot;
-export PATH=&quot;$PATH:/opt/spark/bin&quot;
-export SPARK_HOME=&quot;/opt/spark&quot;</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">export</span> <span class="ot">PATH=</span><span class="st">&quot;</span><span class="ot">$PATH</span><span class="st">:/mnt/bioinformatics_leuven/homes/tverbeiren/hadoop-common/hadoop-dist/target/hadoop-2.4.0/bin&quot;</span>
+<span class="kw">export</span> <span class="ot">JAVA_HOME=</span><span class="st">&quot;/usr/lib/jvm/java-7-openjdk-amd64/&quot;</span>
+<span class="kw">export</span> <span class="ot">PATH=</span><span class="st">&quot;</span><span class="ot">$PATH</span><span class="st">:/opt/hadoop/hadoop-dist/target/hadoop-2.4.0/bin&quot;</span>
+<span class="kw">export</span> <span class="ot">PATH=</span><span class="st">&quot;</span><span class="ot">$PATH</span><span class="st">:/opt/spark/bin&quot;</span>
+<span class="kw">export</span> <span class="ot">SPARK_HOME=</span><span class="st">&quot;/opt/spark&quot;</span></code></pre>
 <p>To run the example using Hadoop, use the following:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">hadoop</span> jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   <span class="kw">-mapper</span> mapper.py \
