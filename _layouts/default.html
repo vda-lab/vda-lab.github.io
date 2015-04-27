@@ -1,0 +1,63 @@
+
+{% include header.html %}
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>i0u19a</h1>
+        <p>This webpage collects the material that is used for course i019a. You will find information about exercises and assigments.</p>
+        <p>For information about exercises and assignments, click the respective links below</p>
+        <p>The datases that are used throughout the course <a href="datasets/datasets">are introduced here</a>.</p>
+      </div>
+    </div>
+
+  <div class="container-fluid">
+
+{% assign loopindex = 0 %}
+{% assign index = 0 %}
+
+{% for post in site.posts reversed %}
+
+  {% assign rowfinder = loopindex | modulo: 3 %}
+  {% assign loopindex = loopindex | plus: 1 %}
+  {% assign index = index | plus: 1 %}
+
+  {% if rowfinder == 0 %}
+    <div class="row">
+  {% endif %}
+
+    {% assign op = "" %}
+    {% if post.opacity == "true" %}
+      {% assign op = "style='opacity: .5'" %}
+    {% else %}
+      {% assign op = "style='opacity: 1'"" %}
+    {% endif %}
+
+        <div class="col-md-4" {{op}}>
+          <p>{{ post.date | date: "%-d %B %Y" }}</p>
+          <h2>{{ index}}. {{ post.title }}</h2>
+          <p>{{ post.excerpt | replace: '!PAGE_URL!', post.url | markdownify }}</p>
+          {% assign content = post.content | strip_newlines %}
+          {% if content == ""  %}
+            <p></p>
+          {% else %}
+            {% if post.highlight == "true" %}
+              <p><a class="btn btn-primary" role="button" href="{{ post.url }}">More &raquo;</a></p>
+            {% else %}
+              <p><a class="btn btn-default" role="button" href="{{ post.url }}">More &raquo;</a></p>
+            {% endif %}
+          {% endif %}
+
+       </div>
+
+  {% if rowfinder == 2 %}
+    </div><hr/>
+  {% endif %}
+
+
+{% endfor %}
+
+
+</div> <!-- container end -->
+
+{% include footer.html %}
