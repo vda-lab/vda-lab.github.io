@@ -1,0 +1,108 @@
+*************************************************
+**** BEER DATASET - CYPHER Query Examples ****
+*************************************************
+
+
+****  Beers from same brewery as DUVEL ****
+
+start duvel=node:node_auto_index(name="Duvel")
+match
+duvel<-[:Brews]->brouwerij,
+duvel-[:isa]->biertype,
+anderbier<-[:Brews]->brouwerij,
+anderbier-[:isa]->biertype2
+return
+anderbier.name AS name,
+collect(biertype2.name) AS biertype;
+
+****  Beers from same brewery as ORVAL ****
+
+start orval=node:node_auto_index(name="Orval")
+match
+orval<-[:Brews]->brouwerij,
+orval-[:isa]->biertype,
+anderbier<-[:Brews]->brouwerij,
+anderbier-[:isa]->biertype2
+return
+anderbier.name AS name,
+collect(biertype2.name) AS biertype;
+
+****  Beers from same type as ORVAL - ALL BELGIAN TRAPPISTS ****
+
+start orval=node:node_auto_index(name="Orval")
+match
+orval<-[:Brews]->brouwerij,
+orval-[:isa]->biertype,
+anderbier-[:isa]->biertype
+return
+anderbier.name AS name,
+collect(biertype.name) AS biertype
+order by anderbier.name;
+
+****  Beers that could has same alcohol percentage as DUVEL ****
+
+start duvel=node:node_auto_index(name="Duvel")
+match
+duvel-[:HasAlcoholPercentage]->alcohol,
+duvel-[:isa]->biertype,
+anderbier-[:HasAlcoholPercentage]->alcohol,
+anderbier-[isa]->anderbiertype
+return
+anderbier.name AS name,
+collect(anderbiertype.name) AS biertype
+order by anderbier.name;
+
+****  Beers that could has same alcohol percentage and same type as DUVEL ****
+
+start duvel=node:node_auto_index(name="Duvel")
+match
+duvel-[:HasAlcoholPercentage]->alcohol,
+duvel-[:isa]->biertype,
+anderbier-[:HasAlcoholPercentage]->alcohol,
+anderbier-[:isa]->biertype
+return
+anderbier.name AS name,
+biertype.name AS biertype
+order by anderbier.name;
+
+
+****  Beers that could has same alcohol percentage and same type as ORVAL ****
+
+start orval=node:node_auto_index(name="Orval")
+match
+orval-[:HasAlcoholPercentage]->alcohol,
+orval-[:isa]->biertype,
+anderbier-[:HasAlcoholPercentage]->alcohol,
+anderbier-[:isa]->biertype
+return
+anderbier.name AS name,
+biertype.name AS biertype;
+
+**** All Paths between two beers BEFORE/AFTER transaction ****
+
+    START
+        duvel=node:node_auto_index(name="Duvel"),
+        orval=node:node_auto_index(name="Orval")
+    MATCH p = AllshortestPaths( duvel-[*]-orval )
+    return p;
+
+
+**** Transaction example ****
+
+**** Adding Rik and his love for Duvel and Orval ****
+begin
+start orval=node:node_auto_index(name="Orval")
+create (rik{name:"Rik"})-[:loves]->orval;
+start duvel=node:node_auto_index(name="Duvel"), rik=node:node_auto_index(name="Rik")
+create rik-[:loves]->duvel;
+commit
+rollback
+
+**** Removing Rik and all Relationships ****
+begin
+start rik=node:node_auto_index(name="Rik")
+match rik-[rels]-()
+delete rik,rels;
+commit
+
+

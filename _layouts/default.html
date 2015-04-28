@@ -7,7 +7,7 @@
         <h1>i0u19a</h1>
         <p>This webpage collects the material that is used for course i019a. You will find information about exercises and assigments.</p>
         <p>For information about exercises and assignments, click the respective links below</p>
-        <p>The datases that are used throughout the course <a href="datasets/datasets">are introduced here</a>.</p>
+        <p>The datases that are used throughout the course <a href="/datasets/datasets">are introduced here</a>.</p>
       </div>
     </div>
 
@@ -17,6 +17,7 @@
 {% assign index = 0 %}
 
 {% for post in site.posts reversed %}
+{% if post.instructor != "true" %}
 
   {% assign rowfinder = loopindex | modulo: 3 %}
   {% assign loopindex = loopindex | plus: 1 %}
@@ -54,7 +55,7 @@
     </div><hr/>
   {% endif %}
 
-
+{% endif %}
 {% endfor %}
 
 
