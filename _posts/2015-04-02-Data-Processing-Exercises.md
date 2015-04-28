@@ -12,7 +12,7 @@ Implement the Python `mapper` and `reducer` scripts on the slides of week 6. Run
 
 Mapper:
 
-```python
+``` python
 #!/usr/bin/env python
 
 # Simple mapper, just like on the lecture slides
@@ -32,7 +32,7 @@ for line in sys.stdin:
 
 Reducer:
 
-```python
+~~~python
 #!/usr/bin/env python
 
 # A simple reducer, as used in the lecture
@@ -71,35 +71,35 @@ for line in sys.stdin:
 # do not forget to output the last word if needed!
 if current_word == word:
     print '%s\t%s' % (current_word, current_count)
-```
+~~~
 
 Make sure the scripts can be executed (`chmod u+x *.py` if needed).
 
 To run this example in the shell (not Hadoop!)
 
-```bash
+~~~bash
 cat /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv | ./mapper.py | sort -k 1,1 | ./reducer.py
-```
+~~~
 
 We first have to set some environment variables in order for the rest to work properly:
 
-```bash
+~~~ bash
 export PATH="$PATH:/mnt/bioinformatics_leuven/homes/tverbeiren/hadoop-common/hadoop-dist/target/hadoop-2.4.0/bin"
 export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"
 export PATH="$PATH:/opt/hadoop/hadoop-dist/target/hadoop-2.4.0/bin"
 export PATH="$PATH:/opt/spark/bin"
 export SPARK_HOME="/opt/spark"
-```
+~~~
 
 To run the example using Hadoop, use the following:
 
-```bash
+~~~bash
 hadoop jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   -mapper mapper.py \
   -reducer reducer.py \
   -input /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv \
   -output output
-```
+~~~
 
 Does this work? Does it give some insight? Why (not)?
 
@@ -110,7 +110,7 @@ What about splitting the lines (in the mapper) on ',' instead of spaces? Adapt t
 
 Mapper:
 
-```python
+~~~python
 #!/usr/bin/env python
 
 # Lines are split on ',':
@@ -125,19 +125,19 @@ for line in sys.stdin:
     words = line.split(",")
     for word in words:
         print '%s\t%s' % (word, 1)
-```
+~~~
 
 The reducer is the same.
 
 Hadoop can be initiated like this:
 
-```bash
+~~~bash
 hadoop jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   -mapper mapper1.py \
   -reducer reducer.py \
   -input /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv \
   -output output
-```
+~~~
 
 Does this work? Does it give some insight? Why (not)? How many times is PARACETAMOL the active substance?
 
@@ -160,7 +160,7 @@ Rewrite the mapper script to only send active substance names to the reducer. Ca
 
 Mapper:
 
-```python
+~~~python
 #!/usr/bin/env python
 
 # Lines are split on ',':
@@ -174,19 +174,19 @@ import sys
 for line in sys.stdin:
     words = line.strip().split(",")
     print '%s\t%s' % (words[2], 1)
-```
+~~~
 
 The reducer remains the same.
 
 To run Hadoop:
 
-```bash
+~~~bash
 hadoop jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   -mapper mapper2.py \
   -reducer reducer.py \
   -input /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv \
   -output output
-```
+~~~
 
 The most active substance? This is the top-10:
 
@@ -204,7 +204,7 @@ Name the scripts `mapper3.py` and `reducer3.py`. Think of the assignments you di
 
 Mapper:
 
-```python
+~~~python
 #!/usr/bin/env python
 
 # Mapper for AMM_det_H.csv
@@ -221,11 +221,11 @@ import sys
 for line in sys.stdin:
     words = line.strip().split(",")
     print '%s\t%s,%s' % (words[2], 1, words[4].replace('"', ''))
-```
+~~~
 
 Reducer:
 
-```python
+~~~python
 #!/usr/bin/env python
 
 # A simple reducer, as used in the lecture
@@ -273,17 +273,17 @@ for line in sys.stdin:
 # do not forget to output the last word if needed!
 if current_word == word:
     print '%s\t%s\t%s' % (current_word, current_count, max_dose)
-```
+~~~
 
 Hadoop run:
 
-```bash
+~~~bash
 hadoop jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   -mapper mapper3.py \
   -reducer reducer3.py \
   -input /mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv \
   -output output
-```
+~~~
 
 Is this a convenient way to work? What would make your life easier?
 
@@ -312,7 +312,7 @@ Rewrite the map and reduce phase such that we can get the answer to the question
 
 Mapper:
 
-```
+~~~
 #!/usr/bin/env python
 
 # Simple mapper, just like on the lecture slides
@@ -334,11 +334,11 @@ for line in amm:
 for line in amm_det:
     words = line.strip().split(',')
     print '%s.%s\t%s' % (words[1], "2", words[2])
-```
+~~~
 
 Reducer:
 
-```
+~~~
 #!/usr/bin/env python
 
 # This reduces the special-format output for joining
@@ -368,17 +368,17 @@ for line in sys.stdin:
 
 # do not forget to output the last word if needed!
 print '%s\t%s\t%s' % (current_cti, current_count, value)
-```
+~~~
 
 What is the top-10?
 
-```bash
+~~~bash
 hadoop jar /opt/hadoop/hadoop-tools/hadoop-streaming/target/hadoop-streaming-2.4.0.jar \
   -mapper mapperJoin.py \
   -reducer reducerJoin.py \
   -input mapper.py \
   -output output
-```
+~~~
 
 The `-input` flag is strange and is actually a dummy file as the real input files are defined in the mapper. Be careful, this would not work as-is on HDFS!
 
@@ -393,9 +393,9 @@ One more thing: ask yourself if this approach would work when running on a clust
 
 Do the same exercise as above with the drug database, but now using the Spark interactive shell. It can be launched in the following way:
 
-```
+~~~
 pyspark
-```
+~~~
 
 Refer to the examples given in the lecture and see how far you can get.
 
@@ -404,13 +404,13 @@ Take a look at: <http://spark.apache.org/docs/latest/programming-guide.html>
 Some examples:
 
 
-```python
+~~~python
 file = sc.textFile("/mnt/bioinformatics_leuven/i0u19a/data/drugdb/AMM_det_H.csv")
 counts = file.flatMap(lambda line: line.split(",")) \
              .map(lambda word: (word, 1)) \
              .reduceByKey(lambda a, b: a + b)
 sorted = counts.map(lambda x: (x[1],x[0]) ).sortByKey(False)
-```
+~~~
 
 Top-10
 
@@ -420,13 +420,13 @@ Paracetamol:
 
     sorted.filter(lambda x: x[1]=='"PARACETAMOL"').collect()
 
-```
+~~~
 result2 = file.map(lambda line: line.split(",")) \
     .map(lambda x: x[2]) \
     .map(lambda word: (word, 1)) \
     .reduceByKey(lambda a, b: a + b)
 result2.filter(lambda x: x[0] == '"PARACETAMOL"').collect()
-```
+~~~
 
 Please remark the two types of quotes.
 
