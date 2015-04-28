@@ -26,7 +26,7 @@ Get acquainted with paper.js - paper.js is a data visualization library to creat
 
 The following code displays a scatterplot using paper.js:
 
-```
+~~~
 var data = [
     {x:345,y:30,z:445,colour:"green",size:4},
     {x:475,y:305,z:390,colour:"blue",size:16},
@@ -53,7 +53,7 @@ for ( var i = 0; i < data.length; i++ ) {
     circle.fillColor = data[i].colour
     console.log(data[i].x + " - " + data[i].colour)
 }
-```
+~~~
 
 You can copy/paste this code into [sketch.paperjs.org](http://sketch.paperjs.org) to check if it works and try out some simple changes such as changing the color and size of the dots based on the data.
 

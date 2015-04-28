@@ -1,0 +1,21 @@
+name: "i0u19a"
+description: "Course Information 2014-2015"
+
+# redcarpet does automatic syntax highlighting
+# kramdown does pandoc-compatible tables and 
+#   sometimes also syntax highlighting
+markdown: kramdown
+permalink: pretty
+highlighter: rouge
+
+# The datasets are described here
+include: ["datasets/"]
+
+# This is option needed for ``` style code blocks
+# But only if kramdown is used as parser
+kramdown:
+  input: GFM
+
+# Redcarpet does syntax highlighting better than kramdown
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
