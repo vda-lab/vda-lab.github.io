@@ -57,7 +57,9 @@ db.beers.find({"Percentagealcohol": NaN}).count()
 #### 1. Basic MapReduce exercise
 
 * Using a MapReduce approach (create a `mapFunction2` and `reduceFunction2`), get the number of beers per brewery. Store the result in a collection called `<username>Brewery` (*e.g.* `tverbeirenBrewery`; **not** a collection called `map_reduce_example`).
+
 * Get the top-10 of the breweries.  How can we define a sort `High->Low`?
+
 * Find all entries in the collection `<username>Brewery`, that contain the word 'Inbev' in the brewery field. Do you get 3 or 9 results? Why?
 
 ###### Solution
@@ -85,7 +87,7 @@ db.tverbeirenBrewery.find({"_id": /Inbev/i}).count()
 
 #### 2. Filter and aggregate with MapReduce
 
-Belgium is known for brewing excellent strong beers. Let's define a strong beer as having an **alcohol percentage of more than 8 degrees**.
+Belgium is notorious for brewing excellent strong beers. Let's define a strong beer as having an **alcohol percentage of more than 8 degrees**.
 
 * Using a MapReduce approach, we are now interested in calculating the number of **STRONG** beers per brewery. Notice that this exercise is an elaboration of the previous MapReduce exercise. In addition, you will need a strategy for expressing the fact we only want to count beers with `Percentagealcohol` > 8. Store the result in a new collection called `<username>Strong` (e.g. `mjacksonStrong`).
 
@@ -149,8 +151,7 @@ db.mjacksonStatsMax.find().sort({"value": -1}).limit(1);
 -> { "_id" : "Russian Imperial Stout, Eisbockmethode", "value" : 26 }
 ```
 
-
-### 4. MapReduce statistics for Great Justice!
+#### 4. MapReduce statistics for Great Justice!
 
 * Using a MapReduce approach, calculate the **average alcohol percentage** per type (`Soort`) of beer. Remember that in order to calculate an average, you will first need a sum and a count. Store the result in a new collection called `<username>StatsAvg` (e.g. `jwatsonStatsAvg`).
 
