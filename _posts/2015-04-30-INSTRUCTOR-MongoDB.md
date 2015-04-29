@@ -38,7 +38,7 @@ Based on what you have learned from the assignment for this session, you should 
 * How many beers have a percentage alcohol of more than 8 degrees?
 * How many beers have an **unknown** alcohol percentage?
 
-#### Solution
+##### Solution
 
 ``` javascript
 db.beers.find({"Soort":"hoge gisting"}).count()
@@ -48,18 +48,19 @@ db.beers.find({"Percentagealcohol": {$gt: 8}}).count()
 -> 399
 
 db.beers.find({"Percentagealcohol": NaN}).count()
--> 12```
+-> 12
+```
 
 
 ## 1.b. MapReduce in MongoDB
 
-###1. A basic MapReduce exercise
+#### 1. Basic MapReduce exercise
 
 * Using a MapReduce approach (create a `mapFunction2` and `reduceFunction2`), get the number of beers per brewery. Store the result in a collection called `<username>Brewery` (*e.g.* `tverbeirenBrewery`; **not** a collection called `map_reduce_example`).
 * Get the top-10 of the breweries.  How can we define a sort `High->Low`?
 * Find all entries in the collection `<username>Brewery`, that contain the word 'Inbev' in the brewery field. Do you get 3 or 9 results? Why?
 
-####Solution
+###### Solution
 
 ``` javascript
 db.beers.mapReduce(
@@ -78,10 +79,11 @@ db.tverbeirenBrewery.find({"_id": /Inbev/}).count()
 
 // Case-insensitive version of regex has suffix "i"
 db.tverbeirenBrewery.find({"_id": /Inbev/i}).count()
--> 9```
+-> 9
+```
 
 
-###2. Filter and aggregate with MapReduce
+#### 2. Filter and aggregate with MapReduce
 
 Belgium is known for brewing excellent strong beers. Let's define a strong beer as having an **alcohol percentage of more than 8 degrees**.
 
@@ -91,7 +93,7 @@ Belgium is known for brewing excellent strong beers. Let's define a strong beer 
 
 * Which brewery is the champion of strong beers?
 
-#### Solution
+##### Solution
 ``` javascript
 // The filter step should be defined in the `query` clause of the MapReduce operation.
 // It is also possible to implement the filter as a condition before emitting in the map
@@ -106,16 +108,16 @@ var fred2 = function(key, values) {
 }
 
 db.beers.mapReduce(
-    fmap2,
-    fred2,
-    {query: {"Percentagealcohol": {$gt : 8}}, // <- THE QUERY CLAUSE
-     out : "mjacksonStrong"});
+  fmap2,
+  fred2,
+  {query: {"Percentagealcohol": {$gt : 8}}, // <- THE QUERY CLAUSE
+   out : "mjacksonStrong"});
 
 db.mjacksonStrong.find().sort({"value":-1}).limit(1);
 -> { "_id" : "Brouwerij Alvinne", "value" : 16 }
 ```
 
-###3. MapReduce statistics for Glory!
+#### 3. MapReduce statistics for Glory!
 
 Data scientists are interested in calculating statistics. Let's investigate how we can accomplish that with MapReduce.
 
@@ -123,7 +125,7 @@ Data scientists are interested in calculating statistics. Let's investigate how 
 
   **Hint:** First think about how to calculate the maximum number from an array of numbers in JavaScript.
 
-#### Solution
+##### Solution
 ``` JavaScript
 // To calculate the maximum from an array of numbers:
 var a = [2.3, 7.1, 4.0]
@@ -139,14 +141,16 @@ var fred3 = function(key, values) {
 };
 
 db.beers.mapReduce(
-	fmap3,
-	fred3,
-	{out: "mjacksonStatsMax"});
+  fmap3,
+  fred3,
+  {out: "mjacksonStatsMax"});
 
 db.mjacksonStatsMax.find().sort({"value": -1}).limit(1);
--> { "_id" : "Russian Imperial Stout, Eisbockmethode", "value" : 26 }```
+-> { "_id" : "Russian Imperial Stout, Eisbockmethode", "value" : 26 }
+```
 
-###4. MapReduce statistics for Great Justice!
+
+### 4. MapReduce statistics for Great Justice!
 
 * Using a MapReduce approach, calculate the **average alcohol percentage** per type (`Soort`) of beer. Remember that in order to calculate an average, you will first need a sum and a count. Store the result in a new collection called `<username>StatsAvg` (e.g. `jwatsonStatsAvg`).
 
@@ -156,7 +160,7 @@ db.mjacksonStatsMax.find().sort({"value": -1}).limit(1);
 
 * Give an overview of the average `Percentagealcohol` of all Christmas beers (beers where `Soort` contains "kerst").
 
-#### Solution
+##### Solution
 
 ```javascript
 // For calculating the average from the sum and the count, we will need a "finalize"
@@ -183,11 +187,11 @@ var fin4 = function(key, reduced) {
 };
 
 db.beers.mapReduce(
-	fmap4,
-	fred4,
-	{finalize: fin4, // <- FINALIZE CLAUSE
-     query: {"Percentagealcohol": {$ne : NaN}},
-     out: "mjacksonStatsAvg"});
+  fmap4,
+  fred4,
+  {finalize: fin4,
+   query: {"Percentagealcohol": {$ne : NaN}},
+   out: "mjacksonStatsAvg"});
 
 db.mjacksonStatsAvg.find({"_id": /kerst/i});
 -> { "_id" : "Erkend Belgisch Abdijbier, kerstbier", "value" : 8.5 }
