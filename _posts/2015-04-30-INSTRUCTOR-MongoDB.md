@@ -189,7 +189,7 @@ db.beers.mapReduce(
      query: {"Percentagealcohol": {$ne : NaN}},
      out: "mjacksonStatsAvg"});
 
-db.mjacksonStatsAvg.find({"_id": /kerst/});
+db.mjacksonStatsAvg.find({"_id": /kerst/i});
 -> { "_id" : "Erkend Belgisch Abdijbier, kerstbier", "value" : 8.5 }
    { "_id" : "abdijbier, kerstbier", "value" : 8.875 }
    { "_id" : "amber, kerstbier", "value" : 6.5 }
