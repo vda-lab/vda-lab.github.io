@@ -26,7 +26,7 @@ Connect to the mongoDB instance using the `mongo` shell. This is done by typing 
     tverbeiren@ip-10-158-90-118:~$ mongo
     MongoDB shell version: 2.0.4
     connecting to: test
-    > 
+    >
 
 You now get the MongoDB prompt in which we will work now. At the end, you can escape the MongoDB shell by typing exit. Connect to the database for this exercise:
 
@@ -36,46 +36,176 @@ Based on what you have learned from the assignment for this session, you should 
 
 * How many beers in the database are of type _hoge gisting_? The type of beer corresponds to the field `Soort` in the database.
 * How many beers have a percentage alcohol of more than 8 degrees?
+* How many beers have an **unknown** alcohol percentage?
 
-Solution:
+##### Solution
 
-!!! in en out
+``` javascript
+db.beers.find({"Soort":"hoge gisting"}).count()
+-> 170
 
-    mongo
-    show dbs
-    use exercises
+db.beers.find({"Percentagealcohol": {$gt: 8}}).count()
+-> 399
 
-    db.beers.find({"Soort":"hoge gisting"}).count()
-    db.beers.find({"Percentagealcohol": {$gt: 8}}).count()
+db.beers.find({"Percentagealcohol": NaN}).count()
+-> 12
+```
 
 
 ## 1.b. MapReduce in MongoDB
 
-Implement a map reduce approach to get the number of beers per brewery. 
+#### 1. Basic MapReduce exercise
 
-* Store the result in a collection called `<username>Brewery`.
-* Get the top-10 of the breweries.
-* Find all entries in the collection `<username>Brewery`, that contain the word 'Inbev' in the brewery field.
+* Using a MapReduce approach (create a `mapFunction2` and `reduceFunction2`), get the number of beers per brewery. Store the result in a collection called `<username>Brewery` (*e.g.* `tverbeirenBrewery`; **not** a collection called `map_reduce_example`).
 
-You can find info about map reduce in MongoDB here: <http://docs.mongodb.org/manual/core/map-reduce/>. The mongoDB shell uses Javascript syntax. 
+* Get the top-10 of the breweries.  How can we define a sort `High->Low`?
 
-The way to approach the solution can be found in the exercises concerning MapReduce.
+* Find all entries in the collection `<username>Brewery`, that contain the word 'Inbev' in the brewery field. Do you get 3 or 9 results? Why?
 
-Solution:
+###### Solution
 
-    db.beers.mapReduce(function() {emit(this.Brouwerij, 1);}, function(key,values) {return Array.sum(values);},{out: "tverbeirenBrewery"})
-    
-    db.tverbeirenBrewery.find().sort({"value":-1}).limit(10)
+``` javascript
+db.beers.mapReduce(
+    function() {
+        emit(this.Brouwerij, 1);
+    },
+    function(key,values) {
+        return Array.sum(values);
+    },
+    {out: "tverbeirenBrewery"});
 
-    db.tverbeirenBrewery.find({"_id": /Inbev/})
+db.tverbeirenBrewery.find().sort({"value":-1}).limit(10);
 
+db.tverbeirenBrewery.find({"_id": /Inbev/}).count()
+-> 3
+
+// Case-insensitive version of regex has suffix "i"
+db.tverbeirenBrewery.find({"_id": /Inbev/i}).count()
+-> 9
+```
+
+
+#### 2. Filter and aggregate with MapReduce
+
+Belgium is notorious for brewing excellent strong beers. Let's define a strong beer as having an **alcohol percentage of more than 8 degrees**.
+
+* Using a MapReduce approach, we are now interested in calculating the number of **STRONG** beers per brewery. Notice that this exercise is an elaboration of the previous MapReduce exercise. In addition, you will need a strategy for expressing the fact we only want to count beers with `Percentagealcohol` > 8. Store the result in a new collection called `<username>Strong` (e.g. `mjacksonStrong`).
+
+  **Hint:** Different approaches for defining the filter are possible! Can you do it without changing the map or reduce functions of the previous exercise?
+
+* Which brewery is the champion of strong beers?
+
+##### Solution
+``` javascript
+// The filter step should be defined in the `query` clause of the MapReduce operation.
+// It is also possible to implement the filter as a condition before emitting in the map
+// function. We prefer the first approach.
+
+var fmap2 = function() {
+    emit(this.Brouwerij, 1);
+}
+
+var fred2 = function(key, values) {
+    return Array.sum(values);
+}
+
+db.beers.mapReduce(
+  fmap2,
+  fred2,
+  {query: {"Percentagealcohol": {$gt : 8}}, // <- THE QUERY CLAUSE
+   out : "mjacksonStrong"});
+
+db.mjacksonStrong.find().sort({"value":-1}).limit(1);
+-> { "_id" : "Brouwerij Alvinne", "value" : 16 }
+```
+
+#### 3. MapReduce statistics for Glory!
+
+Data scientists are interested in calculating statistics. Let's investigate how we can accomplish that with MapReduce.
+
+* Using a MapReduce approach, calculate the **maximum alcohol percentage** per type (`Soort`) of beer. This exercise is similar to the previous ones, but instead of calculating a count by brewery, we will now calculate the maximum `Percentagealcohol` per `Soort`. Store the result in a new collection called `<username>StatsMax` (e.g. `cdarwinStatsMax`).
+
+  **Hint:** First think about how to calculate the maximum number from an array of numbers in JavaScript.
+
+##### Solution
+``` JavaScript
+// To calculate the maximum from an array of numbers:
+var a = [2.3, 7.1, 4.0]
+Math.max.apply(null, a)
+> 7.1
+
+var fmap3 = function() {
+    emit(this.Soort, this.Percentagealcohol);
+};
+
+var fred3 = function(key, values) {
+    return Math.max.apply(null, values);
+};
+
+db.beers.mapReduce(
+  fmap3,
+  fred3,
+  {out: "mjacksonStatsMax"});
+
+db.mjacksonStatsMax.find().sort({"value": -1}).limit(1);
+-> { "_id" : "Russian Imperial Stout, Eisbockmethode", "value" : 26 }
+```
+
+#### 4. MapReduce statistics for Great Justice!
+
+* Using a MapReduce approach, calculate the **average alcohol percentage** per type (`Soort`) of beer. Remember that in order to calculate an average, you will first need a sum and a count. Store the result in a new collection called `<username>StatsAvg` (e.g. `jwatsonStatsAvg`).
+
+  **Hint:** This exercise will require you to define a finalizing step in the MapReduce operation. Revisit the MongoDB [examples](http://docs.mongodb.org/manual/tutorial/map-reduce-examples/) if this doesn't ring a bell.
+
+* Remember from the query exercises that we have some beers with unknown `Percentagealcohol` in our database. This can be problematic when calculating statistics. Can you define a filter that makes sure we only use beers with known `Percentagealcohol` in our calculation?
+
+* Give an overview of the average `Percentagealcohol` of all Christmas beers (beers where `Soort` contains "kerst").
+
+##### Solution
+
+```javascript
+// For calculating the average from the sum and the count, we will need a "finalize"
+// function.
+
+var fmap4 = function() {
+    emit(this.Soort, {count: 1,
+                      sum: this.Percentagealcohol});
+};
+
+var fred4 = function(key, values) {
+    var result = {count: 0, sum: 0};
+
+    for (var v in values) {
+        result.count += values[v].count;
+        result.sum += values[v].sum;
+    }
+
+    return result;
+};
+
+var fin4 = function(key, reduced) {
+    return reduced.sum / reduced.count;
+};
+
+db.beers.mapReduce(
+  fmap4,
+  fred4,
+  {finalize: fin4,
+   query: {"Percentagealcohol": {$ne : NaN}},
+   out: "mjacksonStatsAvg"});
+
+db.mjacksonStatsAvg.find({"_id": /kerst/i});
+-> { "_id" : "Erkend Belgisch Abdijbier, kerstbier", "value" : 8.5 }
+   { "_id" : "abdijbier, kerstbier", "value" : 8.875 }
+   { "_id" : "amber, kerstbier", "value" : 6.5 }
+   ...
+```
 
 ## 1.c Getting ready for the next step
 
 Although the data is now in a schema-free database, it still is very similar to a RDBMS database system. Since we gradually want to move to graph databases, think about how the beer data could be reformulated in terms of a graph schema.
 
 What queries would be needed? What would the data look like? How would you approach this? Write down your ideas in a conceptual way, but don't execute them.
-
 
 Solution:
 
@@ -167,7 +297,7 @@ Open the `Data Browser` and in the search field type: 17
 
 Do the same searches from the `Console` (3d tab on top).
 
-## 2.b. Simple Queries 
+## 2.b. Simple Queries
 
 Do some simple queries using Cypher in the Console window:
 
@@ -195,8 +325,8 @@ Find the following:
 Solution:
 
 ```
-start huyghe=node:node_auto_index(name="Brouwerij Huyghe") 
-match huyghe<-[:Brews]->beer 
+start huyghe=node:node_auto_index(name="Brouwerij Huyghe")
+match huyghe<-[:Brews]->beer
 return beer.name
 ```
 
