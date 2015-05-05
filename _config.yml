@@ -16,12 +16,8 @@ exclude: ["code", "lectures", "data"]
 # But only if kramdown is used as parser
 kramdown:
   input: GFM
-
-# Redcarpet does syntax highlighting better than kramdown
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
-
-coderay:
+  use_coderay: true
+  coderay:
     coderay_wrap:              div
     coderay_line_numbers:      nil
     coderay_line_number_start: 1
@@ -29,3 +25,7 @@ coderay:
     coderay_bold_every:        10
     coderay_css:               style
     coderay_tab_width:		   2
+
+# Redcarpet does syntax highlighting better than kramdown
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
