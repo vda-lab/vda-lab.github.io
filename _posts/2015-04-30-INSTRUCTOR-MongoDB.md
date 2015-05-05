@@ -1,5 +1,5 @@
 ---
-title: Instructor notes for MongoDB
+title: Instructor notes for MongoDB and Neo4J
 layout: page
 instructor: "true"
 ---
@@ -238,9 +238,11 @@ Store relevant data in nodes and relations collection. MongoDB keys (`_id`) are 
 
 # Exercise 2: Graph databases
 
-Start the server:
+## Installation and configuration
 
-    /mnt/bioinformatics_leuven/Software/neo4j-community-1.7.2$ sudo ./bin/neo4j start
+Start the server (old version):
+
+    /mnt/bioinformatics_leuven/Software/neo4j-community-2.2.1$ sudo ./bin/neo4j start
 
 Some settings/modifications are in order:
 
@@ -267,7 +269,18 @@ Now, restart the server. We will be using the REST API in this exercise. First, 
 
     curl http://localhost:7474
 
+The password for the service is `123456`.
+
+The _new_ interface (compared to version 1.x) is way more powerful than before. Just try a few things in the bar on top:
+
+```
+:GET /db/data/
+MATCH (n) WHERE n.name="Orval" RETURN n
+```
+
 Thanks to [a blog article](http://neo4j.com/blog/fun-with-beer-and-graphs/) by a Neo4J sales person, getting the data into the database is relatively easy. Since he delivers the neo4j database as a zip file, it's possible to replace the existing one with this one.
+
+I pointed to this database in the config file `neo4j.properties`.
 
 Indexes should be automatically created when updating the conf file as described above. In order to check this, type:
 
@@ -285,11 +298,10 @@ The names of the nodes and relations have been translated to English:
 
 ## 2.a. Starting up the Neo4J interface
 
-Browse to the Data Browser in the web interface of Neo4J:
+There are two user interfaces for Neo4J:
 
-    http://50.16.33.38:7474/webadmin
-
-Open the `Data Browser` and in the search field type: 17
+    http://54.93.45.232:7474/browser/
+    http://54.93.45.232:7474/webadmin/
 
 * What do you see?
 * What is the meaning of it?
@@ -308,21 +320,32 @@ Do some simple queries using Cypher in the Console window:
 Solution:
 
 ```
-start a = node:node_auto_index(name="Orval") return a
-start a = node:node_auto_index(name="AB Inbev") return a
+MATCH n WHERE n.type = 'BeerBrand' AND n.name = 'Orval' 
+RETURN n.name, n.id
 ```
 
+```
+MATCH n WHERE n.type = 'BeerBrand' AND n.name = 'Duvel' 
+RETURN n.name, n.id
+```
+
+```
+MATCH n WHERE n.type = 'Brewery' AND n.name = 'AB Inbev' 
+RETURN n.name, n.id
+```
 
 ## 2.c Relationships
 
 Find the following:
 
-* In the first exercise, we have found the brewery that brews the most beers. Get a list of these beers using Cypher.
-* All the bears that are brewed by the brewery of the beer "Duvel".
-* All Belgian Trappist beers if you know Orval is a Belgian Trappist
-* The shortest paths in the graph between two beers, say "Orval" and "Duvel"
+1. In the first exercise, we have found the brewery that brews the most beers. Get a list of these beers using Cypher.
+2. All the bears that are brewed by the brewery of the beer "Duvel".
+3. All Belgian Trappist beers if you know Orval is a Belgian Trappist
+4. The shortest paths in the graph between two beers, say "Orval" and "Duvel"
 
 Solution:
+
+1.
 
 ```
 start huyghe=node:node_auto_index(name="Brouwerij Huyghe")
@@ -330,17 +353,63 @@ match huyghe<-[:Brews]->beer
 return beer.name
 ```
 
+Or, using `WHERE`:
+
 ```
-start duvel=node:node_auto_index(name="Duvel")
+MATCH brouwerij-[:Brews]->beer 
+WHERE brouwerij.type = 'Brewery' AND brouwerij.name = 'Brouwerij Huyghe' 
+RETURN beer.name
+```
+
+2.
+
+```
+MATCH (duvel {name:'Duvel'})<-[:Brews]-(duvelbrewery)-[:Brews]->(otherbeer)
+RETURN otherbeer.name
+```
+
+Or using `WHERE`:
+
+```
+MATCH
+(duvel)<-[:Brews]->(brewery),
+(otherbeer)<-[:Brews]->(brewery)
+WHERE duvel.name = 'Duvel'
+RETURN
+otherbeer.name
+```
+
+Or an alternative form, that also includes the beertype:
+
+```
 match
-duvel<-[:Brews]->brouwerij,
-duvel-[:isa]->biertype,
-anderbier<-[:Brews]->brouwerij,
-anderbier-[:isa]->biertype2
+(duvel {name:'Duvel'})<-[:Brews]->(brouwerij),
+(duvel)-[:isa]->(biertype),
+(anderbier)<-[:Brews]->(brouwerij),
+(anderbier)-[:isa]->(biertype2)
 return
 anderbier.name AS name,
 collect(biertype2.name) AS biertype
 ```
+
+The first line can be replaced by:
+
+```
+start duvel=node:node_auto_index(name="Duvel")
+match
+(duvel)<-[:Brews]->(brouwerij),
+```
+
+
+3. 
+
+```
+MATCH (orval)-[:isa]->(beertype)<-[:isa]-(otherbeer)
+WHERE orval.name = 'Orval'
+RETURN otherbeer.name AS Name, beertype.name AS Type
+```
+
+OR:
 
 ```
 start orval=node:node_auto_index(name="Orval")
@@ -354,12 +423,47 @@ collect(biertype.name) AS biertype
 order by anderbier.name;
 ```
 
+4. 
+
+```
+MATCH p = AllshortestPaths( duvel-[*]-orval )
+WHERE duvel.name = 'Duvel' AND orval.name = 'Orval'
+return p
+```
+
+Or, by using the index:
+
 ```
 START
   duvel=node:node_auto_index(name="Duvel"),
   orval=node:node_auto_index(name="Orval")
 MATCH p = AllshortestPaths( duvel-[*]-orval )
 return p;
+```
+
+# 3.c _Loves_
+
+Create the node for _me_:
+
+```
+CREATE (me:Person {name:"Toni"})
+RETURN me
+```
+
+Add the relation:
+
+```
+MATCH  (me:Person {name:"Toni"})
+CREATE (me)-[:loves]->(orval:BeerBrand {name:"Orval" })
+RETURN me, orval
+```
+
+Create the top-table:
+
+```
+MATCH (person:Person)-[:loves]->(beer) 
+RETURN beer.name, count(person) 
+ORDER BY count(person) DESC
 ```
 
 
