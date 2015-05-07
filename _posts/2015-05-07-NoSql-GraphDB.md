@@ -15,7 +15,7 @@ _Don't_ do the last step (installation of Neo4J), but you're obviously free to d
 
 # 2. Neo4J web interface and the Cypher shell
 
-Browse to the user interface via [web interface of Neo4J](http://54.93.45.232:7474/browser):
+Browse to the user interface via [web interface of Neo4J](http://54.93.45.232:7474/browser) (username/pwd: neo4j/123456):
 
     http://54.93.45.232:7474/browser
 
@@ -23,7 +23,7 @@ Click on Brews on the left and take a look at the resulting graph.
 
 * What do you see?
 * What is the meaning of it?
-* Dubble-click on some of the nodes in order to expand their relations to other nodes.
+* Double-click on some of the nodes in order to expand their relations to other nodes.
 
 Do the same searches from the `Console` (3rd tab on top). Use your _cypher skills_ acquired earlier.
 
@@ -46,18 +46,23 @@ MATCH (n) RETURN n LIMIT 10
 The command below return all possible relationships in a graph database:
 
 ```
-MATCH n-[r]->m RETURN n,r,m LIMIT 10
+MATCH (n)-[r]->(m) RETURN n,r,m LIMIT 10
 ```
 
-Similar to SQL, a `WHERE` clause lets you filter the data. For example, suppose that there are nodes with a property `type`. To get all relationships where the sink type = 'BeerBrand', we issue the following search:
+Similar to SQL, you can filter the data. You can actually do this in two ways. Suppose that there are nodes with a property `type`. To get all relationships where the sink type = 'BeerBrand', we can do one of the following:
 
 ```
-START n=node(*)
-MATCH n-[r]->m WHERE m.type = 'BeerBrand' 
+MATCH (n)-[r]->(m {type:"BeerBrand"}) RETURN n,r,m LIMIT 10
+```
+
+or
+
+```
+MATCH (n)-[r]->(m) WHERE m.type = 'BeerBrand' 
 RETURN n,r,m LIMIT 10
 ```
 
-The `START n=node(*)` signifies that you start your pattern search from any node and can be omited in this case. If you _do_ want to start from a specific node, there are 3 ways to do that: If you happen to know the ID, just substitute that for the `*`, for example
+These queries try to "match" the cypher pattern anywhere in the dataset. In some cases, though, you will want to start from a particular node. In that case, use `START`. The `START n=node(*)` signifies that you start your pattern search from any node and can be omited in this case. If you _do_ want to start from a specific node, there are 3 ways to do that: If you happen to know the ID, just substitute that for the `*`, for example
 
 ```
 START n=node(17) MATCH n-[r]->m RETURN n,r,m
@@ -76,6 +81,18 @@ MATCH n WHERE n.name = 'Inbev Belgium'
 RETURN n
 ```
 
+The last one is the same as:
+
+```
+MATCH (n {name: "Inbev Belgium"}) RETURN n
+```
+
+To combine different filters, do this:
+
+```
+MATCH (n {type:"BeerBrand", name:"Orval"}) RETURN n.name, n.id
+```
+
 For a more extensive introduction to the Cypher language, see the video "Cypher for SQL Professionals" at <http://www.neo4j.org/tracks/cypher_track_use>. A reference card can be found at <http://docs.neo4j.org/refcard/2.0/>
 
 ## 3.a Simple queries
@@ -89,12 +106,16 @@ As an exercise, do some simple queries using Cypher in the Console window:
 
 ## 3.b Relationships
 
-In the exercise session about MongoDB, we have found the brewery that brews the most beers: `Brouwerij Huyghe`.
+In the exercise session about MongoDB, we have found the brewery that brews the most beers: `Brouwerij Huyghe`. Let's do the same using neo4j. Always start with drawing the ASCII art on paper. Suppose you want to find all the beers that are brewed by the brewery of the beer "Duvel". The query to do this could be:
 
-Find the following:
+```
+MATCH (duvel {name:'Duvel'})<-[:Brews]-(duvelbrewery)-[:Brews]->(otherbeer)
+RETURN otherbeer.name
+```
+
+Based on the example, find the following:
 
 * Get a list of the beers by `Brouwery Huyghe`.
-* Find all the beers that are brewed by the brewery of the beer "Duvel".
 * All Belgian Trappist beers if you know Orval is a Belgian Trappist
 * The shortest paths in the graph between two beers, say "Orval" and "Duvel"
 
