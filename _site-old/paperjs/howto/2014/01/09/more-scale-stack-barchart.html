@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>More scale-stack bar charts</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://vda-lab.be/paperjs/howto/2014/01/09/more-scale-stack-barchart.html">
+  <link rel="alternate" type="application/rss+xml" title="Visual Data Analysis Lab" href="http://vda-lab.be/feed.xml" />
+</head>
+
+
+  <body>
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Visual Data Analysis Lab</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/contact.html">Contact</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/index.html">Visual Data Analysis Lab</a>
+          
+        
+          
+          <a class="page-link" href="/jobs.html">Jobs</a>
+          
+        
+          
+          <a class="page-link" href="/lists.html">Lists</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/people.html">People</a>
+          
+        
+          
+          <a class="page-link" href="/portfolio.html">Portfolio</a>
+          
+        
+          
+          <a class="page-link" href="/posts.html">Posts</a>
+          
+        
+          
+          <a class="page-link" href="/publications.html">Publications</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">More scale-stack bar charts</h1>
+    <p class="post-meta">Jan 9, 2014 • Raf Winand</p>
+  </header>
+
+  <article class="post-content">
+    <p><img src="/assets/scale-stack-barchart-raf.png" alt="Scale-stack barchart Raf" /></p>
+
+<p>It seems that Jan beat me to it but to learn Paper.js and JavaScript I was also working on an implementation of the scale-stack bar charts. I took some of his code because this makes it easier to follow between the posts. What I added or changed in order to get to know Paper.js is:</p>
+
+<ul>
+  <li>Added a legend to the right of the graph that shows the numbers with a thousands separator</li>
+  <li>The graph layout is adjusted depending on the screen size</li>
+  <li>The size of the vertical lines and bars is dependent on the total size of the graph</li>
+  <li>Added small division lines</li>
+  <li>Used different colors and  styles for the lines and bars</li>
+</ul>
+
+<p>These are just some minor tweaks but there were helpful in learning how to do things in Paper.js.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">horizontalMargin</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">barMargin</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="kd">var</span> <span class="nx">horizontalOffset</span> <span class="o">=</span> <span class="nx">horizontalMargin</span> <span class="o">+</span> <span class="nx">barMargin</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">verticalMargin</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="mi">3617</span><span class="p">,</span><span class="mi">627</span><span class="p">,</span><span class="mi">2812</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">509</span><span class="p">,</span><span class="mi">3242343</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">234</span><span class="p">,</span><span class="mi">243242</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6547</span><span class="p">,</span><span class="mi">756753</span><span class="p">,</span><span class="mi">35235</span><span class="p">,</span><span class="mi">223543</span><span class="p">,</span><span class="mi">4343352</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">majorLineColor</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">minorLineColor</span> <span class="o">=</span> <span class="s1">&#39;lightgrey&#39;</span>
+<span class="kd">var</span> <span class="nx">thickBarColor</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">thinBarColor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">canvasSize</span> <span class="o">=</span> <span class="p">{</span><span class="nx">height</span><span class="o">:</span> <span class="nx">view</span><span class="p">.</span><span class="nx">viewSize</span><span class="p">.</span><span class="nx">height</span><span class="p">,</span>
+					<span class="nx">width</span><span class="o">:</span> <span class="nx">view</span><span class="p">.</span><span class="nx">viewSize</span><span class="p">.</span><span class="nx">width</span><span class="p">};</span>
+
+<span class="c1">// This function adds the thousands separator to a given number string</span>
+<span class="kd">var</span> <span class="nx">addCommas</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">nStr</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">nStr</span> <span class="o">+=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+	<span class="nx">x</span> <span class="o">=</span> <span class="nx">nStr</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">);</span>
+	<span class="nx">x1</span> <span class="o">=</span> <span class="nx">x</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="nx">x2</span> <span class="o">=</span> <span class="nx">x</span><span class="p">.</span><span class="nx">length</span> <span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="mi">1</span> <span class="o">?</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="nx">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">rgx</span> <span class="o">=</span> <span class="sr">/(\d+)(\d{3})/</span><span class="p">;</span>
+	<span class="k">while</span> <span class="p">(</span><span class="nx">rgx</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">x1</span><span class="p">))</span> <span class="p">{</span>
+		<span class="nx">x1</span> <span class="o">=</span> <span class="nx">x1</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">rgx</span><span class="p">,</span> <span class="s1">&#39;$1&#39;</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="s1">&#39;$2&#39;</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">x1</span> <span class="o">+</span> <span class="nx">x2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">calculateComponents</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">maxPowerOfTen</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 4-&amp;gt;0; 15-&amp;gt;1; 18272-&amp;gt;4</span>
+    <span class="kd">var</span> <span class="nx">currentX</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span> <span class="nx">currentX</span> <span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span><span class="o">=</span> <span class="mi">10</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">maxPowerOfTen</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="nx">currentX</span> <span class="o">=</span> <span class="nx">currentX</span><span class="o">/</span><span class="mi">10</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nx">valueAtMaxPowerOfTen</span> <span class="o">=</span> <span class="nx">x</span><span class="o">/</span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="nx">maxPowerOfTen</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">{</span><span class="nx">orig</span><span class="o">:</span> <span class="nx">x</span><span class="p">,</span>
+            <span class="nx">val</span><span class="o">:</span> <span class="nx">valueAtMaxPowerOfTen</span><span class="p">,</span>
+            <span class="nx">lvl</span><span class="o">:</span> <span class="nx">maxPowerOfTen</span><span class="p">};</span>
+
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">dataInComponents</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dataInComponents</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">calculateComponents</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">]));</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">maxLevel</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nb">Math</span><span class="p">,</span><span class="nx">dataInComponents</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">o</span><span class="p">){</span><span class="k">return</span> <span class="nx">o</span><span class="p">.</span><span class="nx">lvl</span><span class="p">;}))</span>
+
+<span class="c1">// Create an invisible text with the largest level to see how wide it will be. This</span>
+<span class="c1">// will be subtracted from the area that can be used for the graph</span>
+<span class="kd">var</span> <span class="nx">widestLegendText</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PointText</span><span class="p">({</span>
+	<span class="nx">point</span><span class="o">:</span> <span class="nx">view</span><span class="p">.</span><span class="nx">center</span><span class="p">,</span>
+	<span class="nx">content</span><span class="o">:</span> <span class="nx">addCommas</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="nx">maxLevel</span><span class="p">)),</span>
+	<span class="nx">justification</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span>
+	<span class="nx">fontSize</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
+	<span class="nx">fillColor</span><span class="o">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span>
+	<span class="nx">visible</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">verticalOffset</span> <span class="o">=</span> <span class="nx">canvasSize</span><span class="p">.</span><span class="nx">height</span> <span class="o">-</span> <span class="nx">verticalMargin</span><span class="p">;</span>
+
+<span class="c1">// The height each level has to be</span>
+<span class="kd">var</span> <span class="nx">levelHeight</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nx">canvasSize</span><span class="p">.</span><span class="nx">height</span><span class="o">-</span><span class="p">(</span><span class="nx">verticalMargin</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="nx">maxLevel</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+
+<span class="c1">// Each subgraph is divided into 10 parts</span>
+<span class="kd">var</span> <span class="nx">levelScaling</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">levelHeight</span><span class="o">/</span><span class="mi">10</span><span class="p">);</span>
+
+<span class="c1">// The large bars are max. 40 pixels wide or smaller if more need to fit</span>
+<span class="kd">var</span> <span class="nx">thickBarWidth</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nx">canvasSize</span><span class="p">.</span><span class="nx">width</span><span class="o">-</span><span class="nx">horizontalOffset</span><span class="o">-</span><span class="nx">widestLegendText</span><span class="p">.</span><span class="nx">bounds</span><span class="p">.</span><span class="nx">width</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="nx">dataInComponents</span><span class="p">.</span><span class="nx">length</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">thickBarWidth</span> <span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="mi">40</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">thickBarWidth</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// The thin bars are at least 2 pixels wide or wider if the thick bars are wider</span>
+<span class="kd">var</span> <span class="nx">thinBarWidth</span> <span class="o">=</span> <span class="nx">thickBarWidth</span> <span class="o">/</span> <span class="mi">15</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">thinBarWidth</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="mi">2</span><span class="p">){</span>
+	<span class="nx">thinBarWidth</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">=</span> <span class="nx">maxLevel</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// X-axes are added from the horizontal margin until the last bar + the bar margin</span>
+    <span class="kd">var</span> <span class="nx">line</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path</span><span class="p">();</span>
+    <span class="nx">line</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="nx">horizontalMargin</span><span class="p">,</span><span class="nx">verticalOffset</span><span class="o">-</span><span class="nx">levelHeight</span><span class="o">*</span><span class="nx">i</span><span class="p">));</span>
+    <span class="nx">line</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="nx">horizontalMargin</span><span class="o">+</span><span class="p">((</span><span class="nx">dataInComponents</span><span class="p">.</span><span class="nx">length</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="nx">thickBarWidth</span><span class="p">)</span><span class="o">+</span><span class="nx">barMargin</span><span class="p">,</span><span class="nx">verticalOffset</span><span class="o">-</span><span class="nx">levelHeight</span><span class="o">*</span><span class="nx">i</span><span class="p">));</span>
+    <span class="nx">line</span><span class="p">.</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="nx">majorLineColor</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PointText</span><span class="p">({</span>
+    	<span class="nx">point</span><span class="o">:</span> <span class="p">[</span><span class="nx">horizontalMargin</span><span class="o">+</span><span class="p">((</span><span class="nx">dataInComponents</span><span class="p">.</span><span class="nx">length</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="nx">thickBarWidth</span><span class="p">)</span><span class="o">+</span><span class="nx">barMargin</span><span class="p">,</span> <span class="nx">verticalOffset</span><span class="o">-</span><span class="nx">levelHeight</span><span class="o">*</span><span class="nx">i</span><span class="p">],</span>
+		<span class="nx">content</span><span class="o">:</span> <span class="nx">addCommas</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="nx">i</span><span class="p">)),</span>
+		<span class="nx">justification</span><span class="o">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
+		<span class="nx">fontSize</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
+		<span class="nx">fillColor</span><span class="o">:</span> <span class="s1">&#39;black&#39;</span>
+    <span class="p">});</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    	<span class="kd">var</span> <span class="nx">line</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path</span><span class="p">();</span>
+	    <span class="nx">line</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="nx">horizontalMargin</span><span class="p">,</span><span class="nx">verticalOffset</span><span class="o">-</span><span class="nx">levelHeight</span><span class="o">*</span><span class="nx">i</span><span class="o">-</span><span class="nx">levelScaling</span><span class="o">*</span><span class="nx">j</span><span class="p">));</span>
+	    <span class="nx">line</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="nx">horizontalMargin</span><span class="o">+</span><span class="p">((</span><span class="nx">dataInComponents</span><span class="p">.</span><span class="nx">length</span><span class="o">*</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="nx">thickBarWidth</span><span class="p">)</span><span class="o">+</span><span class="nx">barMargin</span><span class="p">,</span><span class="nx">verticalOffset</span><span class="o">-</span><span class="nx">levelHeight</span><span class="o">*</span><span class="nx">i</span><span class="o">-</span><span class="nx">levelScaling</span><span class="o">*</span><span class="nx">j</span><span class="p">));</span>
+	    <span class="nx">line</span><span class="p">.</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="nx">minorLineColor</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">dataInComponents</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// The thin bar in the orders of magnitude smaller than the current number</span>
+    <span class="kd">var</span> <span class="nx">thinBar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path</span><span class="p">();</span>
+    <span class="nx">thinBar</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="nx">horizontalOffset</span> <span class="o">+</span> <span class="nx">i</span><span class="o">*</span><span class="nx">thickBarWidth</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="nx">verticalOffset</span><span class="p">));</span>
+    <span class="nx">thinBar</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="nx">horizontalOffset</span> <span class="o">+</span> <span class="nx">i</span><span class="o">*</span><span class="nx">thickBarWidth</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="nx">verticalOffset</span><span class="o">-</span><span class="nx">levelHeight</span><span class="o">*</span><span class="nx">dataInComponents</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">lvl</span><span class="p">));</span>
+    <span class="nx">thinBar</span><span class="p">.</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="nx">thinBarColor</span><span class="p">;</span>
+    <span class="nx">thinBar</span><span class="p">.</span><span class="nx">strokeWidth</span> <span class="o">=</span> <span class="nx">thinBarWidth</span><span class="p">;</span>
+    <span class="nx">thinBar</span><span class="p">.</span><span class="nx">dashArray</span> <span class="o">=</span> <span class="p">[</span><span class="nx">levelHeight</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="nx">levelHeight</span><span class="o">/</span><span class="mi">10</span><span class="p">]</span>
+
+    <span class="c1">// The thick bar in the order of magnitude of the current number</span>
+    <span class="kd">var</span> <span class="nx">thickBar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path</span><span class="p">();</span>
+    <span class="nx">thickBar</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="nx">horizontalOffset</span> <span class="o">+</span> <span class="nx">i</span><span class="o">*</span><span class="nx">thickBarWidth</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="nx">verticalOffset</span><span class="o">-</span><span class="nx">levelHeight</span><span class="o">*</span><span class="nx">dataInComponents</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">lvl</span><span class="p">));</span>
+    <span class="nx">thickBar</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="nx">horizontalOffset</span> <span class="o">+</span> <span class="nx">i</span><span class="o">*</span><span class="nx">thickBarWidth</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="nx">verticalOffset</span><span class="o">-</span><span class="nx">levelHeight</span><span class="o">*</span><span class="nx">dataInComponents</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">lvl</span><span class="o">-</span><span class="p">(</span><span class="nx">dataInComponents</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">val</span><span class="o">*</span><span class="nx">levelScaling</span><span class="p">)));</span>
+    <span class="nx">thickBar</span><span class="p">.</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="nx">thickBarColor</span><span class="p">;</span>
+    <span class="nx">thickBar</span><span class="p">.</span><span class="nx">strokeWidth</span> <span class="o">=</span> <span class="nx">thickBarWidth</span><span class="p">;</span>
+
+    <span class="c1">// The thick but flat bar in the orders of magnitude larger than the current number</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">dataInComponents</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">lvl</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="nx">j</span><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">=</span><span class="nx">maxLevel</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">placeHolder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path</span><span class="p">();</span>
+        <span class="nx">placeHolder</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="nx">horizontalOffset</span> <span class="o">+</span> <span class="nx">i</span><span class="o">*</span><span class="nx">thickBarWidth</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="nx">verticalOffset</span><span class="o">-</span><span class="nx">levelHeight</span><span class="o">*</span><span class="nx">j</span><span class="p">));</span>
+        <span class="nx">placeHolder</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="nx">horizontalOffset</span> <span class="o">+</span> <span class="nx">i</span><span class="o">*</span><span class="nx">thickBarWidth</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="nx">verticalOffset</span><span class="o">-</span><span class="nx">levelHeight</span><span class="o">*</span><span class="nx">j</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+        <span class="nx">placeHolder</span><span class="p">.</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">;</span>
+        <span class="nx">placeHolder</span><span class="p">.</span><span class="nx">strokeWidth</span> <span class="o">=</span> <span class="nx">thickBarWidth</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Visual Data Analysis Lab</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Visual Data Analysis Lab</li>
+          <li><a href="mailto:jan.aerts@kuleuven.be">jan.aerts@kuleuven.be</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+          <li>
+            <a href="https://twitter.com/jandot">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">jandot</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">From data to insight – Putting the human back in the loop of data analysis
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

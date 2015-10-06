@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Scala, Processing and Spark</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://vda-lab.be/spark/shark/scala/howto/2014/01/09/scala-processing-and-spark.html">
+  <link rel="alternate" type="application/rss+xml" title="Visual Data Analysis Lab" href="http://vda-lab.be/feed.xml" />
+</head>
+
+
+  <body>
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Visual Data Analysis Lab</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/contact.html">Contact</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/index.html">Visual Data Analysis Lab</a>
+          
+        
+          
+          <a class="page-link" href="/jobs.html">Jobs</a>
+          
+        
+          
+          <a class="page-link" href="/lists.html">Lists</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/people.html">People</a>
+          
+        
+          
+          <a class="page-link" href="/portfolio.html">Portfolio</a>
+          
+        
+          
+          <a class="page-link" href="/posts.html">Posts</a>
+          
+        
+          
+          <a class="page-link" href="/publications.html">Publications</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Scala, Processing and Spark</h1>
+    <p class="post-meta">Jan 9, 2014 • Toni Verbeiren</p>
+  </header>
+
+  <article class="post-content">
+    <p><img src="/assets/spark_histogram.png" alt="Spark histogram" /></p>
+
+<p>As discussed <a href="http://localhost:4000/spark/shark/scala/2014/01/09/spark-for-genomic-data.html">earlier</a>, we use Spark as a backend for handling the data to be analysed. Since our group is working on <a href="http://en.wikipedia.org/wiki/Visual_analytics">Visual Analytics</a>, obviously, something <a href="http://www.slideshare.net/jandot/visual-analytics-in-omics-why-what-how">visual</a> or graphical should come out. Because the group had already be using <a href="http://processing.org/">Processing</a>, I looked into using it as a frontend as well. In this post, I describe how to get Processing and Spark to work together. Please note that I’m developing in <a href="http://scala-lang.org/">Scala</a>. this is a nice example of using Java libraries (Processing) in Scala.
+# <span style="line-height: 1.3846153846; font-size: 1.5rem;">Interface Scala (Spark) and Processing</span> In order to make life easy, I included all Processing libraries into my build. This is done, e.g., by creating </p>
+
+<p><span style="line-height: 1.714285714; font-size: 1rem;">a directory <span class="lang:default decode:true  crayon-inline ">libs</span>  under the <span class="lang:default decode:true  crayon-inline ">project dir</span>  that contains all the jar files from the Processing distribution and called it <span class="lang:default decode:true  crayon-inline">libs</span>.</span>
+# <code>&lt;span style="font-size: 1.285714286rem; line-height: 1.6; font-family: 'Open Sans', Helvetica, Arial, sans-serif;"&gt;Sbt config&lt;/span&gt;</code> The following is the current</p>
+
+<p><span class="lang:default decode:true  crayon-inline ">build.sbt</span>  file: &lt;pre class="lang:scala decode:true"&gt;name := “BioTrees”</p>
+
+<p>version := “1.0.0”</p>
+
+<p>scalaVersion := “2.9.3”</p>
+
+<p>//scalacOptions ++= Seq(“-deprecation”, “-feature”)</p>
+
+<p>libraryDependencies += “org.scalatest” %% “scalatest” % “1.9.1” % “test”</p>
+
+<p>libraryDependencies += “junit” % “junit” % “4.10” % “test”</p>
+
+<p>libraryDependencies += “org.apache.spark” %% “spark-core” % “0.8.0-incubating”</p>
+
+<p>unmanagedBase &lt;&lt;= baseDirectory { base =&gt; base / “libs” }&lt;/pre&gt; The last line is for adding the </p>
+
+<p><span class="lang:default decode:true  crayon-inline ">libs</span>  directory with the Processing jars to the <span class="lang:default decode:true  crayon-inline ">classpath</span> .
+## Code It is sufficient to add 2 things to the code: First the includes:</p>
+
+<pre class="lang:scala decode:true">import processing.core._
+import PConstants._
+import PApplet._</pre>
+<p>And then, a</p>
+
+<p><span class="lang:default decode:true  crayon-inline ">Main</span>  class has to be defined which contains the code for drawing the canvas. &lt;pre class="lang:scala decode:true"&gt;class Main extends PApplet {
+  override def setup {
+    . . .
+  }
+  override def draw {
+    . . .
+  }
+}&lt;/pre&gt;</p>
+
+<h1 id="span-stylefont-size-1285714286rem-line-height-16serializationspan-when-passing-global-variables-to-spark-we-run-into-serialization-issues"><span style="font-size: 1.285714286rem; line-height: 1.6;">Serialization</span> When passing global variables to Spark, we run into serialization issues:</h1>
+
+<pre class="lang:default decode:true">13/12/13 10:56:59 INFO scheduler.DAGScheduler: Failed to run reduce at biotree.scala:109
+[error] (Animation Thread) org.apache.spark.SparkException: Job failed: java.io.NotSerializableException: processing.core.PApplet$InternalEventQueue
+org.apache.spark.SparkException: Job failed: java.io.NotSerializableException: processing.core.PApplet$InternalEventQueue
+. . .</pre>
+
+<p><span style="line-height: 1.714285714; font-size: 1rem;">In my case, the cause is that I mixed Spark class references with PApplet (from Processing). The latter can not be serialized and thus gives problems. </span><span style="line-height: 1.714285714; font-size: 1rem;">The fix is to (simply stated) keep Spark code apart from Processing code. I added an object containing Spark code to encapsulate the relevant parameters.</span>
+# Processing in Scala There are no big differences when using Processing libraries from Scala. Below is a little snippet of code that shows what it looks like:</p>
+
+<pre class="lang:scala decode:true crayon-selected">override def setup() = {
+  size(w, h);
+  background(255)
+  stroke(200)
+  fill(180)
+  rectMode(CORNERS)
+  textSize(10)
+}
+
+override def keyPressed() = {
+  // setup
+  if (key == CODED) {
+    if (keyCode == UP) input = "u"
+    else if (keyCode == DOWN) input = "d"
+    else if (keyCode == LEFT) input = "l"
+    else if (keyCode == RIGHT) input = "r"
+  }
+
+  clearScreen()
+  redraw()
+}</pre>
+
+<h1 id="current-status-the-screenshot-above-shows-the-current-status-of-our-proof-of-concept-combining-processing-for-visualisation-and-spark-for-parallel-interactive-querying-of-the-data-in-fact-we-also-developed-an-intermediate-layer-a-tree-structure-but-this-will-be-covered-in-a-future-post">Current Status The screenshot above shows the current status of our Proof-Of-Concept, combining Processing for visualisation and Spark for parallel interactive querying of the data. In fact, we also developed an intermediate layer (a tree structure), but this will be covered in a future post.</h1>
+
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Visual Data Analysis Lab</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Visual Data Analysis Lab</li>
+          <li><a href="mailto:jan.aerts@kuleuven.be">jan.aerts@kuleuven.be</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+          <li>
+            <a href="https://twitter.com/jandot">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">jandot</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">From data to insight – Putting the human back in the loop of data analysis
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

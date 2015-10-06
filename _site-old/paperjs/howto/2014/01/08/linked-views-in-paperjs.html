@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Linked views in paper.js</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://vda-lab.be/paperjs/howto/2014/01/08/linked-views-in-paperjs.html">
+  <link rel="alternate" type="application/rss+xml" title="Visual Data Analysis Lab" href="http://vda-lab.be/feed.xml" />
+</head>
+
+
+  <body>
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Visual Data Analysis Lab</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/contact.html">Contact</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/index.html">Visual Data Analysis Lab</a>
+          
+        
+          
+          <a class="page-link" href="/jobs.html">Jobs</a>
+          
+        
+          
+          <a class="page-link" href="/lists.html">Lists</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/people.html">People</a>
+          
+        
+          
+          <a class="page-link" href="/portfolio.html">Portfolio</a>
+          
+        
+          
+          <a class="page-link" href="/posts.html">Posts</a>
+          
+        
+          
+          <a class="page-link" href="/publications.html">Publications</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Linked views in paper.js</h1>
+    <p class="post-meta">Jan 8, 2014 • Jan Aerts</p>
+  </header>
+
+  <article class="post-content">
+    <p><img src="/assets/linked_views_paperjs.png" alt="Linked views" /></p>
+
+<p>Trying out <a href="http://paperjs.org">paper.js</a>. For future reference: here’s a (naive) example of doing <strong>linked views</strong>. Hovering over a red object will make all red objects yellow, and the same goes for blue and green. The trick used here is to use the data property of the visual mark (i.c. bar and point), and adding an itemId to it. See <a href="http://paperjs.org/reference/item/#data">http://paperjs.org/reference/item/#data</a> for more information on that property.</p>
+
+<p>In the example below, I did use both strokeColor and fillColor for the bars (which are actually lines) and the circles. This is to not have to find out which has to be changed to yellow; I’m just doing both.</p>
+
+<p>See <a href="http://github.com/jandot/playing-with-paperjs">http://github.com/jandot/playing-with-paperjs</a> for updates.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="nx">x</span><span class="o">:</span> <span class="mi">40</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">150</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s2">&quot;red&quot;</span><span class="p">},</span>
+  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="nx">x</span><span class="o">:</span> <span class="mi">270</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">140</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s2">&quot;green&quot;</span><span class="p">},</span>
+  <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="nx">x</span><span class="o">:</span> <span class="mi">140</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">190</span><span class="p">,</span> <span class="nx">color</span><span class="o">:</span> <span class="s2">&quot;blue&quot;</span><span class="p">}]</span>
+
+<span class="c1">// The barchart</span>
+<span class="kd">function</span> <span class="nx">enter</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">allItemsWithId</span> <span class="o">=</span> <span class="p">[</span><span class="k">this</span><span class="p">];</span>
+  <span class="k">for</span> <span class="p">(</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">project</span><span class="p">.</span><span class="nx">activeLayer</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">project</span><span class="p">.</span><span class="nx">activeLayer</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">itemId</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">itemId</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nx">allItemsWithId</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">project</span><span class="p">.</span><span class="nx">activeLayer</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">allItemsWithId</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">allItemsWithId</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">fillColor</span> <span class="o">=</span> <span class="s1">&#39;yellow&#39;</span><span class="p">;</span>
+    <span class="nx">allItemsWithId</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="s1">&#39;yellow&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">leave</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">allItemsWithId</span> <span class="o">=</span> <span class="p">[</span><span class="k">this</span><span class="p">];</span>
+  <span class="k">for</span> <span class="p">(</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">project</span><span class="p">.</span><span class="nx">activeLayer</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">project</span><span class="p">.</span><span class="nx">activeLayer</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">itemId</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">itemId</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nx">allItemsWithId</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">project</span><span class="p">.</span><span class="nx">activeLayer</span><span class="p">.</span><span class="nx">children</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">allItemsWithId</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">allItemsWithId</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">fillColor</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">color</span><span class="p">;</span>
+    <span class="nx">allItemsWithId</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">color</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">bar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path</span><span class="p">();</span>
+  <span class="nx">bar</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;bar_&quot;</span> <span class="o">+</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span>
+  <span class="nx">bar</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="mi">50</span><span class="o">+</span><span class="nx">i</span><span class="o">*</span><span class="mi">30</span><span class="p">,</span><span class="mi">250</span><span class="p">));</span>
+  <span class="nx">bar</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="mi">50</span><span class="o">+</span><span class="nx">i</span><span class="o">*</span><span class="mi">30</span><span class="p">,</span> <span class="mi">250</span><span class="o">-</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">y</span><span class="p">));</span>
+  <span class="nx">bar</span><span class="p">.</span><span class="nx">strokeWidth</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+  <span class="nx">bar</span><span class="p">.</span><span class="nx">onMouseEnter</span> <span class="o">=</span> <span class="nx">enter</span><span class="p">;</span>
+  <span class="nx">bar</span><span class="p">.</span><span class="nx">onMouseLeave</span> <span class="o">=</span> <span class="nx">leave</span><span class="p">;</span>
+
+  <span class="nx">bar</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">itemId</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span> <span class="c1">// We&#39;ll use this to match different marks for the same item</span>
+
+  <span class="nx">bar</span><span class="p">.</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">color</span><span class="p">;</span>
+  <span class="nx">bar</span><span class="p">.</span><span class="nx">fillColor</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">color</span><span class="p">;</span>
+  <span class="nx">bar</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">color</span><span class="p">;</span> <span class="c1">// item.data can contain arbitrary data, necessary for use in enter() and leave()</span>
+<span class="p">}</span>
+
+<span class="c1">// The scatterplot</span>
+<span class="kd">var</span> <span class="nx">xAxis</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path</span><span class="p">();</span>
+<span class="nx">xAxis</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">250</span><span class="p">));</span>
+<span class="nx">xAxis</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">250</span><span class="p">));</span>
+<span class="nx">xAxis</span><span class="p">.</span><span class="nx">strokeWidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">xAxis</span><span class="p">.</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">yAxis</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path</span><span class="p">();</span>
+<span class="nx">yAxis</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">));</span>
+<span class="nx">yAxis</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">250</span><span class="p">));</span>
+<span class="nx">yAxis</span><span class="p">.</span><span class="nx">strokeWidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">yAxis</span><span class="p">.</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">point</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path</span><span class="p">.</span><span class="nx">Circle</span><span class="p">(</span><span class="k">new</span> <span class="nx">Point</span><span class="p">(</span><span class="mi">200</span><span class="o">+</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">x</span><span class="p">,</span> <span class="mi">250</span><span class="o">-</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">y</span><span class="p">),</span><span class="mi">10</span><span class="p">);</span>
+  <span class="nx">point</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;point_&quot;</span> <span class="o">+</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span>
+  <span class="nx">point</span><span class="p">.</span><span class="nx">onMouseEnter</span> <span class="o">=</span> <span class="nx">enter</span><span class="p">;</span>
+  <span class="nx">point</span><span class="p">.</span><span class="nx">onMouseLeave</span> <span class="o">=</span> <span class="nx">leave</span><span class="p">;</span>
+
+  <span class="nx">point</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">itemId</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span> <span class="c1">// We&#39;ll use this to match different marks for the same item</span>
+
+  <span class="nx">point</span><span class="p">.</span><span class="nx">strokeColor</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">color</span><span class="p">;</span>
+  <span class="nx">point</span><span class="p">.</span><span class="nx">fillColor</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">color</span><span class="p">;</span>
+  <span class="nx">point</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">color</span><span class="p">;</span> <span class="c1">// item.data can contain arbitrary data, necessary for use in enter() and leave()</span>
+<span class="p">}</span></code></pre></div>
+
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Visual Data Analysis Lab</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Visual Data Analysis Lab</li>
+          <li><a href="mailto:jan.aerts@kuleuven.be">jan.aerts@kuleuven.be</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+          <li>
+            <a href="https://twitter.com/jandot">
+              <span class="icon  icon--twitter">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                  c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+                </svg>
+              </span>
+
+              <span class="username">jandot</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">From data to insight – Putting the human back in the loop of data analysis
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
