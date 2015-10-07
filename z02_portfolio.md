@@ -40,7 +40,7 @@ Supporting the work by Katja Nowick (Leipzig, Germany), looking at how gene inte
 
 As visualization plays an important role in data-driven research and the data-driven economy for finding new hypotheses and identifying novel leads, there is the issue of scalability in interactive data visualization. Visualizing a big dataset in an interactive way is not a trivial task. In addition, we aim to do this on the CPU rather than the GPU because the typical data analyst does not necessarily know/want to work on the GPU.
 
-:: Cosmopolitan Chicken Project ::
+# :: Cosmopolitan Chicken Project ::
 
 Data-driven art in collaboration with Koen Vanmechelen. Check out this TEDxFlanders presentation by the artist covering our work.
 
