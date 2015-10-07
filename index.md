@@ -11,3 +11,8 @@ Our research focus is on **visual design**, **interaction design**, and **sca
 Check out [**who we are**](http://homes.esat.kuleuven.be/~bioiuser/blog/?page_id=300) and some of the [**projects that we're involved in**](http://homes.esat.kuleuven.be/~bioiuser/blog/?page_id=178). Much of our code is available on the [vda-lab bitbucket git repository](http://bitbucket.org/vda-lab). Videos of what we create are available on the [lab's Vimeo channel](https://vimeo.com/channels/879988).
 
 Blog posts are contributed by all members of the group and act more as an external memory for ourselves than anything else...
+
+[![Data Visualization Lab logo](/assets/logo_dvl_small.png)](http://datavislab.org)
+[![STADIUS logo](/assets/logo_stadius_small.png)](http://esat.kuleuven.be/stadius)
+[![KU Leuven logo](/assets/logo_kuleuven_small.png)](http://www.kuleuven.be)
+[![iMinds logo](/assets/logo_iminds_small.png)](http://www.iminds.be)
