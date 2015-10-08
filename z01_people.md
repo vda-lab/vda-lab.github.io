@@ -10,8 +10,10 @@ Associate Professor; [http://orcid.org/0000-0002-6416-2717](http://orcid.org/000
 
 ![Photo Jan](/assets/photo_jan.jpeg)
 
-Contact: jan.aerts@esat.kuleuven.be or @jandot
+Contact: jan.aerts@esat.kuleuven.be or [@jandot](http://twitter.com/jandot)
+
 Blog: http://saaientist.blogspot.com
+
 Bio – Jan has a background in genetics and genomics, and performed his doctoral research at the University of Wageningen (Netherlands) on the Chicken Genome Sequencing Project. He then moved to Scotland to work as a postdoctoral researcher at the Roslin Institute on the Cow Genome Sequencing Project. Next, he continued his research at the Wellcome Trust Sanger Institute near Cambridge (UK) focusing on structural variation in the human and other primate genomes. At his return to Belgium in 2010, he shifted focus to data visualization and visual analytics, with the aim of finding interesting questions in large datasets (big data). His main research topics revolve around visual design, interaction design, and (human and computational) scalability. He collects inspiration for (both good and bad) visualizations on his pinterest board.
 Jan is on the organizing committees of BioVis and Beyond The Genome, and has chaired visualization-related sessions at conferences including VIZBI, the Bioinformatics Open Source Conference BOSC and EuroVis/VMLS. He is also Associate Editor for the BioMedCentral Thematic Series on Biological Data Visualization, and academic editor for PLoS One. He is member of the Young Academy – Royal Flemish Academy of Belgium for Sciences and the Arts.
 
