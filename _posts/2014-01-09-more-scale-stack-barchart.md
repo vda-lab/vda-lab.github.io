@@ -4,6 +4,9 @@ title:  "More scale-stack bar charts"
 date:   2014-01-09 12:17:00
 author: Raf Winand
 categories: paperjs howto
+tags:
+- paperjs
+- howto
 ---
 ![Scale-stack barchart Raf]({{ site.baseurl }}/assets/scale-stack-barchart-raf.png)
 

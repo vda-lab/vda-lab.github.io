@@ -4,6 +4,10 @@ title:  "Spark for Genomic Data"
 date:   2014-01-09 18:03:00
 author: Toni Verbeiren
 categories: spark shark scala
+tags:
+- spark
+- shark
+- scala
 ---
 We have been researching the use of [Spark](http://spark.incubator.apache.org/) and/or [Shark](https://github.com/amplab/shark/wiki) as a backend for our visualisation projects. If you are not familiar with Spark, please [take a look here](http://spark.incubator.apache.org/screencasts/1-first-steps-with-spark.html).
 In short: Spark is a platform for distributed handling of data. Think of [Hadoop](http://hadoop.apache.org/) but allowing for interactive rather than batch use. One of the first things we considered is whether to start of using Spark or rather Shark, which is based on it but offers a SQL like syntax instead of a Scala/Python/Java API. But first a word about the data and about the use of Spark to handle the data.

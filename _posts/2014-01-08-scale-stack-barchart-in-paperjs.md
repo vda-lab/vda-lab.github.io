@@ -4,6 +4,10 @@ title:  "Scale-stack barchart in paper.js"
 date:   2014-01-08 12:00:00
 author: Jan Aerts
 categories: paperjs howto
+summary: this is a summary
+tags:
+- paperjs
+- howto
 ---
 ![Scale-stack barchart in paper.js]({{ site.baseurl }}/assets/scale-stack-barchart-paperjs.png)
 

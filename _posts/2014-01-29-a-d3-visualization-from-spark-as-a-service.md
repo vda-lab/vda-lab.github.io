@@ -4,6 +4,10 @@ title:  "A D3 visualization from Spark as a Service"
 date:   2014-01-29 15:12
 author: Toni Verbeiren
 categories: spark d3 howto
+tags:
+- spark
+- d3
+- howto
 ---
 ![Heatmap]({{ site.baseurl }}/assets/d3_spark_heatmap.png)
 

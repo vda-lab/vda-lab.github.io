@@ -4,6 +4,9 @@ title:  "Creating a map in D3"
 date:   2015-03-20 15:53
 author: Raf Winand
 categories: d3 howto
+tags:
+- d3
+- howto
 ---
 This walkthrough is based on Mike Bostock's Let's Make a Map [http://bost.ocks.org/mike/map/](http://bost.ocks.org/mike/map/) but now specifically adapted to display a map of Belgium with the provinces. Although large parts are the same, their are some alterations to repair minor errors that I ran into while creating the map for Belgium.
 

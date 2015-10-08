@@ -4,6 +4,8 @@ title:  "EuroVis 2015 - Short paper on card sorting"
 date:   2015-06-04 13:47
 author: Ryo Sakai
 categories: card_sorting
+tags:
+- card_sorting
 ---
 From May 25 to 29 in 2015, I had an opportunity to attend EuroVis 2015 in Cagliari, Sardinia, Italy. This was my first time attending EuroVis and I had a really good time. It is much smaller than VIS, but you see familiar faces. The venue was really nice, and I must say I really enjoyed the Mediterranean weather. (The social event was epic.)
 

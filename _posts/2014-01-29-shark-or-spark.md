@@ -4,6 +4,9 @@ title:  "Shark or spark"
 date:   2014-01-29 10:03
 author: Toni Verbeiren
 categories: spark shark
+tags:
+- spark
+- shark
 ---
 In [a previous post](/2014/01/spark-for-genomic-data), we discussed the first steps into using Spark for analysing genomic data at scale. We now turn to Shark to see which one may be better suited for the task at hand.
 

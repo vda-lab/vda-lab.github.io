@@ -4,6 +4,10 @@ title:  "Proper syntax highlighting in Reveal.js using Pandoc"
 date:   2014-01-21 19:43
 author: Toni Verbeiren
 categories: markdown revealjs howto
+tags:
+- markdown
+- revealjs
+- howto
 ---
 I use [Markdown](http://daringfireball.net/projects/markdown/) format for about everything that requires typing text, including presentations. This format is converted to the expected output format using [Pandoc](http://johnmacfarlane.net/pandoc). Since one of the later version of Pandoc, the [Reveal.js](http://lab.hakim.se/reveal-js/#/) is available as an output format which allows for very slick (HTML based) presentations. For more information on my writing workflow, please [take a look here](http://www.data-intuitive.com/2013/06/writing-workflow-markdown-pandoc-latex-and-the-likes/), the [result with a custom LaTeX style](http://www.data-intuitive.com/2013/10/activity-monitoring-from-smartphone-sensor-data-in-a-new-layout/) is available as well.
 

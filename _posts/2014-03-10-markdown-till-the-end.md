@@ -4,6 +4,9 @@ title:  "Markdown till the end"
 date:   2014-03-10 09:47
 author: Toni Verbeiren
 categories: markdown howto
+tags:
+- markdown
+- howto
 ---
 It's [nothing](/2014/01/proper-syntax-highlighting-in-revealjs-using-pandoc) [new](http://www.data-intuitive.com/2013/06/writing-workflow-markdown-pandoc-latex-and-the-likes/) that I am a big fan of [Markdown](http://daringfireball.net/projects/markdown/) and [Pandoc](http://johnmacfarlane.net/pandoc/) for everything related to writing and publishing. For the last conference paper I wrote, I wanted to go all the way: write exclusively in Markdown and let Pandoc/LaTeX do the conversion and typesetting. I'm not going to show the actual example because the review process is double-blind...
 

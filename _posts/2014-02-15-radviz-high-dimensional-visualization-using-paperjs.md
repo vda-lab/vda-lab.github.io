@@ -4,6 +4,9 @@ title:  "Radviz high-dimensional visualization using paper.js"
 date:   2014-02-15 22:09
 author: Jan Aerts
 categories: radviz paperjs
+tags:
+- radviz
+- paperjs
 ---
 ![10,000 random points in 4-dimensional space. Grey points in corner are the 4 "attractors". Figure generated using the code in this blog post.]({{ site.baseurl }}/assets/random_point_4D.png)
 

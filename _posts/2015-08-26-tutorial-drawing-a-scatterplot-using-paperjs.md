@@ -4,6 +4,9 @@ title:  "Tutorial: drawing a scatterplot using paper.js"
 date:   2015-08-26 23:34
 author: Jan Aerts
 categories: howto paperjs
+tags:
+- howto
+- paperjs
 ---
 Although [D3](http://d3js.org) is very useful for, well, data-driven documents, it's a bit more difficult to *create custom visuals* in it; [Processing](http://processing.org) is an easier tool for this. Unfortunately, Processing is java-based (yes, we know about processingjs) so we've been looking into other javascript visualization libraries as well that allow for more "creative" coding.
 

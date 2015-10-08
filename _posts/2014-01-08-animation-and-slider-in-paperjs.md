@@ -4,6 +4,9 @@ title:  "Animation and slider in paper.js"
 date:   2014-01-08 11:00:00
 author: Jan Aerts
 categories: paperjs howto
+tags:
+- paperjs
+- howto
 ---
 ![Animation and slider paper.js]({{ site.baseurl }}/assets/animation_and_slider_paperjs.png)
 

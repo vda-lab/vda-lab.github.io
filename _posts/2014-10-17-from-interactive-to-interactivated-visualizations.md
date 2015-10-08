@@ -4,6 +4,8 @@ title:  "From interactive to interactivated visualizations"
 date:   2014-10-17 08:10
 author: Toni Verbeiren
 categories: d3
+tags:
+- d3
 ---
 I've been into generating documents and graphs from data (and source) since I started working on [my PhD](http://itf.fys.kuleuven.be/_binary/publications/phd_stat/2003_toni_verbeiren.pdf), which is like 15 years ago by now. Back then, I used [MetaPost](http://en.wikipedia.org/wiki/MetaPost) for generating PostScript figures to include in the thesis. The benefits of not using any of the available interactive tools ([xmgr](http://en.wikipedia.org/wiki/Grace_(plotting_tool)) comes to mind) were and still are plentiful. Besides being able to create figures that exactly match the font and style of the document for which they're created, I could easily make style changes on all the graphs simultaneously using a few key strokes. Obviously (at that time) the document itself was generated using LaTeX.
 

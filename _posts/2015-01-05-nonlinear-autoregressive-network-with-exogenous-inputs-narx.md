@@ -5,6 +5,8 @@ date:   2015-01-05 10:02
 author: Raf Winand
 categories: network
 published: false
+tags:
+- network
 ---
 A nonlinear autoregressive network with exogenous inputs (NARX) is a recurrent dynamic network with feedback connections enclosing several layers of the network. This is a kind of neural network that is suited for the analysis of time-series data. While ANN models are usually used to predict values one step in the future NARX models enter the predicted output value back into the model's input in order to predict several steps ahead (= multi-step-ahead) A NARX network is defined as:
 

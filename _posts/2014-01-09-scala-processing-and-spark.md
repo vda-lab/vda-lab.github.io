@@ -4,6 +4,11 @@ title:  "Scala, Processing and Spark"
 date:   2014-01-09 18:10:00
 author: Toni Verbeiren
 categories: spark shark scala howto
+tags:
+- spark
+- shark
+- scala
+- howto
 ---
 ![Spark histogram]({{ site.baseurl }}/assets/spark_histogram.png)
 

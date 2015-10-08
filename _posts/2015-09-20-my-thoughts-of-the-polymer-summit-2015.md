@@ -4,6 +4,8 @@ title:  "My thoughts of the Polymer Summit 2015"
 date:   2015-09-20 10:42
 author: Daniel Alcaide
 categories: polymer
+tags:
+- polymer
 ---
 Last Tuesday ended the Polymer Summit 2015 in Amsterdam. It was a two days event full of developers looking forward to meet other developers and to know the new announcements from the Polymer team.
 

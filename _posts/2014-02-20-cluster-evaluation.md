@@ -5,6 +5,8 @@ date:   2014-02-20 07:16
 author: Raf Winand
 categories: clustering
 published: false
+tags:
+- clustering
 ---
 Although it may seem that cluster evaluation is not necessary because of the exploratory nature of clustering, performing cluster evaluation is indeed important because it allows you to determine if there is a non-random structure in the data or if the clusters represent some random data points.
 

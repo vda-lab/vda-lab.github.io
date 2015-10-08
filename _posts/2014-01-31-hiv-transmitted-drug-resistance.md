@@ -4,6 +4,8 @@ title:  "HIV transmitted drug resistance"
 date:   2014-01-31 13?58
 author: Raf Winand
 categories: HIV
+tags:
+- hiv
 published: false
 ---
 For the treatment of HIV different drug classes exist that are used in antiretroviral therapy (ART). Our focus is on three of these drug classes, i.e. the protease inhibitors (PI), nucleoside reverse transcriptase inhibitors (NRTI) and non-nucleoside transcriptase inhibitors (NNRTI). Because of the high mutation rate in HIV, the virus can quickly develop resistance against these drugs. This is why a combination of different classes is usually prescribed which makes the ART a highly active antiretroviral therapy (HAART).

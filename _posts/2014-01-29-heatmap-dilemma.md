@@ -4,6 +4,9 @@ title:  "Heatmap dilemma"
 date:   2014-01-29 16:29
 author: Ryo Sakai
 categories: heatmap dendsort
+tags:
+- heatmap
+- dendsort
 ---
 Despite of the limitations of color encoding of quantitative data, heat maps are still popular plots for a two-dimensional matrix of numbers, such as gene expression levels per sample or for a time-series experiment, in life science. For example, the position is a better visual attribute for encoding a numerical value, and an example of gene expression data for two groups of profiles is more accurately represented using the parallel coordinates plot.
 

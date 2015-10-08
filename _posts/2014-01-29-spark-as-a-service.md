@@ -4,6 +4,8 @@ title:  "Spark as a service"
 date:   2014-01-29 14:46
 author: Toni Verbeiren
 categories: spark
+tags:
+- spark
 ---
 As mentioned earlier on this blog, we are using Spark as a backend for our data processing. In our earlier work, we tied [Processing](http://processing.org/) and [Spark](http://homes.esat.kuleuven.be/~bioiuser/blog/?p=66) together by an intermediate layer that constitutes of a [lazy tree zipper data structure](/2014/01/lazy-functional-tree-zipper-for-zoom-levels) to represent the different zoom levels in our data.
 

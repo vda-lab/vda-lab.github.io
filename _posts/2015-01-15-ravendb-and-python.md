@@ -4,6 +4,10 @@ title:  "RavenDB and python"
 date:   2015-01-15 16:56
 author: Raf Winand
 categories: ravendb nosql python
+tags:
+- ravendb
+- nosql
+- python
 ---
 Although RavenDB is designed to be used with C# and HTTP, a Python client also exists. This client is developed by Patrick McEvoy aka '*firegrass*' and can be found at https://github.com/firegrass/ravendb-py. Installation is very straightforward and can be done by downloading the zip file with the source code, unzipping that to a directory and executing the following command: `python setup.py install`.
 

@@ -4,6 +4,10 @@ title:  "Reordering phylogenetic tree branches using R"
 date:   2014-02-13 14:01
 author: Ryo Sakai
 categories: phylogenetic dendrogram R
+tags:
+- phylogenetic
+- dendrogram
+- R
 ---
 I am looking into how to implement a function to sort the order of leaves in the dendrogram.  If you can recommend someone or books for this task, please let me know.  It should be simple but the data structure of hierarchical clustering output in R is not so straightforward. I do this data processing to recreate tree data structure in Java, and there are [ways to call Java from R](http://darrenjw.wordpress.com/2011/01/01/calling-java-code-from-r/) but this creates Java dependency, and it would be nice if this can be processed in native R.
 

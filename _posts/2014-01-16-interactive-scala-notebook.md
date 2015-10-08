@@ -4,6 +4,9 @@ title:  "Interactive (Scala) notebook"
 date:   2014-01-16 14:34
 author: Toni Verbeiren
 categories: scala notebook
+tags:
+- scala
+- notebook
 ---
 When you are familiar with interactive languages like R, python, you know you get a REPL which allows you to interactively work with the language.
 

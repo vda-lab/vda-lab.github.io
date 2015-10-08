@@ -4,6 +4,10 @@ title:  "A lazy functional tree zipper for zoom levels"
 date:   2014-01-09 18:46:00
 author: Toni Verbeiren
 categories: spark locustree scala
+tags:
+- spark
+- locustree
+- scala
 ---
 *... This must be the best blog post title around ...*
 

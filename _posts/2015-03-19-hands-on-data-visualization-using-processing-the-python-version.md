@@ -4,6 +4,10 @@ title:  "Hands-on data visualization using processing - the python version"
 date:   2015-03-19 23:39
 author: Jan Aerts
 categories: dataviz python processing
+tags:
+- dataviz
+- python
+- processing
 ---
 In this exercise, we will use the Processing tool (<http://processing.org>) to generate visualizations based on a flights dataset. In particular, we will use the python mode (<http://py.processing.org>). This tutorial holds numerous code snippets that can by copy/pasted and modified for your own purpose. The contents of this tutorial is available under the CC-BY license.
 

@@ -4,6 +4,8 @@ title:  "Sequential pattern mining"
 date:   2014-12-19 12:21
 author: Raf Winand
 categories: data-mining
+tags:
+- data-mining
 ---
 The goal of sequential pattern mining is to find relevant patterns that are contained in a set of sequences. It is useful for e.g. identifying shopping patterns (for instance: first buy a computer, then a printer, then a camera a few months later), DNA sequences, ...
 

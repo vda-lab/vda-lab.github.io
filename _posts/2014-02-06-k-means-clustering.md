@@ -5,6 +5,9 @@ date:   2014-02-06 13:05
 author: Raf Winand
 categories: clustering b-slim
 published: false
+tags:
+- clustering
+- b-slim
 ---
 For the clustering of the data in the b-slim project I'm going through the book that Dusan gave me: Introduction to Data Mining by Pang-Ning Tan, Michael Steinbach & Vipin Kumar. In this post I will give an overview of three simple clustering techniques that are in itself rather simple but show the different (dis)advantages for each technique.
 

@@ -4,6 +4,10 @@ title:  "RavenDB - Getting documents"
 date:   2015-01-21 08:57
 author: Raf Winand
 categories: ravendb nosql python
+tags:
+- ravendb
+- nosql
+- python
 ---
 With ravendb-py you can't load all documents or documents of a certain type, you can only select them through the document id or through an index. As you may not be able to create an index or have the document ids at hand, it would be useful if you could use another function of the HTTP API. The following python code will retrieve all objects that have a key that starts with a given string.
 

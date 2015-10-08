@@ -5,6 +5,9 @@ date:   2014-02-18 08:34
 author: Raf Winand
 categories: R avalok
 published: false
+tags:
+- R
+- avalok
 ---
 The version of R that is installed on Avalok is 2.13 while 3.0.2 is the latest version and is required by a number of packages. There is a way to install both RStudio and a personal version of R on Avalok and still work through sge.
 

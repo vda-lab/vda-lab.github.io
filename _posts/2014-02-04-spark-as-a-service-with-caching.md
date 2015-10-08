@@ -5,6 +5,8 @@ date:   2014-02-04 21:11
 author: Toni Verbeiren
 categories: spark
 published: false
+tags:
+- spark
 ---
 Today, I've come a little closer to what in my opinion is currently the state-of-the art approach to analytics of big data set, especially visual analytics.
 

@@ -4,6 +4,10 @@ title:  "Radviz rewrite in D3"
 date:   2014-02-24 22:17
 author: Jan Aerts
 categories: howto radviz d3
+tags:
+- howto
+- radviz
+- d3
 ---
 [![D3 version of radviz]({{ site.baseurl }}/assets/radviz_d3_small.png)]({{ site.baseurl }}/assets/radviz_d3_large.png)
 

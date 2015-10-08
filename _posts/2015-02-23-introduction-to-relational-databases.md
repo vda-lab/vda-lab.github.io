@@ -4,6 +4,8 @@ title:  "Introduction to relational databases"
 date:   2015-02-23 18:09
 author: Jan Aerts
 categories: sql
+tags:
+- sql
 ---
 This post is a copy of a local HTML file I created for teaching students the basic principles of relational databases. It only made sense to also put this up for a broader audience. The contents of this post is licensed as CC-BY: feel free to copy/remix/tweak/... it, but please credit your source :-) And let us know you're using it in the comments.
 

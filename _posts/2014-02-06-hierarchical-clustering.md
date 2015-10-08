@@ -5,6 +5,9 @@ date:   2014-02-06 15:29
 author: Raf Winand
 categories: clustering b-slim
 published: false
+tags:
+- clustering
+- b-slim
 ---
 # Hierarchical Clustering
 Agglomerative hierarchical clustering starts with the points as individual clusters and with each step merges the closest pair of clusters.

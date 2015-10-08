@@ -4,6 +4,9 @@ title:  "Linked views in paper.js"
 date:   2014-01-08 10:49:53
 author: Jan Aerts
 categories: paperjs howto
+tags:
+- paperjs
+- howto
 ---
 ![Linked views]({{ site.baseurl }}/assets/linked_views_paperjs.png)
 
