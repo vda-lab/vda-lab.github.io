@@ -13,7 +13,7 @@ K-means is a partitional and prototype-based clustering technique that ames to p
 
 In each iteration you first assign each point to the closest centroid  and then recalculate the centroid of each cluster. You keep performing iterations until the centroids don't change or change minimally. To calculate the distance you can use different proximity functions based on type of centroid.
 
-![proximity functions](/assets/proximity_functions.png)
+![proximity functions]({{ site.baseurl }}/assets/proximity_functions.png)
 
 The quality of a cluster can be defined as the cluster that has the smallest sum of the squared error (SSE). You calculate the sum of squared distances to the centroid from each point of the cluster. The cluster that has the smallest SSE value is then the cluster with the highest quality.
 

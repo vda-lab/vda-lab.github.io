@@ -10,7 +10,7 @@ In short: Spark is a platform for distributed handling of data. Think of [Hadoop
 
 # Data
 
-[![BED file sample](/assets/occurrence_transcription-factors_small.png)](/assets/occurrence_transcription-factors_large.png)
+[![BED file sample]({{ site.baseurl }}/assets/occurrence_transcription-factors_small.png)]({{ site.baseurl }}/assets/occurrence_transcription-factors_large.png)
 
 We use a [BED](https://genome.ucsc.edu/FAQ/FAQformat.html#format1) file as input format and took [this one](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/functional_annotation/annotation_sets/201101_encode_motifs_in_tf_peaks.bed.gz) to start with. It contains information on [transcription factors](http://en.wikipedia.org/wiki/Transcription_factor) and where they bind on the genome. This input format is a text file and can easily be parsed.
 

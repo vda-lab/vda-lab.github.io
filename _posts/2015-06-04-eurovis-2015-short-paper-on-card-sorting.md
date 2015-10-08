@@ -7,9 +7,9 @@ categories: card_sorting
 ---
 From May 25 to 29 in 2015, I had an opportunity to attend EuroVis 2015 in Cagliari, Sardinia, Italy. This was my first time attending EuroVis and I had a really good time. It is much smaller than VIS, but you see familiar faces. The venue was really nice, and I must say I really enjoyed the Mediterranean weather. (The social event was epic.)
 
-![Card sorting](/assets/cardsorting.png)
+![Card sorting]({{ site.baseurl }}/assets/cardsorting.png)
 
-For this conference, we wrote this paper on card sorting technique. Preprint link is [here](/assets/RSAKAI_JAERTS_CardSorting.pdf). The project actually goes back to my first year of the PhD study, and it was a collaboration with computational biologists to develop an interactive visualization system for studying structural variation of the human cancer genome.
+For this conference, we wrote this paper on card sorting technique. Preprint link is [here]({{ site.baseurl }}/assets/RSAKAI_JAERTS_CardSorting.pdf). The project actually goes back to my first year of the PhD study, and it was a collaboration with computational biologists to develop an interactive visualization system for studying structural variation of the human cancer genome.
 
 Perhaps this was one of the most challenging periods in my Phd study. It was challenging because I had to build quite a bit of domain specific knowledge to "speak the same language" as the domain experts, and understand the analysis needs. Interviews after interviews, I learned something new, but yet I felt I was so far from addressing the domain problem. The analysis tasks were complex, fuzzy and inherently exploratory. There was no one specific question, and there were so many ways to approach this dataset.
 
@@ -17,7 +17,7 @@ Although the domain expert was "fluent" in this domain and they knew they wanted
 
 So, we decided to employ card sorting techniques. Details of the procedure is in the paper. One thing I didn't emphasize enough in my presentation is that the card preparation process is not an easy process either. It takes time, but I would say it is rewarding. You will actually learn more about the domain problem, by decomposing the fuzzy and complex problem into a small and manageable components. It is like making index cards for exams. The process of making is actually a really good learning process.
 
-Here are the [slides](/assets/RSAKAI_EuroVis2015_Slides.pdf) from my presentation.
+Here are the [slides]({{ site.baseurl }}/assets/RSAKAI_EuroVis2015_Slides.pdf) from my presentation.
 
 One of the questions after the presentation was, "Does the expert understand your new visual encoding design ideas in the picture card?"
 

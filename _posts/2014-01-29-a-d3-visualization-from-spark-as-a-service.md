@@ -5,7 +5,7 @@ date:   2014-01-29 15:12
 author: Toni Verbeiren
 categories: spark d3 howto
 ---
-![Heatmap](/assets/d3_spark_heatmap.png)
+![Heatmap]({{ site.baseurl }}/assets/d3_spark_heatmap.png)
 
 In [a previous post](/2014/01/spark-as-a-service), we installed and tested the Spark job server, turning Spark into a REST API. We now want to actually do something with this component.
 

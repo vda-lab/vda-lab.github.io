@@ -69,7 +69,7 @@ Line 6 actually loads the file, which is parsed on line 7. All columns in the CS
 
 This code gives you a little picture like this:
 
-![Fisher scatterplot](/assets/fisher_scatter.png)
+![Fisher scatterplot]({{ site.baseurl }}/assets/fisher_scatter.png)
 
 # Running everything
 

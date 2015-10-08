@@ -16,7 +16,7 @@ From this equation you can see that the next value of *y* that you want to predi
 
 A NARX network can be schematically represented as:
 
-![NARX](/assets/narx.gif)
+![NARX]({{ site.baseurl }}/assets/narx.gif)
 
 * TDL = Tapped delay line
 * LW = Layer weight matrix
@@ -26,15 +26,15 @@ A NARX network can be schematically represented as:
 Training of a NARX network can be done in two different ways:
 
 1. **Series-parallel mode (SP) or open loop**: In this case the output is only based on actual input values.
-  ![NARX 1](/assets/ugtsnarxfeedback.png)
+  ![NARX 1]({{ site.baseurl }}/assets/ugtsnarxfeedback.png)
 1. **Parellel mode (P) or closed loop**: In this case the predicted output values are sent back to the input of the model.
-  ![NARX 2](/assets/ugtsnarxfeedback_2.png)
+  ![NARX 2]({{ site.baseurl }}/assets/ugtsnarxfeedback_2.png)
 
 When you are training the model, all actual input values are available so the series-parallel mode is used. When training of the model is done the loop can be closed and the network can be used for multi-step-ahead predictions.
 
 An example of a NARX network is included in Matlab and tries to predict the position of a permanent magnet in a magnetic levitation system. In the following graphs, the top graph show the position of the permanent magnet while the bottom one show the voltage applied to the electromagnet.
 
-![dynamic maglev](/assets/dynamic_maglev.gif)
+![dynamic maglev]({{ site.baseurl }}/assets/dynamic_maglev.gif)
 
 The first step is to load the data:
 
@@ -110,7 +110,7 @@ plot(e)
 
 This will give the following graph:
 
-![Error plot](/assets/error_plot.png)
+![Error plot]({{ site.baseurl }}/assets/error_plot.png)
 
 Because the network was still open when training, the error here is the error on a one-step-ahead prediction. But we want to predict the position many steps ahead so the network has to be closed. This can be done by:
 
@@ -131,6 +131,6 @@ plot(1:TS,cell2mat(t1),'b',1:TS,cell2mat(yp1),'r')
 
 This will now predict 900 steps and plot the predicted positions (blue) together with the original data (red).
 
-![NARX prediction](/assets/narx_prediction.png)
+![NARX prediction]({{ site.baseurl }}/assets/narx_prediction.png)
 
 In order for the parallel response (iterated prediction) to be accurate, it is important that the network be trained so that the errors in the series-parallel configuration (one-step-ahead prediction) are very small.

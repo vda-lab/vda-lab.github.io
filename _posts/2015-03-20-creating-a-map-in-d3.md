@@ -216,7 +216,7 @@ So the complete code now looks like:
 
 Running this code will lead to the following map drawn in the browser:
 
-[![Small Belgium](/assets/belgium_small.png)](/assets/belgium_small_large.png)
+[![Small Belgium]({{ site.baseurl }}/assets/belgium_small.png)]({{ site.baseurl }}/assets/belgium_small_large.png)
 
 As you can see there is only a very small map of Belgium visible in the middle of the page. Of course this is not what we want. In order to make a bigger map, you can specify a scale when specifying the projection. However, doing this by hand means just going through a set of numbers by trial and error. Because we are using a TopoJSON object we can calculate the boundaries for the map and use those to recalculate the scale. Doing this will require some more code and we first start by moving the parameters for the projection into some variables:
 
@@ -315,7 +315,7 @@ After you have calculated the new parameters you recreate the projection and dra
 
 Running this code will give you:
 
-[![Belgium 2](/assets/belgium_2_small.png)](/assets/belgium_2_large.png)
+[![Belgium 2]({{ site.baseurl }}/assets/belgium_2_small.png)]({{ site.baseurl }}/assets/belgium_2_large.png)
 
 We now have a complete map of Belgium but this one is completely black and we would like to see the provinces.
 
@@ -442,6 +442,6 @@ This gives you the following complete code:
 
 Now you will get the following image:
 
-[![Belgium 3](/assets/belgium_3_small.png)](/assets/belgium_3_large.png)
+[![Belgium 3]({{ site.baseurl }}/assets/belgium_3_small.png)]({{ site.baseurl }}/assets/belgium_3_large.png)
 
 The colors aren't that nice but you probably get the picture.

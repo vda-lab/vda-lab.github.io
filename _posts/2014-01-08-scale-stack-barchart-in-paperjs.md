@@ -5,11 +5,11 @@ date:   2014-01-08 12:00:00
 author: Jan Aerts
 categories: paperjs howto
 ---
-![Scale-stack barchart in paper.js](/assets/scale-stack-barchart-paperjs.png)
+![Scale-stack barchart in paper.js]({{ site.baseurl }}/assets/scale-stack-barchart-paperjs.png)
 
 To empty my head after a hard day's work on grant proposals: another quick graph test in paper.js: the **scale-stack barchart** (see [here](http://www.vis.uni-stuttgart.de/~sadlo/download/hlawatsch2013scaleStack.pdf)  for a description of what it is). This type of visual encoding solves the issue of showing data with vastly different orders of magnitude. Although other solutions have been used for a long time (e.g. using a log-scale), these have many issues. The log-scale, for example, does make all bars fit in the same order of magnitude, but is very difficult for the end-user to interpret. From the paper referenced above, comparing cut-off bars, scale breaks, log scales, and scale-stack bar chart.
 
-![Scale-stack barchart from paper](/assets/scale-stack-barchart-paper.png)
+![Scale-stack barchart from paper]({{ site.baseurl }}/assets/scale-stack-barchart-paper.png)
 
 The key in looking at such graph is to look at one order of magnitude at a time. Just looking at the top of the graph it is clear that the 5th value is much larger than all the other ones. Similarly, at the bottom we can see that the 6th value is 2 to 3 times as high as the 11th one, and that all the others are at least one order of magnitude higher.
 

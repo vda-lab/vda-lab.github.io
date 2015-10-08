@@ -32,11 +32,11 @@ There are 4 key values in the hclust output object, named "hClustering" in the 
 
 These description is not easy to understand, so I generated a figure to make sense of this output. The picture below shows the data points in a scatter plot and a dendrogram. $merge indicates the order of how leaves/observations are merged.  For example, observation 9 and 10 are merged first and they have the smallest distance, as seen in $height. It repeats this way, and you see -12 and 2 in the 5th row of $merge.  In this case, the number 2 refers to the cluster formed at the 2nd row in the table. (I know... this is a bit confusing... but it is an efficient way to store the hierarchical information. $order is the order of observations as shown in a dendrogram, from the left to the right.
 
-[![Before reordering](/assets/before_reordering_small.png)](/assets/before_reordering_large.png)
+[![Before reordering]({{ site.baseurl }}/assets/before_reordering_small.png)]({{ site.baseurl }}/assets/before_reordering_large.png)
 
 I guess the most important parameter is the $order. The function for reordering should manipulate the $order, then the dendrogram would be drawn according to the sorted order. Here I directly manipulated the order in the object and redrawn the dendrogram without changing any other parameters.
 
-[![After reordering](/assets/after_reordering_small.png)](/assets/after_reordering_large.png)
+[![After reordering]({{ site.baseurl }}/assets/after_reordering_small.png)]({{ site.baseurl }}/assets/after_reordering_large.png)
 
 The goal is to automate this process in R and here is  how I implemented in Java. First, I turn the data into a binary tree data structure, using 2 classes and 1 interface. MergedNode is where 2 observations or clusters are merged, and Node class is for each observation. Going though the $merge data, I merge objects until I end up with 1 trunk/root.
 

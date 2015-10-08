@@ -76,7 +76,7 @@ Imagine being an air traffic controller and wanting to know if a plane is not fo
 
 But is it that simple? No. How can you find that one ship that you're interested in amongst the thousands of ships on your screen? In this project, we would like to develop visual analytics techniques for easy **identification of "abnormal" behaviour in geo-spatial data**, in collaboration with [Luciad](http://www.luciad.com), a Leuven-based company specialized in situational awareness that helps their users to gain insight in large time-dependent geo-spatial data.
 
-![Ship movements](/assets/ship_movements.png)
+![Ship movements]({{ site.baseurl }}/assets/ship_movements.png)
 
 *Ship movements at port of Rotterdam. van de Laar et al, Situation Awareness with Systems of Systems*
 

@@ -7,11 +7,11 @@ categories: dataviz python processing
 ---
 In this exercise, we will use the Processing tool (<http://processing.org>) to generate visualizations based on a flights dataset. In particular, we will use the python mode (<http://py.processing.org>). This tutorial holds numerous code snippets that can by copy/pasted and modified for your own purpose. The contents of this tutorial is available under the CC-BY license.
 
-![cc-by](/assets/ccby.png)
+![cc-by]({{ site.baseurl }}/assets/ccby.png)
 
 The tutorial is written in a very incremental way. We start with something simple, and gradually add little bits and pieces that allow us to make more complex visualizations. So make sure to not skip parts of the tutorial: everything depends on everything that precedes it.
 
-![A pretty picture](/assets/flights_double.png)
+![A pretty picture]({{ site.baseurl }}/assets/flights_double.png)
 
 *Figure 1 - A pretty picture*
 
@@ -19,7 +19,7 @@ The tutorial is written in a very incremental way. We start with something simpl
 
 py.processing is a language based on python, with its own development environment.
 
-![Processing IDE](/assets/processing_ide.png)
+![Processing IDE]({{ site.baseurl }}/assets/processing_ide.png)
 
 *Figure 2 - The Processing IDE*
 
@@ -54,7 +54,7 @@ line(150,5,150,50)
 
 This code generates the following image:
 
-![Minimal output](/assets/minimal_output.png)
+![Minimal output]({{ site.baseurl }}/assets/minimal_output.png)
 
 *Figure 3 - Minimal output*
 
@@ -93,7 +93,7 @@ line(100,90,400,90)
 
 This generates this image:
 
-![loop](/assets/loop.png)
+![loop]({{ site.baseurl }}/assets/loop.png)
 
 *Figure 4 - Parallel lines*
 
@@ -156,7 +156,7 @@ else:
 
 The condition `i%2 == 0` means: does dividing the number `i` with 2 result in a remainder of zero? Note that we have to use 2 equal-signs here (`==`) instead of just one (`=`). This is so to distinguish between a test for equality, and an assignment. Don't make errors against this...
 
-![Odd and even lines](/assets/oddeven.png)
+![Odd and even lines]({{ site.baseurl }}/assets/oddeven.png)
 
 *Figure 5 - Odd and even lines*
 
@@ -209,7 +209,7 @@ for row in table.rows():
 
 The resulting image:
 
-![Departure airports](/assets/flights_map.png)
+![Departure airports]({{ site.baseurl }}/assets/flights_map.png)
 
 *Figure 6 - Departure airports*
 
@@ -257,7 +257,7 @@ for row in table.rows():
 
 In line 21, we rescale the value of the distance (min = 1, max = 15406) to a minimum of 3 and maximum of 15. That value is than used as the radius `r`.
 
-![Domestic vs international flights](/assets/flights_coloured.png)
+![Domestic vs international flights]({{ site.baseurl }}/assets/flights_coloured.png)
 
 *Figure 7 - Domestic vs international flights*
 
@@ -335,7 +335,7 @@ Some things to note:
 
 Now how do we adapt this so that the radius of the circles depends on the x-position of my pointer? Luckily, Processing provides two variables called `mouseX` and `mouseY` that are very useful. `mouseX` returns the x position of the pointer. So basically the only thing we have to do is replace `float r = map(distance, 0, 15406, 3, 15);` with `float r = map(mouseX, 0, 800, 3, 15);` (Note that we changed the `15406` to `800`.) If we do that, and our mouse is towards the right side of the image, we get the following picture:
 
-![Scatterplot large dots](/assets/scatterplot_largedots.png)
+![Scatterplot large dots]({{ site.baseurl }}/assets/scatterplot_largedots.png)
 
 *Figure 8 - Large dots*
 
@@ -420,19 +420,19 @@ We will only draw flights if their duration is between a calculated `minDistance
 
 Now it gets interesting. We can now look a bit deeper into the data... If we have our mouse at the left side of the image, it looks like this:
 
-![Short distance flights](/assets/flights_shortdistances.png)
+![Short distance flights]({{ site.baseurl }}/assets/flights_shortdistances.png)
 
 *Figure 9 - Short distance flights*
 
 Having the mouse in the middle to the canvas gives us this image:
 
-![Medium distance flights](/assets/flights_mediumdistances.png)
+![Medium distance flights]({{ site.baseurl }}/assets/flights_mediumdistances.png)
 
 *Figure 10 - Medium distance flights*
 
 Playing with this visualization, there are some signals that pop up. Moving left and right at about 70-90 pixels from the left, we see a "snake" moving along the north-east coast of Brazil (see Figure below, also indicating position of mouse). This indicates that most of these flights probably go to the same major city in that country. Other dynamic patterns appear in Europe as well. In Figure 10, some dots appear to be darker than others. Why do you think this is?
 
-![Brazil snake](/assets/snake_brazil.png)
+![Brazil snake]({{ site.baseurl }}/assets/snake_brazil.png)
 
 *Figure 11 - A snake in Brazil*
 
@@ -561,7 +561,7 @@ def mouseDragged():
     redraw()
 {% endhighlight %}
 
-![Slider](/assets/slider.png)
+![Slider]({{ site.baseurl }}/assets/slider.png)
 
 *Figure 12 - A slider*
 
@@ -834,7 +834,7 @@ Now that we have the *brushing* working, let's create a proof of principle for t
 
 Here's an overview of what we want to look the visualization like. At the top left, we want picture 1; at the bottom right we want picture 2. The `x` positions for picture 1 range from `0` to `width/2`; the `x` positions for picture 2 range from `width/2` to `width`. The same applies for the `y` positions of both.
 
-![Picture placement and position ranges](/assets/placement.png)
+![Picture placement and position ranges]({{ site.baseurl }}/assets/placement.png)
 
 *Figure 13 - Picture placement and position ranges*
 
@@ -903,7 +903,7 @@ def mouseMoved():
 
 The lines in the code that have changed relative to script 15 are: lines 12 to 15, line 18, and lines 28 and 29. You should see an image similar to this (without the annotated text):
 
-![Brushing and linking](/assets/brushinglinking.png)
+![Brushing and linking]({{ site.baseurl }}/assets/brushinglinking.png)
 
 *Figure 14 - Brushing and linking*
 
@@ -992,7 +992,7 @@ Let's see what changed compared to script 16:
 
 The resulting figure should look like this (without the annotated text):
 
-![Brushing linking 2](/assets/brushinglinking2.png)
+![Brushing linking 2]({{ site.baseurl }}/assets/brushinglinking2.png)
 
 *Figure 15 - Brushing and linking between departure and arrival airports*
 
@@ -1106,7 +1106,7 @@ def mouseMoved():
 
 The approach we take in this plot is the following: if the user hovers over the histogram, the selected bar is saved in a variable called `activeHistBin`, which is then used in the `visible()` method of the flights. The resulting picture will look something like this:
 
-![Brushinglinking2](/assets/Brushinglinking2.png)
+![Brushinglinking2]({{ site.baseurl }}/assets/Brushinglinking2.png)
 
 *Figure 16 - Linked views with histogram*
 
@@ -1123,7 +1123,7 @@ Let's see how that last script is different from script 17... In the probable or
 
 There are many different ways to show this information. This exact same dataset was visualized by Till Nagel during the visualization challenge in 2012 from visualising.org. Part of his entry is shown in Figure 17.
 
-![Till Nagel](/assets/till_nagel.png)
+![Till Nagel]({{ site.baseurl }}/assets/till_nagel.png)
 
 *Figure 17 - Entry by Till Nagel*
 

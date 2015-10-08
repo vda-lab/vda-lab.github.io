@@ -5,7 +5,7 @@ date:   2014-01-09 12:17:00
 author: Raf Winand
 categories: paperjs howto
 ---
-![Scale-stack barchart Raf](/assets/scale-stack-barchart-raf.png)
+![Scale-stack barchart Raf]({{ site.baseurl }}/assets/scale-stack-barchart-raf.png)
 
 It seems that Jan beat me to it but to learn Paper.js and JavaScript I was also working on an implementation of the scale-stack bar charts. I took some of his code because this makes it easier to follow between the posts. What I added or changed in order to get to know Paper.js is:
 

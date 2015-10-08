@@ -18,6 +18,6 @@ twitter: [@jandot](http://twitter.com/jandot)<br/>
 Google+: [+Jan Aerts](https://plus.google.com/u/0/110144902760205526841)<br/>
 Personal blog: [SaaienTist](http://saaientist.blogspot.com)
 
-[![contact_map_full](/assets/contact_map_full_small.png)](/assets/contact_map_full_large.png)
+[![contact_map_full]({{ site.baseurl }}/assets/contact_map_full_small.png)]({{ site.baseurl }}/assets/contact_map_full_large.png)
 
-[![contact_map_detail](/assets/contact_map_detail_small.png)](/assets/contact_map_detail_large.png)
+[![contact_map_detail]({{ site.baseurl }}/assets/contact_map_detail_small.png)]({{ site.baseurl }}/assets/contact_map_detail_large.png)

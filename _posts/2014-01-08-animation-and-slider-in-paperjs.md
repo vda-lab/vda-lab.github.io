@@ -5,7 +5,7 @@ date:   2014-01-08 11:00:00
 author: Jan Aerts
 categories: paperjs howto
 ---
-![Animation and slider paper.js](/assets/animation_and_slider_paperjs.png)
+![Animation and slider paper.js]({{ site.baseurl }}/assets/animation_and_slider_paperjs.png)
 
 One of the issues with processing.org is the way that it handles sliders in a sketch. In contrast to D3, the developer has to either check himself if the mouse position is within the pixel range of a slider glyph, or use external libraries. Although paper.js uses canvas rather than SVG (as D3 does), it allows for linking events to objects. This makes it much easier to create e.g. sliders. In the code below, I combine a slider with an animated object. The position of the slider determines the speed at which the animated object moves across the screen. As it only checks the speed when it changes direction, any change in the slider setting will only take place at that point.
 

@@ -8,7 +8,7 @@ categories: sql
 This post is a copy of a local HTML file I created for teaching students the basic principles of relational databases. It only made sense to also put this up for a broader audience. The contents of this post is licensed as CC-BY: feel free to copy/remix/tweak/... it, but please credit your source :-) And let us know you're using it in the comments.
 
 
-![CC-BY](/assets/ccby.png)
+![CC-BY]({{ site.baseurl }}/assets/ccby.png)
 
 *(Part of the content of this lecture is taken from the database lectures from the yearly Programming for Biology course at CSHL, and the EasySoft tutorial at http://bit.ly/x2yNDb)*
 
@@ -176,7 +176,7 @@ So how could we do that for the table above? Each row contains **3 different typ
 * In the genotypes table, individuals and SNPs are linked by referring to their primary keys (as used in the individuals and snps tables). Again best practice: if a **foreign key** refers to the id column in the individuals table, it should be named **individual_id** (note the singular).
 * The foreign keys individual_id and snp_id in the genotypes table must be of the same type as the id columns in the individuals and snps tables, respectively.
 
-![primary and foreign keys](/assets/primary_foreign_keys.png)
+![primary and foreign keys]({{ site.baseurl }}/assets/primary_foreign_keys.png)
 
 The `individuals` table:
 

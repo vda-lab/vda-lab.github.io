@@ -5,7 +5,7 @@ date:   2014-02-15 22:09
 author: Jan Aerts
 categories: radviz paperjs
 ---
-![10,000 random points in 4-dimensional space. Grey points in corner are the 4 "attractors". Figure generated using the code in this blog post.](/assets/random_point_4D.png)
+![10,000 random points in 4-dimensional space. Grey points in corner are the 4 "attractors". Figure generated using the code in this blog post.]({{ site.baseurl }}/assets/random_point_4D.png)
 
 Many different approaches exist for **visualizing points in high-dimensional space**, including techniques such as multi-dimensional scaling and principal component analysis. Another popular option is parallel coordinates, but **radviz** is relatively less known. Although there are concerns about the fact that different points in multi-dimensional space can appear at the same position in the radviz visualization, it does have its uses. In the radviz approach, each dimension is represented as a point on a circle. The actual datapoints are then laid out within that circle such that the value in a particular dimension corresponds to the strength of an attraction force to the dimension-point on the circle.
 
@@ -60,4 +60,4 @@ for ( var i = 0; i &lt; 10000; i++ ) {
 
 A radviz representation of the **Fisher's Iris dataset**:
 
-[![Fisher using radviz](/assets/fisher_radviz_small.png)](/assets/fisher_radviz_large.png)
+[![Fisher using radviz]({{ site.baseurl }}/assets/fisher_radviz_small.png)]({{ site.baseurl }}/assets/fisher_radviz_large.png)

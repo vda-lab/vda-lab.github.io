@@ -5,7 +5,7 @@ date:   2014-02-24 22:17
 author: Jan Aerts
 categories: howto radviz d3
 ---
-[![D3 version of radviz](/assets/radviz_d3_small.png)](/assets/radviz_d3_large.png)
+[![D3 version of radviz]({{ site.baseurl }}/assets/radviz_d3_small.png)]({{ site.baseurl }}/assets/radviz_d3_large.png)
 
 After having written [radviz using paper.js](/2014/02/radviz-high-dimensional-visualization-using-paperjs), I wanted to tip my toes in [D3](http://d3js.org) again. My playing with paper.js has helped getting an idea of the way of javascript, necessary to write good D3 as well. The code below is basically the same as the one for the paper.js version, except that the drawing code is now outside of the Attractor and DataPoint classes.
 

@@ -5,7 +5,7 @@ date:   2014-01-08 10:49:53
 author: Jan Aerts
 categories: paperjs howto
 ---
-![Linked views](/assets/linked_views_paperjs.png)
+![Linked views]({{ site.baseurl }}/assets/linked_views_paperjs.png)
 
 Trying out [paper.js](http://paperjs.org). For future reference: here's a (naive) example of doing **linked views**. Hovering over a red object will make all red objects yellow, and the same goes for blue and green. The trick used here is to use the data property of the visual mark (i.c. bar and point), and adding an itemId to it. See [http://paperjs.org/reference/item/#data](http://paperjs.org/reference/item/#data) for more information on that property.
 

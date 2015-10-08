@@ -14,11 +14,11 @@ In Southern Portugal many hospitals are working together to create a database of
 
 A phylogenetic tree was made from these sequences and in this tree the transmission clusters were identified depending on different thresholds for genetic distance between the samples and bootstrap support. Most of the clusters that were identified are between two patients but some have more than 2 patients as can be seen in the following table (clusters with bootstrap support of > 90% and genetic distance between samples < 0.015).
 
-![HIV table](/assets/hiv_table1.png)
+![HIV table]({{ site.baseurl }}/assets/hiv_table1.png)
 
 Depending on the thresholds of genetic distance and bootstrap support, we get a different number of transmission clusters as can be seen in the following graph.
 
-![HIV plot](/assets/hiv_plot.png)
+![HIV plot]({{ site.baseurl }}/assets/hiv_plot.png)
 
 When we look at the entire database for drug resistance we find 187 cases of TDR (11.6%) with 4% resistant to PIs, 5.1% resistant to NRTIs and 6% resistant to NNRTIs. Resistance against a single drug class was observed in 8.9% of the samples, 2.3% showed resistance to two classes and 0.4% showed resistance against all three classes.
 

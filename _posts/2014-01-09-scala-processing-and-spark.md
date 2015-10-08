@@ -5,7 +5,7 @@ date:   2014-01-09 18:10:00
 author: Toni Verbeiren
 categories: spark shark scala howto
 ---
-![Spark histogram](/assets/spark_histogram.png)
+![Spark histogram]({{ site.baseurl }}/assets/spark_histogram.png)
 
 As discussed [earlier](/2014/01/spark-for-genomic-data), we use Spark as a backend for handling the data to be analysed. Since our group is working on [Visual Analytics](http://en.wikipedia.org/wiki/Visual_analytics), obviously, something [visual](http://www.slideshare.net/jandot/visual-analytics-in-omics-why-what-how) or graphical should come out.
 
