@@ -6,6 +6,21 @@ title: Blog posts
 <script type="text/javascript" src="d3.min.js"></script>
 <script type="text/javascript" src="underscore-min.js"></script>
 <script>
+function pairwise(list) {
+  if (list.length < 2) { return []; }
+  var first = list[0],
+      rest  = list.slice(1),
+      pairs = rest.map(function (x) { return [first, x]; });
+  return pairs.concat(pairwise(rest));
+}
+function partition(items, size) {
+    var result = _.groupBy(items, function(item, i) {
+        return Math.floor(i/size);
+    });
+    return _.values(result);
+}
+
+// Get the nodes
 {% capture posts %}
 [
 {% for post in site.posts %}
@@ -23,37 +38,6 @@ posts.map(function(p) {
   return p.tags = p.tags.split(';')
 })
 
-var links = [
-  {"source":2,"target":1,"dikte":5},
-  {"source":19,"target":24,"dikte":1},
-  {"source":19,"target":22,"dikte":3},
-  {"source":22,"target":24,"dikte":1},
-  {"source":19,"target":20,"dikte":3},
-  {"source":19,"target":1,"dikte":2},
-  {"source":20,"target":1,"dikte":1},
-  {"source":22,"target":1,"dikte":1},
-  {"source":20,"target":22,"dikte":2},
-  {"source":22,"target":23,"dikte":1},
-  {"source":12,"target":21,"dikte":1},
-  {"source":12,"target":1,"dikte":2},
-  {"source":21,"target":1,"dikte":1},
-  {"source":19,"target":5,"dikte":1},
-  {"source":5,"target":1,"dikte":3},
-  {"source":17,"target":18,"dikte":1},
-  {"source":14,"target":15,"dikte":1},
-  {"source":14,"target":16,"dikte":1},
-  {"source":16,"target":15,"dikte":1},
-  {"source":13,"target":2,"dikte":1},
-  {"source":5,"target":13,"dikte":1},
-  {"source":13,"target":1,"dikte":1},
-  {"source":9,"target":10,"dikte":2},
-  {"source":9,"target":6,"dikte":2},
-  {"source":6,"target":10,"dikte":2},
-  {"source":4,"target":6,"dikte":1},
-  {"source":4,"target":7,"dikte":1},
-  {"source":6,"target":7,"dikte":1}
-]
-
 var nodesObject = _.flatten(posts.map(function(n) {
   return n.tags.map(function(t) {
     return {'tag':t, 'url':n.url}
@@ -69,6 +53,67 @@ var nodesObject = _.flatten(posts.map(function(n) {
 var nodes = _.keys(nodesObject).map(function(n,i) {
   return {"index": i, "tag":n, "urls":nodesObject[n]}
 })
+var nodeIndices = {};
+nodes.map(function(n) {
+  nodeIndices[n.tag] = n.index
+})
+
+// Get the links
+var linksList = _.flatten(posts.filter(function(p) {
+  return p.tags.length > 1
+}).map(function(p) {
+  return pairwise(p.tags)
+}))
+var linkPairs = partition(linksList,2).map(function(l) {
+  if ( l[0] > l[1] ) {
+    return [l[1],l[0]]
+  } else {
+    return [l[0],l[1]]
+  }
+})
+var linkCounted = linkPairs.reduce(function(prev, curr) {
+  var thisCollection = prev
+  if ( curr in thisCollection ) {
+    thisCollection[curr] += 1
+  } else {
+    thisCollection[curr] = 1
+  }
+  return thisCollection
+}, {})
+var links = _.keys(linkCounted).map(function(k) {
+  var source_target = k.split(',')
+  return {"source": nodeIndices[source_target[0]], "target": nodeIndices[source_target[1]], "weight": linkCounted[k]}
+})
+//  links = [
+//   {"source":2,"target":1,"dikte":5},
+//   {"source":19,"target":24,"dikte":1},
+//   {"source":19,"target":22,"dikte":3},
+//   {"source":22,"target":24,"dikte":1},
+//   {"source":19,"target":20,"dikte":3},
+//   {"source":19,"target":1,"dikte":2},
+//   {"source":20,"target":1,"dikte":1},
+//   {"source":22,"target":1,"dikte":1},
+//   {"source":20,"target":22,"dikte":2},
+//   {"source":22,"target":23,"dikte":1},
+//   {"source":12,"target":21,"dikte":1},
+//   {"source":12,"target":1,"dikte":2},
+//   {"source":21,"target":1,"dikte":1},
+//   {"source":19,"target":5,"dikte":1},
+//   {"source":5,"target":1,"dikte":3},
+//   {"source":17,"target":18,"dikte":1},
+//   {"source":14,"target":15,"dikte":1},
+//   {"source":14,"target":16,"dikte":1},
+//   {"source":16,"target":15,"dikte":1},
+//   {"source":13,"target":2,"dikte":1},
+//   {"source":5,"target":13,"dikte":1},
+//   {"source":13,"target":1,"dikte":1},
+//   {"source":9,"target":10,"dikte":2},
+//   {"source":9,"target":6,"dikte":2},
+//   {"source":6,"target":10,"dikte":2},
+//   {"source":4,"target":6,"dikte":1},
+//   {"source":4,"target":7,"dikte":1},
+//   {"source":6,"target":7,"dikte":1}
+// ]
 
 var width = 600,
     height = 400;
@@ -92,8 +137,9 @@ var link = svg.selectAll(".link")
   .enter().append("line")
     .attr("class", "link")
     .style({
-      "stroke-width": function(d) { return d.dikte; },
-      "stroke": "black"
+      "stroke-width": function(d) { return d.weight; },
+      "stroke": "black",
+      "opacity": 0.5
     })
 
 
@@ -106,6 +152,7 @@ var node = svg.selectAll(".node")
     .attr("class", "node")
     .attr("r", 5)
     .style("fill", "black")
+    .style("opacity", 0.5)
     .call(force.drag)
 
 node.append("title")
