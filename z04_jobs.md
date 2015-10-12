@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Jobs
+permalink: jobs.html
 ---
 # :: Visualizing text from patient records ::
 

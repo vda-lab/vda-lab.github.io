@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Portfolio
+permalink: portfolio.html
 ---
 A selection of projects run in the lab…
 

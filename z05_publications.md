@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Publications
+permalink: publications.html
 ---
 # :: Peer-reviewed journals ::
 

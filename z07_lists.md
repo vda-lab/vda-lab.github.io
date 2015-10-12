@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Lists
+permalink: lists.html
 ---
 # :: Books we like ::
 
