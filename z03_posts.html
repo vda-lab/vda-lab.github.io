@@ -3,56 +3,123 @@ layout: page
 title: Blog posts
 ---
 <div id="visual"></div>
-<script type="text/javascript" src="p5.min.js"></script>
+<script type="text/javascript" src="d3.min.js"></script>
+<script type="text/javascript" src="underscore-min.js"></script>
 <script>
-var alltags
+{% capture posts %}
+[
+{% for post in site.posts %}
+{
+"title"    : "{{ post.title }}",
+"url"      : "{{ post.url }}",
+"date"     : "{{ post.date | date: "%B %d, %Y" }}",
+"tags"     : "{{ post.tags | join: ';' }}"
+} {% if forloop.last %}{% else %},{% endif %}
+{% endfor %}
+]
+{% endcapture %}
+var posts = {{posts | strip_newlines}}
+posts.map(function(p) {
+  return p.tags = p.tags.split(';')
+})
 
-function setup() {
-  {% capture posts %}
-  [
-  {% for post in site.posts %}
-  {
-  "title"    : "{{ post.title }}",
-  "url"      : "{{ post.url }}",
-  "date"     : "{{ post.date | date: "%B %d, %Y" }}",
-  "tags"     : "{{ post.tags | join: ';' }}"
-  } {% if forloop.last %}{% else %},{% endif %}
-  {% endfor %}
-  ]
-  {% endcapture %}
-  var posts = {{posts | strip_newlines}}
-  posts.map(function(p) {
-    p.tags = p.tags.split(';')
+var links = [
+  {"source":2,"target":1,"dikte":5},
+  {"source":19,"target":24,"dikte":1},
+  {"source":19,"target":22,"dikte":3},
+  {"source":22,"target":24,"dikte":1},
+  {"source":19,"target":20,"dikte":3},
+  {"source":19,"target":1,"dikte":2},
+  {"source":20,"target":1,"dikte":1},
+  {"source":22,"target":1,"dikte":1},
+  {"source":20,"target":22,"dikte":2},
+  {"source":22,"target":23,"dikte":1},
+  {"source":12,"target":21,"dikte":1},
+  {"source":12,"target":1,"dikte":2},
+  {"source":21,"target":1,"dikte":1},
+  {"source":19,"target":5,"dikte":1},
+  {"source":5,"target":1,"dikte":3},
+  {"source":17,"target":18,"dikte":1},
+  {"source":14,"target":15,"dikte":1},
+  {"source":14,"target":16,"dikte":1},
+  {"source":16,"target":15,"dikte":1},
+  {"source":13,"target":2,"dikte":1},
+  {"source":5,"target":13,"dikte":1},
+  {"source":13,"target":1,"dikte":1},
+  {"source":9,"target":10,"dikte":2},
+  {"source":9,"target":6,"dikte":2},
+  {"source":6,"target":10,"dikte":2},
+  {"source":4,"target":6,"dikte":1},
+  {"source":4,"target":7,"dikte":1},
+  {"source":6,"target":7,"dikte":1}
+]
+
+var nodesObject = _.flatten(posts.map(function(n) {
+  return n.tags.map(function(t) {
+    return {'tag':t, 'url':n.url}
   })
+})).reduce(function(prev, curr) {
+  var thisCollection = prev
+  if ( ! (curr['tag'] in thisCollection) ) {
+    thisCollection[curr['tag']] = []
+  }
+  thisCollection[curr['tag']].push(curr['url'])
+  return thisCollection
+},{})
+var nodes = _.keys(nodesObject).map(function(n,i) {
+  return {"index": i, "tag":n, "urls":nodesObject[n]}
+})
 
-  alltags = posts.map(function(p) {
-    return p.tags.map(function(t) {
-      return {"tag": t, "url": p.url}
+var width = 600,
+    height = 400;
+
+var force = d3.layout.force()
+    .charge(-120)
+    .linkDistance(30)
+    .size([width, height]);
+
+var svg = d3.select("#visual").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+force
+    .nodes(nodes)
+    .links(links)
+    .start();
+
+var link = svg.selectAll(".link")
+    .data(links)
+  .enter().append("line")
+    .attr("class", "link")
+    .style({
+      "stroke-width": function(d) { return d.dikte; },
+      "stroke": "black"
     })
-  }).reduce(function(prev,curr) {
-    return prev.concat(curr) // [{tag:'paperjs', title:'url1'}, {tag:'howto', title:'url2'}, {tag:'paperjs',title:'url3'}]
-  }).reduce(function(prev, curr) {
-    var newObject = prev
-    if ( ! newObject[curr['tag']] ) {
-      newObject[curr['tag']] = []
-    }
-    newObject[curr['tag']].push(curr['url'])
-    return newObject
-  },{}) // {polymer:[url1,url2],paperjs:[url3,url4,url5],d3:[url6],...}
 
-  var myCanvas = createCanvas(800, 200);
-  myCanvas.parent('visual')
 
-  noLoop()
-}
+var node = svg.selectAll(".node")
+    .data(nodes)
+  .enter()
+  .append("a")
+    .attr("xlink:href", function(d) { return "#" + d.tag })
+  .append("circle")
+    .attr("class", "node")
+    .attr("r", 5)
+    .style("fill", "black")
+    .call(force.drag)
 
-function draw() {
-  Object.keys(alltags).forEach(function(t) {
-    textSize(5*alltags[t].length)
-    text(t, Math.random()*600, Math.random()*200)
+node.append("title")
+    .text(function(d) { return d.tag; });
 
-  })
-}
+force.on("tick", function() {
+  link.attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+
+  node.attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+});
 </script>
 
 <h2>:: By tag ::</h2>
