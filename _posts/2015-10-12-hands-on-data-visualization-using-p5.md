@@ -1112,8 +1112,7 @@ function mouseMoved() {
 }
 {% endhighlight %}
 
-Here's the interactive version (move your mouse across the picture):
-**NOTE: for some reason, the style of this element is set to "invisible" when loading/refreshing the page. Still trying to find out why this is. Meanwhile, you have to manually remove the "visibility:hidden" in the developer tools.**
+Here's the interactive version (move your mouse across the top picture):
 <div id="interactive_brushlink"></div>
 <script>
 var ibl = function(p) {
@@ -1165,7 +1164,7 @@ var ibl = function(p) {
   }
 
   p.preload = function() {
-    table = p.loadTable("{{site.baseurl}}/assets/flights.csv","csv","header")
+    table = p.loadTable("{{site.baseurl}}/assets/flights_part.csv","csv","header")
   }
 
   p.setup = function() {
