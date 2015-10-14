@@ -3,7 +3,7 @@ layout: page
 title: Publications
 permalink: publications.html
 ---
-# :: Peer-reviewed journals ::
+## :: Peer-reviewed journals ::
 
 * Sakai R & Aerts J. Card sorting techniques for domain characterization in problem-driven visualization research. Eurographics Conference on Visualization (EuroVis) 2015.
 * Sakai, Ryo, and Jan Aerts. 2014. “Sequence Diversity Diagram for Comparative Analysis of Multiple Sequence Alignments.” BMC Proceedings 8 (Suppl 2 Proceedings of the 3rd Annual Symposium on Biological Data Visualization) (January): S9.
@@ -48,7 +48,7 @@ permalink: publications.html
 * Aerts, J, R Crooijmans, S Cornelissen, K Hemmatian, T Veenendaal, A Jaadar, J Van Der Poel, V Fillon, A Vignal, and M Groenen. 2003. “Integration of Chicken Genomic Resources to Enable Whole-Genome Sequencing.” Cytogenetic and Genome Research 303: 297–303. doi:10.1159/000075766.
 * Aerts, Jan, Yves Wetzels, Nadine Cohen, and Jeroen Aerssens. 2002. “Data Mining of Public SNP Databases for the Selection of Intragenic SNPs.” Human Mutation 20 (3) (September): 162–73. doi:10.1002/humu.10107.
 
-# :: General media ::
+## :: General media ::
 
 * De Standaard, 04/06/2014, “Je smartphone als dokter”
 * Aerts J. Enhancing genomic analysis through ICT and visualisation. Projects, Insight Publishers, p28-31 (2013)

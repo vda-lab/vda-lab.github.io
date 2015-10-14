@@ -3,14 +3,14 @@ layout: page
 title: Lists
 permalink: lists.html
 ---
-# :: Books we like ::
+## :: Books we like ::
 
 * Don Norman – The Design of Everyday Things
 * Nassim Taleb – The Black Swan
 * Nassim Taleb – Antifragile
 * Tamara Munzner – Visualization Analysis and Design
 
-# :: Videos we like ::
+## :: Videos we like ::
 
 * Ben Fry on the [principles of data visualization](vizbi.org/Videos/11551146)
 * Miriah Meyer’s [TEDx talk on biological data visualization](www.youtube.com…Cf8MA&gl=BE)
