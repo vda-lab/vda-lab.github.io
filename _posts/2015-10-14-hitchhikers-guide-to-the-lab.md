@@ -1,8 +1,9 @@
 ---
 layout: post
 title:  "Hitchhiker's guide to the VDA lab"
-date:   2015-10-12 19:07
+date:   2015-10-14 22:58
 author: Jan Aerts
+private: true
 ---
 (inspired by the PLoS Computational Biology paper "[You Are Not Working For Me; I Am Working With You](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004387)")
 
@@ -11,6 +12,7 @@ author: Jan Aerts
 * [You are in charge](#incharge)
 * [Communication is important](#communication)
 * [Presenting our work to the outside world](#presenting)
+* [The social side](#social)
 
 ## <a id="whatwedo"></a>What do we do exactly, and why?
 
@@ -33,7 +35,9 @@ Now how do we approach this?
 We try to augment that expert user with **interactive data visualization**. In particular, we're targeting two aspects: **visual design**, and **scalability**.
 
 #### Visual design
-As data get much richer with often a huge number of dimensions, we need to find ways to **condense more information into the visual**, moving from literal representations to more abstract ones. Some issues that we need to tackle include how to fix design fixation, how to interact with the domain expert to probe for deeper motives, etc. This task analysis in particular may be difficult because it starts off being unclear due to the inherent exploratory nature. In the end, we want to extend theoretical frameworks and methodologies for design strategies for visualization involving biological data.
+As data get much richer with often a huge number of dimensions, we need to find ways to **condense more information into the visual**, moving from literal representations to more abstract ones. Design space that exists is infinite. We need to try and expand the designer's (your) visual library by extending the design space that you know, and prevent design fixation. At the same time, we need to investigate how to interact with the domain expert to get a good idea of the specific motivations in order to shrink the design space that you need to investigate. This task analysis in particular may be difficult because it starts off being unclear due to the inherent exploratory nature. In the end, we want to extend theoretical frameworks and methodologies for design strategies for visualization involving biological data.
+
+![visual design]({{site.baseurl}}/assets/design_space.png)
 
 #### Scalability
 There are two different aspects when it comes to scalability: perceptual scalability and computational scalability.
@@ -75,10 +79,12 @@ Finally, the Visual Data Analysis lab is part of the [**Data Visualization Lab**
 
 As both STADIUS and iMinds are the official affiliations, you will *always* have to mention both in your presentations, and on your posters and papers.
 
-For your PhD, specifically, you will also get to know the [**Arenberg Doctoral School**](http://set.kuleuven.be/phd), or ADS for short, quite well.
+For your PhD, specifically, you will also get to know the [**Arenberg Doctoral School**](http://set.kuleuven.be/phd), or ADS for short, quite well. They define what needs to be done at different stages of your PhD. Your contact person at the faculty is Veronique Cortens. However, she is on pregnancy leave, and is temporarily covered by Edith Amery (FYI: my wife Indra Hautekiet works at ADS part-time as well). You can follow up your progress through your [**KULoket**](www.kuleuven.be/sapredir/kuloket) -> "Research" -> "PhD progress". That's also where you will need to upload the necessary documents at the necessary times.
 
 ## <a id="incharge"></a>You are in charge
-I expect you to manage your own PhD, both at the conceptual and the practical level. Of course I will be there to guide you, but the final responsibility lies with you. At the conceptual level, this means that **TODO** Practically, this involves making sure that the right forms are submitted at the right time to ADS, that you plan your 6-month strategy meeting with me, etc.
+I expect you to manage your own PhD, both at the conceptual and the practical level. Of course I will be there to guide you, but the final responsibility lies with you. At the conceptual level, this means that you (in collaboration with me) **define your research question**. At the practical level, this involves making sure that the right forms are submitted at the right time to ADS, that you plan your 6-month strategy meeting with me, etc.
+
+During your PhD there are some pre-defined moments where things can be corrected. Most important are the **9-month and 24-month presentations**, as defined by ADS. At 9 months after the start of your PhD, we (you and I) need to assess if it makes sense to pursue the rest of the PhD or not. It might be that you'd fit better in a commercial than a research environment, for example, or your background and skills might not fit as good as we expected it to be. The presentation at 24 months is more to take stock and give clear direction to the second half of your PhD.
 
 ### Tension between priorities
 There is a high chance that your PhD is paid for by a project (or even several). In many cases, these **projects** are very applied, and include very clear **deliverables** at set dates (e.g. "15/9/2015: created algorithm that prioritizes individuals"). As these deliverables *must* be reached, your work is a balancing exercise between your long-term PhD research goals, and the shorter term project goals. The way to approach this, is to see the project deliverables as stepping stones towards your overall PhD.
@@ -89,11 +95,11 @@ As a PhD student, you will also be called upon to act as **teaching assistant** 
 
 ## <a id="communication"></a>Communication is important
 
-More and more, I find email lacking in its ability to inform me of what's happening around me. There are 5,351 *unread* emails in my inbox as I write this, so there are bound to be some things that I'm missing. Therefore, we as a group started using **SocialCast** a couple of years ago. This tool basically acts like Twitter, but with only messages from within our group. When you start in the lab, make sure that I create an account for you. In principle, we don't send any emails within the lab, but only use SocialCast. Whereas SocialCast is for discussions in general, we also use **Slack** for some specific projects. Typically, those also have members from outside of the lab, which is not the case for SocialCast.
+More and more, I find email lacking in its ability to inform me of what's happening around me. There are 5,351 *unread* emails in my inbox as I write this, so there are bound to be some things that I'm missing. Even more important, email is not transparent. You cannot follow discussions unless you're copied into the emails themselves. This also applies when someone new (you) comes into the lab: they can only read up on past communication if all emails are forwarded. Therefore, we as a group started using **SocialCast** a couple of years ago. This tool basically acts like Twitter, but with only messages from within our group. When you start in the lab, make sure that I create an account for you. In principle, we don't send any emails within the lab, but only use SocialCast. Whereas SocialCast is for discussions in general, we also use **Slack** for some specific projects. Typically, those also have members from outside of the lab, which is not the case for SocialCast.
 
 ### Internal meetings
 
-We also try to sit together regularly to discuss what happens in the group. I try to have a **general labmeeting** every week, or at least drop by the office to discuss the different projects. The article that I reference at the top of this guide mentions **2+1** meetings which also seem very interesting to do, but we have not done yet. Every 6 months, we will have a **strategy meeting** to discuss where your PhD research is going, how it interacts with the different projects, and how we should set priorities.
+We also try to sit together regularly to discuss what happens in the group. I try to have a **general labmeeting** every week, or at least drop by the office to discuss the different projects. The article that I reference at the top of this guide mentions **2+1** meetings which also seem very interesting to do, but we have not done yet. In those meetings, two random students discuss their projects with me which might lead to interesting interactions. Every 6 months, we will have a **strategy meeting** to discuss where your PhD research is going, how it interacts with the different projects, and how we should set priorities.
 
 Apart from the internal meetings, there are also additional ones that you will typically attend. First of all, there's the bi-weekly **YAC meeting** ("Yves-and-colleagues") where one student from the Bioinformatics group presents his work to be discussed. There's also the **BIG meeting** ("Bioinformatics Interest Group") at the Gasthuisberg hospital, where bioinformaticians from different groups and faculties come together. Finally, the weekly **CME meeting** ("Centrum voor Menselijke Erfelijkheid") is relevant for those working with genetic data. That's the place where geneticists present their current work and where we can find interesting opportunities for collaborating. Each of these meetings (YAC, BIG, CME) has a schedule of talks, and you will probably be asked to present once per year at each.
 
@@ -114,7 +120,7 @@ As a member of our group (be it a PhD student or postdoc), you are expected to p
 There are several conferences that are relevant for what we do. First, there are the visualization-specific ones. These include IEEE VIS, VIZBI, BioVis, and EuroVis. [**IEEE VIS**](http://ieeevis.org/) is the largest of these, and is normally held in the US. This is the conference where we often learn about new visual encodings, new frameworks, etc. Each year there are some smaller conferences that precede IEEE VIS, which are called SIGs (special-interest-groups). These include VAST, Beliv, DECISIVe, and BioVis. [**BioVis**](http://biovis.net) is of particular importance to us as our lab lives at the border of data visualization and biology. (Also: I have been on the organizing committee for several years, and am general co-chair in 2016 and 2017; Ryo is also on the OC since 2015.) [**EuroVis**](http://www.eurovis.org) is very similar to IEEE VIS, but at a somewhat smaller scale and is obviously held in Europe. [**VIZBI**](http://vizbi.org), finally, is more aimed towards the biologist. It's the venue where biologists come explain how they used data visualization in their work, and talk about the challenges they encounter.
 The conferences that have a "paper track" (i.e. that invite people to submit a paper) send out a **CFP** ("call for papers") 6 months or more before the actual conference. This CFP describes what type of paper you can submit (topics, length, ...), and what the deadlines are. Although the CFP normally should come out long before the submission deadline, that is too late to start thinking about what you could write. So you will have to think about submitting something long before the CFP is released. Basically, you should **throughout the year always be working towards one or two specific submissions**. There is something to say for just letting the research take you where it wants to (freewheeling-style), but having this focus can help tremendously to get things done in the end. Accepted papers are often (but not always) also made available as *journal papers* (see below). A general tip is to **work from the result backwards**: what would you want to present in a year's time, and work towards that.
 
-Some conferences also have **challenges**. The BioVis conference, for example, has had a data contest and visual design contest since the beginning. They provide the dataset and the question, and it is your role to think of a good solution. Some **BioVis challenges** in the past included the visualization of 2-locus eQTL data (which our lab won; TODO: link), of resting-state functional MRI data (which our lab won; TODO: link), and a redesign of the sequence logo (for which we were runner-up; TODO: link). Other conferences do something similar, for example the [**VAST challenge**](http://vacommunity.org/VAST+Challenge+2015) (REF).
+Some conferences also have **challenges**. The BioVis conference, for example, has had a data contest and visual design contest since the beginning. They provide the dataset and the question, and it is your role to think of a good solution. Some **BioVis challenges** in the past included the visualization of 2-locus eQTL data, of resting-state functional MRI data, and a redesign of the sequence logo. Other conferences do something similar, for example the [**VAST challenge**](http://vacommunity.org/VAST+Challenge+2015). With Ryo and Daniel, we've been really successful in the past in these challenges.
 
 Some more biology-oriented conferences that might be relevant are ISMB, ECCB and BBC. [**ISMB**](https://www.iscb.org/ismbeccb2015) is the largest bioinformatics conference, and its location alternates between the US and Europe. The BioVis conference is sometimes organized alongside ISMB rather that IEEE VIS. **ECCB** (European Conference on Computational Biology) is co-organized with ISMB when the latter is in Europe; the other years it stands alone. [**BBC**](http://bbc2015.be/) (Benelux Bioinformatics Conference), finally, is a more local event.
 
@@ -127,15 +133,12 @@ Alongside conference papers, we also submit manuscript to different journals. In
 
 Finally, I noticed that having a blog years ago did open quite a few doors for me. That's why we write [**blog posts**]({{site.baseurl}}/blog.html) here as well. If there is something that took you a long time to figure out (and for which you have searched blogs for a solution), that might be a good opportunity to write your own contribution.
 
+## <a id="social"></a>The social side
+A lab stands or falls with the people who're part of it. Unfortunately, the setup at ESAT does not really make social interactions very easy: there is no real social space, and my office is also quite far from the student's office. That does not mean that we should only sit behind our desks. The really **good ideas sprout from interactions**, not from sitting behind a desk on your own.
 
+That is one of the reasons why I find **spontaneous interaction** so important. To be fair, we can even direct that a little bit. Have lunch together, have breakfast once in a while, etc. We also had a BBQ at my home this year, which I hope to repeat every summer. It might be fun to semi-organize other things as well. Game nights, anyone? (Note to self: assign a "social champion").
 
-design space + visual library
-
-introductory document per lab member to hit the floor running:
-summary of project goals
-reading list
-milestones for first weeks
-list of people to talk to
+Voila, that's it. This "hitchhiker's guide" serves as much as a reminder for me on what to focus on with the lab, as I hope it can help you to make sense of why we do things the way we do them.
 
 Enjoy your time at the lab,
 

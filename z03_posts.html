@@ -25,12 +25,14 @@ function partition(items, size) {
 {% capture posts %}
 [
 {% for post in site.posts %}
+{% unless post.private %}
 {
 "title"    : "{{ post.title }}",
 "url"      : "{{ post.url }}",
 "date"     : "{{ post.date | date: "%B %d, %Y" }}",
 "tags"     : "{{ post.tags | join: ';' }}"
 } {% if forloop.last %}{% else %},{% endif %}
+{% endunless %}
 {% endfor %}
 ]
 {% endcapture %}
@@ -190,8 +192,10 @@ force.on("tick", function() {
 <h2>:: Chronological ::</h2>
 <ul>
   {% for post in site.posts %}
+  {% unless post.private %}
     <li>
       <time style="color:#666;font-size:11px;" datetime='{{post.date | date: "%Y-%m-%d"}}'>{{post.date | date: "%m/%d/%y"}}</time> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
     </li>
+  {% endunless %}
   {% endfor %}
 </ul>
