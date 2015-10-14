@@ -81,6 +81,14 @@ PhD student
 Bio – Jansi has a techno-functional background. She obtained her Bachelor degree in Electrical Engineering from Anna University in India and a Master degree in International Business from ESC Grenoble in France. She started her career as a marketer and then moved to the area of commercial data analytics owing to her interest in making sense of data to drive business. She strongly believes that visualisation is the most effective way to communicate the insights and finds it exciting to
 visualise data from different domains. Her current research focuses on visualising genomic and healthcare data.
 
+## :: John Du Preez ::
+
+PhD student
+
+![Photo John]({{ site.baseurl }}/assets/photo_john.jpg)
+
+Bio – John strongly believes in a multi-disciplinary approach to creative problem solving. His current research, in association with Luciad, focuses on visual analytics to support insight generation within geospatial data. John has a bachelor degree in information technology, as well as a post-graduate degree in culture and arts. In addition, John has a masters degree in architecture and design, and an advanced masters degree from the faculty of engineering sciences at KU Leuven. His work experience as a technician and developer within a GIS environment, amongst other past positions, supports his current research objectives.
+
 # Former group members
 
 ## :: Georgios Pavlopoulos ::
