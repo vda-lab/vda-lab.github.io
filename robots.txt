@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+SITEMAP: http://vda-lab.be/sitemap.txt
