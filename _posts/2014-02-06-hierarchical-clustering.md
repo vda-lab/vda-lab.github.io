@@ -9,7 +9,7 @@ tags:
 - clustering
 - b-slim
 ---
-# Hierarchical Clustering
+## Hierarchical Clustering
 Agglomerative hierarchical clustering starts with the points as individual clusters and with each step merges the closest pair of clusters.
 
 The key in these algorithms is defining the proximity between clusters. This proximity can be defined in many different ways. You have for instance MIN or single link where the proximity is defined by the closest two points of different clusters, MAX or complete link takes the farthest two points in the different clusters and Group Average takes the average pairwise proximities of all pairs of point in the different clusters. In addition you can also take the distance between prototypes (centroids) of the clusters or you can use Ward's method which also assumes that the cluster is represented by a centroid but measures the increase in SSE when merging two clusters.
@@ -26,7 +26,7 @@ There are some key issues in hierarchical clustering:
 
 Hierarchical clustering is typically used for the creation of clusters that require a form of hierarchy. A disadvantage is that it has high computational and storage requirements. Because all merges are final it might have problems with high-dimensional data. You can overcome part of these disadvantages by first partially clustering the data with e.g. K-means.
 
-# DBSCAN
+## DBSCAN
 With DBSCAN regions of high density are located that are separated by regions of lower density. There are several ways to define density but here I will only focus on center-based density. In this case density is measured for a particular point by counting the number of points that are found within a certain radius from that point. The problem then is how to set the radius because a too large radius will include all points while a too small radius will only include one point.
 
 In the center-based approach points are classified into three categories:

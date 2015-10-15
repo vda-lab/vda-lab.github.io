@@ -11,7 +11,7 @@ tags:
 ---
 For the clustering of the data in the b-slim project I'm going through the book that Dusan gave me: Introduction to Data Mining by Pang-Ning Tan, Michael Steinbach & Vipin Kumar. In this post I will give an overview of three simple clustering techniques that are in itself rather simple but show the different (dis)advantages for each technique.
 
-# K-means
+## K-means
 K-means is a partitional and prototype-based clustering technique that ames to partition the observations in *k* clusters which are represented by their centroids. In addition to K-means you can also use the K-medoid technique which uses an actual data point (medoid) as the prototype instead of the mean of a group of points (centroid).
 
 In each iteration you first assign each point to the closest centroid  and then recalculate the centroid of each cluster. You keep performing iterations until the centroids don't change or change minimally. To calculate the distance you can use different proximity functions based on type of centroid.

@@ -19,7 +19,7 @@ The tutorial is written in a very incremental way. We start with something simpl
 
 *Figure 1 - A pretty picture*
 
-# Introduction to Processing
+## Introduction to Processing
 
 py.processing is a language based on python, with its own development environment.
 
@@ -27,7 +27,7 @@ py.processing is a language based on python, with its own development environmen
 
 *Figure 2 - The Processing IDE*
 
-## Download and install py-processing
+### Download and install py-processing
 
 Processing can be downloaded from [http://processing.org/download/](http://processing.org/download/).
 
@@ -37,7 +37,7 @@ Processing can be downloaded from [http://processing.org/download/](http://proce
 
 To install python mode, click on the button in the top-right corner, select "Add Mode..." from the drop-down box, and choose "Python". Then re-start Processing.
 
-## A minimal script
+### A minimal script
 
 A minimal script is provided below.
 
@@ -74,7 +74,7 @@ Several drawing primitives exist, including `line`, `rect`, `triangle`, and `ell
 
 Apart from these primitives, Processing contains functions that modify properties of these primitives. These include setting the fill color (`fill`), color of lines (`stroke`), and line weight (`lineWeight`). Again, the reference pages host all information.
 
-## Variables, loops and conditionals
+### Variables, loops and conditionals
 
 What if we want to do something multiple times? Suppose we want to draw 10 lines underneath each other. We could do that like this:
 
@@ -164,7 +164,7 @@ The condition `i%2 == 0` means: does dividing the number `i` with 2 result in a 
 
 *Figure 5 - Odd and even lines*
 
-## Exercise data
+### Exercise data
 
 The data for this exercise concerns **flight information** between different cities. Each entry in the dataset contains the following fields:
 
@@ -182,11 +182,11 @@ The data for this exercise concerns **flight information** between different cit
 *   airline_country
 *   distance
 
-### Getting the data
+#### Getting the data
 
 First, download the file somewhere on your computer. There are 3 ways to get the data into Processing: 1. First save your sketch. In the directory where you saved it, create a new folder called `data`. Copy the downloaded file into this `data` directory. 1. Or: drag the file onto your Processing IDE. 1. Or: Go to `Sketch` => `Add file...`
 
-### Accessing the data from Processing
+#### Accessing the data from Processing
 
 Let's write a small script in Processing to visualize this data. The **visual encoding** that we'll use for each flight will be the following:
 
@@ -272,7 +272,7 @@ From this picture, we can deduce many things:
 * There are few domestic flights within Europe.
 * Longer flights (departure airports with larger radius) tend to leave in coastal regions
 
-## Interactivity and defining functions
+### Interactivity and defining functions
 
 It is often the interactivity in data visualization that helps gaining insights in that data and finding new hypotheses. Up until now, we have generated static images. How can we add interactivity?
 
@@ -281,7 +281,7 @@ As a first use case, say that we want the radius of the dots to depend on the po
 This time, instead of creating a simple image, this image will have to be **redrawn** constantly taking into account the mouse position. For this, we have to rearrange our code a little bit. Some of the code has to run only once to initialize the visualization, while the rest of the code has to be rerun constantly. We do this by putting the code that we have either in the `setup()` or the `draw()` function:
 
 {% highlight python linenos %}
-# define global variables here
+## define global variables here
 def setup():
   # code that has to be run only once
 def draw():
@@ -378,7 +378,7 @@ def mouseMoved():
   redraw()
 {% endhighlight %}
 
-### More useful interactivity
+#### More useful interactivity
 
 This interactivity can be made more useful: we can use the mouse pointer as a **filter**. For example: *if our mouse is at the left only short distance flights are drawn; if our mouse is at the right only long distance flights are drawn*.
 
@@ -440,7 +440,7 @@ Playing with this visualization, there are some signals that pop up. Moving left
 
 *Figure 11 - A snake in Brazil*
 
-## Buttons and sliders
+### Buttons and sliders
 
 Of course many tools have buttons and sliders. Let's implement those in Processing. Instead of using the mouse position as a filter as before, why don't we make a slider to do the same? Unfortunately, this is a bit more complex than it should be... So let's first start with a **button**. To create a button, what we basically do is draw a rectangle, and check if the mouse position is within the area of that rectangle when we press the mouse button.
 
@@ -571,13 +571,13 @@ def mouseDragged():
 
 So what changed? We now define a variable called `circlePosition` in the `setup()`, `draw()` and `mouseDragged()` methods, and give it an initial value of 50 (line 7). At the start of the `draw()` function (lines 12 to 16), we also draw a line that will serve as a guide as well as the actual circle. Furthermore, we change lines (lines 18 to 21) to refer to the `circlePosition` instead of `mouseX`. Note that that includes using +/- 2 instead of +/- 25 as a buffer, and using the minimum and maximum values of the line (i.e. 50 and 150) instead of those of the mouse in the map functions. Finally, we write the `mouseDragged()` function at the bottom (lines 41 to 45). A "mouse-drag" in Processing-speak means: pressing the mouse button, then moving the mouse to another position, and finally releasing the mouse button. The `mouseDragged()` function looks a lot like the `mouseClicked()` function in script 10. We want to make sure that we are on top of the circle when we start dragging (both horizontally and vertically; line 43). Also, we need to make sure that we cannot drag the circle further than the minimum or maximum value. If the situation complies to these three conditions, we change the `circlePosition` to `mouseX`, which basically means that the circle follows the mouse. Don't forget the `redraw()` or the scene will not be updated. Question: what happens if you drag the mouse too fast? Why is that? And just for laughs: remove the `and mouseX >= 50 and mouseX <= 150`, and see what happens if you start interacting with the visualization...
 
-## Brushing and linking
+### Brushing and linking
 
 Very often, you will want to create views that show different aspects of the same data. In our flights case, we might want to have both a map and a histogram of the flight distances. To be able to do this, we will have to look at how to create objects.
 
-### Working with objects
+#### Working with objects
 
-#### Dogs
+##### Dogs
 
 The code that we have been writing so far is what they call "imperative": the code does not know what we are talking about (i.e. flight data); it just performs a single action for each line in the file. As a result, all things (dots) on the screen are completely independent. They do not know of each other's existence. To create linked views, however, we will need to make these visuals more self-aware, which we do by working with **objects**. Objects are members of a specific **class**. For example, Rusty, Duke and Lucy are three dogs; in object-oriented speak, we say that Rusty, Duke and Lucy are "objects" of the "class" dog. Of course, all dogs have types of **properties** in common: they have names, have a breed, a weight, etc. At the same time, they share some **methods**, for example: they can all bark, eat, pee, ...
 
@@ -638,7 +638,7 @@ Now what does this actually mean? We can create new objects just like we create 
 
 Once we have these objects, we can call the methods on them that we defined in the class definition, as is shown in lines 22 to 27.
 
-#### One flight
+##### One flight
 
 So what could a **flight class** look like? Let's alter this code so that we use a `Flight` class.
 
@@ -678,7 +678,7 @@ For simplicity's sake, we only draw a single flight in this example. So what did
 
 In the `setup()` method, we create a new object/variable of the class `Flight`, that we give the name `my_flight`. Next, in the `draw()` method, we actually draw the flight (line 26). Notice here that we don't write `ellipse()` or anything drawing-specific here. We write `my_flight.draw()` because *any flight object knows how to draw itself*. The `drawDepartureAiport()` method definition on lines 14 and 15 returns an ellipse whenever that method is called.
 
-#### Many flights
+##### Many flights
 
 In the code of script 13, we only drew one flight. Here is the same code as in script 13, but showing all flights.
 
@@ -735,11 +735,11 @@ As always, let's see what is different in this script relative to the previous o
 
 The resulting picture should be the same as that from script 5 (i.e. Figure 6).
 
-### Linking two copies of the departure plots
+#### Linking two copies of the departure plots
 
 Now that we work with objects, we can start implementing *brushing and linking*. Let's first look at the brushing.
 
-#### Brushing
+##### Brushing
 
 Let's change the code from script 14 a bit, so that all objects that are in the vicinity (e.g. within 10 pixels) of the mouse position are "active". To do this, we'll (1) add a new function to the `Flight` class, which checks if an object (i.e. flight) is selected/activated or not, and (2) change the `drawDepartureAiport()` function a bit to distinguish between selected and non-selected objects.
 
@@ -829,7 +829,7 @@ def mouseMoved():
   redraw()
 {% endhighlight %}
 
-#### Linking
+##### Linking
 
 Now that we have the *brushing* working, let's create a proof of principle for the linking. To make this work, we'll first use a rather useless example, where we draw not one, but two maps of the world. But brushing airports in the first map will highlight them in the second map. We'll make the map a quarter of the size by only using half of the width and half of the height for each. What will we have to change relative to script 15?
 
@@ -911,7 +911,7 @@ The lines in the code that have changed relative to script 15 are: lines 12 to 1
 
 *Figure 14 - Brushing and linking*
 
-### Linking departure to arrival airports
+#### Linking departure to arrival airports
 
 This visualization is not really useful. But how about we draw the departure airport in the top-left, and the arrival airport in the bottom-right. Brushing a group of departure airports in the top-left would then highlight the arrival airports in the bottom-right.
 
@@ -1000,7 +1000,7 @@ The resulting figure should look like this (without the annotated text):
 
 *Figure 15 - Brushing and linking between departure and arrival airports*
 
-### Using a histogram as a filter
+#### Using a histogram as a filter
 
 As a final version of a brushing-and-linking plot, we'll include a histogram in the picture. By hovering over the different bars in the histogram we can filter airports in the departure and arrival subplots. Let's first look at the code:
 
@@ -1123,7 +1123,7 @@ Let's see how that last script is different from script 17... In the probable or
 * We need to be able to find out which is the "active" bin (i.e. which is the one that the mouse is pointing at), which can then be used to set the variable `activeHistBin`. This is done in the method `selected()` (lines 51 to 55). This method should return a number. In the method, we just compare the position of the mouse with the positions of the drawn bars of the histogram. The numbers to use here completely depend on the numbers we'll use in the `show()` method for `x` and `binHeight` (see below).
 * We need to draw the histogram. For that, we write the `show()` method (lines 57 to 65). In the loop, we check if we're looking at the active bin, which defines the colour to use. Next, we define the `x` position and the height of the histogram at that position (`binHeight`). Finally, we draw a rectangle.
 
-# Whereto from here?
+## Whereto from here?
 
 There are many different ways to show this information. This exact same dataset was visualized by Till Nagel during the visualization challenge in 2012 from visualising.org. Part of his entry is shown in Figure 17.
 
@@ -1135,7 +1135,7 @@ Till focused on domestic flights, and wanted to show how many of these are serve
 
 Also have a look at Aaron Koblin's visualization of flight patterns at http://www.aaronkoblin.com/work/flightpatterns/.
 
-## Exercise
+### Exercise
 
 * Alter the script to map other data attributes to these visuals. Can you find new insights?
 * What other ways of visualizing this data could you think of?

@@ -24,7 +24,7 @@ sepalLength,sepalWidth,petalLength,petalWidth,species
 ...
 {% endhighlight %}
 
-# Installation
+## Installation
 
 To get things started:
 
@@ -41,11 +41,11 @@ To get things started:
 
 In lines 4 to 6, we load the necessary libraries: `paper` for paper.js, `papaparse` for parsing a CSV file, and `jquery` for getting that file in the first place. In line 8 we load the javascript file with the actual visualization, putting it on a canvas called `myCanvas`. In line 12, finally, we actually draw onto that canvas.
 
-# The paper.js code
+## The paper.js code
 
 Here's what the `fisher.js` file looks like:
 
-# The bare minimum
+## The bare minimum
 {% highlight javascript %}
 var colors = {'Iris-setosa': '#7fc97f','Iris-versicolor':'#beaed4','Iris-virginica':'#fdc086'}
 var csvfile = "data.csv"
@@ -74,11 +74,11 @@ This code gives you a little picture like this:
 
 ![Fisher scatterplot]({{ site.baseurl }}/assets/fisher_scatter.png)
 
-# Running everything
+## Running everything
 
 To run this, start a webserver in the directory with this code, for example `python -m SimpleHTTPServer` and go to `http://localhost:8000`.
 
-# Adding hovering
+## Adding hovering
 
 Let's add some simple hovering functionality to this plot: if you hover over a point it should be painted red, and return to its original colour again afterwards. For this to happen we have to add an `onMouseEnter` and `onMouseLeave` callback to the circles.
 

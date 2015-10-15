@@ -21,17 +21,17 @@ The tutorial is written in a very incremental way. We start with something simpl
 
 *Figure 1 - A pretty picture*
 
-# Introduction to P5
+## Introduction to P5
 P5 is a language based on javascript. You can either use its own development environment, or load is as a dependency in your own scripts.
 
 ![P5 IDE]({{ site.baseurl }}/assets/p5_screenshot.png)
 
 *Figure 2 - The P5 IDE*
 
-## Download and install the p5 development environment
+### Download and install the p5 development environment
 We'll make things easy and just use the P5 integrated development environment. Download it from [http://p5js.org/download/](http://p5js.org/download/). There are Mac and Windows versions available.
 
-## A minimal script
+### A minimal script
 A minimal script is provided below.
 
 *Script 1*
@@ -72,7 +72,7 @@ Several drawing primitives exist, including `line`, `rect`, `triangle`, and `ell
 
 Apart from these primitives, P5 contains functions that modify properties of these primitives. These include setting the fill color (`fill`), color of lines (`stroke`), and line weight (`lineWeight`). Again, the reference pages host all information.
 
-## Variables, loops and conditionals
+### Variables, loops and conditionals
 What if we want to do something multiple times? Suppose we want to draw 10 lines underneath each other. We could do that like this:
 
 *Script 2*
@@ -151,7 +151,7 @@ The condition `i%2 == 0` means: does dividing the number `i` with 2 result in a 
 
 *Figure 5 - Odd and even lines*
 
-## Exercise data
+### Exercise data
 The data for this exercise concerns **flight information** between different cities. Each entry in the dataset contains the following fields:
 
 * from_airport
@@ -168,13 +168,13 @@ The data for this exercise concerns **flight information** between different cit
 * airline_country
 * distance
 
-### Installing P5 as a library
+#### Installing P5 as a library
 Unfortunately, it is not possible to work with datafiles when using the P5 development environment. Therefore, we will have to install P5 as a library and run a local webserver. For more information, see [http://p5js.org/get-started/](http://p5js.org/get-started/). The description below is the quickest way to get you going; not necessarily the best long-term solution. For that, look into [bower](http://bower.io), for example.
 
-#### Getting the library
+##### Getting the library
 Download "p5.js complete" from [http://p5js.org/download/](http://p5js.org/download/) onto your computer and unzip.
 
-#### Setting up your files
+##### Setting up your files
 You will need 2 files to get going: `index.html` and `script.js`. Put these files in the directory that you just unzipped.
 
 `index.html` should look like this:
@@ -212,15 +212,15 @@ function setup() {
 
 Do *not* use Microsoft Word for this! Code editors include [atom](https://atom.io/), [Sublime Text](http://www.sublimetext.com/), [TextMate](https://macromates.com/) or just [Notepad](https://notepad-plus-plus.org/) if your're on Windows.
 
-#### Running a webserver
+##### Running a webserver
 So how do you "run" this visualization? You do this by running a local webserver. Depending on your operating system, there are several options for this. Getting these installed is not within the scope of this tutorial. In short, if you have `python` installed, type in `python -m SimpleHTTPServer` on the command line in the directory with the `p5.js`, `index.html` and `script.js` files. When that's done, open your web browser and go the `http://localhost:8000`. If your `script.js` looks like the one above, you should see three objects in your browser: a circle, a rectangle, and a line.
 
 If you need help setting up the webserver, check out [https://github.com/processing/p5.js/wiki/Local-server](https://github.com/processing/p5.js/wiki/Local-server).
 
-#### Inspector
+##### Inspector
 **TODO**
 
-### Using the file in P5
+#### Using the file in P5
 Let's write a small script in P5 to visualize this data. The **visual encoding** that we'll use for each flight will be the following:
 
 * x position is defined by longitude of departure airport
@@ -320,7 +320,7 @@ From this picture, we can deduce many things:
 * There are few domestic flights within Europe.
 * Longer flights (departure airports with larger radius) tend to leave in coastal regions
 
-## Interactivity and defining functions
+### Interactivity and defining functions
 It is often the interactivity in data visualization that helps gaining insights in that data and finding new hypotheses. Up until now, we have generated static images. How can we add interactivity?
 
 As a first use case, say that we want the radius of the dots to depend on the position of the mouse instead of the distance of the flight: if our mouse is at the left of the image, all dots should be small; if it is at the right, they should be large. We will change the line `var radius = map(distance,1,15406,3,15);` to include information on the mouse position.
@@ -491,7 +491,7 @@ function mouseMoved() {
 
 Note the `return false` at the end of the `mouseMoved()` function. From the P5 reference documentation for that method: "Browsers may have different default behaviors attached to various mouse events. To prevent any default behavior for this event, add `return false` to the end of the method."
 
-### More useful interactivity
+#### More useful interactivity
 
 This interactivity can be made more useful: we can use the mouse pointer as a **filter**. For example: *if our mouse is at the left only short distance flights are drawn; if our mouse is at the right only long distance flights are drawn*.
 
@@ -618,13 +618,13 @@ Playing with this visualization, there are some signals that pop up. Moving left
 
 *Figure 11 - A snake in Brazil*
 
-## Brushing and linking
+### Brushing and linking
 
 Very often, you will want to create views that show different aspects of the same data. In our flights case, we might want to have both a map and a histogram of the flight distances. To be able to do this, we will have to look at how to create objects.
 
-### Working with objects
+#### Working with objects
 
-#### Dogs
+##### Dogs
 
 The code that we have been writing so far is what they call "imperative": the code does not know what we are talking about (i.e. flight data); it just performs a single action for each line in the file. As a result, all things (dots) on the screen are completely independent. They do not know of each other's existence. To create linked views, however, we will need to make these visuals more self-aware, which we do by working with **objects**. Objects are members of a specific **class**. For example, Rusty, Duke and Lucy are three dogs; in object-oriented speak, we say that Rusty, Duke and Lucy are "objects" of the "class" dog. Of course, all dogs have types of **properties** in common: they have names, have a breed, a weight, etc. At the same time, they share some **methods**, for example: they can all bark, eat, pee, ...
 
@@ -690,7 +690,7 @@ var dog1 = new dog("Buddy","Rottweiler",19)
 
 Once we have these objects, we can call the methods on them that we defined in the class definition, as is shown in lines 27 to 32.
 
-#### One flight
+##### One flight
 
 So what could a **flight class** look like? Let's alter this code so that we use a `Flight` class.
 
@@ -732,7 +732,7 @@ For simplicity's sake, we only draw a single flight in this example. So what did
 
 In the `setup()` method, we create a new object/variable of the class `flight`, and assign it to the variable `my_flight`. Next, in the `draw()` method, we actually draw the flight (line 29). Notice here that we don't write `ellipse()` or anything drawing-specific here. We write `my_flight.draw()` because *any flight object knows how to draw itself*. The `drawDepartureAirport()` method definition on lines 15 to 17 returns an ellipse whenever that method is called.
 
-#### Many flights
+##### Many flights
 
 In the code of script 13, we only drew one flight. Here is the same code as in script 13, but showing all flights.
 
@@ -807,11 +807,11 @@ As always, let's see what is different in this script relative to the previous o
 
 The resulting picture should be the same as that from script 5 (i.e. Figure 6).
 
-### Linking two copies of the departure plots
+#### Linking two copies of the departure plots
 
 Now that we work with objects, we can start implementing *brushing and linking*. Let's first look at the brushing.
 
-#### Brushing
+##### Brushing
 
 Let's change the code from script 14 a bit, so that all objects that are in the vicinity (e.g. within 10 pixels) of the mouse position are "active". To do this, we'll (1) add a new function to the `Flight` class, which checks if an object (i.e. flight) is selected/activated or not, and (2) change the `drawDepartureAiport()` function a bit to distinguish between selected and non-selected objects.
 
@@ -921,7 +921,7 @@ function mouseMoved() {
 }
 {% endhighlight %}
 
-#### Linking
+##### Linking
 
 Now that we have the *brushing* working, let's create a proof of principle for the linking. To make this work, we'll first use a rather useless example, where we draw not one, but two maps of the world. But brushing airports in the first map will highlight them in the second map. We'll make the map a quarter of the size by only using half of the width and half of the height for each. What will we have to change relative to script 15?
 
@@ -1016,7 +1016,7 @@ The lines in the code that have changed relative to script 15 are: lines 15 and 
 
 *Figure 12 - Brushing and linking*
 
-### Linking departure to arrival airports
+#### Linking departure to arrival airports
 
 This visualization is not really useful. But how about we draw the departure airport in the top, and the arrival airport in the bottom. Brushing a group of departure airports in the top would then highlight the arrival airports in the bottom.
 
@@ -1225,7 +1225,7 @@ The resulting figure should look like this (without the annotated text):
 
 *Figure 13 - Brushing and linking between departure and arrival airports*
 
-# Whereto from here?
+## Whereto from here?
 
 There are many different ways to show this information. This exact same dataset was visualized by Till Nagel during the visualization challenge in 2012 from visualising.org. Part of his entry is shown in Figure 14.
 
@@ -1237,7 +1237,7 @@ Till focused on domestic flights, and wanted to show how many of these are serve
 
 Also have a look at Aaron Koblin's visualization of flight patterns at http://www.aaronkoblin.com/work/flightpatterns/.
 
-## Exercise
+### Exercise
 
 * Alter the script to map other data attributes to these visuals. Can you find new insights?
 * What other ways of visualizing this data could you think of?

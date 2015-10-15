@@ -10,12 +10,12 @@ tags:
 ---
 In [a previous post](/2014/01/spark-for-genomic-data), we discussed the first steps into using Spark for analysing genomic data at scale. We now turn to Shark to see which one may be better suited for the task at hand.
 
-# Introduction
+## Introduction
 [Shark](https://github.com/amplab/shark/wiki) is built on top of Spark and is similar to [Apache Hive](http://hive.apache.org/) in that it provides a SQL-like interface to the data: `HSQL`. As we will see, it may have some benefits, but also some disadvantages.
 
 **Note**: had to increase the amount of memory available to the spark shell by adding the following to `shark-env.sh`: `-XX:MaxPermSize=512m`
 
-# Shark to use
+## Shark to use
 We first have to create the table:
 {% highlight sql %}
 CREATE TABLE genomea(chr STRING, lower BIGINT, upper BIGINT, annot STRING)
@@ -43,7 +43,7 @@ Caching the data is done like this:
 create table genomea_cached as select * from genomes;
 {% endhighlight %}
 
-# Shark as a service
+## Shark as a service
 Shark can easily be run as a service in order to access it, e.g., via `jdbc` from a script that is included in the installation. This enables any custom-built application to connect to it, effectively turning your data handling into a tiered architecture with lots of possibilities.
 
 Shark can be called From the CLI:
@@ -51,7 +51,7 @@ Shark can be called From the CLI:
 bin/shark -e "SELECT * FROM genomes where chr == \"chr4\" and (upper > 190930000 AND lower < 190940000)"
 {% endhighlight %}
 
-# Benefits
+## Benefits
 
 At first sight, Shark seems to have some benefits over the default Scala interface to Spark.
 
@@ -59,7 +59,7 @@ First of all, rows have the correct data type because the tables are created as 
 
 Another possibility is to extend Shark with approximate queries. That is precisely what [BlinkDB](http://blinkdb.org/) is all about. It is based on Shark, but takes into account confidence intervals or response times.
 
-# But...
+## But...
 There are is one main disadvantages to the Shark approach: This has to do with the flexibility. A SQL-like syntax is very nice, but the data needs to fit in a table structure. Not all data can easily be transformed to do that. Most data cleaning will have to be done before using Shark to expose the data to users. This means that we need other tools to pre-process the data, but then these other tools can possibly be used for querying as well?
 
 A second disadvantages lies in the fact that one can not add a column to a table in
@@ -67,7 +67,7 @@ A second disadvantages lies in the fact that one can not add a column to a table
 
 A smaller disadvantage may be that additional dependencies are introduced, especially when deploying BlinkDB.
 
-# Calling Shark From Scala
+## Calling Shark From Scala
 
 It is possible to interface to Shark from Scala code:
 
@@ -98,10 +98,10 @@ val points = sc.runSql[Double,Double](“select latitude, longitude from histori
 
 This means that it *should* be possible to specify the types of the data to be read from the query. I’m not sure, however, that this method is already implemented and I haven't tried it out yet.
 
-# Conclusion
+## Conclusion
 For our work, we will be using Spark, not Shark. The benefits of Shark in our use-case do not outweigh the additional effort of transforming the data back and forth. Moreover, as will be discussed in a later post, we will see that Spark itself can be exposed in the form of a REST API, covering the most important advantage of Shark.
 
-# Additional Info
+## Additional Info
 
 * [https://github.com/amplab/shark/wiki/Running-Shark-Locally](https://github.com/amplab/shark/wiki/Running-Shark-Locally)
 * [https://github.com/amplab/shark/wiki/Shark-User-Guide](https://github.com/amplab/shark/wiki/Shark-User-Guide)

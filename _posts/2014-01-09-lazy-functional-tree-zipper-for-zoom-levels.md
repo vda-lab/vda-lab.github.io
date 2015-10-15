@@ -17,23 +17,23 @@ Let's assume for a while that we have a large amount of data that can be mapped 
 
 Please note that a *multi-dimensional* version of the locustree is in the making, stay tuned.
 
-# Locustree
+## Locustree
 The concept of a locustree stems from the fact that it does not make sense for us to represent the full (remember 1D) dataset on a screen, it is simply too small for that. And even if we would draw all the points, we would not be able to notice any remarkable aspects of our data. In other words, it makes sense for us to look at the data at different zoom levels. At the highest zoom level we see individual data points, the lowest zoom level gives an aggregate idea of the full dataset and different zoom levels can exist in-between. A tree representation with a storage backend as a binary file representation has been created by Jan Aerts (see [here](https://github.com/jandot/locustree) for the source) where every level in the tree represents a zoom level. At all but the largest zoom level, we are interested in aggregate information about the underlying data. In his version, Jan did not have the computational power to render the genome data from the raw data on-the-fly. This meant he had to *pre-process* the data for the different resolutions and store this intermediate data on disk. We are investigating whether it is possible to avoid this intermediate step and immediately start from the raw data.
 
-# Functional programming
+## Functional programming
 Another requirement we have put forward is to employ a [functional approach](http://en.wikipedia.org/wiki/Functional_programming) to programming whenever possible. The primary reason being that [functional programming](http://www.defmacro.org/ramblings/fp.html) (see [here](http://fsharpforfunandprofit.com/posts/ten-reasons-not-to-use-a-functional-programming-language/) for a fun way to learn about FP) leads to immutable data structures which in turn leads to easier distribution and clustering of the algorithms and data. And less headaches while developing...
 
 But wait... if data structures are immutable, how can my program do something useful? Take a look at the Spark examples (they are actually Scala examples) in [a previous post](/2014/01/spark-for-genomic-data). Did you notice that the variables (or actual *values*) do not change? Since these are only pointers to the data anyway, no computational or memory overhead is generated.
 
-# Zippers
+## Zippers
 It turns out that creating a (locus)tree in a functional way is not all that hard. But in order for the tree to have some awareness of where the *active* node is, is a different story especially when we want to avoid copying memory blocks all the time. The name that is usually used for a functional datastructure that is aware of location is a [zipper](http://en.wikipedia.org/wiki/Zipper_(data_structure)). We're almost there... one more concept needs to be introduced...
 
-# Lazy evaluation
+## Lazy evaluation
 One concept we still need to introduce is [lazy evaluation](http://en.wikipedia.org/wiki/Lazy_evaluation). For us humans, it may as much as: calculate or evaluate only when necessary. The most obvious example is when generating an infinite sequence of numbers or events. In a lazy sense, this is possible. Only when traversing the sequence will there be an evaluation of the entries.
 
 We need something similar for our tree. Only when we access a certain node in the tree do we want to calculate or generate the data for that node.
 
-# Building a simple binary zipper
+## Building a simple binary zipper
 
 Pasting the following code in a Scala worksheet does the trick:
 
@@ -96,5 +96,5 @@ In order to extract the value from an Option, we can simply use the `get` meth
 
 Again, this yields an `Option[Zipper]` which can be extracted using `get`. Many other possibilities exist to cope with option types, in fact they behave as a [Monad](http://en.wikipedia.org/wiki/Monad). Please [see here](http://danielwestheide.com/blog/2012/12/19/the-neophytes-guide-to-scala-part-5-the-option-type.html) fore more information.
 
-# Conclusion for now
+## Conclusion for now
 To wrap up: we have introduced the different concepts that are necessary to understand the concept of a *lazy functional tree zipper*. Additionally, we have presented a very simple (binary) implementation in Scala.

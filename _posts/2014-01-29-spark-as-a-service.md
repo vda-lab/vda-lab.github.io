@@ -13,7 +13,7 @@ This approach has one big disadvantage: all code is tied together in a single se
 
 Another approach would be to present Spark as a service and connect to it via [REST calls](http://en.wikipedia.org/wiki/Representational_state_transfer). Luckily, the guys from [Ooyala](http://www.ooyala.com/) have made available [an extension to Spark](https://github.com/ooyala/incubator-spark/tree/jobserver-preview-2013-12/jobserver#wordcountexample-walk-through) that allows for just that. In this post, we experiment with the service. In a later post, we will create a visualisation based on it.
 
-# Installation
+## Installation
 The installation instructions can be found [here](http://gethue.tumblr.com/post/71963991256/a-new-spark-web-ui-spark-app), although we need only a subset of these instructions. First, download from GitHub:
 
 {% highlight sh %}
@@ -31,7 +31,7 @@ re-start
 
 This launches the jobserver to listen on port 8090 by default. Please note that the first command starts `sbt` (the Scala Build Tool), the other two are `sbt` *tasks*.
 
-# Our first genome service
+## Our first genome service
 In order to test it, we can use [the built-in test](https://github.com/ooyala/incubator-spark/tree/jobserver-preview-2013-12/jobserver#wordcountexample-walk-through) or create one of our own.
 
 We changed the existing word count test file into:
@@ -94,5 +94,5 @@ curl -d "" 'localhost:8090/jobs?appName=test&classPath=spark.jobserver.TransFact
 
 In the request, we specify that we want to wait for the result (`sync=true`). The result is a `JSON` file with two fields: `status` and `result`.
 
-# Interacting with the Spark job server
+## Interacting with the Spark job server
 The full API [is explained here](https://github.com/ooyala/incubator-spark/tree/jobserver-preview-2013-12/jobserver#api). It allows to create Spark Contexts, start jobs (a)synchronously, query jobs, etc. In a followup post, I will describe how the Spark job server can be used to act as a backend for the visualisations.

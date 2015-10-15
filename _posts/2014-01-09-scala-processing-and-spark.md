@@ -19,10 +19,10 @@ Because the group had already be using [Processing](http://processing.org/), I l
 Please note that I'm developing in [Scala](http://scala-lang.org/). This is a nice example of using Java libraries (Processing) in Scala.
 
 
-# Interface Scala (Spark) and Processing
+## Interface Scala (Spark) and Processing
 In order to make life easy, I included all Processing libraries into my build. This is done, e.g., by creating a directory `libs` under the `project dir` that contains all the jar files from the Processing distribution and called it `libs`.
 
-## Sbt config
+### Sbt config
 The following is the current `build.sbt` file:
 
 {% highlight scala %}
@@ -45,7 +45,7 @@ unmanagedBase &lt;&lt;= baseDirectory { base =&gt; base / “libs” }
 
 The last line is for adding the `libs` directory with the Processing jars to the `classpath`.
 
-## Code
+### Code
 It is sufficient to add 2 things to the code:
 
 First the includes:
@@ -69,7 +69,7 @@ class Main extends PApplet {
 }
 {% endhighlight %}
 
-## Serialization
+### Serialization
 When passing global variables to Spark, we run into serialization issues:
 
 <pre>13/12/13 10:56:59 INFO scheduler.DAGScheduler: Failed to run reduce at biotree.scala:109
@@ -79,7 +79,7 @@ org.apache.spark.SparkException: Job failed: java.io.NotSerializableException: p
 
 In my case, the cause is that I mixed Spark class references with PApplet (from Processing). The latter can not be serialized and thus gives problems. </span><span style="line-height: 1.714285714; font-size: 1rem;">The fix is to (simply stated) keep Spark code apart from Processing code. I added an object containing Spark code to encapsulate the relevant parameters.
 
-# Processing in Scala
+## Processing in Scala
 There are no big differences when using Processing libraries from Scala. Below is a little snippet of code that shows what it looks like:
 
 {% highlight scala %}
@@ -106,5 +106,5 @@ override def keyPressed() = {
 }
 {% endhighlight %}
 
-# Current Status
+## Current Status
 The screenshot above shows the current status of our Proof-Of-Concept, combining Processing for visualisation and Spark for parallel interactive querying of the data. In fact, we also developed an intermediate layer (a tree structure), but this will be covered in a future post.

@@ -10,7 +10,7 @@ tags:
 ---
 This walkthrough is based on Mike Bostock's Let's Make a Map [http://bost.ocks.org/mike/map/](http://bost.ocks.org/mike/map/) but now specifically adapted to display a map of Belgium with the provinces. Although large parts are the same, their are some alterations to repair minor errors that I ran into while creating the map for Belgium.
 
-# Getting the data
+## Getting the data
 
 First, we need to find a map of Belgium and the provinces. A great resource to find maps of all sorts from over the world is [Natural Earth](http://www.naturalearthdata.com/). In their download section you can find the files:
 
@@ -19,7 +19,7 @@ First, we need to find a map of Belgium and the provinces. A great resource to f
 
 As both these files contain data from the entire world, we will have to select the parts about Belgium.
 
-# Installing the tools
+## Installing the tools
 
 Because we will be using D3 and TopoJSON to create the map, first you have to make sure that all necessary tools are installed. As you probably already have D3 installed, I'll only cover the installation of the tools needed to handle the geographic location files. The ogr2ogr binary that we will need to use in order manipulate the files we downloaded from Natural Earth is included with the Geospatial Data Abstraction Library (GDAL). Installation on Mac is really simple:
 
@@ -35,7 +35,7 @@ Finally, we can install TopoJSON:
 npm install -g topojson
 ```
 
-# Creating the data set
+## Creating the data set
 
 As we now have the raw data and the necessary tools installed, we can create the data file that will hold only the information we need. We first start by filtering out the BE features that we need from the original shapefile (.shp). Next, we have to convert this to an intermediate GeoJSON file before we can finally generate the TopoJSON file.
 
@@ -99,7 +99,7 @@ topojson \
 
 Ogr2ogr has many more features that I didn't cover here but you can always look at the relevant documentation to find out more.
 
-# Creating the web page
+## Creating the web page
 
 In order to create the map, we start from the following html file. The belprov.json that we created in the previous step should be located in the same directory. In this example we also assume that d3.js is located in a subfolder called d3. Alternatively you could also create a web reference for d3.js.
 
@@ -134,7 +134,7 @@ d3.json("belprov.json", function(error, be) {
 
 When you load the index.html and look at the console in the browser you will see a topology object that contains the boundaries of Belgium and the provinces. Now let's do something with this object so that we can draw a map.
 
-## Drawing the country map
+### Drawing the country map
 
 The first step is to create the root SVG element and as Belgium is wider than it is high, we choose the width and height accordingly:
 
@@ -322,7 +322,7 @@ Running this code will give you:
 
 We now have a complete map of Belgium but this one is completely black and we would like to see the provinces.
 
-## Adding the provinces
+### Adding the provinces
 
 Because we also have to provinces in our TopoJSON file, we can pull out the features array and create a path element for each feature which will again give you the complete map but now with the provinces:
 

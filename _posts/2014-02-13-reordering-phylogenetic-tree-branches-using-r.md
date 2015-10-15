@@ -18,7 +18,7 @@ x <- rnorm(12, mean=rep(1:2, each=5), sd=0.3)
 y <- rnorm(12, mean=rep(c(1,2,1), each=4), sd=0.3)
 dataFrame &lt;- data.frame(x=x, y=y, row.names=c(1:12))
 
-#calculate distance and cluster
+##calculate distance and cluster
 distxy <- dist(dataFrame)
 hClustering <- hclust(distxy)
 {% endhighlight %}

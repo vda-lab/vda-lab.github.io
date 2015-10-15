@@ -10,7 +10,7 @@ tags:
 ---
 It's [nothing](/2014/01/proper-syntax-highlighting-in-revealjs-using-pandoc) [new](http://www.data-intuitive.com/2013/06/writing-workflow-markdown-pandoc-latex-and-the-likes/) that I am a big fan of [Markdown](http://daringfireball.net/projects/markdown/) and [Pandoc](http://johnmacfarlane.net/pandoc/) for everything related to writing and publishing. For the last conference paper I wrote, I wanted to go all the way: write exclusively in Markdown and let Pandoc/LaTeX do the conversion and typesetting. I'm not going to show the actual example because the review process is double-blind...
 
-# Body text
+## Body text
 Usually, LaTeX style files are provided for sending in journal or conference papers. The traditional approach would be to start from a provided template and use LaTeX syntax to type the text. I did something else. I replaced the *body* (the part between `\begin{document}` and `\end{document}`) of the provided template tex file with the following:
 
 ```
@@ -27,7 +27,7 @@ That's it! All style information is covered in the template (the provided style 
 
 Well, actually, we're not finished yet. We don't yet have a title, an author, an abstract, references, graphics, ...
 
-# Title, Author, Date
+## Title, Author, Date
 Adding the title, an author and/or the date is similarly easy as the body of the text. Pandoc has since long supported this by means of a special syntax in the beginning of the Markdown file:
 
 {% highlight tex %}
@@ -48,7 +48,7 @@ Later, in the body of the document a `\maketitle` line should be present in orde
 
 This is just the basics. Have multiple authors? Check the documentation or the template that is provided by Pandoc itself.
 
-# Abstract
+## Abstract
 Pandoc does not have a default way of handling abstracts. But since Pandoc v. 1.12.2, YAML blocks can be added to the beginning of a Markdown file and Pandoc knows how to deal with them. This allows for custom parsing of variables like an abstract. In our `paper.md` file, we put the following YAML block:
 {% highlight yaml %}
 ---
@@ -66,12 +66,12 @@ $abstract$
 \end{abstract}
 {% endhighlight %}
 
-# Citations and References
+## Citations and References
 Pandoc has [support for citations](http://johnmacfarlane.net/pandoc/README.html#citations) in different styles, but unfortunately the one I needed to use was not there. If you find it in [the list of available styles](https://github.com/citation-style-language/styles), use this method. I reverted to using plain old LaTeX syntax in the Markdown file. Pandoc makes sure it passes the LaTeX command along.
 
 In the same vein, I used LaTeX references (`\label{foo}` and `\ref{foo}`) for referring to floating figures.
 
-# Figures
+## Figures
 Adding figures is simply a matter of providing the template with the correct snippet. I derived mine from the template that is provided by Pandoc:
 
 {% highlight tex %}
