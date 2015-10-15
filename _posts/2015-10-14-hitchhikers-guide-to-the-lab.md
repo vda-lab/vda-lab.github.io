@@ -4,6 +4,8 @@ title:  "Hitchhiker's guide to the VDA lab"
 date:   2015-10-14 22:58
 author: Jan Aerts
 private: true
+tags:
+- lab
 ---
 (inspired by the PLoS Computational Biology paper "[You Are Not Working For Me; I Am Working With You](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004387)")
 
@@ -82,16 +84,16 @@ As both STADIUS and iMinds are the official affiliations, you will *always* have
 For your PhD, specifically, you will also get to know the [**Arenberg Doctoral School**](http://set.kuleuven.be/phd), or ADS for short, quite well. They define what needs to be done at different stages of your PhD. Your contact person at the faculty is Veronique Cortens. However, she is on pregnancy leave, and is temporarily covered by Edith Amery (FYI: my wife Indra Hautekiet works at ADS part-time as well). You can follow up your progress through your [**KULoket**](www.kuleuven.be/sapredir/kuloket) -> "Research" -> "PhD progress". That's also where you will need to upload the necessary documents at the necessary times.
 
 ## <a id="incharge"></a>You are in charge
-I expect you to manage your own PhD, both at the conceptual and the practical level. Of course I will be there to guide you, but the final responsibility lies with you. At the conceptual level, this means that you (in collaboration with me) **define your research question**. At the practical level, this involves making sure that the right forms are submitted at the right time to ADS, that you plan your 6-month strategy meeting with me, etc.
+I expect you to manage your own PhD, both at the conceptual and the practical level. Of course I will be there to guide you, but the final responsibility lies with you. At the conceptual level, this means that you (in collaboration with me) will **define your research question** in the first couple of months. This research question will then be the running thread throughout the work that you do. At the practical level, this involves making sure that the right forms are submitted at the right time to ADS, that you plan your 6-month strategy meeting with me, etc.
 
 During your PhD there are some pre-defined moments where things can be corrected. Most important are the **9-month and 24-month presentations**, as defined by ADS. At 9 months after the start of your PhD, we (you and I) need to assess if it makes sense to pursue the rest of the PhD or not. It might be that you'd fit better in a commercial than a research environment, for example, or your background and skills might not fit as good as we expected it to be. The presentation at 24 months is more to take stock and give clear direction to the second half of your PhD.
 
 ### Tension between priorities
-There is a high chance that your PhD is paid for by a project (or even several). In many cases, these **projects** are very applied, and include very clear **deliverables** at set dates (e.g. "15/9/2015: created algorithm that prioritizes individuals"). As these deliverables *must* be reached, your work is a balancing exercise between your long-term PhD research goals, and the shorter term project goals. The way to approach this, is to see the project deliverables as stepping stones towards your overall PhD.
+There is a high chance that your PhD is paid for by a project (or even several). In many cases, these **projects** are very applied, and include very clear **deliverables** at set dates (e.g. "15/9/2015: created algorithm that prioritizes individuals"). As these deliverables *must* be reached, your work is a balancing exercise between your long-term PhD research goals, and the shorter term project goals. The way to approach this, is to see the project deliverables as stepping stones towards your overall PhD. Don't worry; I'll help you with that.
 
 In addition to these projects, I also expect every PhD student to (help) **write a grant proposal** in the second half of their time here. This is not to harrass you; it's to help you. I did not have the chance to do this during my own PhD and postdocs, which meant that the very first time I had to write a grant proposal was when I started as a tenure-track professor here in Leuven. And I can tell you: that is *way* to late.
 
-As a PhD student, you will also be called upon to act as **teaching assistant** for some of my (or other's) courses. In contrast to some of my colleagues, your contribution will be limited. Typically, you will be in charge of setting up and/or running some exercise sessions, and supervise some exams. You are not expect, for example, to create exams and correct them.
+As a PhD student, you will also be called upon to act as **teaching assistant** for some of my (or other's) courses. In contrast to some of my colleagues, your contribution will be limited. Typically, you will be in charge of setting up and/or running some exercise sessions, and supervise some exams. You are not expected, for example, to create exams and correct them.
 
 ## <a id="communication"></a>Communication is important
 
