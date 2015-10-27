@@ -5,6 +5,10 @@ permalink: portfolio.html
 ---
 A selection of projects run in the lab…
 
+## :: Card sorting ::
+
+One of the most important steps in a data visualization project is to find out what the underlying goals are of the person who wants to investigate a dataset. Ryo developed a card sorting technique to help this process. See [**here**]({{ site.baseurl }}/card_sorting.html) for a full description.
+
 ## :: Aracari ::
 
 The award-winning contribution to the data visualization challenge at the BioVis 2011 conference. The data consists of 2-locus eQTL data in which the contestants were asked to identify genes responsible for a hypothetical disease. See [this screencast](https://vimeo.com/45585178).
