@@ -50,6 +50,6 @@ As visualization plays an important role in data-driven research and the data-dr
 
 ## :: Cosmopolitan Chicken Project ::
 
-Data-driven art in collaboration with Koen Vanmechelen. Check out this TEDxFlanders presentation by the artist covering our work.
+Data-driven art in collaboration with Koen Vanmechelen. Check out this TEDxFlanders presentation by the artist covering our work. See [**here**]({{ site.baseurl }}/ccrp.html) for a more thorough description.
 
 ![Cosmopolitan Chicken Project]({{ site.baseurl }}/assets/cosmopolitan_picture.png)
