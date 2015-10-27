@@ -25,11 +25,14 @@ Reference: Sakai, Ryo, Alejandro Sifrim, Andrew Vande Moere, and Jan Aerts. 2013
 
 The sequence logo has been the quintessential representation of DNA, RNA or protein sequence conservation and is typically used to represent recurring sequence motifs. Although very useful, it has several issues, including losing the connection between consecutive bases or aminoacids, and difficulties in comparing different motifs. The sequence diversity diagram is a redesign of the sequence logo that allows to identify additional patterns.
 
-![SeDD screenshot]({{ site.baseurl }}/assets/sedd_screenshot.jpg)
+![SeDD screenshot]({{ site.baseurl }}/assets/sedd_9.png)
+
+See [**here**]({{ site.baseurl }}/sedd.html) for a more elaborate description including the visual design process.
 
 References:
-Sakai, Ryo, and Jan Aerts. 2014. “Sequence Diversity Diagram for Comparative Analysis of Multiple Sequence Alignments.” BMC Proceedings 8: S9
-Pougach, Ksenia, et al. 2014. “Duplication of a Promiscuous Transcription Factor Drives the Emergence of a New Regulatory Network.” Nature Communications 5 (January): 4868
+
+* Sakai, Ryo, and Jan Aerts. 2014. “Sequence Diversity Diagram for Comparative Analysis of Multiple Sequence Alignments.” BMC Proceedings 8: S9
+* Pougach, Ksenia, et al. 2014. “Duplication of a Promiscuous Transcription Factor Drives the Emergence of a New Regulatory Network.” Nature Communications 5 (January): 4868
 
 ## :: Gene interaction network ::
 
