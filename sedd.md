@@ -1,11 +1,9 @@
 ---
 layout: page
-title: Sequence Diversity Diagram
+title: Sequence Diversity Diagram for comparative analysis of multiple sequence alignments
 permalink: sedd.html
 exclude: true
 ---
-## Sequence Diversity Diagram for comparative analysis of multiple sequence alignments
-
 *Contribution by Ryo Sakai*
 
 The sequence logo has been the long standing convention for visualization of multiple sequence alignments of nucleotides or amino acids for the past few decades. Although it effectively communicates the amount of information / conservation present at every position, this visual encoding falls short when the analysis task is to compare between two or more sets of aligned sequences. This challenge was posed by BioVis 2013 redesign contest.
