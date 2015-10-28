@@ -74,4 +74,7 @@ Sequence Diversity Diagram is not limited to amino acid sequence. The visualizat
 
 ![SeDD 12]({{ site.baseurl }}/assets/sedd_12.png)
 
-*K. Pougach, A. Voet, F. a. Kondrashov, K. Voordeckers, J. F. Christiaens, B. Baying, V. Benes, R. Sakai, J. Aerts, B. Zhu, P. Van Dijck, and K. J. Verstrepen, “Duplication of a promiscuous transcription factor drives the emergence of a new regulatory network,” Nat. Commun., vol. 5, p. 4868, 2014.*
+References:
+
+* Sakai, Ryo, and Jan Aerts. 2014. “Sequence Diversity Diagram for Comparative Analysis of Multiple Sequence Alignments.” BMC Proceedings 8: S9
+* Pougach, Ksenia, et al. 2014. “Duplication of a Promiscuous Transcription Factor Drives the Emergence of a New Regulatory Network.” Nature Communications 5 (January): 4868

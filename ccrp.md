@@ -28,3 +28,5 @@ Although 3D printing is still quite expensive, I found it very rewarding to have
 
 ![photo1]({{ site.baseurl }}/assets/ccrp_photo1.jpg)
 ![photo2]({{ site.baseurl }}/assets/ccrp_photo2.jpg)
+
+![Cosmopolitan Chicken Project]({{ site.baseurl }}/assets/cosmopolitan_picture.png)
