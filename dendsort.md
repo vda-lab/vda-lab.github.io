@@ -16,7 +16,7 @@ Second, the existing leaf ordering methods, as well as the utility of dendrogram
 
 For further details, including the implementation, the validation, and case studies, please refer to [our publication on F1000](http://f1000research.com/articles/3-177/v1).
 
-**TODO: Missing vimeo**
+<iframe src="https://player.vimeo.com/video/143830598" width="500" height="205" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 ## Design Process / Background story
 

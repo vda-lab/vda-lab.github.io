@@ -11,9 +11,9 @@ One of the most important steps in a data visualization project is to find out w
 
 ## :: Aracari ::
 
-The award-winning contribution to the data visualization challenge at the BioVis 2011 conference. The data consists of 2-locus eQTL data in which the contestants were asked to identify genes responsible for a hypothetical disease. See [this screencast](https://vimeo.com/45585178).
+The award-winning contribution to the data visualization challenge at the BioVis 2011 conference. The data consists of 2-locus eQTL data in which the contestants were asked to identify genes responsible for a hypothetical disease.
 
-![Aracari screenshot]({{ site.baseurl }}/assets/aracari_screenshot.png)
+<iframe src="https://player.vimeo.com/video/143813795" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 Reference: Bartlett, Christopher W, Soo Yeon Cheong, Liping Hou, Jesse Paquette, Pek Yee Lum, Günter Jäger, Florian Battke, et al. 2012. “An eQTL Biological Data Visualization Challenge and Approaches from the Visualization Community.” BMC Bioinformatics 13 Suppl 8: S8.
 
