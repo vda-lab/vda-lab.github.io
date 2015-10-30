@@ -10,7 +10,7 @@ The **Visual Data Analysis group** at KU Leuven (part of [Bioinformatics](http:
 
 Our research focus is on **visual design**, **interaction design**, and **scalability**. Historically, genomics and genetics have been the principal domains that we've been active in, but we are also investigating applications in quantified self, health management, energy and art. For example, we investigate how to give people insight in their health data by combining data mining and visualization, and support health professionals in identifying people who require follow-up.
 
-Check out [**who we are**]({{ site.baseurl }}z01_people.html) and some of the [**projects that we're involved in**]({{ site.baseurl }}z02_portfolio.html). Much of our code is available on the [vda-lab bitbucket git repository](http://bitbucket.org/vda-lab). Videos of what we create are available on the [lab's Vimeo channel](https://vimeo.com/channels/879988).
+Check out [**who we are**]({{ site.baseurl }}/people.html) and some of the [**projects that we're involved in**]({{ site.baseurl }}/portfolio.html). Much of our code is available on the [vda-lab bitbucket git repository](http://bitbucket.org/vda-lab). Videos of what we create are available on the [lab's Vimeo channel](https://vimeo.com/channels/879988).
 
 Blog posts are contributed by all members of the group and act more as an external memory for ourselves than anything else...
 
