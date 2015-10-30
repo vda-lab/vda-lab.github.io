@@ -15,9 +15,10 @@ A selection of projects, tools and designs developed in the lab…
 
 <br/>
 
-## Scalability
+## Backend
 
 | ![locustree]({{ site.baseurl }}/assets/locustree_segment.png) | [**Locustree**]({{ site.baseurl }}/locustree.html)<br/>Enabling and tracking multi-resolution browsing of genomic data |
+| ![polimero]({{ site.baseurl }}/assets/polimero_segment.png) | [**Polimero**]({{ site.baseurl }}/polimero.html)<br/>Reusable data visualization using web components |
 
 <br/>
 
