@@ -12,6 +12,7 @@ A selection of projects, tools and designs developed in the lab…
 | ![SeDD screenshot]({{ site.baseurl }}/assets/sedd_segment.png) | [**Sequence Diversity Diagram**]( {{ site.baseurl }}/sedd.html)<br/>Making comparing DNA and RNA sequence motifs possible |
 | ![Cosmopolitan Chicken Project]({{ site.baseurl }}/assets/cosmopolitan_segment.png) | [**Cosmopolitan Chicken Project**]( {{ site.baseurl }}/ccrp.html)<br/>A data-driven art project with Koen Vanmechelen |
 | ![Aracari]({{ site.baseurl }}/assets/aracari_segment.png) | [**Aracari**]({{ site.baseurl }}/aracari.html)<br/>Our award-winning visualization of 2-locus eQTL data |
+| ![dendsort]({{ site.baseurl }}/assets/dendsort_segment.png) | [**dendsort**]({{ site.baseurl }}/dendsort.html)<br/>Modular leaf ordering method for dendrogram representations in R |
 
 <br/>
 
