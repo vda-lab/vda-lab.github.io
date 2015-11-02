@@ -3,6 +3,9 @@ layout: page
 title: Blog posts
 permalink: blog.html
 ---
+<table>
+<tr>
+    <td valign="top">
 <div id="visual"></div>
 <script type="text/javascript" src="d3.min.js"></script>
 <script type="text/javascript" src="underscore-min.js"></script>
@@ -88,8 +91,8 @@ var links = _.keys(linkCounted).map(function(k) {
   return {"source": nodeIndices[source_target[0]], "target": nodeIndices[source_target[1]], "weight": linkCounted[k]}
 })
 
-var width = 600,
-    height = 400;
+var width = 300,
+    height = 300;
 
 var force = d3.layout.force()
     .charge(-120)
@@ -170,6 +173,8 @@ force.on("tick", function() {
   </ul>
 {% endfor %}
 
+    </td>
+    <td valign="top">
 <h2>:: Chronological ::</h2>
 <ul>
   {% for post in site.posts %}
@@ -180,3 +185,4 @@ force.on("tick", function() {
   {% endunless %}
   {% endfor %}
 </ul>
+    </td></tr></table>
