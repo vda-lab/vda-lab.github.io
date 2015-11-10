@@ -23,7 +23,7 @@ The concept of a locustree stems from the fact that it does not make sense for u
 ## Functional programming
 Another requirement we have put forward is to employ a [functional approach](http://en.wikipedia.org/wiki/Functional_programming) to programming whenever possible. The primary reason being that [functional programming](http://www.defmacro.org/ramblings/fp.html) (see [here](http://fsharpforfunandprofit.com/posts/ten-reasons-not-to-use-a-functional-programming-language/) for a fun way to learn about FP) leads to immutable data structures which in turn leads to easier distribution and clustering of the algorithms and data. And less headaches while developing...
 
-But wait... if data structures are immutable, how can my program do something useful? Take a look at the Spark examples (they are actually Scala examples) in [a previous post](/2014/01/spark-for-genomic-data). Did you notice that the variables (or actual *values*) do not change? Since these are only pointers to the data anyway, no computational or memory overhead is generated.
+But wait... if data structures are immutable, how can my program do something useful? Take a look at the Spark examples (they are actually Scala examples) in [a previous post]({{ site.baseurl }}/2014/01/spark-for-genomic-data). Did you notice that the variables (or actual *values*) do not change? Since these are only pointers to the data anyway, no computational or memory overhead is generated.
 
 ## Zippers
 It turns out that creating a (locus)tree in a functional way is not all that hard. But in order for the tree to have some awareness of where the *active* node is, is a different story especially when we want to avoid copying memory blocks all the time. The name that is usually used for a functional datastructure that is aware of location is a [zipper](http://en.wikipedia.org/wiki/Zipper_(data_structure)). We're almost there... one more concept needs to be introduced...
@@ -91,7 +91,7 @@ This is not all, however. The result, given the class definitions above results 
 In order to extract the value from an Option, we can simply use the `get` method:
 
 {% highlight scala %}
-<pre class="lang:scala decode:true">val goUp = godown.get up
+val goUp = godown.get up
 {% endhighlight %}
 
 Again, this yields an `Option[Zipper]` which can be extracted using `get`. Many other possibilities exist to cope with option types, in fact they behave as a [Monad](http://en.wikipedia.org/wiki/Monad). Please [see here](http://danielwestheide.com/blog/2012/12/19/the-neophytes-guide-to-scala-part-5-the-option-type.html) fore more information.
