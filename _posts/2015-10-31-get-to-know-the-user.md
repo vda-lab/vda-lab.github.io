@@ -44,17 +44,36 @@ The problem is that the user will naturally phrase their needs within the contex
 
 ![Il était une fois]({{ site.baseurl }}/assets/il_etait_une_fois_la_vie.jpg)
 
+*Figure 4 - Il était une fois la vie*
+
 Do you remember the cartoon series "Il était une fois la vie"? That cartoon teaches children about biology - how oxygen is carried through the blood, how pathogens are eliminated, how cells take up nutrients - by anthropomorphizing the whole process. The red blood cells, for example, are little creatures that carry oxygen molecules while walking through your veins and arteries. Now imagine that you could communicate with these creatures and ask them if they are OK, or if they encountered something on while traveling through your veins...
 
 This might seem strange, but putting the user in this state of mind can help to let them think more freely and digg deeper into what they really want to achieve. In contrast to when you stick to the (types of) data that currently exists, you won't be held back because one particular type of data is not available yet. It can help the expert and yourself to think further than what is possible today or tomorrow. One key aspect here is to reveal which **assumptions** that the expert has on the data.
-
-Whereas this approach is very open and helps break open the discussion, other methods exist to get a deeper view of the user's needs. One example is (open and closed) [**card sorting**]({{ site.baseurl }}/2015/06/eurovis-2015-short-paper-on-card-sorting/index.html) as described in our EuroVis 2015 short paper.
 
 ### Analyzing the talk post-hoc
 So you've talked to the expert, and took ten pages of notes. What do you do now? In the next step, you probably will want to encode this information in a more organized way. One option here is to match the needs from the expert to an **taxonomy** like the one defined in Tamara Munzner's book "Visualization Design and Analysis".
 
 ![Tamara Munzner task abstraction]({{ site.baseurl }}/assets/task-abstraction.png)
 
-*Figure 4 - Taken from the book "Visualization Analysis and Design" by Tamara Munzner available from [CRC press](https://www.crcpress.com/Visualization-Analysis-and-Design/Munzner/9781466508910)*
+*Figure 5 - Taken from the book "Visualization Analysis and Design" by Tamara Munzner available from [CRC press](https://www.crcpress.com/Visualization-Analysis-and-Design/Munzner/9781466508910)*
 
 Does the user want to *identify* certain datapoints? *Compare* different (sets of) datapoints? *Annotate* *correlations*? Etc. Go through the discussion you had with the domain expert, and try to extract a list of these goals. This list will become the basis to work on your visual designs.
+
+Of course, you will want to **discuss with the user afterwards** if this abstraction makes sense.
+
+### Aligning user needs with existing visuals
+
+Up to this point, you have made an effort to actually *not* talk about visuals. The next step is to find out how existing visuals can be used to address those goals you identified earlier. One strategy to use is (open and closed) [**card sorting**]({{ site.baseurl }}/2015/06/eurovis-2015-short-paper-on-card-sorting/index.html) as described in our EuroVis 2015 short paper.
+
+![Card sorting]({{ site.baseurl }}/assets/cardsorting.png)
+
+*Figure 6 - Sorting cards*
+
+In short, you create **2 stacks of cards**: one with domain-specific questions that the user could ask the data (e.g. "are there any disrupted genes", or "which genes have a aberrant expression pattern"), and one with visuals. These visuals can be generic ones, taken from existing software, or mock-ups.
+
+| ![New picture cards]({{ site.baseurl }}/assets/picture_cards_new.png) | | ![Existing picture cards]({{ site.baseurl }}/assets/picture_cards_literature.png) |
+| <span style="font-size:0.8em;">*Picture cards with new visual encoding ideas*</span> | | <span style="font-size:0.8em;">*Picture cards extracted from literature*</span> |
+
+*Figure 7 - Examples of picture cards*
+
+Combining the question and picture cards can help you **identify possible hiatuses** in the existing visuals.
