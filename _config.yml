@@ -10,8 +10,5 @@ url: "http://vda-lab.be" # the base hostname & protocol for your site
 twitter_username: jandot
 permalink: /:year/:month/:title
 
-gems:
-  - jekyll-feed
-
 # Build settings
 markdown: kramdown
