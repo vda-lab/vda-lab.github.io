@@ -41,3 +41,22 @@ On the server:
 * `tar -xvzf vda-lab.tar.gz`
 * `rm -r -f public_html`
 * `mv _site public_html`
+
+## Merging the teaching subrepos
+
+I'm keeping the teaching material in separate repositories per course. To manage these together with the main public_html:
+
+### Making changes to a course
+
+As usual, just clone the course-specific repository (e.g. jandot/i0u19a), make changes, commit, and push to bitbucket.
+
+### Combining the subrepos into the main public_html
+
+Using `git subtree`. For each course:
+
+* `git remote add i0u19a git@bitbucket.org:jandot/i0u19a.git`
+* `git subtree add --prefix teaching/i0u19a/ i0u19a master`
+
+### Pulling changes from the subrepo
+
+`git subtree pull --prefix teaching/i0u19a/ i0u19a master`
