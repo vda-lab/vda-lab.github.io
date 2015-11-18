@@ -44,7 +44,7 @@ On the server:
 
 ## Merging the teaching subrepos
 
-I'm keeping the teaching material in separate repositories per course. To manage these together with the main public_html (based on [this blog post](https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/):
+I'm keeping the teaching material in separate repositories per course. To manage these together with the main public_html (based on [this blog post](https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/) and [this one](https://medium.com/@v/git-subtrees-a-tutorial-6ff568381844):
 
 ### Making changes to a course
 
