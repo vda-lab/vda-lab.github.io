@@ -1,6 +1,5 @@
 ---
 layout: page
-title: Teaching
 permalink: teaching.html
 ---
 * [Summerschool Biological Data Visualization]({{ site.baseurl }}/teaching/summerschool/)
