@@ -2,15 +2,31 @@
 layout: page
 ---
 * Teaching material
-  * 
+  * [Introductory lecture (Jan)]({{ site.baseurl }}/teaching/summerschool/assets/introductory_lecture_Jan.pdf)
+  * [OpenRefine (Alex)]({{ site.baseurl }}/teaching/summerschool/assets/OpenRefine_slides-1.pdf)
+  * [Design (Francis)]({{ site.baseurl }}/teaching/summerschool/assets/design.pdf)
+  * [D3 (Eamonnn)]({{ site.baseurl }}/teaching/summerschool/assets/d3-biological-datavis-workshop.pdf)
 * Practicalities
   * Getting There
   * Restaurants
-  * List of sandwiches for lunch
+  * [List of sandwiches for lunch](#sandwiches)
 * Who's who?
   * [Participants](#participants)
   * [Teaching assistants](#TAs)
   * [Teachers and organizers](#teachers)
+
+<h2 id="sandwiches">Sandwiches available for lunch</h2>
+
+* cheese (with/without veggies)
+* ham (with/without veggies)
+* cheese + ham (with/without veggies)
+* chicken curry (with/without veggies)
+* crab (with/without veggies)
+* Italian ham (with/without veggies)
+* martino (with/without veggies)
+* French sandwich (with veggies)
+* tomato/mozarella (with/without veggies)
+* Greek sandwich (with veggies)
 
 <h2 id="participants">Participants</h2>
 
