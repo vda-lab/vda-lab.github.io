@@ -18,7 +18,7 @@ layout: page
 
 <h2 id="schedule">Schedule</h2>
 
-![schedule]({{ site.baseurl }}/teaching/summerschool/assets/schedule.pdf)
+![schedule]({{ site.baseurl }}/teaching/summerschool/assets/schedule.png)
 
 <h2 id="sandwiches">Sandwiches available for lunch</h2>
 
