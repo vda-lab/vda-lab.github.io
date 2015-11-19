@@ -1,6 +1,7 @@
 ---
 layout: page
 ---
+* [Schedule](#schedule)
 * Teaching material
   * [Introductory lecture (Jan)]({{ site.baseurl }}/teaching/summerschool/assets/introductory_lecture_Jan.pdf)
   * [OpenRefine (Alex)]({{ site.baseurl }}/teaching/summerschool/assets/OpenRefine_slides-1.pdf)
@@ -14,6 +15,10 @@ layout: page
   * [Participants](#participants)
   * [Teaching assistants](#TAs)
   * [Teachers and organizers](#teachers)
+
+<h2 id="schedule">Schedule</h2>
+
+![schedule]({{ site.baseurl }}/teaching/summerschool/assets/schedule.pdf)
 
 <h2 id="sandwiches">Sandwiches available for lunch</h2>
 
