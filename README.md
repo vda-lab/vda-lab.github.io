@@ -47,19 +47,26 @@ On the server:
 
 ## Merging the teaching subrepos
 
-I'm keeping the teaching material in separate repositories per course. To manage these together with the main public_html (based on [this blog post](https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/) and [this one](https://medium.com/@v/git-subtrees-a-tutorial-6ff568381844):
+I'm keeping the teaching material in separate repositories per course. To manage these together with the main public_html (based on [this blog post](https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/) and [this one](https://medium.com/@v/git-subtrees-a-tutorial-6ff568381844)):
 
-### Making changes to a course
+### Starting from the course
+
+#### Making changes to a course
 
 As usual, just clone the course-specific repository (e.g. jandot/i0u19a), make changes, commit, and push to bitbucket.
 
-### Combining the subrepos into the main public_html
+#### Combining the subrepos into the main public_html
 
 Using `git subtree`. For each course:
 
 * `git remote add i0u19a git@bitbucket.org:jandot/i0u19a.git`
 * `git subtree add --prefix teaching/i0u19a/ i0u19a master`
 
-### Pulling changes from the subrepo
+#### Pulling changes from the subrepo
 
 `git subtree pull --prefix teaching/i0u19a/ i0u19a master`
+
+### Making changes to a course from within public_html
+
+#### Making changes to a course
+Just make the changes in the subdirectory of the course within the `public_html` project. Then `git add`, `git commit` and `git push` to the `public_html` repository. At this point, the changes will not be in the course-specific repo yet.
