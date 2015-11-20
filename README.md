@@ -22,6 +22,9 @@ Creating a new blog post in the repo involves the following steps:
 
 While you're making these changes, the `jekyll serve` will pick up any saved changes and rebuild the html pages. Check out `http://localhost:4000/~jaerts/` to see you changes. Note that you have to use the `~jaerts` subdirectory there...
 
+## Creating pages
+Any page created will by default show up in the header of the website; the one listing "Home", "People", "Portfolio", etc. To prevent a file from appearing there, add `exclude: true` in the front matter.
+
 ## Pull requests and merges
 
 
