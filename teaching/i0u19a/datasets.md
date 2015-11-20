@@ -1,6 +1,7 @@
 ---
 title: Datasets for the course
 layout: page
+exclude: true
 ---
 
 # Datasets
