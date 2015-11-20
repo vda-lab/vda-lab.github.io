@@ -1,8 +1,13 @@
 ---
 layout: page
-title: Jobs
+title: Open positions
 permalink: jobs.html
 ---
+
+We don't have specific open positions available at the moment. However, we do welcome inquiries regarding PhD or postdoc research if these address major questions in visual data analysis (e.g. visual design, computational or perceptual scalability, interaction with the expert user). In case of a good fit we can apply for specific funding for this.
+
+{% comment %}
+
 ## :: Visualizing text from patient records ::
 
 ### Scientific context
@@ -29,8 +34,6 @@ To do this, we have 2 fully-funded positions available at the moment, for a 4-ye
 
 To apply, please send an email to jan.aerts@kuleuven.be, and include (preferably in PDF): [a] your CV, [b] two references (with email and phone number), [c] one or more figures and/or screencasts of previous data visualization work.
 We will start reviewing applications in October 2015, but applications will be considered until the positions are filled.
-
-{% comment %}
 
 ## :: MECOVI - Medical Collaborative Visualization ::
 **Did you ever want to use your design background to save lives?** We're hiring!
