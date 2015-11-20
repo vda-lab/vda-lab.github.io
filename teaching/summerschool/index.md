@@ -22,7 +22,8 @@ exclude: true
 
 ![schedule]({{ site.baseurl }}/teaching/summerschool/assets/schedule.png)
 
-<h2 id="sandwiches">Sandwiches available for lunch</h2>
+<h2>Practicalities</h2>
+<h3 id="sandwiches">Sandwiches available for lunch</h3>
 
 * cheese (with/without veggies)
 * ham (with/without veggies)
@@ -37,7 +38,8 @@ exclude: true
 
 The form to fill in first thing in the morning is [here]({{ site.baseurl }}/teaching/summerschool/assets/sandwich_list.pdf).
 
-<h2 id="participants">Participants</h2>
+<h2>Who's who</h2>
+<h3 id="participants">Participants</h3>
 
 * A M Mahedi Hasan (University of Edinburgh, UK)
 * Alex Beesley (Telethon Kids Institute, Perth, Western Australia)
@@ -71,7 +73,7 @@ The form to fill in first thing in the morning is [here]({{ site.baseurl }}/teac
 * Wilfrid Carré (CHU Rennes, France)
 * Xiao (Jesse) SiZhe (Gigascience, UK)
 
-<h2 id="TAs">Teaching assistants</h2>
+<h3 id="TAs">Teaching assistants</h3>
 
 See [http://vda-lab.be/people.html](http://vda-lab.be/people.html)
 
@@ -81,7 +83,7 @@ See [http://vda-lab.be/people.html](http://vda-lab.be/people.html)
 * Thomas Moerman (thomas.moerman@kuleuven.be)
 * John Du Preez (jdupreez@esat.kuleuven.be)
 
-<h2 id="teachers">Teachers and organizers</h2>
+<h3 id="teachers">Teachers and organizers</h3>
 
 * Jan Aerts (Visual Data Analysis Lab, KU Leuven; jan.aerts@kuleuven.be; main organizer)
 * Francis Rowland (European Bioinformatics Institute)
