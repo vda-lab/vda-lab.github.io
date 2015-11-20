@@ -70,3 +70,7 @@ Using `git subtree`. For each course:
 
 #### Making changes to a course
 Just make the changes in the subdirectory of the course within the `public_html` project. Then `git add`, `git commit` and `git push` to the `public_html` repository. At this point, the changes will not be in the course-specific repo yet.
+
+#### Pushing those changes to the course-specific repository
+
+`git subtree push --prefix teaching/i0u19a/ i0u19a master`
