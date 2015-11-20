@@ -35,6 +35,8 @@ exclude: true
 * tomato/mozarella (with/without veggies)
 * Greek sandwich (with veggies)
 
+The form to fill in first thing in the morning is [here]({{ site.baseurl }}/teaching/summerschool/assets/sandwich_list.pdf).
+
 <h2 id="participants">Participants</h2>
 
 * A M Mahedi Hasan (University of Edinburgh, UK)
