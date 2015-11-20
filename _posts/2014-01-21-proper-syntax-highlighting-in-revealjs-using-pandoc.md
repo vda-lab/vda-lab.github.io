@@ -3,7 +3,7 @@ layout: post
 title:  "Proper syntax highlighting in Reveal.js using Pandoc"
 date:   2014-01-21 19:43
 author: Toni Verbeiren
-categories: markdown revealjs howto
+categories: main
 tags:
 - markdown
 - revealjs

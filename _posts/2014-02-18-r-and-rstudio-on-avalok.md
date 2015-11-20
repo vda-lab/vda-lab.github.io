@@ -4,7 +4,7 @@ title:  "R and Rstudio on Avalok"
 date:   2014-02-18 08:34
 author: Raf Winand
 private: true
-categories: R avalok
+categories: main
 tags:
 - R
 - avalok

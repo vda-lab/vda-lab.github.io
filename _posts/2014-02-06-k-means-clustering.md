@@ -3,7 +3,7 @@ layout: post
 title:  "k-means clustering"
 date:   2014-02-06 13:05
 author: Raf Winand
-categories: clustering b-slim
+categories: main
 published: false
 tags:
 - clustering

@@ -3,7 +3,7 @@ layout: post
 title:  "A D3 visualization from Spark as a Service"
 date:   2014-01-29 15:12
 author: Toni Verbeiren
-categories: spark d3 howto
+categories: main
 tags:
 - spark
 - d3

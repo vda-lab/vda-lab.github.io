@@ -3,7 +3,7 @@ layout: post
 title:  "My thoughts of the Polymer Summit 2015"
 date:   2015-09-20 10:42
 author: Daniel Alcaide
-categories: polymer
+categories: main
 tags:
 - polymer
 ---

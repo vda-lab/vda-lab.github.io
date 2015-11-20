@@ -3,7 +3,7 @@ layout: post
 title:  "Cluster evaluation"
 date:   2014-02-20 07:16
 author: Raf Winand
-categories: clustering
+categories: main
 published: false
 tags:
 - clustering

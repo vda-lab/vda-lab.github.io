@@ -3,7 +3,7 @@ layout: post
 title:  "Spark as a service with caching"
 date:   2014-02-04 21:11
 author: Toni Verbeiren
-categories: spark
+categories: main
 published: false
 tags:
 - spark

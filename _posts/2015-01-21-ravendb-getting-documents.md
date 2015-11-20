@@ -3,7 +3,7 @@ layout: post
 title:  "RavenDB - Getting documents"
 date:   2015-01-21 08:57
 author: Raf Winand
-categories: ravendb nosql python
+categories: main
 tags:
 - ravendb
 - nosql

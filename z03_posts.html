@@ -27,7 +27,7 @@ function partition(items, size) {
 // Get the nodes
 {% capture posts %}
 [
-{% for post in site.posts %}
+{% for post in site.categories.main %}
 {% unless post.private %}
 {
 "title"    : "{{ post.title }}",
@@ -144,7 +144,9 @@ force.on("tick", function() {
       .attr("cy", function(d) { return d.y; });
 });
 </script>
+</td></tr>
 
+<tr><td>
 <h2>:: By tag ::</h2>
 {% capture tags %}
   {% for tag in site.tags %}
@@ -177,7 +179,7 @@ force.on("tick", function() {
     <td valign="top">
 <h2>:: Chronological ::</h2>
 <ul>
-  {% for post in site.posts %}
+  {% for post in site.categories.main %}
   {% unless post.private %}
     <li>
       <time style="color:#666;font-size:11px;" datetime='{{post.date | date: "%Y-%m-%d"}}'>{{post.date | date: "%m/%d/%y"}}</time> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>

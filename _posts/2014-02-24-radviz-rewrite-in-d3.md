@@ -3,7 +3,7 @@ layout: post
 title:  "Radviz rewrite in D3"
 date:   2014-02-24 22:17
 author: Jan Aerts
-categories: howto radviz d3
+categories: main
 tags:
 - howto
 - radviz

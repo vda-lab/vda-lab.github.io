@@ -3,7 +3,7 @@ layout: post
 title:  "Introduction to relational databases"
 date:   2015-02-23 18:09
 author: Jan Aerts
-categories: sql
+categories: main
 tags:
 - sql
 ---

@@ -3,7 +3,7 @@ layout: post
 title:  "Spark for Genomic Data"
 date:   2014-01-09 18:03:00
 author: Toni Verbeiren
-categories: spark shark scala
+categories: main
 tags:
 - spark
 - shark

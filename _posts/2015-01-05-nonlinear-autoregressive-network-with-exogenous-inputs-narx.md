@@ -3,7 +3,7 @@ layout: post
 title:  "Nonlinear autoregressive network with exogenous inputs (NARX)"
 date:   2015-01-05 10:02
 author: Raf Winand
-categories: network
+categories: main
 published: false
 tags:
 - network

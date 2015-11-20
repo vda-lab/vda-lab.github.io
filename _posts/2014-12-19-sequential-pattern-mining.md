@@ -3,7 +3,7 @@ layout: post
 title:  "Sequential pattern mining"
 date:   2014-12-19 12:21
 author: Raf Winand
-categories: data-mining
+categories: main
 tags:
 - data-mining
 ---

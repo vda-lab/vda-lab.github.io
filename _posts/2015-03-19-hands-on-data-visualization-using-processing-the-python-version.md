@@ -3,7 +3,7 @@ layout: post
 title:  "Hands-on data visualization using processing - the python version"
 date:   2015-03-19 23:39
 author: Jan Aerts
-categories: dataviz python processing
+categories: main
 tags:
 - dataviz
 - python

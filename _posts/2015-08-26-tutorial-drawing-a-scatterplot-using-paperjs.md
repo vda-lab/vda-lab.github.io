@@ -3,7 +3,7 @@ layout: post
 title:  "Tutorial: drawing a scatterplot using paper.js"
 date:   2015-08-26 23:34
 author: Jan Aerts
-categories: howto paperjs
+categories: main
 tags:
 - howto
 - paperjs

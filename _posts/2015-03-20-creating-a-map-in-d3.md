@@ -3,7 +3,7 @@ layout: post
 title:  "Creating a map in D3"
 date:   2015-03-20 15:53
 author: Raf Winand
-categories: d3 howto
+categories: main
 tags:
 - d3
 - howto

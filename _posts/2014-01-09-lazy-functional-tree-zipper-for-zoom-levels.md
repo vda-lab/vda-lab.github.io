@@ -3,7 +3,7 @@ layout: post
 title:  "A lazy functional tree zipper for zoom levels"
 date:   2014-01-09 18:46:00
 author: Toni Verbeiren
-categories: spark locustree scala
+categories: main
 tags:
 - spark
 - locustree

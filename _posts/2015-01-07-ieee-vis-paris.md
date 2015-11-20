@@ -4,7 +4,7 @@ title:  "IEEE VIS Paris"
 date:   2015-01-07 14:31
 author: Toni Verbeiren
 private: true
-categories: IEEEVIS conference
+categories: main
 tags:
 - IEEEVIS
 - conference

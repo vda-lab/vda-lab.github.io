@@ -3,7 +3,7 @@ layout: post
 title:  "HIV transmitted drug resistance"
 date:   2014-01-31 13:58
 author: Raf Winand
-categories: hiv
+categories: main
 private: true
 tags:
 - hiv

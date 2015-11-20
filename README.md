@@ -45,6 +45,8 @@ On the server:
 * `rm -r -f public_html`
 * `mv _site public_html`
 
+Or now, just run `deploy.rb`.
+
 ## Merging the teaching subrepos
 
 I'm keeping the teaching material in separate repositories per course. To manage these together with the main public_html (based on [this blog post](https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/) and [this one](https://medium.com/@v/git-subtrees-a-tutorial-6ff568381844)):
@@ -74,3 +76,9 @@ Just make the changes in the subdirectory of the course within the `public_html`
 #### Pushing those changes to the course-specific repository
 
 `git subtree push --prefix teaching/i0u19a/ i0u19a master`
+
+### Organizing the posts and pages from the subrepos
+
+In order to have only the main blog posts appear in the website, add `categories: main` to each blog post. The posts in each course should have the name of the course as the category: e.g. `categories: i0u19a`.
+
+The liquid code in the posts.md files mention `site.categories.i0u19a`, which will return all blog posts with category `i0u19a`.

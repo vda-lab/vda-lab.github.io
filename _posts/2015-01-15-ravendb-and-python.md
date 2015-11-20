@@ -3,7 +3,7 @@ layout: post
 title:  "RavenDB and python"
 date:   2015-01-15 16:56
 author: Raf Winand
-categories: ravendb nosql python
+categories: main
 tags:
 - ravendb
 - nosql

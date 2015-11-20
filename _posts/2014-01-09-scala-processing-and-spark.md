@@ -3,7 +3,7 @@ layout: post
 title:  "Scala, Processing and Spark"
 date:   2014-01-09 18:10:00
 author: Toni Verbeiren
-categories: spark shark scala howto
+categories: main
 tags:
 - spark
 - shark

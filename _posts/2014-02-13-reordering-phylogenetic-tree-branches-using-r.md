@@ -3,7 +3,7 @@ layout: post
 title:  "Reordering phylogenetic tree branches using R"
 date:   2014-02-13 14:01
 author: Ryo Sakai
-categories: phylogenetic dendrogram R
+categories: main
 tags:
 - phylogenetic
 - dendrogram

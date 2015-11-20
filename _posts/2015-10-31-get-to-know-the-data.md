@@ -3,6 +3,7 @@ layout: post
 title:  "Get to know the data"
 author: Jan Aerts
 date: 2015-10-31 13:55
+categories: main
 tags:
 - visualization
 - howto

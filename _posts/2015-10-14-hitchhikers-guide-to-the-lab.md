@@ -3,6 +3,7 @@ layout: post
 title:  "Hitchhiker's guide to the VDA lab"
 date:   2015-10-14 22:58
 author: Jan Aerts
+categories: main
 private: true
 tags:
 - lab

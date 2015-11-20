@@ -3,7 +3,7 @@ layout: post
 title:  "Shark or spark"
 date:   2014-01-29 10:03
 author: Toni Verbeiren
-categories: spark shark
+categories: main
 tags:
 - spark
 - shark

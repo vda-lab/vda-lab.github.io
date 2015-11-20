@@ -3,7 +3,7 @@ layout: post
 title:  "Hierarchical clustering"
 date:   2014-02-06 15:29
 author: Raf Winand
-categories: clustering b-slim
+categories: main
 published: false
 tags:
 - clustering

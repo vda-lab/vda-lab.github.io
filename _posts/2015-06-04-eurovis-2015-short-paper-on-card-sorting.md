@@ -3,7 +3,7 @@ layout: post
 title:  "EuroVis 2015 - Short paper on card sorting"
 date:   2015-06-04 13:47
 author: Ryo Sakai
-categories: card_sorting
+categories: main
 tags:
 - card_sorting
 ---

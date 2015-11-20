@@ -3,7 +3,7 @@ layout: post
 title:  "Heatmap dilemma"
 date:   2014-01-29 16:29
 author: Ryo Sakai
-categories: heatmap dendsort
+categories: main
 tags:
 - heatmap
 - dendsort

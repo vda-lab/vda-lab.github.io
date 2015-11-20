@@ -3,7 +3,7 @@ layout: post
 title:  "Spark as a service"
 date:   2014-01-29 14:46
 author: Toni Verbeiren
-categories: spark
+categories: main
 tags:
 - spark
 ---

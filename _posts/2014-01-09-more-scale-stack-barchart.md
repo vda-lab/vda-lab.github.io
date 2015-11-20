@@ -3,7 +3,7 @@ layout: post
 title:  "More scale-stack bar charts"
 date:   2014-01-09 12:17:00
 author: Raf Winand
-categories: paperjs howto
+categories: main
 tags:
 - paperjs
 - howto

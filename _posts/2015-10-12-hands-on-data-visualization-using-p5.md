@@ -3,7 +3,7 @@ layout: post
 title:  "Hands-on data visualization using p5"
 date:   2015-10-12 19:07
 author: Jan Aerts
-categories: dataviz p5 processing howto
+categories: main
 tags:
 - dataviz
 - p5

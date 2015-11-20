@@ -3,7 +3,7 @@ layout: post
 title:  "Radviz high-dimensional visualization using paper.js"
 date:   2014-02-15 22:09
 author: Jan Aerts
-categories: radviz paperjs
+categories: main
 tags:
 - radviz
 - paperjs

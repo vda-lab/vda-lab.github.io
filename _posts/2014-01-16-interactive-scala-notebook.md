@@ -3,7 +3,7 @@ layout: post
 title:  "Interactive (Scala) notebook"
 date:   2014-01-16 14:34
 author: Toni Verbeiren
-categories: scala notebook
+categories: main
 tags:
 - scala
 - notebook

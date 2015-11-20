@@ -3,7 +3,7 @@ layout: post
 title:  "Markdown till the end"
 date:   2014-03-10 09:47
 author: Toni Verbeiren
-categories: markdown howto
+categories: main
 tags:
 - markdown
 - howto

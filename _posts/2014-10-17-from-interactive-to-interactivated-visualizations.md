@@ -3,7 +3,7 @@ layout: post
 title:  "From interactive to interactivated visualizations"
 date:   2014-10-17 08:10
 author: Toni Verbeiren
-categories: d3
+categories: main
 tags:
 - d3
 ---

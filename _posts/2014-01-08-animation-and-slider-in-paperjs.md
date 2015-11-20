@@ -3,7 +3,7 @@ layout: post
 title:  "Animation and slider in paper.js"
 date:   2014-01-08 11:00:00
 author: Jan Aerts
-categories: paperjs howto
+categories: main
 tags:
 - paperjs
 - howto
