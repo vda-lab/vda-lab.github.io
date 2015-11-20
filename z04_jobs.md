@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Open positions
+title: Jobs
 permalink: jobs.html
 ---
 
