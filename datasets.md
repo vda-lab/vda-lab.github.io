@@ -41,7 +41,7 @@ The data has been downloaded from the web and converted to two formats: `beers.c
 
 ## Drugs ##
 
-The database of drugs that can be sold in Belgium from the [Federal Government](http://www.fagg-afmps.be/nl/items/gegevensbank_vergunde_geneesmiddelen/). 
+The database of drugs that can be sold in Belgium from the [Federal Government](http://www.fagg-afmps.be/nl/items/gegevensbank_vergunde_geneesmiddelen/).
 
 The datasets consists of 2 files: `AMM_det_H.csv` and `AMM_H.csv`:
 
