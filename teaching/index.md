@@ -1,6 +1,8 @@
 ---
 layout: page
+title: Courses run from VDA-lab
 permalink: teaching.html
+exclude: true
 ---
 * [Summerschool Biological Data Visualization]({{ site.baseurl }}/teaching/summerschool/)
 * [G0W36A - Capita Selecta in Statistics]({{ site.baseurl }}/teaching/g0w36a/)

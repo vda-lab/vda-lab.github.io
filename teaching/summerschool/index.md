@@ -1,5 +1,7 @@
 ---
 layout: page
+title: Summerschool in Biological Data Visualization
+exclude: true
 ---
 * [Schedule](#schedule)
 * Teaching material
