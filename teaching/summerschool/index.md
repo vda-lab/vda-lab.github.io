@@ -8,7 +8,7 @@ exclude: true
   * [Introductory lecture (Jan)]({{ site.baseurl }}/teaching/summerschool/assets/introductory_lecture_Jan.pdf)
   * [OpenRefine (Alex)]({{ site.baseurl }}/teaching/summerschool/assets/OpenRefine_slides-1.pdf) and [exercise data]({{ site.baseurl }}/teaching/summerschool/assets/OpenRefine.zip)
   * [Design (Francis)]({{ site.baseurl }}/teaching/summerschool/assets/design.pdf)
-  * [D3 (Eamonnn)]({{ site.baseurl }}/teaching/summerschool/assets/bio_data_vis_course_2015.pdf)
+  * [D3 (Eamonnn)]({{ site.baseurl }}/teaching/summerschool/assets/bio_data_vis_course_2015.pdf) - ["Live version"](http://antarctic-design.co.uk/biovis-workshop15/) [.]({{ site.baseurl }}/teaching/summerschool/assets/d3_answers.pdf)
 * Practicalities
   * Getting There
   * Restaurants
