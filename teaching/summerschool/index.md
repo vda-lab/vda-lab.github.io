@@ -6,7 +6,7 @@ exclude: true
 * [Schedule](#schedule)
 * Teaching material
   * [Introductory lecture (Jan)]({{ site.baseurl }}/teaching/summerschool/assets/introductory_lecture_Jan.pdf)
-  * [OpenRefine (Alex)]({{ site.baseurl }}/teaching/summerschool/assets/OpenRefine_slides-1.pdf)
+  * [OpenRefine (Alex)]({{ site.baseurl }}/teaching/summerschool/assets/OpenRefine_slides-1.pdf) and [exercise data]({{ site.baseurl }}/teaching/summerschool/assets/OpenRefine.zip)
   * [Design (Francis)]({{ site.baseurl }}/teaching/summerschool/assets/design.pdf)
   * [D3 (Eamonnn)]({{ site.baseurl }}/teaching/summerschool/assets/d3-biological-datavis-workshop.pdf)
 * Practicalities
