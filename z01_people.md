@@ -78,8 +78,7 @@ PhD student
 
 ![Photo Jansi]({{ site.baseurl }}/assets/photo_jansi.jpg)
 
-Bio – Jansi has a techno-functional background. She obtained her Bachelor degree in Electrical Engineering from Anna University in India and a Master degree in International Business from ESC Grenoble in France. She started her career as a marketer and then moved to the area of commercial data analytics owing to her interest in making sense of data to drive business. She strongly believes that visualisation is the most effective way to communicate the insights and finds it exciting to
-visualise data from different domains. Her current research focuses on visualising genomic and healthcare data.
+Bio – Jansi has a techno-functional background. She obtained her Bachelor degree in Electrical Engineering from Anna University in India and a Master degree in International Business from ESC Grenoble in France. She started her career as a marketer and then moved to the area of commercial data analytics owing to her interest in making sense of data to drive business. She strongly believes that visualisation is the most effective way to communicate the insights and finds it exciting to visualise data from different domains. Her current research focuses on visualising genomic and healthcare data.
 
 ### :: John Du Preez ::
 
@@ -88,6 +87,15 @@ PhD student
 ![Photo John]({{ site.baseurl }}/assets/photo_john.jpg)
 
 Bio – John strongly believes in a multi-disciplinary approach to creative problem solving. His current research, in association with Luciad, focuses on visual analytics to support insight generation within geospatial data. John has a bachelor degree in information technology, as well as a post-graduate degree in culture and arts. In addition, John has a masters degree in architecture and design, and an advanced masters degree from the faculty of engineering sciences at KU Leuven. His work experience as a technician and developer within a GIS environment, amongst other past positions, supports his current research objectives.
+
+### :: Houda Lamqaddam ::
+
+PhD student
+
+![Photo Houda]({{ site.baseurl }}/assets/photo_houda.png)
+
+Bio - With background in computer science and communication, Houda is interested in making software easy to use and understand. She believes in the importance of including end users in the design process and enjoys finding out their needs and translating them into functional requirements.
+Houda has a bachelor's degree in Computer Science from Al Akhawayn University in Ifrane, Morocco, and a joint Masters degree in Human-Computer Interaction from the ENAC and the Université Paul Sabatier in Toulouse, France.
 
 ## Former group members
 
