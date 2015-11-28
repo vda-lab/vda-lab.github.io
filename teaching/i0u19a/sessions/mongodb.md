@@ -1,7 +1,6 @@
 ---
 title: MongoDB
 layout: page
-exclude: true
 ---
 
 # 1. Document Databases (MongoDB)

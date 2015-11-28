@@ -1,7 +1,6 @@
 ---
 title: Exercises on Relational Databases
 layout: page
-exclude: true
 ---
 
 # RDBMS and SQL

@@ -1,7 +1,6 @@
 ---
 title: Data Processing Exercises
 layout: page
-exclude: true
 ---
 
 ## 1. Word count and beyond

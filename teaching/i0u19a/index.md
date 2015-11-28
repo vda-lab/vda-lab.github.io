@@ -1,7 +1,6 @@
 ---
 title: I0U19A - Management of Large-Scale Omics Data
 layout: page
-exclude: true
 ---
 ## General setup of the course
 

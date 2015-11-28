@@ -1,7 +1,6 @@
 ---
 title: Visualization
 layout: page
-exclude: true
 ---
 
 ## Assignment to be performed before the exercise session ##

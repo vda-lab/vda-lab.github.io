@@ -1,7 +1,6 @@
 ---
 title: Data Processing
 layout: page
-exclude: true
 ---
 
 # Exercise 1

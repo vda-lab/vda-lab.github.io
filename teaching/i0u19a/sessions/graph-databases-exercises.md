@@ -1,7 +1,6 @@
 ---
 title: Graph databases
 layout: page
-exclude: true
 ---
 
 # 1. Introduction

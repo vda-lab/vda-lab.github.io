@@ -1,7 +1,6 @@
 ---
 title: Lecture sessions
 layout: page
-exclude: true
 ---
 <ul>
   {% for post in site.categories.i0u19a reversed %}
