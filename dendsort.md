@@ -2,7 +2,6 @@
 layout: page
 title: dendsort - R package for dendrogram leaf ordering
 permalink: dendsort.html
-exclude: true
 ---
 *Contribution by Ryo Sakai*
 

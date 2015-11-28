@@ -1,7 +1,6 @@
 ---
 layout: nil
 title : Atom Feed
-exclude: true
 ---
 
 <?xml version="1.0" encoding="utf-8"?>

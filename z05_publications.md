@@ -2,6 +2,7 @@
 layout: page
 title: Publications
 permalink: publications.html
+menu: main
 ---
 ## :: Peer-reviewed journals ::
 

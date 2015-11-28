@@ -2,7 +2,6 @@
 layout: page
 title: Brain Constellation
 permalink: brainconstellation.html
-exclude: true
 ---
 The BioVis 2014 data contest focused on the domain of resting state functional connectivity networks (rs-fMRI network). These networks are derived from functional magnetic resonance imaging scans of human subjects, which measured the blood oxygenation level dependent (BOLD) activity over a period of time in different regions of the brain. The data were pre-processed to weighted adjacency matrices with each row and column corresponding to a region of interest (ROI) and the value corresponding to the strength of coupling between two anatomical regions. For more details, please visit the [archived website](http://www.biovis.net/year/2014/info/data_contest).
 

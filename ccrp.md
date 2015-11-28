@@ -2,7 +2,6 @@
 layout: page
 title: Data-driven 3D Sculpture - Cosmopolitan Chicken Research Project
 permalink: ccrp.html
-exclude: true
 ---
 *Contribution by Ryo Sakai*
 

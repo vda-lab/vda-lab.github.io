@@ -2,7 +2,6 @@
 layout: page
 title: Gapmap - R package for gapped dendrogram and heatmap
 permalink: gapmap.html
-exclude: true
 ---
 One of the common mistakes when interpreting a dendrogram is to assume that two adjacent nodes in the leaf order to be similar. Let me demonstrate with the following example.
 

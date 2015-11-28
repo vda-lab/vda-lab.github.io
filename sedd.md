@@ -2,7 +2,6 @@
 layout: page
 title: Sequence Diversity Diagram for comparative analysis of multiple sequence alignments
 permalink: sedd.html
-exclude: true
 ---
 *Contribution by Ryo Sakai*
 

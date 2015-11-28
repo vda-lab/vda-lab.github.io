@@ -2,6 +2,7 @@
 layout: page
 title: Portfolio
 permalink: portfolio.html
+menu: main
 ---
 A selection of projects, tools and designs developed in the lab…
 

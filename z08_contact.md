@@ -2,6 +2,7 @@
 layout: page
 title: Contact
 permalink: contact.html
+menu: main
 ---
 Our coordinates:
 

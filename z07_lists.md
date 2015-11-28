@@ -2,6 +2,7 @@
 layout: page
 title: Lists
 permalink: lists.html
+menu: main
 ---
 ## :: Books we like ::
 

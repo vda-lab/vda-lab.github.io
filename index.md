@@ -1,7 +1,6 @@
 ---
 layout: page
 title:  Home
-show: This is a piece of text
 ---
 <img style="float: left;" width="100" style="float:left; margin: 0px 10px 10px 0px;" src="{{ site.baseurl }}/assets/vda-lab_logo.png">
 The **Visual Data Analysis group** at KU Leuven (part of [Bioinformatics](http://www.esat.kuleuven.be/bioinformatics/) at [STADIUS](href=http://www.esat.kuleuven.be/stadius/)/[ESAT](http://www.esat.kuleuven.be/), the [iMinds Medical IT department](http://www.iminds.be/en/about-us/organizational-structure/research-departments/medical-information-technologies-department), and embedded in the [Data Visualization Lab](http://datavislab.org)) investigates how to make sense of large and/or complex datasets. In visual analytics, automated analysis techniques are combined with interactive data visualization with the aim to enable reasoning and hypothesis generation. The methodology is particularly well-fit for the **discovery of unexpected phenomena in large and dynamic datasets**; it is the best approach for tackling open problems for which no clear solutions seem to exist, and even the questions are unknown.

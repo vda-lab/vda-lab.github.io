@@ -2,7 +2,6 @@
 layout: page
 title: Aracari - Visualizing 2-locus eQTL data
 permalink: aracari.html
-exclude: true
 ---
 The award-winning contribution to the data visualization challenge at the BioVis 2011 conference. The data consists of 2-locus eQTL data in which the contestants were asked to identify genes responsible for a hypothetical disease.
 

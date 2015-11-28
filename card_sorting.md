@@ -2,7 +2,6 @@
 layout: page
 title: Card sorting
 permalink: card_sorting.html
-exclude: true
 ---
 *Contribution by Ryo Sakai*
 

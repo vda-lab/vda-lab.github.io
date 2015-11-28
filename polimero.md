@@ -2,7 +2,6 @@
 layout: page
 title: Polimero - composable data visualization using web components
 permalink: polimero.html
-exclude: true
 ---
 TBD
 
