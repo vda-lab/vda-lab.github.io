@@ -91,12 +91,20 @@ Bio – John strongly believes in a multi-disciplinary approach to creative prob
 
 ### :: Houda Lamqaddam ::
 
-PhD student
+PhD student (starting January 2016)
 
 ![Photo Houda]({{ site.baseurl }}/assets/photo_houda.png)
 
 Bio - With background in computer science and communication, Houda is interested in making software easy to use and understand. She believes in the importance of including end users in the design process and enjoys finding out their needs and translating them into functional requirements.
 Houda has a bachelor's degree in Computer Science from Al Akhawayn University in Ifrane, Morocco, and a joint Masters degree in Human-Computer Interaction from the ENAC and the Université Paul Sabatier in Toulouse, France.
+
+## :: Jaume Nualart ::
+
+Postdoctoral Researcher (starting May 2016); [http://research.nualart.cat/](http://research.nualart.cat/); [https://orcid.org/0000-0003-4954-5303](https://orcid.org/0000-0003-4954-5303)
+
+![Photo Jaume]({{ site.baseurl }}/assets/photo_jaume.jpg)
+
+Bio - Jaume is a free knowledge advocate who works in the intersection of art, science and technology. More specifically, he is interested in the interface between human beings and reality, that is, data visualization. He studied how to combine natural text collections analysis, visualization, and exploration techniques. With a background in sciences (chemistry), he worked as a researcher in media art in Ars Electronica (Austria), and in  development projects as engineer (Angola, Kenya, and Pakistan). In 2010 he moved to academic research (Catalonia and Australia). His current interests (2015) are: big collections of texts, interface simplicity, visual uncertainty, and technology adoption.
 
 ## Former group members
 
