@@ -16,6 +16,7 @@ We will constantly refer back to 3 different datasets within this course, to sho
 * Data Visualization
   * [Exercise session]({{ site.baseurl }}/teaching/i0u19a/sessions/visualization-exercise.html)
 * Lambda Architecture
+  * [Lecture]( {{ site.baseurl }}/teaching/i0u19a/sessions/lectures/lambda/index.html)
   * [Exercises]({{ site.baseurl }}/teaching/i0u19a/sessions/lambda-architecture.html)
 * Data Processing
   * [Assignment]({{ site.baseurl }}/teaching/i0u19a/sessions/data-processing-assignment.html)
