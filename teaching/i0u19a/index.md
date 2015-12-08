@@ -9,6 +9,8 @@ For each of the topics, we typically have a lecture and an exercise session. Bef
 We will constantly refer back to 3 different datasets within this course, to show which of the technologies discussed fits a certain use of a dataset best. For a description of these datasets, see [here]({{ site.baseurl }}/teaching/i0u19a/datasets.html).
 
 ## Sessions
+* Introduction
+  * [Lecture]({{ site.baseurl }}/teaching/i0u19a/sessions/lectures/introduction/index.html)
 * Relational Databases
   * [Exercise session]({{ site.baseurl }}/teaching/i0u19a/sessions/RDBMS-exercises.html)
 * Data Visualization
