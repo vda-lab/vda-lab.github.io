@@ -181,9 +181,7 @@ See [databases.html](databases.html)
 <img src="assets/primary_foreign_keys.png">
 
 
-<img src="assets/normal-individuals.png">
-
-<img src="assets/normal-snps.png">
+<img src="assets/normal-individuals.png"><img src="assets/normal-snps.png">
 
 <img src="assets/normal-genotypes.png">
 
