@@ -13,18 +13,18 @@ TA: Thomas Moerman (thomas.moerman@kuleuven.be)
 #### Schedule
 | Week</small> | <small>Date</small> | <small>Room</small> | <small>Type</small> | <small>Topic</small> |
 |:-----|:-----|:-----|:-----|:------|
-| <small>1</small> | <small>12/02/2015</small> | <small>200C 01.01 (PC class D)</small> | <small>lecture</small> | <small>What is big data?</small> |
-| <small>2</small> | <small>19/02/2015</small> | <small>200C 01.01 (PC class D)</small> | <small>lecture</small> | <small>Visual data analysis</small> |
-| <small>3</small> | <small>26/02/2015</small> | <small>200C 01-01 (PC class D)</small> | <small>exercise</small> | <small>Visual Data Analysis</small> |
-| <small>4</small> | <small>05/03/2015</small> | <small>200C 01-01 (PC class D)</small> | <small>lecture</small> | <small>Lambda Architecture</small> |
-| <small>5</small> | <small>12/03/2015</small> | <small>200C 01-01 (PC class D)</small> | <small>lecture</small> | <small>Data processing</small> |
-| <small>6</small> | <small>19/03/2015</small> | <small>200C 01-01 (PC class D)</small> | <small>exercise</small> | <small>Data processing</small> |
-| <small>7</small> | <small>26/03/2015</small> | <small>no lecture</small> | <small></small> | <small></small> |
-| <small>8</small> | <small>02/04/2015</small> | <small>no lecture</small> | <small></small> | <small></small> |
-| <small>9</small> | <small>23/04/2015</small> | <small>LAND 00.210</small> | <small>lecture</small> | <small>Document and graph databases</small> |
-| <small>10</small> | <small>30/04/2015</small> | <small>LAND 00.210</small> | <small>exercise</small> | <small>Document databases</small> |
-| <small>11</small> | <small>07/05/2015</small> | <small>LAND 00.210</small> | <small>exercise</small> | <small>Graph databases</small> |
-| <small>12</small> | <small>21/05/2015</small> | <small>LAND 00.210</small> | <small>exam</small> | <small></small> |
+| <small>1</small> | <small>11/02/2016</small> | <small>200C 01.01 (PC class D)</small> | <small>lecture</small> | <small>What is big data?</small> |
+| <small>2</small> | <small>18/02/2016</small> | <small>200C 01.01 (PC class D)</small> | <small>lecture</small> | <small>Visual data analysis</small> |
+| <small>3</small> | <small>25/02/2016</small> | <small>200C 01-01 (PC class D)</small> | <small>exercise</small> | <small>Visual Data Analysis: p5.js</small> |
+| <small>4</small> | <small>03/03/2016</small> | <small>200C 01-01 (PC class D)</small> | <small>lecture</small> | <small>Lambda Architecture</small> |
+| <small>5</small> | <small>10/03/2016</small> | <small>no lecture</small> | <small></small> | <small></small> |
+| <small>6</small> | <small>17/03/2016</small> | <small>200C 01-01 (PC class D)</small> | <small>lecture</small> | <small>Data processing</small> |
+| <small>7</small> | <small>24/03/2016</small> | <small>no lecture</small> | <small></small> | <small></small> |
+| <small>8</small> | <small>14/04/2016</small> | <small>200C 01-01 (PC class D)</small> | <small>exercise</small> | <small>Data processing</small> |
+| <small>9</small> | <small>21/04/2016</small> | <small>ESAT B91.100</small> | <small>lecture</small> | <small>Document and graph databases</small> |
+| <small>10</small> | <small>28/04/2016</small> | <small>ESAT B91.100</small> | <small>exercise</small> | <small>Document databases</small> |
+| <small>11</small> | <small>12/05/2016</small> | <small>ESAT B91.100</small> | <small>exercise</small> | <small>Graph databases</small> |
+| <small>12</small> | <small>19/05/2016</small> | <small>no lecture</small> | <small></small> | <small></small> |
 
 
 #### Exercises and Assignments
@@ -151,7 +151,10 @@ Because it's big: *bring computation to the data instead of the data to the comp
 #### The 3 V's
 **Volume** - most immediate challenge to conventional IT structures; principle of big data: *if you can, keep everything*
 * need *scalable storage* + *distributed querying*
-* structured vs unstructured data
+* structured vs unstructured data -> Hadoop: MapReduce + HDFS
+  * MapReduce: map = distributing a dataset among multiple servers and operating on the data; reduce = recombining the partial results
+  * HDFS = Hadoop Distributed File System
+  * Hadoop: for batch jobs (not interactive)
 
 
 **Variety** - data is messy
@@ -166,10 +169,12 @@ Because it's big: *bring computation to the data instead of the data to the comp
 * often not possible to simply wait for a report to run or Hadoop job to complete
 * *streaming*: important to consider, because (1) if input data too fast to store in its entirety (e.g. Large Hedron Collider @ CERN); (2) application might mandate immediate response to the data
 
+=> need for speed (=> has driven development of key/value stores and columnar databases)
+
 
 
 ## RDBMS refresher
-See [databases.html](databases.html)
+See [databases.html](http://vda-lab.be/2015/02/introduction-to-relational-databases/index.html)
 
 
 
@@ -355,7 +360,7 @@ Not all bits of information are equal: some is derived from other => what is the
 You answer questions on your data by running functions that take data as input. => **query = function(all data)** => goal of data system = compute arbitrary functions on arbitrary data
 
 
-computational systems should be self-aware of their distributed nature => sharding, replication, ... are handled for you
+computational systems should be **self-aware** of their distributed nature => sharding, replication, ... are handled for you
 
 data is **immutable** => when you make a mistake you might write bad data but at least you didn't destroy good data => human fault-tolerant
 
