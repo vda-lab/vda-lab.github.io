@@ -1,7 +1,6 @@
 ---
 title: Instructor notes on RDBMS
 layout: page
-instructor: true
 ---
 
 # RDBMS and SQL
