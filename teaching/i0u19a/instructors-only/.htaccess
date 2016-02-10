@@ -2,8 +2,6 @@ AuthUserFile /Users/jaerts/.htpasswd
 AuthGroupFile /Users/jaerts/.htgroup
 AuthName "Please Enter Password"
 AuthType Basic
-Require valid-user
-IndexIgnore *
 
 <Limit GET POST>
 require group instructors
