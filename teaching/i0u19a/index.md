@@ -8,12 +8,51 @@ For each of the topics, we typically have a lecture and an exercise session. Bef
 
 We will constantly refer back to 3 different datasets within this course, to show which of the technologies discussed fits a certain use of a dataset best. For a description of these datasets, see [here]({{ site.baseurl }}/teaching/i0u19a/datasets.html).
 
+The schedule below lists 3 types:
+
+* Lectures - regular lectures
+* Exercises - exercise sessions on the computer
+* Assignments - assignments to be uploaded on Toledo *before* the date indicated. These are most often to prepare for the exercise session.
+
+## Teaching assistants
+* Thomas Moerman (thomas.moerman@esat.kuleuven.be) - scalability
+* Daniel Alcaide (daniel.alcaide@esat.kuleuven.be) - visualization
+* Jansi Thiyagarajan (jansi.thiyagarajan@esat.kuleuven.be) - visualization
+* Houda Lamqaddam (houda.lamqaddam@esat.kuleuven.be) - visualization
+
+
+## Schedule
+
+| <small>Week</small> | <small>Date</small> | <small>Room</small> | <small>Type</small> | <small>Topic</small> |
+|:-----|:-----|:-----|:-----|:------|
+| <small>1</small> | <small>11/02/2016</small> | <small>200C 01.01 (PC class D)</small> | <small>lecture</small> | <small>What is big data?</small> |
+| <small>2</small> | <small>18/02/2016</small> | <small>200C 01.01 (PC class D)</small> | <small>lecture</small> | <small>Visual data analysis</small> |
+| <small>3</small> | <small>25/02/2016</small> | <small>200C 01-01 (PC class D)</small> | <small>exercise</small> | <small>Visual Data Analysis: p5.js</small> |
+| <small>4</small> | <small>03/03/2016</small> | <small>200C 01-01 (PC class D)</small> | <small>lecture</small> | <small>Lambda Architecture</small> |
+| <small>5</small> | <small>10/03/2016</small> | <small>no lecture</small> | <small></small> | <small></small> |
+| <small>6</small> | <small>17/03/2016</small> | <small>200C 01-01 (PC class D)</small> | <small>lecture</small> | <small>Data processing</small> |
+| <small>7</small> | <small>24/03/2016</small> | <small>no lecture</small> | <small></small> | <small></small> |
+| <small>8</small> | <small>14/04/2016</small> | <small>200C 01-01 (PC class D)</small> | <small>exercise</small> | <small>Data processing</small> |
+| <small>9</small> | <small>21/04/2016</small> | <small>ESAT B91.100</small> | <small>lecture</small> | <small>Document and graph databases</small> |
+| <small>10</small> | <small>28/04/2016</small> | <small>ESAT B91.100</small> | <small>exercise</small> | <small>Document databases</small> |
+| <small>11</small> | <small>12/05/2016</small> | <small>ESAT B91.100</small> | <small>exercise</small> | <small>Graph databases</small> |
+| <small>12</small> | <small>19/05/2016</small> | <small>no lecture</small> | <small></small> | <small></small> |
+
+
+<!---
+Note to self: to hide the lectures/sessions that are not relevant yet for the students, put them in a comment section, just like this note.
+-->
+
 ## Sessions
-* Introduction
+* 11/2/2016 Introduction
   * [Lecture]({{ site.baseurl }}/teaching/i0u19a/sessions/lectures/introduction/index.html)
-* Relational Databases
-  * [Exercise session]({{ site.baseurl }}/teaching/i0u19a/sessions/RDBMS-exercises.html)
-* Data Visualization
+
+<!---
+* 18/2/2016 Visual Data Analysis
+  * [Assignment on SQL]({{ site.baseurl }}/teaching/i0u19a/sessions/RDBMS-exercises.html) => upload on Toledo before 18/2/2016
+  * *Lecture* - to be done
+* 25/2/2016 Visual Data Analysis - Exercises
+  * [Assignment]({{ site.baseurl }}/teaching/i0u19a/sessions/viz-assignment.html) => upload on Toledo before 25/2/2016
   * [Exercise session]({{ site.baseurl }}/teaching/i0u19a/sessions/visualization-exercise.html)
 * Lambda Architecture
   * [Lecture]( {{ site.baseurl }}/teaching/i0u19a/sessions/lectures/lambda/index.html)
@@ -24,3 +63,4 @@ We will constantly refer back to 3 different datasets within this course, to sho
 * NoSQL
   * [Document-oriented databases - Exercises]({{ site.baseurl }}/teaching/i0u19a/sessions/mongodb.html)
   * [Graph databases - Exercises]({{ site.baseurl }}/teaching/i0u19a/sessions/graph-databases-exercises.html)
+-->
