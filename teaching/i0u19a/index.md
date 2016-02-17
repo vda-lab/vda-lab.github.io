@@ -47,8 +47,13 @@ Note to self: to hide the lectures/sessions that are not relevant yet for the st
 -->
 
 ## Sessions
-* 11/2/2016 Introduction
-  * [Lecture]({{ site.baseurl }}/teaching/i0u19a/sessions/lectures/introduction/index.html)
+* 11/2/2016 - Introduction
+  * [Lecture]({{ site.baseurl }}/teaching/i0u19a/assets/lecture-week1.pdf)
+* 18/2/2016 - Visual Data Analysis
+  * [Lecture]({{ site.baseurl }}/teaching/i0u19a/assets/lecture-week2-dataviz.pdf)
+* 25/2/2016 - Visual Data Analysis - Exercises
+  * [Assignment]({{ site.baseurl }}/teaching/i0u19a/sessions/viz-assignment.html) => upload on Toledo **before** 24/2/2016
+  * [Exercise session]({{ site.baseurl }}/teaching/i0u19a/assets/lecture-week3-design.pdf)
 
 <!---
 * 18/2/2016 Visual Data Analysis
