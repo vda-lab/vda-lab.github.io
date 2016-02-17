@@ -29,24 +29,6 @@ Bio – Toni is a strong believer in multi-disciplinary science. Where people fr
 Prior to joining Prof Aerts’ lab, Toni worked as an independent consultant in a broad set of areas all related to technology: virtualization, service management, project management and enterprise architecture. His background in the technical as well as the organizational aspects of technology come in very handy in his current work as a researcher.
 Toni obtained his PhD from the department of Theoretical Physics at the KU Leuven where he studied models for artificial neural networks.
 
-### :: Raf Winand ::
-
-PhD student
-
-![Photo Raf]({{ site.baseurl }}/assets/photo_raf.jpg)
-
-Bio – Raf is a PhD student at the Bioinformatics Research group in the Department of Electrical Engineering at KU Leuven. With a background in biology and bioinformatics his work focuses on biological data visualization and visual analytics. His current research involves visualizing large phylogenetic trees and associated metadata. In particular he is working on the visualization of transmission of drug resistance mutations in a cohort of HIV patients.
-Raf obtained a Master’s degree in Biology from the University of Antwerp in 2001 and a Master’s degree in Bioinformatics from KU Leuven in 2011.
-
-### :: Ryo Sakai ::
-
-PhD student
-
-![Photo Ryo]({{ site.baseurl }}/assets/photo_ryo.jpeg)
-
-Bio – Having a background in medical illustration and user experience design, his main research interests are in visual analytics and biological data visualization. His current work focuses on developing interactive visualization systems in close collaboration with domain experts in life science to support exploration and analysis of the unprecedented scale and variety of data.
-Ryo Sakai obtained a Master’s degree in Biomedical Communications from the University of Toronto in 2008, a Master’s degree in Computing and Information Systems from Queen Mary University of London in 2009, and a Professional Doctorate in Engineering from the User System Interaction Program at Eindhoven University of Technology in 2011. He then joined the Bioinformatics Research Group in the Department of Electrical Engineering at KU Leuven for PhD research in biological data visualization.
-
 ### :: Thomas Moerman ::
 
 PhD student
@@ -81,17 +63,9 @@ PhD student
 
 Bio – Jansi has a techno-functional background. She obtained her Bachelor degree in Electrical Engineering from Anna University in India and a Master degree in International Business from ESC Grenoble in France. She started her career as a marketer and then moved to the area of commercial data analytics owing to her interest in making sense of data to drive business. She strongly believes that visualisation is the most effective way to communicate the insights and finds it exciting to visualise data from different domains. Her current research focuses on visualising genomic and healthcare data.
 
-### :: John Du Preez ::
-
-PhD student
-
-![Photo John]({{ site.baseurl }}/assets/photo_john.jpg)
-
-Bio – John strongly believes in a multi-disciplinary approach to creative problem solving. His current research, in association with Luciad, focuses on visual analytics to support insight generation within geospatial data. John has a bachelor degree in information technology, as well as a post-graduate degree in culture and arts. In addition, John has a masters degree in architecture and design, and an advanced masters degree from the faculty of engineering sciences at KU Leuven. His work experience as a technician and developer within a GIS environment, amongst other past positions, supports his current research objectives.
-
 ### :: Houda Lamqaddam ::
 
-PhD student (starting January 2016)
+PhD student
 
 ![Photo Houda]({{ site.baseurl }}/assets/photo_houda.png)
 
@@ -100,17 +74,43 @@ Houda has a bachelor's degree in Computer Science from Al Akhawayn University in
 
 ## :: Jaume Nualart ::
 
-Postdoctoral Researcher (starting May 2016); [http://research.nualart.cat/](http://research.nualart.cat/); [https://orcid.org/0000-0003-4954-5303](https://orcid.org/0000-0003-4954-5303)
+Postdoctoral Researcher (starting March 2016); [http://research.nualart.cat/](http://research.nualart.cat/); [https://orcid.org/0000-0003-4954-5303](https://orcid.org/0000-0003-4954-5303)
 
 ![Photo Jaume]({{ site.baseurl }}/assets/photo_jaume.jpg)
 
 Bio - Jaume is a free knowledge advocate who works in the intersection of art, science and technology. More specifically, he is interested in the interface between human beings and reality, that is, data visualization. He studied how to combine natural text collections analysis, visualization, and exploration techniques. With a background in sciences (chemistry), he worked as a researcher in media art in Ars Electronica (Austria), and in  development projects as engineer (Angola, Kenya, and Pakistan). In 2010 he moved to academic research (Catalonia and Australia). His current interests (2015) are: big collections of texts, interface simplicity, visual uncertainty, and technology adoption.
 
-## Former group members
+## Alumni
+
+### :: Raf Winand ::
+
+PhD student
+
+![Photo Raf]({{ site.baseurl }}/assets/photo_raf.jpg)
+
+Bio – Raf is a PhD student at the Bioinformatics Research group in the Department of Electrical Engineering at KU Leuven. With a background in biology and bioinformatics his work focuses on biological data visualization and visual analytics. His current research involves visualizing large phylogenetic trees and associated metadata. In particular he is working on the visualization of transmission of drug resistance mutations in a cohort of HIV patients.
+Raf obtained a Master’s degree in Biology from the University of Antwerp in 2001 and a Master’s degree in Bioinformatics from KU Leuven in 2011.
+
+### :: Ryo Sakai ::
+
+PhD student
+
+![Photo Ryo]({{ site.baseurl }}/assets/photo_ryo.jpeg)
+
+Bio – Having a background in medical illustration and user experience design, his main research interests are in visual analytics and biological data visualization. His current work focuses on developing interactive visualization systems in close collaboration with domain experts in life science to support exploration and analysis of the unprecedented scale and variety of data.
+Ryo Sakai obtained a Master’s degree in Biomedical Communications from the University of Toronto in 2008, a Master’s degree in Computing and Information Systems from Queen Mary University of London in 2009, and a Professional Doctorate in Engineering from the User System Interaction Program at Eindhoven University of Technology in 2011. He then joined the Bioinformatics Research Group in the Department of Electrical Engineering at KU Leuven for PhD research in biological data visualization.
 
 ### :: Georgios Pavlopoulos ::
 
 ### :: Alejandro Sifrim ::
+
+## Visitors
+
+### :: John Du Preez ::
+
+![Photo John]({{ site.baseurl }}/assets/photo_john.jpg)
+
+Bio – John strongly believes in a multi-disciplinary approach to creative problem solving. His current research, in association with Luciad, focuses on visual analytics to support insight generation within geospatial data. John has a bachelor degree in information technology, as well as a post-graduate degree in culture and arts. In addition, John has a masters degree in architecture and design, and an advanced masters degree from the faculty of engineering sciences at KU Leuven. His work experience as a technician and developer within a GIS environment, amongst other past positions, supports his current research objectives.
 
 ### :: Ksenia Lavrichenko ::
 
