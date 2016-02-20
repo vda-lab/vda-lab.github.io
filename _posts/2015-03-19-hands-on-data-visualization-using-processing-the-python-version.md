@@ -198,7 +198,7 @@ Let's write a small script in Processing to visualize this data. The **visual en
 {% highlight python linenos %}
 table = loadTable("flights.csv","header")
 
-size(800,800)
+size(800,400)
 noStroke()
 fill(0,0,255,10)
 
@@ -207,7 +207,7 @@ for row in table.rows():
   from_long = row.getFloat("from_long")
   from_lat = row.getFloat("from_lat")
   x = map(from_long,-180,180,0,width)
-  y = map(from_lat,-180,180,height,0)
+  y = map(from_lat,-90,90,height,0)
   ellipse(x,y,3,3)
 {% endhighlight %}
 
@@ -236,7 +236,7 @@ We can add additional information to this visualization. In the next code block,
 {% highlight python linenos %}
 table = loadTable("flights.csv","header")
 
-size(800,800)
+size(800,400)
 noStroke()
 fill(0,0,255,10)
 
@@ -249,7 +249,7 @@ for row in table.rows():
   distance = row.getInt("distance")
 
   x = map(from_long,-180,180,0,width)
-  y = map(from_lat,-180,180,height,0)
+  y = map(from_lat,-90,90,height,0)
   if from_country == to_country:
     fill(255,0,0,10)
   else:
@@ -304,13 +304,14 @@ Let's put all statements we had before into one of these two functions:
 *Script 7*
 
 {% highlight python linenos %}
-table = loadTable("flights.csv","header")
-
 def setup():
-  size(800,800)
+  global table
+  table = loadTable("flights.csv","header")
+  size(800,400)
   noStroke()
 
 def draw():
+  global table
   background(255,255,255)
   for row in table.rows():
     from_long = row.getFloat("from_long")
@@ -320,7 +321,7 @@ def draw():
     distance = row.getInt("distance")
 
     x = map(from_long,-180,180,0,width)
-    y = map(from_lat,-180,180,height,0)
+    y = map(from_lat,-90,90,height,0)
     if from_country == to_country:
       fill(255,0,0,10)
     else:
@@ -348,10 +349,10 @@ Now how do we adapt this so that the radius of the circles depends on the x-posi
 *Script 8*
 
 {% highlight python linenos %}
-table = loadTable("flights.csv","header")
-
 def setup():
-  size(800,800)
+  global table
+  table = loadTable("flights.csv","header")
+  size(800,400)
   noStroke()
   noLoop()
 
@@ -365,7 +366,7 @@ def draw():
     distance = row.getInt("distance")
 
     x = map(from_long,-180,180,0,width)
-    y = map(from_lat,-180,180,height,0)
+    y = map(from_lat,-90,90,height,0)
     if from_country == to_country:
       fill(255,0,0,10)
     else:
@@ -385,10 +386,10 @@ This interactivity can be made more useful: we can use the mouse pointer as a **
 *Script 9*
 
 {% highlight python linenos %}
-table = loadTable("flights.csv","header")
-
 def setup():
-  size(800,800)
+  global table
+  table = loadTable("flights.csv","header")    
+  size(800,400)
   noStroke()
   noLoop()
 
@@ -408,7 +409,7 @@ def draw():
       to_country = row.getString("to_country")
 
       x = map(from_long,-180,180,0,width)
-      y = map(from_lat,-180,180,height,0)
+      y = map(from_lat,-90,90,height,0)
       if from_country == to_country:
         fill(255,0,0,10)
       else:
@@ -447,10 +448,10 @@ Of course many tools have buttons and sliders. Let's implement those in Processi
 *Script 10*
 
 {% highlight python linenos %}
-table = loadTable("flights.csv","header")
-
 def setup():
-  size(800,800)
+  global table
+  table = loadTable("flights.csv","header")
+  size(800,400)
   noStroke()
   noLoop()
   global grey
@@ -475,7 +476,7 @@ def draw():
       to_country = row.getString("to_country")
 
       x = map(from_long,-180,180,0,width)
-      y = map(from_lat,-180,180,height,0)
+      y = map(from_lat,-90,90,height,0)
 
       if grey == True:
         fill(100,100,100,10)
@@ -516,11 +517,11 @@ Now let's implement an actual **slider**. This looks a lot like what we had befo
 *Script 11*
 
 {% highlight python linenos %}
-table = loadTable("flights.csv","header")
-
 def setup():
+  global table
   global circlePosition
-  size(800,800)
+  table = loadTable("flights.csv","header")
+  size(800,400)
   noLoop()
   circlePosition = 50
 
@@ -528,9 +529,7 @@ def draw():
   global circlePosition
   background(255,255,255)
   stroke(150,150,150)
-  line(50,150,150,150)
-
-  # draw the line of 100 pixels long
+  line(50,150,150,150) # draw the line of 100 pixels long
   noStroke()
   fill(150,150,150)
   ellipse(circlePosition,150,10,10)
@@ -550,7 +549,7 @@ def draw():
       to_country = row.getString("to_country")
 
       x = map(from_long,-180,180,0,width)
-      y = map(from_lat,-180,180,height,0)
+      y = map(from_lat,-90,90,height,0)
 
       if from_country == to_country:
         fill(255,0,0,10)
