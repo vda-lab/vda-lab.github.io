@@ -184,7 +184,7 @@ The data for this exercise concerns **flight information** between different cit
 
 #### Getting the data
 
-First, download the file somewhere on your computer. There are 3 ways to get the data into Processing: 1. First save your sketch. In the directory where you saved it, create a new folder called `data`. Copy the downloaded file into this `data` directory. 1. Or: drag the file onto your Processing IDE. 1. Or: Go to `Sketch` => `Add file...`
+First, download [this csv file]({{ site.baseurl }}/assets/flights.csv) somewhere on your computer. There are 3 ways to get the data into Processing: 1. First save your sketch. In the directory where you saved it, create a new folder called `data`. Copy the downloaded file into this `data` directory. 1. Or: drag the file onto your Processing IDE. 1. Or: Go to `Sketch` => `Add file...`
 
 #### Accessing the data from Processing
 

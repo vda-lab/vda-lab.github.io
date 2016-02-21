@@ -152,7 +152,7 @@ The condition `i%2 == 0` means: does dividing the number `i` with 2 result in a 
 *Figure 5 - Odd and even lines*
 
 ### Exercise data
-The data for this exercise concerns **flight information** between different cities. Each entry in the dataset contains the following fields:
+The data for this exercise can be downloaded [here]({{site.baseurl}}/assets/flights.csv) and concerns **flight information** between different cities. Each entry in the dataset contains the following fields:
 
 * from_airport
 * from_city
@@ -210,7 +210,7 @@ function setup() {
 }
 {% endhighlight %}
 
-Do *not* use Microsoft Word for this! Code editors include [atom](https://atom.io/), [Sublime Text](http://www.sublimetext.com/), [TextMate](https://macromates.com/) or just [Notepad](https://notepad-plus-plus.org/) if your're on Windows.
+Do *not* use Microsoft Word for this! Code editors include [atom](https://atom.io/), [Sublime Text](http://www.sublimetext.com/), [TextMate](https://macromates.com/) or just [Notepad](https://notepad-plus-plus.org/) if you're on Windows.
 
 ##### Running a webserver
 So how do you "run" this visualization? You do this by running a local webserver. Depending on your operating system, there are several options for this. Getting these installed is not within the scope of this tutorial. In short, if you have `python` installed, type in `python -m SimpleHTTPServer` on the command line in the directory with the `p5.js`, `index.html` and `script.js` files. When that's done, open your web browser and go the `http://localhost:8000`. If your `script.js` looks like the one above, you should see three objects in your browser: a circle, a rectangle, and a line.
