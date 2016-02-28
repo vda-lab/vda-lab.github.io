@@ -2,19 +2,27 @@
 title: G0W36A - Capita Selecta in Statistics
 layout: page
 ---
-## Project ideas and contact persons
+## Teaching assistants
+* Daniel Alcaide (daniel.alcaide@esat.kuleuven.be)
+* Jansi Thiyagarajan (jansi.thiyagarajan@esat.kuleuven.be)
+* Houda Lamqaddam (houda.lamqaddam@esat.kuleuven.be)
 
-### Visualization of paths followed through app (UXProbe - Paul Davies)
-TBD
 
-### Visualization of photo archives (Fred Truyen)
-TBD
+## Schedule
 
-### Insight into relevant features in dynamic models (Panos Patrinos)
-The relevant features in a dynamic model depend on the state of the system at a specific point in time. Feature selection is therefore inherently different from static models, as the feature ranking changes constantly. We might be able to use data visualization to gain insight in which features are relevant under changing circumstances, and to what extent the system is sensitive to them.
+| <small>Week</small> | <small>Date</small> | <small>Topic</small> |
+|:-----|:-----|:-----|:-----|:------|
+| <small>6</small> | <small>09/02/2016</small> | <small>Why data visualization; human perception; visual encodings</small> |
+| <small>7</small> | <small>16/02/2016</small> | <small>Visualization evaluation; design</small> |
+| <small>8</small> | <small>23/02/2016</small> | <small>Design; P5 tutorial</small> |
+| <small>9</small> | <small>01/03/2016</small> | <small>Datasets and project proposals</small> |
+| <small>10</small> | <small>08/03/2016</small> | <small>Optional: office hour (by Houda)</small> |
+| <small>11</small> | <small>15/03/2016</small> | <small>Presentation by students: task description + 5-design sheet</small> |
+| <small>12</small> | <small>22/03/2016</small> | <small>Optional: office hour</small> |
+| <small>15</small> | <small>12/04/2016</small> | <small>Project updates</small> |
+| <small>16</small> | <small>19/04/2016</small> | <small>Optional: office hour</small> |
+| <small>18</small> | <small>03/05/2016</small> | <small>Project updates</small> |
 
-### Parameter space and system state (Panos Patrinos)
-The state of a system can depend on many parameters. These parameters might be dependent on each other (in a linear or non-linear way). In this project, the student will develop interactive data visualizations to explore this dependency.
+## Student projects
 
-### Visualization of gut microbiome modules (Jeroen Raes & Youssef Darzi)
-TBD
+*to add: links to blogs*
