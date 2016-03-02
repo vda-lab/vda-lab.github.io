@@ -3,6 +3,8 @@ title: I0U19A - Management of Large-Scale Omics Data
 layout: page
 ---
 
+[here]({{ site.baseurl }}/teaching/i0u19a/sessions/lectures/introduction/index.html)
+
 [Instructor section]({{ site.baseurl }}/teaching/i0u19a/instructors-only/index.html) \| [Student section]({{ site.baseurl }}/teaching/i0u19a/students-only/index.html)
 
 ## General setup of the course
@@ -51,9 +53,11 @@ Note to self: to hide the lectures/sessions that are not relevant yet for the st
   * [Lecture]({{ site.baseurl }}/teaching/i0u19a/assets/lecture-week1.pdf)
 * 18/2/2016 - Visual Data Analysis
   * [Lecture]({{ site.baseurl }}/teaching/i0u19a/assets/lecture-week2-dataviz.pdf)
-* 25/2/2016 - Visual Data Analysis - Exercises
+* 25/2/2016 - Visual Data Analysis - Design session
   * [Assignment]({{ site.baseurl }}/teaching/i0u19a/sessions/viz-assignment.html) => upload on Toledo **before** 24/2/2016
   * [Exercise session]({{ site.baseurl }}/teaching/i0u19a/assets/lecture-week3-design.pdf)
+* 3/3/2016 - Lambda Architecture
+  * [Lecture]({{ site.baseurl }}/teaching/i0u19a/assets/lecture-week4-lambdaarchitecture.pdf)
 
 <!---
 * 18/2/2016 Visual Data Analysis
