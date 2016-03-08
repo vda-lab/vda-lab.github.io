@@ -24,5 +24,18 @@ layout: page
 | <small>18</small> | <small>03/05/2016</small> | <small>Project updates</small> |
 
 ## Student projects
-
-*to add: links to blogs*
+* GO game visualization:
+  * (website not ready): Seiji Kumagai & Alvise Zanardo
+  * (website not ready): Bert Lemkens & Matthias Vanduren
+* Gut microbiome:
+  * [BiomeData](https://biomedata.wordpress.com/): James Wacker, Valeria Diaz & Ragu Sivakumaran
+* Cow data:
+  * [Big Data Cattle](https://bigdatacattle.wordpress.com/): Maria Alexandridou, Victor Kubam & Alexandra Likhareva
+* UXprobe dataset:
+  * (website not ready): Hakim Elakhrass & Ivan Colling
+* Tapestry dataset:
+  * [Vissarts](http://vissarts.wordpress.com): Moritz Baten & Sergeij Kaiser
+* Photo dataset:
+  * (website not ready): Saskia Hin & Alexandra Likhareva
+* GPCR dataset:
+  * (website not ready): Simone Chiaro & Bern Van den Kieboom
