@@ -120,3 +120,16 @@ Visiting scientist Sept-Dec 2014
 
 Bio – Ksenia is a PhD student at the Computational Biology Unit in the Computer Science Department at University of Bergen, Norway.  With background in mathematics, she is interested in seeing patterns and trends, relations between abstractions and representations. Her main project revolves around biological networks and their general topological properties. Ksenia believes that visual representations are a powerful tool for research and came to learn more about the techniques of Visual Analytics at the DataViz Lab at KU Leuven.
 Ksenia obtained a Master’s degree in Mathematics from the University of Bergen, Norway in 2011.
+
+## MSc thesis students
+
+*2015-2016*
+
+* Victor Kubam - Gaining insight in the factors that precede machine failure
+* Kamen Pavlov - Coming full circle: using interactive data visualization to understand visual information processing
+* Laura Vermeiren - Host-microbiome pathway visualization
+
+*2014-2015*
+
+* Shin Seungyeon - Visualizing the differences between and evolution of reference genome assemblies
+* Zhang Xinyuan - Visualizing the random forest properties for omics data
