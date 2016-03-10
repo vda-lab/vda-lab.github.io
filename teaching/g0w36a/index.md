@@ -38,4 +38,4 @@ layout: page
 * Photo dataset:
   * (website not ready): Saskia Hin & Alexandra Likhareva
 * GPCR dataset:
-  * (website not ready): Simone Chiaro & Bern Van den Kieboom
+  * [GPCR visualization](https://gpcrvisualisation.wordpress.com/): Simone Chiaro & Bern Van den Kieboom
