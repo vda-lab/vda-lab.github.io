@@ -133,3 +133,7 @@ Ksenia obtained a Master’s degree in Mathematics from the University of Bergen
 
 * Shin Seungyeon - Visualizing the differences between and evolution of reference genome assemblies
 * Zhang Xinyuan - Visualizing the random forest properties for omics data
+
+*2011-2012*
+
+* Thomas Boogaerts - Visualization of higher-dimensional datasets with parallel coordinates: application to gene prioritization
