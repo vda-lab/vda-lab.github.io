@@ -17,15 +17,15 @@ layout: page
 | <small>8</small> | <small>23/02/2016</small> | <small>Design; P5 tutorial</small> |
 | <small>9</small> | <small>01/03/2016</small> | <small>Datasets and project proposals</small> |
 | <small>10</small> | <small>08/03/2016</small> | <small>Optional: office hour (by Houda)</small> |
-| <small>11</small> | <small>15/03/2016</small> | <small>Presentation by students: task description + 5-design sheet</small> |
-| <small>12</small> | <small>22/03/2016</small> | <small>Optional: office hour</small> |
+| <small>11</small> | <small>15/03/2016</small> | <small>Optional: office hour</small> |
+| <small>12</small> | <small>22/03/2016</small> | <small>Presentation by students: task description + 5-design sheet</small> |
 | <small>15</small> | <small>12/04/2016</small> | <small>Project updates</small> |
 | <small>16</small> | <small>19/04/2016</small> | <small>Optional: office hour</small> |
 | <small>18</small> | <small>03/05/2016</small> | <small>Project updates</small> |
 
 ## Student projects
 * GO game visualization:
-  * (website not ready): Seiji Kumagai & Alvise Zanardo
+  * [ViziGoths](https://vizigothsproject.wordpress.com/): Seiji Kumagai & Alvise Zanardo
   * (website not ready): Bert Lemkens & Matthias Vanduren
 * Gut microbiome:
   * [BiomeData](https://biomedata.wordpress.com/): James Wacker, Valeria Diaz & Ragu Sivakumaran
