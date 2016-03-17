@@ -26,6 +26,7 @@ layout: page
 ## Student projects
 * GO game visualization:
   * [ViziGoths](https://vizigothsproject.wordpress.com/): Seiji Kumagai & Alvise Zanardo
+* Moroccan fog nets:
   * [The Vizard Palace](https://thevizardspalace.wordpress.com/): Bert Lemkens & Matthias Vanduren
 * Gut microbiome:
   * [BiomeData](https://biomedata.wordpress.com/): James Wacker, Valeria Diaz & Ragu Sivakumaran
@@ -36,6 +37,6 @@ layout: page
 * Tapestry dataset:
   * [Vissarts](http://vissarts.wordpress.com): Moritz Baten & Sergeij Kaiser
 * Photo dataset:
-  * (website not ready): Saskia Hin & Alexandra Likhareva
+  * [EuropeanaPhoto](http://europeanaphoto.blogspot.be/): Saskia Hin & Alexandra Likhareva
 * GPCR dataset:
   * [GPCR visualization](https://gpcrvisualisation.wordpress.com/): Simone Chiaro & Bern Van den Kieboom
