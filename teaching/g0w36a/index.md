@@ -26,7 +26,7 @@ layout: page
 ## Student projects
 * GO game visualization:
   * [ViziGoths](https://vizigothsproject.wordpress.com/): Seiji Kumagai & Alvise Zanardo
-  * (website not ready): Bert Lemkens & Matthias Vanduren
+  * [The Vizard Palace](https://thevizardspalace.wordpress.com/): Bert Lemkens & Matthias Vanduren
 * Gut microbiome:
   * [BiomeData](https://biomedata.wordpress.com/): James Wacker, Valeria Diaz & Ragu Sivakumaran
 * Cow data:
