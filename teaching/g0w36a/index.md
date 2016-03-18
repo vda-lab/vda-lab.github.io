@@ -33,7 +33,7 @@ layout: page
 * Cow data:
   * [Big Data Cattle](https://bigdatacattle.wordpress.com/): Maria Alexandridou, Victor Kubam & Alexandra Likhareva
 * UXprobe dataset:
-  * (website not ready): Hakim Elakhrass & Ivan Colling
+  * [Visually UXposed](https://vuxposed.wordpress.com/): Hakim Elakhrass & Ivan Colling
 * Tapestry dataset:
   * [Vissarts](http://vissarts.wordpress.com): Moritz Baten & Sergeij Kaiser
 * Photo dataset:
