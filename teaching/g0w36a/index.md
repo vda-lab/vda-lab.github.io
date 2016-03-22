@@ -29,7 +29,7 @@ layout: page
 * Moroccan fog nets:
   * [The Vizard Palace](https://thevizardspalace.wordpress.com/): Bert Lemkens & Matthias Vanduren
 * Gut microbiome:
-  * [BiomeData](https://biomedata.wordpress.com/): James Wacker, Valeria Diaz & Ragu Sivakumaran
+  * [BiomCapita](https://biomcapita.wordpress.com/): James Wacker, Valeria Diaz & Ragu Sivakumaran
 * Cow data:
   * [Big Data Cattle](https://bigdatacattle.wordpress.com/): Maria Alexandridou, Victor Kubam & Alexandra Likhareva
 * UXprobe dataset:
