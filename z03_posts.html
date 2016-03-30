@@ -4,6 +4,12 @@ title: Blog posts
 permalink: blog.html
 menu: main
 ---
+<ul>
+  <li><a href="#bytag">By tag</a></li>
+  <li><a href="#byauthor">By author</a></li>
+  <li><a href="#chronological">Chronological list</a></li>
+</ul>
+
 <table>
 <tr>
     <td valign="top">
@@ -148,7 +154,7 @@ force.on("tick", function() {
 </td></tr>
 
 <tr><td>
-<h2>:: By tag ::</h2>
+<h2 id="bytag">:: By tag ::</h2>
 {% capture tags %}
   {% for tag in site.tags %}
     {% assign publicexists = false %}
@@ -178,7 +184,35 @@ force.on("tick", function() {
 
     </td>
     <td valign="top">
-<h2>:: Chronological ::</h2>
+
+<h2 id="byauthor">:: By author ::</h2>
+{% capture authors %}
+{% for post in site.categories.main %}
+  {% if post.author %}
+    {{ post.author | strip }};
+  {% endif %}
+{% endfor %}
+{% endcapture %}
+{% assign sortedauthors = authors | split:';' | sort | uniq  %}
+
+<ul>
+{% for author in sortedauthors %}
+  {% assign authorstripped = author | strip %}
+  {% unless authorstripped == '' %}
+    <li>{{ authorstripped }}
+      <ul>
+        {% for post in site.posts %}
+          {% if post.author == authorstripped %}
+            <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </li>
+  {% endunless %}
+{% endfor %}
+</ul>
+
+<h2 id="chronological">:: Chronological ::</h2>
 <ul>
   {% for post in site.categories.main %}
   {% unless post.private %}
