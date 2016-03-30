@@ -3,10 +3,6 @@ title: I0U19A - Management of Large-Scale Omics Data
 layout: page
 ---
 
-[here]({{ site.baseurl }}/teaching/i0u19a/sessions/lectures/introduction/index.html)
-
-[Instructor section]({{ site.baseurl }}/teaching/i0u19a/instructors-only/index.html) \| [Student section]({{ site.baseurl }}/teaching/i0u19a/students-only/index.html)
-
 ## General setup of the course
 
 For each of the topics, we typically have a lecture and an exercise session. Before the exercise session, we also expect you do do an assignment so that you're well-prepared for the exercises.
