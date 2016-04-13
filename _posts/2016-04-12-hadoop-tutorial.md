@@ -220,6 +220,8 @@ We first need to get hadoop up and running on your machines. As we already pulle
 
 <pre>docker run -v $(pwd):/home/hadoop-exercise -it --rm sequenceiq/hadoop-docker:2.7.0 /etc/bootstrap.sh -bash</pre>
 
+This will take a minute to start all services. You'll end up with a command prompt that looks like this: `bash-4.1# `.
+
 The `hadoop` command contains several subcommands, such as `hadoop fs` and `hadoop jar` (which we'll touch upon).
 
 ##### Preparing the hadoop run
