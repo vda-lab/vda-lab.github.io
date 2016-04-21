@@ -36,7 +36,7 @@ layout: page
   * [Visually UXposed](https://vuxposed.wordpress.com/): Hakim Elakhrass & Ivan Colling
 * Tapestry dataset:
   * [Vissarts](http://vissarts.wordpress.com): Moritz Baten & Sergeij Kaiser
-* Photo dataset:
-  * [EuropeanaPhoto](http://europeanaphoto.blogspot.be/): Saskia Hin & Alexandra Likhareva
+* United Nations Data:
+  * [HDI](http://humandevelopmentinsights.blogspot.be/): Saskia Hin & Alexandra Likhareva
 * GPCR dataset:
   * [GPCR visualization](https://gpcrvisualisation.wordpress.com/): Simone Chiaro & Bern Van den Kieboom
