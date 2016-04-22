@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[I0U19A] Exercises MongoDB"
+title: "MongoDB tutorial"
 description: "Exercises on MongoDB that accompany the I0U19A course at KU Leuven"
 author: Jan Aerts
 date: 2016-04-22
@@ -36,50 +36,57 @@ In doing these exercises, please refer to the MongoDB documentation at the follo
 
 Connect to the mongoDB instance using the `mongo` shell as indicated above.
 
-    Jans-MacBook-Air-2:~ jaerts$ mongo --host 192.168.99.100
-    MongoDB shell version: 3.0.4
-    connecting to: 192.168.99.100:27017/test
-    >
+<pre>
+Jans-MacBook-Air-2:~ jaerts$ mongo --host 192.168.99.100
+MongoDB shell version: 3.0.4
+connecting to: 192.168.99.100:27017/test
+></pre>
 
 You now get the MongoDB prompt in which we will work. At the end, you can escape the MongoDB shell by typing exit. Type
 
-    > show dbs
+<pre>
+> show dbs</pre>
 
 to know what databases are available. Connect to the database for this exercise:
 
-    > use i0u19a
+<pre>
+> use i0u19a</pre>
 
 The command
 
-    > show collections
+<pre>
+> show collections</pre>
 
 returns the list of collections ("tables") that are stored in the collection
 
 To exit the MongoDB shell and return to your linux prompt, use
 
-    > quit()
+<pre>
+> quit()</pre>
 
 Now what does the data look like? Each document covers a single beer. Let's check what a document looks like:
 
-    > db.beers.findOne()
+<pre>
+> db.beers.findOne()</pre>
 
 The output shows us that one beer can have more than one type, for example.
 
-    {
-    	"_id" : ObjectId("57193db714ab80806edea386"),
-    	"beer" : "Postel Tripel",
-    	"brewery" : "Affligem Brouwerij",
-    	"type" : [
-    		"blonde tripel",
-    		"abdijbier"
-    	],
-    	"alcoholpercentage" : 8.5
-    }
+<pre>
+{
+	"_id" : ObjectId("57193db714ab80806edea386"),
+	"beer" : "Postel Tripel",
+	"brewery" : "Affligem Brouwerij",
+	"type" : [
+		"blonde tripel",
+		"abdijbier"
+	],
+	"alcoholpercentage" : 8.5
+}</pre>
 
 
 ### Exercises
 
-To get out feet wet, we'll first try some very simple queries. Using the `beers` collection:
+To get our feet wet, we'll first try some very simple queries. Using the `beers` collection:
 
 * How many beers are there in the database?
 <!-- db.beers.count() -->
@@ -112,22 +119,22 @@ A full list of accumulators for `$group` can be found here: [https://docs.mongod
 
 These commands can be combined in different ways to alter the stream as it passes through them. For example, let's select those beers that have a percentage of more than 8 degrees, get the average of these per brewery, and finally take a sample.
 
-```javascript
+{% highlight javascript %}
 db.beers.aggregate([
   {$match: {alcoholpercentage: {$gt: 8}}},
   {$group: {_id: "$brewery", avg: {$avg: "$alcoholpercentage"}}},
   {$sample: {size: 5}}
 ])
-```
+{% endhighlight %}
 
 The output of this command looks like this:
-```
+
+<pre>
 { "_id" : "Brouwerij De Graal voor t'Drankorgel", "avg" : 8.3 }
 { "_id" : "Brasserie Saint Feuillien", "avg" : 9.5 }
 { "_id" : "Brouwerij Lefebvre", "avg" : 8.3 }
 { "_id" : "Brouwerij du Bocq voor Corsendonk nv", "avg" : 8.5 }
-{ "_id" : "Brouwerij Liefmans", "avg" : 8.5 }
-```
+{ "_id" : "Brouwerij Liefmans", "avg" : 8.5 }</pre>
 
 ### Exercises
 * What is the average alcoholpercentage per brewery?
@@ -177,16 +184,17 @@ To use mapreduce, you will define two functions: a `map` function and a `reduce`
 
 So remember: one document looks like this:
 
-    {
-      "_id" : ObjectId("57193db714ab80806edea386"),
-      "beer" : "Postel Tripel",
-      "brewery" : "Affligem Brouwerij",
-      "type" : [
-        "blonde tripel",
-        "abdijbier"
-      ],
-      "alcoholpercentage" : 8.5
-    }
+<pre>
+{
+  "_id" : ObjectId("57193db714ab80806edea386"),
+  "beer" : "Postel Tripel",
+  "brewery" : "Affligem Brouwerij",
+  "type" : [
+    "blonde tripel",
+    "abdijbier"
+  ],
+  "alcoholpercentage" : 8.5
+}</pre>
 
 Suppose we want to know the number of beers per brewery.
 
@@ -197,61 +205,62 @@ Suppose we want to know the number of beers per brewery.
 
 In code for the Mongo shell, this means:
 
-```javascript
+{% highlight javascript %}
 var mapFunction1 = function() {
   emit(this.brewery, 1);
 };
-```
+{% endhighlight %}
 
 **2. Define the corresponding reduce function with two arguments `brewery` and `counts`:**
 
 When we will run the `mapReduce` command (see **3** below), the values of the `map` function (in this case: the `1`'s) are automatically put in an array before they are handed to the `reduce` function. In other words:
 
 * your `map` function should return something like this:
-```
+
+<pre>
 brewery1   1
 brewery2   1
 brewery3   1
 brewery2   1
 brewery2   1
-brewery3   1
-```
+brewery3   1</pre>
+
 * but what your `reduce` function gets, is this:
-```
+
+<pre>
 brewery1   [1]
 brewery2   [1,1,1]
-brewery3   [1,1]
-```
+brewery3   [1,1]</pre>
 
 So based on this, our `reduce` function should just sum the elements of the value array for each input that it is handed.
 
-```javascript
+{% highlight javascript %}
 var reduceFunction1 = function(brewery, values) {
   return Array.sum(values)
 }
-```
+{% endhighlight %}
 
 **3. Perform the map-reduce on all documents in the `beers` collection using the `mapFunction1` map function and the `reduceFunction1` reduce function:**
 
 We finally combine the `map` and `reduce` functions using the `mapReduce` function. Note that you need to tell mongo `mapReduce` where to put the results. You can either put them in a new collection, or have them send to the screen.
 
-```javascript
+{% highlight javascript %}
 db.beers.mapReduce(
   mapFunction1,
   reduceFunction1,
   { out: "numberBeersPerBrewery" }
 )
-```
+{% endhighlight %}
 
 This command will create a new collection named `numberBeersPerBrewery` that will contain the results. To have the output sent to the screen instead, use `{ out: {inline: 1} }` instead.
 
 Debugging tip: to find out if your `map` function does what you expect it would do, write a `reduce` function that does nothing, e.g.
 
-```
+{% highlight javascript %}
 var reduceFunctionTest = function(key, values) {
   return {k: key, v: values}
 }
-```
+{% endhighlight %}
 
 You can find info about MapReduce in MongoDB here: <http://docs.mongodb.org/manual/core/map-reduce/> and <http://docs.mongodb.org/manual/tutorial/map-reduce-examples/>.
 
@@ -261,22 +270,23 @@ If you followed along, you will now have an additional collection called `number
 
 * Using the `numberBeersPerBrewery` collection that you just generated, get the top-10 of the breweries. How can we sort from high to low?
 <!-- db.numberBeersPerBrewery.find().sort({value: -1}).limit(10) -->
-* Find all entries in the collection `beersPerBrewery`, that contain the word 'Inbev' in the brewery field. You will probably get 3 results. However, there should be 9. Why? How can you solve that?
+* Find all entries in the collection `numberBeersPerBrewery`, that contain the word 'Inbev' in the brewery field. You will probably get 3 results. However, there should be 9. Why? How can you solve that?
 <!-- db.numberBeersPerBrewery.find({"_id": /Inbev/i}).count() -->
 * Difficult: using a single mapreduce on the `beers` collection, calculate the maximum alcohol percentage per type of beer.
+
 <!---
-    var mapFunction2 = function() {
-      var beer = this
-      beer.type.forEach(function(t) {
-        emit(t, beer.alcoholpercentage)
-      })
-    };
+var mapFunction2 = function() {
+  var beer = this
+  beer.type.forEach(function(t) {
+    emit(t, beer.alcoholpercentage)
+  })
+};
 
-    var reduceFunction2 = function(key, values) {
-      return Math.max.apply(null,values)
-    }
+var reduceFunction2 = function(key, values) {
+  return Math.max.apply(null,values)
+}
 
-    db.beers.mapReduce(mapFunction2, reduceFunction2, { out: {inline: 1}})
+db.beers.mapReduce(mapFunction2, reduceFunction2, { out: {inline: 1}})
 -->
 * Difficult: using a single mapReduce on the `beers` collection, calculate the average alcohol percentage per type of beer. Remember that in order to calculate an average, you will first need a sum and a count. **Hint:** This exercise will require you to define a finalizing step in the MapReduce operation. Revisit the [MongoDB examples](http://docs.mongodb.org/manual/tutorial/map-reduce-examples/) if this doesn't ring a bell. Also: watch out: `reduce` will not run if there is only one element for a given key (see [this stackoverflow discussion](http://stackoverflow.com/questions/11021733/mongodb-mapreduce-emit-one-key-one-value-doesnt-call-reduce). You'll have to capture this in the finalize step.
 <!---
