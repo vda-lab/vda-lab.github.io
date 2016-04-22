@@ -9,6 +9,7 @@ tags:
 - hadoop
 - docker
 - tutorial
+- i0u19a
 ---
 ## Contents
 * <a href="#preparation">Preparation</a>
