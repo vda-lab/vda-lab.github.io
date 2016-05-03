@@ -6,7 +6,7 @@ menu: main
 ---
 ## :: Peer-reviewed journals ::
 
-
+* Aerts J et al. Highlights from the 5th Symposium on Biological Data Visualization: Part 2. BMC Bioinformatics 16(Suppl 11): S1 (2015)
 * Winand R et al. 2015. Assessing transmissibility of HIV-1 drug resistance mutations from treated and from drug-naive individuals. Aids, 29(15), 2045–2052.
 * Verbeiren T & Aerts J. A pragmatic approach to biases in visual data analysis. DECISIVe : Workshop on Dealing with Cognitive Biases in Visualisations, IEEE VIS2014 (2014)
 * Sakai R & Aerts J. Card sorting techniques for domain characterization in problem-driven visualization research. Eurographics Conference on Visualization (EuroVis) 2015.
