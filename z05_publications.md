@@ -6,7 +6,9 @@ menu: main
 ---
 ## :: Peer-reviewed journals ::
 
+
 * Winand R et al. 2015. Assessing transmissibility of HIV-1 drug resistance mutations from treated and from drug-naive individuals. Aids, 29(15), 2045–2052.
+* Verbeiren T & Aerts J. A pragmatic approach to biases in visual data analysis. DECISIVe : Workshop on Dealing with Cognitive Biases in Visualisations, IEEE VIS2014 (2014)
 * Sakai R & Aerts J. Card sorting techniques for domain characterization in problem-driven visualization research. Eurographics Conference on Visualization (EuroVis) 2015.
 * Sakai, Ryo, and Jan Aerts. 2014. “Sequence Diversity Diagram for Comparative Analysis of Multiple Sequence Alignments.” BMC Proceedings 8 (Suppl 2 Proceedings of the 3rd Annual Symposium on Biological Data Visualization) (January): S9.
 * Pougach, Ksenia, Arnout Voet, Fyodor Kondrashov, Karin Voordeckers, Joaquin F Christiaens, Bianka Baying, Vladimir Benes, et al. 2014. “Duplication of a Promiscuous Transcription Factor Drives the Emergence of a New Regulatory Network.” Nature Communications 5 (January): 4868. doi:10.1038/ncomms5868.
