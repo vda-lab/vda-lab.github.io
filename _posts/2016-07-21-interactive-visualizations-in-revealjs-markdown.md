@@ -9,7 +9,7 @@ tags:
 - revealjs
 - dataviz
 ---
-Although I normally use Keynote for my presentations and lectures, [reveal.js](http://lab.hakim.se/reveal-js/#/) has always been on my radar as well. One of its draws is that you can see what you're doing; which is not teh case with proprietary formats as keynote and powerpoint files. When using version control to keep track of changes to my lectures over the years, it also makes more sense to use a flat-text format than binary files.
+Although I normally use Keynote for my presentations and lectures, [reveal.js](http://lab.hakim.se/reveal-js/#/) has always been on my radar as well. One of its draws is that you can see what you're doing; which is not the case with proprietary formats as keynote and powerpoint files. When using version control to keep track of changes to my lectures over the years, it also makes more sense to use a flat-text format than binary files.
 
 Teaching data visualization, it's nice to include interactive visualizations directly into my presentations. Having seen it done by several people before (e.g. at the [biovis@ISMB symposium](www.biovis.net) in the beginning of July 2016), I also wanted to give it a go. It's really simple to do when using vanilla reveal.js. However, I insist on using a **markdown** file to contain my content, which makes things a bit more difficult. But got it working eventually after quite a bit of trial and error...
 
@@ -49,7 +49,7 @@ var viz = new p5(viz_function)
 
 Save this code in a separate file, e.g. `viz2.js`. Notice the `myCanvas.parent('viz2')` in the `setup` function. That tells which `div` the visual should be loaded in. So we have to create that `div` in the markdown file with the slides (i.c. `slides.md`). As you can include regular html into reveal.js markdown files, you could have somethings like this:
 
-```markdown
+```
 ## New slide title
 
 <div id="viz2"></div>
