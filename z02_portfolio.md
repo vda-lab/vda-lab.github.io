@@ -14,6 +14,7 @@ A selection of projects, tools and designs developed in the lab…
 | ![Cosmopolitan Chicken Project]({{ site.baseurl }}/assets/cosmopolitan_segment.png) | [**Cosmopolitan Chicken Project**]( {{ site.baseurl }}/ccrp.html)<br/>A data-driven art project with Koen Vanmechelen |
 | ![Aracari]({{ site.baseurl }}/assets/aracari_segment.png) | [**Aracari**]({{ site.baseurl }}/aracari.html)<br/>Our award-winning visualization of 2-locus eQTL data |
 | ![dendsort]({{ site.baseurl }}/assets/dendsort_segment.png) | [**dendsort**]({{ site.baseurl }}/dendsort.html)<br/>Modular leaf ordering method for dendrogram representations in R |
+| ![vast2016]({{ site.baseurl }}/assets/vast2016.png) | [**VAST 2016**](http://homes.esat.kuleuven.be/~dalcaide/VASTchallenge2016/)<br/>Visual anomaly detection in spatio-temporal data |
 
 <br/>
 
