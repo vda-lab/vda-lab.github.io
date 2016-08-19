@@ -8,13 +8,14 @@ A selection of projects, tools and designs developed in the lab…
 
 ## Visualization and design
 
-| ![card sorting]({{ site.baseurl }}/assets/cardsorting_segment.png) | [**Card sorting**]({{ site.baseurl }}/card_sorting.html)<br/>A methodology for identifying a user's underlying goals |
-| ![triovis]({{ site.baseurl }}/assets/triovis_segment.png) | [**Triovis**]( {{ site.baseurl }}/triovis.html)<br/>Using trio-information to filter NGS reads |
-| ![SeDD screenshot]({{ site.baseurl }}/assets/sedd_segment.png) | [**Sequence Diversity Diagram**]( {{ site.baseurl }}/sedd.html)<br/>Making comparing DNA and RNA sequence motifs possible |
-| ![Cosmopolitan Chicken Project]({{ site.baseurl }}/assets/cosmopolitan_segment.png) | [**Cosmopolitan Chicken Project**]( {{ site.baseurl }}/ccrp.html)<br/>A data-driven art project with Koen Vanmechelen |
-| ![Aracari]({{ site.baseurl }}/assets/aracari_segment.png) | [**Aracari**]({{ site.baseurl }}/aracari.html)<br/>Our award-winning visualization of 2-locus eQTL data |
-| ![dendsort]({{ site.baseurl }}/assets/dendsort_segment.png) | [**dendsort**]({{ site.baseurl }}/dendsort.html)<br/>Modular leaf ordering method for dendrogram representations in R |
-| <a name="vast2016"></a> ![vast2016]({{ site.baseurl }}/assets/vast2016_segment.png) | [**VAST 2016**](http://homes.esat.kuleuven.be/~dalcaide/VASTchallenge2016/)<br/>Visual anomaly detection in spatio-temporal data |
+| <a name="card_sorting"></a> ![card sorting]({{ site.baseurl }}/assets/cardsorting_segment.png) | [**Card sorting**]({{ site.baseurl }}/card_sorting.html)<br/>A methodology for identifying a user's underlying goals |
+| <a name="triovis"></a> ![triovis]({{ site.baseurl }}/assets/triovis_segment.png) | [**Triovis**]( {{ site.baseurl }}/triovis.html)<br/>Using trio-information to filter NGS reads |
+| <a name="sedd"></a> ![SeDD screenshot]({{ site.baseurl }}/assets/sedd_segment.png) | [**Sequence Diversity Diagram**]( {{ site.baseurl }}/sedd.html)<br/>Making comparing DNA and RNA sequence motifs possible |
+| <a name="ccrp"></a> ![Cosmopolitan Chicken Project]({{ site.baseurl }}/assets/cosmopolitan_segment.png) | [**Cosmopolitan Chicken Project**]( {{ site.baseurl }}/ccrp.html)<br/>A data-driven art project with Koen Vanmechelen |
+| <a name="aracari"></a> ![Aracari]({{ site.baseurl }}/assets/aracari_segment.png) | [**Aracari**]({{ site.baseurl }}/aracari.html)<br/>Our award-winning visualization of 2-locus eQTL data |
+| <a name="dendsort"></a> ![dendsort]({{ site.baseurl }}/assets/dendsort_segment.png) | [**dendsort**]({{ site.baseurl }}/dendsort.html)<br/>Modular leaf ordering method for dendrogram representations in R |
+| <a name="vast2015"></a> ![vast2015]({{ site.baseurl }}/assets/vast2015_segment.png) | [**VAST 2015**](http://hcil2.cs.umd.edu/newvarepository/VAST%20Challenge%202015/challenges/Mini-Challenge%201/entries/KULEUVEN/)<br/>Visual anomaly detection in spatio-temporal data 1 |
+| <a name="vast2016"></a> ![vast2016]({{ site.baseurl }}/assets/vast2016_segment.png) | [**VAST 2016**](http://homes.esat.kuleuven.be/~dalcaide/VASTchallenge2016/)<br/>Visual anomaly detection in spatio-temporal data 2 |
 
 <br/>
 
