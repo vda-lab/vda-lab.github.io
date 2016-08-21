@@ -123,6 +123,11 @@ Ksenia obtained a Master’s degree in Mathematics from the University of Bergen
 
 ## MSc thesis students
 
+*2016-2017*
+
+* Seiji Kumagai - Visualizing differences between and evolution of reference genome assemblies
+* Lorenzo Amabili - Exploring 3D structure of proteins by interactive data visualization
+
 *2015-2016*
 
 * Victor Kubam - Gaining insight in the factors that precede machine failure
