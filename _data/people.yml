@@ -1,0 +1,161 @@
+- name: Jan Aerts
+  class: current
+  title: Associate professor
+  orcid: http://orcid.org/0000-0002-6416-2717
+  image: photo_jan.jpeg
+  email: jan.aerts@kuleuven.be
+  twitter: jandot
+  blog: http://saaientist.blogspot.com
+  bio: |
+    Jan has a background in genetics and genomics, and performed his doctoral research at the University of Wageningen (Netherlands) on the Chicken Genome Sequencing Project. He then moved to Scotland to work as a postdoctoral researcher at the Roslin Institute on the Cow Genome Sequencing Project. Next, he continued his research at the Wellcome Trust Sanger Institute near Cambridge (UK) focusing on structural variation in the human and other primate genomes. At his return to Belgium in 2010, he shifted focus to data visualization and visual analytics, with the aim of finding interesting questions in large datasets (big data). His main research topics revolve around visual design, interaction design, and (human and computational) scalability. He collects inspiration for (both good and bad) visualizations on his pinterest board.
+
+    Jan is on the organizing committees of BioVis and Beyond The Genome, and has chaired visualization-related sessions at conferences including VIZBI, the Bioinformatics Open Source Conference BOSC and EuroVis/VMLS. He is also Associate Editor for the BioMedCentral Thematic Series on Biological Data Visualization, and academic editor for PLoS One. He is member of the Young Academy – Royal Flemish Academy of Belgium for Sciences and the Arts.
+
+- name: Toni Verbeiren
+  class: current
+  title: Postdoctoral researcher
+  orcid: http://orcid.org/0000-0002-7007-6866
+  image: photo_toni.jpg
+  email: toni.verbeiren@kuleuven.be
+  bio: |
+    Toni is a strong believer in multi-disciplinary science. Where people from different fields meet, new ideas are born. Visual analytics is such a place. His current focus is on the visualization of large amounts of data (big data) and multiple dimensions.
+    Prior to joining Prof Aerts’ lab, Toni worked as an independent consultant in a broad set of areas all related to technology: virtualization, service management, project management and enterprise architecture. His background in the technical as well as the organizational aspects of technology come in very handy in his current work as a researcher.
+    Toni obtained his PhD from the department of Theoretical Physics at the KU Leuven where he studied models for artificial neural networks.
+
+- name: Thomas Moerman
+  class: current
+  title: PhD student
+  image: photo_thomas.jpg
+  email: thomas.moerman@esat.kuleuven.be
+  twitter: thomasjmoerman
+  bio: |
+    Thomas is a PhD student at both the Universiteit Antwerpen and KU Leuven (joint PhD).
+    His PhD research focuses on scalable implementations of interactive visualization and
+    analysis tools for hypothesis-free exploration of complex data.
+    Thomas worked as a software engineering and architecture consultant in a broad spectrum
+    of industries, where he built systems ranging from back-end data systems to mobile apps.
+    With more than a decade’s worth of battle scars as a professional programmer, he
+    seeks to apply his experience in the scientific domain. He is a strong advocate of
+    the functional programming paradigm.
+    Thomas obtained a Master’s degree in Informatics in 2002 and an Advanced Master’s
+    degree in Artificial Intelligence in 2003 at the KU Leuven.
+
+- name: Daniel Alcaide
+  class: current
+  title: PhD student
+  email: daniel.alcaide@kuleuven.be
+  image: photo_daniel.jpg
+  bio: |
+    Daniel Alcaide is a PhD student at the Department of Electrical Engineering at KU Leuven. He conducts research in interactive visualisation and data analysis to bring insight into large and complex data. He worked as a statistician in various areas related to clinical development in Barcelona where he learned about the power of visual representation to communicate information.
+    Daniel obtained a Master’s in Statistics and Operational Research at Universitat Politècnica de Catalunya in 2012 and a Master’s in Visual Analytics and Big Data at Universidad Internacional de la Rioja in 2015.
+
+- name: Jansi Thiyagarajan
+  class: current
+  title: PhD student
+  email: jansi.thiyagarajan@kuleuven.be
+  image: photo_jansi.jpg
+  bio: |
+    Jansi has a techno-functional background. She obtained her Bachelor degree in Electrical Engineering from Anna University in India and a Master degree in International Business from ESC Grenoble in France. She started her career as a marketer and then moved to the area of commercial data analytics owing to her interest in making sense of data to drive business. She strongly believes that visualisation is the most effective way to communicate the insights and finds it exciting to visualise data from different domains. Her current research focuses on visualising genomic and healthcare data.
+
+- name: Houda Lamqaddam
+  class: current
+  title: PhD student
+  email: houda.lamqaddam@kuleuven.be
+  image: photo_houda.png
+  bio: |
+    With background in computer science and communication, Houda is interested in making software easy to use and understand. She believes in the importance of including end users in the design process and enjoys finding out their needs and translating them into functional requirements.
+    Houda has a bachelor's degree in Computer Science from Al Akhawayn University in Ifrane, Morocco, and a joint Masters degree in Human-Computer Interaction from the ENAC and the Université Paul Sabatier in Toulouse, France.
+
+- name: Jaume Nualart
+  class: current
+  title: Postdoctoral researcher
+  image: photo_jaume.jpg
+  website: http://research.nualart.cat/
+  email: jaume.nualart@esat.kuleuven.be
+  orcid: https://orcid.org/0000-0003-4954-5303
+  bio: |
+    Jaume is a free knowledge advocate who works in the intersection of art, science and technology. More specifically, he is interested in the interface between human beings and reality, that is, data visualization. He studied how to combine natural text collections analysis, visualization, and exploration techniques. With a background in sciences (chemistry), he worked as a researcher in media art in Ars Electronica (Austria), and in  development projects as engineer (Angola, Kenya, and Pakistan). In 2010 he moved to academic research (Catalonia and Australia). His current interests (2015) are: big collections of texts, interface simplicity, visual uncertainty, and technology adoption.
+
+- name: Raf Winand
+  class: alumnus
+  image: photo_raf.jpg
+  bio: |
+    With a background in biology and bioinformatics Raf's work focused on biological data visualization and visual analytics. His research involved visualizing large phylogenetic trees and associated metadata. In particular he worked on the visualization of transmission of drug resistance mutations in a cohort of HIV patients.
+    Raf obtained a Master’s degree in Biology from the University of Antwerp in 2001 and a Master’s degree in Bioinformatics from KU Leuven in 2011. He defended his PhD in March 2016.
+
+- name: Ryo Sakai
+  class: alumnus
+  image: photo_ryo.jpeg
+  bio: |
+    Having a background in medical illustration and user experience design, Ryo's main research interests in the lab were visual analytics and biological data visualization. His work focused on developing interactive visualization systems in close collaboration with domain experts in life science to support exploration and analysis of the unprecedented scale and variety of data.
+    Ryo Sakai obtained a Master’s degree in Biomedical Communications from the University of Toronto in 2008, a Master’s degree in Computing and Information Systems from Queen Mary University of London in 2009, and a Professional Doctorate in Engineering from the User System Interaction Program at Eindhoven University of Technology in 2011. He then joined the Bioinformatics Research Group in the Department of Electrical Engineering at KU Leuven for PhD research in biological data visualization. He defended his PhD in May 2016.
+
+- name: Georgios Pavlopoulos
+  class: alumnus
+  image: photo_georgios.jpg
+
+- name: Alejandro Sifrim
+  class: alumnus
+  image: photo_alejandro.jpg
+
+- name: John Du Preez
+  class: visitor
+  image: photo_john.jpg
+  bio: |
+    John strongly believes in a multi-disciplinary approach to creative problem solving. His current research, in association with Luciad, focuses on visual analytics to support insight generation within geospatial data. John has a bachelor degree in information technology, as well as a post-graduate degree in culture and arts. In addition, John has a masters degree in architecture and design, and an advanced masters degree from the faculty of engineering sciences at KU Leuven. His work experience as a technician and developer within a GIS environment, amongst other past positions, supports his current research objectives.
+
+- name: Ksenia Lavrichenko
+  class: visitor
+  title: Visiting scientist Sept-Dec 2014
+  image: photo_ksenia.jpeg
+  bio: |
+    Ksenia is a PhD student at the Computational Biology Unit in the Computer Science Department at University of Bergen, Norway.  With background in mathematics, she is interested in seeing patterns and trends, relations between abstractions and representations. Her main project revolves around biological networks and their general topological properties. Ksenia believes that visual representations are a powerful tool for research and came to learn more about the techniques of Visual Analytics at the DataViz Lab at KU Leuven.
+    Ksenia obtained a Master’s degree in Mathematics from the University of Bergen, Norway in 2011.
+
+- name: Seiji Kumagai
+  class: student
+  master: MSc Statistics
+  topic: Visualizing differences between and evolution of reference genome assemblies
+  year: 2016-2017
+
+- name: Lorenzo Amabili
+  class: student
+  master: MSc Statistics
+  topic: Exploring 3D structure of proteins by interactive data visualization
+  year: 2016-2017
+
+- name: Victor Kubam
+  class: student
+  master: MSc Statistics
+  topic: Gaining insight in the factors that precede machine failure
+  year: 2015-2016
+
+- name: Kamen Pavlov
+  class: student
+  master: MSc Statistics
+  topic: "Coming full circle: using interactive data visualization to understand visual information processing"
+  year: 2015-2016
+
+- name: Laura Vermeiren
+  class: student
+  master: MSc Bioinformatics
+  topic: Host-microbiome pathway visualization
+  year: 2015-2016
+
+- name: Seungyeon Shin
+  class: student
+  master: MSc Bioinformatics
+  topic: Visualizing the differences between and evolution of reference genome assemblies
+  year: 2015-2016
+
+- name: Xinyuan Zhang
+  class: student
+  master: MSc Bioinformatics
+  topic: Comparison of dimensionality reduction methods on skip-gram processed medical dataset
+  year: 2015-2016
+
+- name: Thomas Boogaerts
+  class: student
+  master: MSc Mathematical Engineering
+  topic: "Visualization of higher-dimensional datasets with parallel coordinates: application to gene prioritization"
+  year: 2011-2021
