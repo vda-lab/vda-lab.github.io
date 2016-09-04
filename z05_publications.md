@@ -4,8 +4,11 @@ title: Publications
 permalink: publications.html
 menu: main
 ---
-## :: Peer-reviewed journals ::
-
+* Lamqaddam H & Aerts J. InVITe - Towards Intuitive Visualization of Iterations over Text. Eurographics Conference on Visualization (EuroVis) Posters Track (2016)
+* Tranchevent LC, Ardeshirdavani A, ElShal S, Alcaide D, Aerts J, Auboeuf D & Moreau Y. Candidate gene prioritization with Endeavour. Nucleic Acids Research 44:117-121 (2016)
+* Alcaide D, Thiyagarajan J, Lamqaddam H, Nualart J & Aerts J. Visual Anomaly Detection in Spatio-Temporal Data using Element-Specific References. VAST Challenge 2016. Submitted.
+* Lamqaddam H & Aerts J. InVITe - Towards Intuitive Visualization of Iterations over Text. Eurographics Conference on Visualization (EuroVis) Posters Track (2016)
+* Tranchevent LC, Ardeshirdavani A, ElShal S, Alcaide D, Aerts J, Auboeuf D & Moreau Y. Candidate gene prioritization with Endeavour. Nucleic Acids Research 44:117-121 (2016)
 * Aerts J et al. Highlights from the 5th Symposium on Biological Data Visualization: Part 2. BMC Bioinformatics 16(Suppl 11): S1 (2015)
 * Winand R et al. 2015. Assessing transmissibility of HIV-1 drug resistance mutations from treated and from drug-naive individuals. Aids, 29(15), 2045–2052.
 * Verbeiren T & Aerts J. A pragmatic approach to biases in visual data analysis. DECISIVe : Workshop on Dealing with Cognitive Biases in Visualisations, IEEE VIS2014 (2014)
