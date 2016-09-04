@@ -9,7 +9,7 @@ menu: main
   <li>
     {{ publication.authors }}<br/>
     <b>{{publication.title}}</b><br/>
-    {{publication.reference}}<br/>
+    {{publication.reference}} ({{publication.year}})<br/>
     {% if publication.pdf %}
     <a href="{{ site.baseurl}}/assets/{{publication.pdf}}"><img src="{{ site.baseurl }}/assets/ic_picture_as_pdf_black_24dp_1x.png"/></a>
     {% endif %}
