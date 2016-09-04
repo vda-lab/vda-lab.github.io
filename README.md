@@ -82,3 +82,5 @@ Just make the changes in the subdirectory of the course within the `public_html`
 In order to have only the main blog posts appear in the website, add `categories: main` to each blog post. The posts in each course should have the name of the course as the category: e.g. `categories: i0u19a`.
 
 The liquid code in the posts.md files mention `site.categories.i0u19a`, which will return all blog posts with category `i0u19a`.
+
+Icons are from https://design.google.com/icons
