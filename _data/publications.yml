@@ -1,0 +1,328 @@
+- authors: Lamqaddam H & Aerts J
+  title: InVITe - Towards Intuitive Visualization of Iterations over Text
+  reference: Eurographics Conference on Visualization (EuroVis) Posters Track
+  year: 2016
+
+- authors: Tranchevent LC, Ardeshirdavani A, ElShal S, Alcaide D, Aerts J, Auboeuf D & Moreau Y
+  title: Candidate gene prioritization with Endeavour
+  reference: Nucleic Acids Research 44:117-121
+  year: 2016
+  pdf: tranchevent2016.pdf
+  app: https://endeavour.esat.kuleuven.be/
+
+- authors: Alcaide D, Thiyagarajan J, Lamqaddam H, Nualart J & Aerts J
+  title: Visual Anomaly Detection in Spatio-Temporal Data using Element-Specific References
+  reference: VAST Challenge
+  year: 2016
+  url: http://homes.esat.kuleuven.be/~dalcaide/VASTchallenge2016/
+  pdf: vast16.pdf
+
+- authors: Aerts J et al
+  title: "Highlights from the 5th Symposium on Biological Data Visualization: Part 2."
+  reference: "BMC Bioinformatics 16(Suppl 11): S1"
+  year: 2015
+  pdf: aerts_highlightsbiovis2015.pdf
+  url: http://www.biomedcentral.com/1471-2105/16/S11/S1
+
+- authors: Chua A, Sakai R, Aerts J & Vande Moere A
+  title: "A three step process to design visualisations for GeoTemporal analysis"
+  reference: "IEEE Conference on Visual Analytics Science and Technology, VAST 2014 - Proceedings: 349–350"
+  pdf: chua.pdf
+  url: http://doi.org/10.1109/VAST.2014.7042560
+
+- authors: Winand R et al
+  title: Assessing transmissibility of HIV-1 drug resistance mutations from treated and from drug-naive individuals
+  reference: "Aids  29(15): 2045–2052"
+  year: 2015
+  pdf: Assessing_transmissibility_of_HIV_1_drug.17
+
+- authors: Verbeiren T & Aerts J
+  title: A pragmatic approach to biases in visual data analysis
+  reference: "DECISIVe : Workshop on Dealing with Cognitive Biases in Visualisations, IEEE VIS2014"
+  year: 2014
+  pdf: Verbeiren_0-329490.pdf
+
+- authors: Sakai R & Aerts J
+  title: Card sorting techniques for domain characterization in problem-driven visualization research
+  reference: "Eurographics Conference on Visualization (EuroVis)"
+  year: 2015
+  pdf: 121-125.pdf
+
+- authors: Sakai R & Aerts J
+  title: "Sequence Diversity Diagram for Comparative Analysis of Multiple Sequence Alignments."
+  reference: "BMC Proceedings 8: S9"
+  year: 2014
+  pdf: Sakai, Aerts - 2014 - Sequence Diversity Diagram for comparative analysis of multiple sequence alignments.pdf
+  url: http://doi.org/10.1186/1753-6561-8-S2-S9
+
+- authors: Pougach K, Voet A, Kondrashov F, Voordeckers K, Christiaens JF, Baying B, Benes V et al
+  title: "Duplication of a Promiscuous Transcription Factor Drives the Emergence of a New Regulatory Network."
+  reference: "Nature Communications 5 (January): 4868"
+  year: 2014
+  pdf: Pougach et al. - 2014 - Duplication of a promiscuous transcription factor drives the emergence of a new regulatory network.pdf
+  url: http://doi.org/10.1038/ncomms5868
+
+- authors: Sakai R, Winand R, Verbeiren T, Vande Moere A & Aerts J
+  title: "Dendsort: Modular Leaf Ordering Methods for Dendrogram Representations in R."
+  reference: "F1000Research 3 (January): 177"
+  year: 2014
+  url: http://doi.org/10.12688/f1000research.4784.1
+  pdf: Sakai et al. - 2014 - dendsort modular leaf ordering methods for dendrogram representations in R.pdf
+
+- authors: Winand R, Hens K, Dondorp W, De Wert G, Moreau Y, Vermeesch JR, Liebaers I & Aerts J
+  title: "In Vitro Screening of Embryos by Whole-Genome Sequencing : Now, in the Future or Never ?"
+  reference: "Hum Reprod 29(4):842-851"
+  year: 2014
+  url: http://doi.org/10.1093/humrep/deu005
+  pdf: Winand et al. - 2014 - In vitro screening of embryos by whole- genome sequencing now , in the future or never.pdf
+
+- authors: Pavlopoulos GA, Kumar P, Sifrim A, Sakai R, Lin ML, Voet T, Moreau Y & Aerts J
+  title: "Meander: Visually Exploring the Structural Variome Using Space-Filling Curves."
+  reference: "Nucleic Acids Research (11) (April 19): 1–9"
+  year: 2013
+  url: http://doi.org/10.1093/nar/gkt254
+  pdf: Pavlopoulos et al. - 2013 - Meander visually exploring the structural variome using space-filling curves.pdf
+
+- authors: Sakai R, Moisse M, Reumers J & Aerts J
+  title: "Pipit: Visualizing Functional Impacts of Structural Variations."
+  reference: "Bioinformatics (Oxford, England) 29 (17) (September 1): 2206–2207"
+  year: 2013
+  url: http://doi.org/10.1093/bioinformatics/btt367
+  pdf: Sakai et al. - 2013 - Pipit visualizing functional impacts of structural variations.pdf
+
+- authors: Sakai R, Sifrim A, Vande Moere A & Aerts J
+  title: "TrioVis: A Visualisation Approach for Filtering Genomic Variants of Parent-Child Trios."
+  reference: "Bioinformatics (Oxford, England) (May 8): 2–3"
+  year: 2013
+  url: http://doi.org/10.1093/bioinformatics/btt267
+  pdf: Sakai et al. - 2013 - TrioVis a visualisation approach for filtering genomic variants of parent-child trios.pdf
+
+- authors: Sifrim A, Popovic D, Tranchevent LC, Ardeshirdavani A, Sakai R, Konings P, Vermeesch JR, Aerts J, De Moor B & Moreau Y
+  title: "eXtasy: Variant Prioritization by Genomic Data Fusion."
+  reference: "Nature Methods 10 (11) (November): 1083–1084"
+  year: 2013
+  url: http://doi.org/10.1038/nmeth.2656
+  pdf: Sifrim et al. - 2013 - eXtasy variant prioritization by genomic data fusion.pdf
+
+- authors: Bartlett CW, Cheong SY, Hou L, Paquette J, Lum PY, Jaeger G, Battke F et al
+  title: "An eQTL Biological Data Visualization Challenge and Approaches from the Visualization Community."
+  reference: "BMC Bioinformatics 13 Suppl 8 (Suppl 8) (January): S8"
+  year: 2012
+  url: http://doi.org/10.1186/1471-2105-13-S8-S8
+  pdf: Bartlett et al. - 2012 - An eQTL biological data visualization challenge and approaches from the visualization community.pdf
+
+- authors: Bonnal RJP, Aerts J, Githinji G, Goto N, Maclean D, Miller CA, Mishima H et al
+  title: "Biogem : An Effective Tool Based Approach for Scaling up Open Source Software Development in Bioinformatics."
+  reference: "Bioinformatics: 28(7):1035-1037"
+  year: 2012
+  url: http://doi.org/10.1093/bioinformatics/bts080
+  pdf: Bonnal et al. - 2012 - Biogem an effective tool based approach for scaling up open source software development in bioinformatics.pdf
+
+- authors: Johansson S, Irgens H, Chudasama KK, Molnes J, Aerts J, Roque FS, Jonassen I et al
+  title: "Exome Sequencing and Genetic Testing for MODY."
+  reference: "PloS One 7 (5) (January): e38050"
+  year: 2012
+  url: http://doi.org/10.1371/journal.pone.0038050
+  pdf: Johansson et al. - 2012 - Exome sequencing and genetic testing for MODY.pdf
+
+- authors: Sifrim A, Van Houdt JK, Tranchevent LC, Nowakowska B, Sakai R, Pavlopoulos GA, Devriendt K, Vermeesch JR, Moreau Y & Aerts J
+  title: "Annotate-It: A Swiss-Knife Approach to Annotation, Analysis and Interpretation of Single Nucleotide Variation in Human Disease."
+  reference: "Genome Medicine 4 (9) (September 26): 73"
+  year: 2011
+  url: http://doi.org/10.1186/gm374
+  pdf: Sifrim et al. - 2012 - Annotate-it a Swiss-knife approach to annotation, analysis and interpretation of single nucleotide variation in h.pdf
+
+- authors: Katayama T, Wilkinson MD, Vos R, Kawashima T, Kawashima S, Nakao M, Yamamoto Y et al
+  title: "The 2nd DBCLS BioHackathon: Interoperable Bioinformatics Web Services for Integrated Applications."
+  reference: "Journal of Biomedical Semantics 2 (1) (August 2): 4"
+  year: 2011
+  url: http://doi.org/10.1186/2041-1480-2-4
+  pdf: Katayama et al. - 2011 - The 2nd DBCLS BioHackathon interoperable bioinformatics Web services for integrated applications.pdf
+
+- authors: Moschopoulos CN, Pavlopoulos GA, Iacucci E, Aerts J, Likothanassis S, Schneider R & Kossida S
+  title: "Which Clustering Algorithm Is Better for Predicting Protein Complexes?"
+  reference: "BMC Research Notes 4 (1) (December 20): 549"
+  year: 2011
+  url: http://doi.org/10.1186/1756-0500-4-549
+  pdf: Moschopoulos et al. - 2011 - Which clustering algorithm is better for predicting protein complexes.pdf
+
+- authors: Pavlopoulos GA, Hooper SD, Sifrim A, Schneider R & Aerts J
+  title: "Medusa: A Tool for Exploring and Clustering Biological Networks."
+  reference: "BMC Research Notes 4 (1) (January): 384"
+  year: 2011
+  url: http://doi.org/10.1186/1756-0500-4-384
+  pdf: Pavlopoulos et al. - 2011 - Medusa A tool for exploring and clustering biological networks.pdf
+
+- authors: Pavlopoulos GA, Secrier M, Moschopoulos CN, Soldatos TG, Kossida S, Aerts J, Schneider R & Bagos Pantelis
+  title: "Using Graph Theory to Analyze Biological Networks."
+  reference: "BioData Mining 4 (1): 10"
+  year: 2011
+  url: http://doi.org/10.1186/1756-0381-4-10
+  pdf: Pavlopoulos et al. - 2011 - Using graph theory to analyze biological networks.pdf
+
+- authors: Strozzi F & Aerts J
+  title: "A Ruby API to Query the Ensembl Database for Genomic Features."
+  reference: "Bioinformatics (Oxford, England) (January): 1–2"
+  year: 2011
+  url: http://doi.org/10.1093/bioinformatics/btr050
+  pdf: Strozzi, Aerts - 2011 - A Ruby API to query the Ensembl database for genomic features.pdf
+
+- authors: Conrad DF, Pinto D, Redon R, Feuk L, Gokcumen O, Zhang Y, Aerts J, et al
+  title: "Origins and Functional Impact of Copy Number Variation in the Human Genome."
+  reference: "Nature 464 (April): 704–712"
+  year: 2010
+  url: http://doi.org/10.1038/nature08516
+  pdf: Conrad et al. - 2010 - Origins and functional impact of copy number variation in the human genome(3).pdf
+
+- authors: Goto N, Prins P, Nakao M, Bonnal R, Aerts J & Katayama T
+  title: "BioRuby: Bioinformatics Software for the Ruby Programming Language."
+  reference: "Bioinformatics 26 (20) (August): 2617–2619"
+  year: 2010
+  url: http://doi.org/10.1093/bioinformatics/btq475
+  pdf: Goto et al. - 2010 - BioRuby Bioinformatics software for the Ruby programming language.pdf
+
+- authors: Kalay E, Yigit G, Aslan Y, Brown KE, Pohl E, Bicknell LS, Kayserili H et al
+  title: "CEP152 Is a Genome Maintenance Protein Disrupted in Seckel Syndrome."
+  reference: "Nature Genetics 43 (1) (December): 23–26"
+  year: 2010
+  url: http://doi.org/10.1038/ng.725
+  pdf: Kalay et al. - 2010 - CEP152 is a genome maintenance protein disrupted in Seckel syndrome.pdf
+
+- authors: The DBCLS BioHackathon Consortium
+  title: "The DBCLS BioHackathon: Standardization and Interoperability for Bioinformatics Web Services and Workflows."
+  reference: "Journal of Biomedical Semantics"
+  year: 2010
+  url: http://doi.org/10.1186/2041-1480-1-8
+  pdf: The DBCLS BioHackathon Consortium - 2010 - The DBCLS BioHackathon standardization and interoperability for bioinformatics web services a.pdf
+
+- authors: The Wellcome Trust Case Control Consortium
+  title: "Genome-Wide Association Study of CNVs in 16,000 Cases of Eight Common Diseases and 3,000 Shared Controls."
+  reference: "Nature 464 (7289): 713–720"
+  year: 2010
+  url: http://doi.org/10.1038/nature08979
+  pdf: The Wellcome Trust Case Control Consortium - 2010 - Genome-wide association study of CNVs in 16 , 000 cases of eight common diseases and.pdf
+
+- authors: Aerts J & Tyler-Smith C
+  title: "Structural Variation in Great Ape Genomes."
+  reference: "In: Encyclopedia of Life Sciences"
+  year: 2009
+  url: http://doi.org/10.1002/9780470015902.a0021768
+  pdf: Aerts, Tyler-Smith - 2009 - Structural Variation in Great Ape Genomes.pdf
+
+- authors: Aerts J & Law A
+  title: "An Introduction to Scripting in Ruby for Biologists."
+  reference: "BMC Bioinformatics 10: 221"
+  year: 2009
+  url: http://doi.org/10.1186/1471-2105-10-221
+  pdf: Aerts, Law - 2009 - An introduction to scripting in Ruby for biologists.pdf
+
+- authors: Connelley T, Aerts J, Law A, and Morrison WI
+  title: "Genomic Analysis Reveals Extensive Gene Duplication within the Bovine TRB Locus."
+  reference: "BMC Genomics 10 (January): 192"
+  year: 2009
+  url: http://doi.org/10.1186/1471-2164-10-192
+  pdf: Connelley et al. - 2009 - Genomic analysis reveals extensive gene duplication within the bovine TRB locus.pdf
+
+- authors: Elsik CG, Tellam RL, Gibbs RA, Worley KC, Muzny DM, Weinstock GM, Adelson DL et al
+  title: "The Genome Sequence of Taurine Cattle: A Window to Ruminant Biology and Evolution."
+  reference: "Science 324 (5926): 522–528"
+  year: 2009
+  url: http://doi.org/10.1126/science.1169588
+  pdf: Elsik et al. - 2009 - The Genome Sequence of Taurine Cattle A Window to Ruminant Biology and Evolution.pdf
+
+- authors: Gibbs RA, Taylor JF, Van Tassell CP, Barendse W, Eversole KA, Gill CA, Green RD et al
+  title: "Genome-Wide Survey of SNP Variation Uncovers the Genetic Structure of Cattle Breeds."
+  reference: "Science 324 (5926): 528–532"
+  year: 2009
+  url: http://doi.org/10.1126/science.1167936
+  pdf: Gibbs et al. - 2009 - Genome-Wide Survey of SNP Variation Uncovers the Genetic Structure of Cattle Breeds.pdf
+
+- authors: McKay SD, Schnabel RD, Murdoch BM, Matukumalli LK, Aerts J, Coppieters W, Crews D et al
+  title: "An Assessment of Population Structure in Eight Breeds of Cattle Using a Whole Genome SNP Panel."
+  reference: "BMC Genetics 9 (January): 37"
+  year: 2008
+  url: http://doi.org/10.1186/1471-2156-9-37
+  pdf: McKay et al. - 2008 - An assessment of population structure in eight breeds of cattle using a whole genome SNP panel.pdf
+
+- authors: Taylor DF, Field D, Sansone SA, Aerts J, Apweiler R, Ashburner M, Ball CA et al
+  title: "Promoting Coherent Minimum Reporting Guidelines for Biological and Biomedical Investigations: The MIBBI Project."
+  reference: "Nature Biotechnology 26 (8) (August): 889–96"
+  year: 2008
+  url: http://doi.org/10.1038/nbt.1411
+  pdf: Taylor et al. - 2008 - Promoting coherent minimum reporting guidelines for biological and biomedical investigations the MIBBI project.pdf
+
+- authors: Aerts J, Megens HJ, Veenendaal T, Ovcharenko I, Crooijmans R, Gordon L, Stubbs L & Groenen M
+  title: "Extent of Linkage Disequilibrium in Chicken."
+  reference: "Cytogenetic and Genome Research"
+  year: 2007
+  url: http://doi.org/10.1159/000103196
+  pdf: Aerts et al. - 2007 - Extent of linkage disequilibrium in chicken.pdf
+
+- authors: McKay SD, Schnabel RD, Murdoch BM, Aerts J, Gill CA, Gao C, Li C et al
+  title: "Construction of Bovine Whole-Genome Radiation Hybrid and Linkage Maps Using High-Throughput Genotyping."
+  reference: "Animal Genetics 38 (2) (April): 120–5"
+  year: 2007
+  url: http://doi.org/10.1111/j.1365-2052.2006.01564.x
+  pdf: McKay et al. - 2007 - Construction of bovine whole-genome radiation hybrid and linkage maps using high-throughput genotyping.pdf
+
+- authors: McKay SD, Schnabel RD, Murdoch BM, Matukumalli LK, Aerts J, Coppieters W, Crews D et al
+  title: "Whole Genome Linkage Disequilibrium Maps in Cattle."
+  reference: "BMC Genetics 8: 74"
+  year: 2007
+  url: http://doi.org/10.1186/1471-2156-8-74
+  pdf: McKay et al. - 2007 - Whole genome linkage disequilibrium maps in cattle.pdf
+
+- authors: Snelling WM, Chiu R, Schein JE, Hobbs M, Abbey CA, Adelson DL, Aerts J et al
+  title: "A Physical Map of the Bovine Genome"
+  reference: "Genome Biology 8 (8) (January): R165"
+  year: 2007
+  url: http://doi.org/10.1186/gb-2007-8-8-r165
+  pdf: Snelling et al. - 2007 - A physical map of the bovine genome.pdf
+
+- authors: Jann OC, Aerts J, Jones M, Hastings N, Law A, McKay S, Marques E et al
+  title: "A Second Generation Radiation Hybrid Map to Aid the Assembly of the Bovine Genome Sequence"
+  reference: "BMC Genomics 7 (January): 283"
+  year: 2006
+  url: http://doi.org/10.1186/1471-2164-7-283
+  pdf: Jann et al. - 2006 - A second generation radiation hybrid map to aid the assembly of the bovine genome sequence.pdf
+
+- authors: Aerts J, Veenendaal T, van der Poel JJ, Crooijmans RPMA & Groenen MAM
+  title: "Chromosomal Assignment of Chicken Clone Contigs by Extending the Consensus Linkage Map."
+  reference: "Animal Genetics 36 (3) (June): 216–22"
+  year: 2005
+  url: http://doi.org/10.1111/j.1365-2052.2005.01289.x
+  pdf: Aerts et al. - 2005 - Chromosomal assignment of chicken clone contigs by extending the consensus linkage map.pdf
+
+- authors: Aerts J, Jungerius BJ & Groenen MAM
+  title: "POSA: Perl Objects for DNA Sequencing Data Analysis."
+  reference: "BMC Genomics 5 (1) (August): 60"
+  year: 2003
+  url: http://doi.org/10.1186/1471-2164-5-60
+  pdf: Aerts, Jungerius, Groenen - 2004 - POSA perl objects for DNA sequencing data analysis.pdf
+
+- authors: International Chicken Genome Sequencing Consortium
+  title: "Sequence and Comparative Analysis of the Chicken Genome Provide Unique Perspectives on Vertebrate Evolution."
+  reference: "Nature 432 (December): 695–777"
+  year: 2004
+  pdf: International Chicken Genome Sequencing Consortium - 2004 - Sequence and comparative analysis of the chicken genome provide unique persp.pdf
+
+- authors: Wallis JW, Aerts J, Groenen MAM, Crooijmans RPMA, Layman D, Graves TA, Scheer DE et al
+  title: "A Physical Map of the Chicken Genome."
+  reference: "Nature 432 (December): 761–764"
+  year: 2004
+  url: http://doi.org/10.1038/nature03030
+  pdf: Wallis et al. - 2004 - A physical map of the chicken genome.pdf
+
+- authors: Aerts J, Crooijmans R, Cornelissen S, Hemmatian K, Veenendaal T, Jaadar A, Van Der Poel J, Fillon V, Vignal A & Groenen M
+  title: "Integration of Chicken Genomic Resources to Enable Whole-Genome Sequencing."
+  reference: "Cytogenetic and Genome Research 303: 297–303"
+  year: 2003
+  url: http://doi.org/10.1159/000075766
+  pdf: Aerts et al. - 2003 - Integration of chicken genomic resources to enable whole-genome sequencing.pdf
+
+- authors: Aerts J, Wetzels Y, Cohen N & Aerssens J
+  title: "Data Mining of Public SNP Databases for the Selection of Intragenic SNPs."
+  reference: "Human Mutation 20 (3) (September): 162–73"
+  year: 2002
+  url: http://doi.org/10.1002/humu.10107
+  pdf: Aerts et al. - 2002 - Data mining of public SNP databases for the selection of intragenic SNPs.pdf
