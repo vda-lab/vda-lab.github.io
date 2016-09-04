@@ -1,0 +1,62 @@
+- title: Card sorting
+  class: viz
+  description: A methodology for identifying a user's underlying goals
+  url: http://vda-lab.github.io/card_sorting.html
+  image: cardsorting_segment.png
+
+- title: Triovis
+  class: viz
+  description: Using trio-information to filter NGS reads
+  url: http://vda-lab.github.io/triovis.html
+  image: triovis_segment.png
+
+- title: Sequence Diversity Diagram
+  class: viz
+  description: Making comparing DNA and RNA sequence motifs possible
+  url: http://vda-lab.github.io/sedd.html
+  image: sedd_segment.png
+
+- title: Cosmopolitan Chicken Project
+  class: viz
+  description: A data-driven art project with Koen Vanmechelen
+  url: http://vda-lab.github.io/ccrp.html
+  image: cosmopolitan_segment.png
+
+- title: Aracari
+  class: viz
+  description: Our award-winning visualization of 2-locus eQTL data
+  url: http://vda-lab.github.io/aracari.html
+  image: aracari_segment.png
+  video: https://vimeo.com/143813795
+
+- title: dendsort
+  class: viz
+  description: Modular leaf ordering method for dendrogram representations in R
+  url: http://vda-lab.github.io/dendsort.html
+  image: dendsort_segment.png
+  video: https://vimeo.com/143830598
+
+- title: VAST 2015
+  class: viz
+  description: Visual anomaly detection in spatio-temporal data 1
+  url: http://hcil2.cs.umd.edu/newvarepository/VAST%20Challenge%202015/challenges/Mini-Challenge%201/entries/KULEUVEN/
+  image: vast2015_segment.png
+  video: http://hcil2.cs.umd.edu/newvarepository/VAST%20Challenge%202015/challenges/Mini-Challenge%201/entries/KULEUVEN/kuleuven-sakai-mc1-video.mp4
+
+- title: VAST 2016
+  class: viz
+  description: Visual anomaly detection in spatio-temporal data 2
+  url: http://homes.esat.kuleuven.be/~dalcaide/VASTchallenge2016/
+  image: vast2016_segment.png
+  video: https://www.youtube.com/watch?v=7YMuKo3vJ_w
+
+- title: Locustree
+  class: backend
+  description: Enabling and tracking multi-resolution browsing of genomic data
+  url: http://vda-lab.github.io/locustree.html
+  image: locustree_segment.png
+
+- title: HIV transmitted drug resistance
+  class: HIV
+  description: See our paper Winand R et al (2015) Assessing transmissibility of HIV-1 drug resistance mutations from treated and from drug-naive individuals. Aids, 29(15), 2045–2052
+  image: hiv_segment.png

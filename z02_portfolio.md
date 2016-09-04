@@ -7,24 +7,68 @@ menu: main
 A selection of projects, tools and designs developed in the lab…
 
 ## Visualization and design
+<table>
+{% for portfolio in site.data.portfolio %}
+  {% if portfolio.class == "viz" %}
+    <tr>
+    <td><img src="{{site.baseurl}}/assets/{{portfolio.image}}" /></td>
+    <td>
+      <b>{{portfolio.title}}</b><br/>
+      {{portfolio.description}}<br/>
+      {% if portfolio.url %}
+      <a href="{{portfolio.url}}"><img src="{{ site.baseurl }}/assets/ic_link_black_24dp_1x.png"/></a>
+      {% endif %}
+      {% if portfolio.video %}
+      <a href="{{portfolio.video}}"><img src="{{ site.baseurl }}/assets/ic_video_library_black_24dp_1x.png"/></a>
+      {% endif %}
+    </td>
+    </tr>
+  {% endif %}
+{% endfor %}
+</table>
 
-| <a name="card_sorting"></a> ![card sorting]({{ site.baseurl }}/assets/cardsorting_segment.png) | [**Card sorting**]({{ site.baseurl }}/card_sorting.html)<br/>A methodology for identifying a user's underlying goals |
-| <a name="triovis"></a> ![triovis]({{ site.baseurl }}/assets/triovis_segment.png) | [**Triovis**]( {{ site.baseurl }}/triovis.html)<br/>Using trio-information to filter NGS reads |
-| <a name="sedd"></a> ![SeDD screenshot]({{ site.baseurl }}/assets/sedd_segment.png) | [**Sequence Diversity Diagram**]( {{ site.baseurl }}/sedd.html)<br/>Making comparing DNA and RNA sequence motifs possible |
-| <a name="ccrp"></a> ![Cosmopolitan Chicken Project]({{ site.baseurl }}/assets/cosmopolitan_segment.png) | [**Cosmopolitan Chicken Project**]( {{ site.baseurl }}/ccrp.html)<br/>A data-driven art project with Koen Vanmechelen |
-| <a name="aracari"></a> ![Aracari]({{ site.baseurl }}/assets/aracari_segment.png) | [**Aracari**]({{ site.baseurl }}/aracari.html)<br/>Our award-winning visualization of 2-locus eQTL data |
-| <a name="dendsort"></a> ![dendsort]({{ site.baseurl }}/assets/dendsort_segment.png) | [**dendsort**]({{ site.baseurl }}/dendsort.html)<br/>Modular leaf ordering method for dendrogram representations in R |
-| <a name="vast2015"></a> ![vast2015]({{ site.baseurl }}/assets/vast2015_segment.png) | [**VAST 2015**](http://hcil2.cs.umd.edu/newvarepository/VAST%20Challenge%202015/challenges/Mini-Challenge%201/entries/KULEUVEN/)<br/>Visual anomaly detection in spatio-temporal data 1 |
-| <a name="vast2016"></a> ![vast2016]({{ site.baseurl }}/assets/vast2016_segment.png) | [**VAST 2016**](http://homes.esat.kuleuven.be/~dalcaide/VASTchallenge2016/)<br/>Visual anomaly detection in spatio-temporal data 2 |
-
-<br/>
+<p></p>
 
 ## Backend
+<table>
+{% for portfolio in site.data.portfolio %}
+  {% if portfolio.class == "backend" %}
+  <tr>
+  <td><img src="{{site.baseurl}}/assets/{{portfolio.image}}" /></td>
+  <td>
+    <b>{{portfolio.title}}</b><br/>
+    {{portfolio.description}}<br/>
+    {% if portfolio.url %}
+    <a href="{{portfolio.url}}"><img src="{{ site.baseurl }}/assets/ic_link_black_24dp_1x.png"/></a>
+    {% endif %}
+    {% if portfolio.video %}
+    <a href="{{portfolio.video}}"><img src="{{ site.baseurl }}/assets/ic_video_library_black_24dp_1x.png"/></a>
+    {% endif %}
+  </td>
+  </tr>
+  {% endif %}
+{% endfor %}
+</table>
 
-| ![locustree]({{ site.baseurl }}/assets/locustree_segment.png) | [**Locustree**]({{ site.baseurl }}/locustree.html)<br/>Enabling and tracking multi-resolution browsing of genomic data |
-
-<br/>
+<p></p>
 
 ## HIV
-
-| ![hiv]({{ site.baseurl }}/assets/hiv_segment.png) | **HIV transmitted drug resistance**<br/>See our paper Winand R et al (2015) Assessing transmissibility of HIV-1 drug resistance mutations from treated and from drug-naive individuals. Aids, 29(15), 2045–2052.
+<table>
+{% for portfolio in site.data.portfolio %}
+  {% if portfolio.class == "HIV" %}
+  <tr>
+  <td><img src="{{site.baseurl}}/assets/{{portfolio.image}}" /></td>
+  <td>
+    <b>{{portfolio.title}}</b><br/>
+    {{portfolio.description}}<br/>
+    {% if portfolio.url %}
+    <a href="{{portfolio.url}}"><img src="{{ site.baseurl }}/assets/ic_link_black_24dp_1x.png"/></a>
+    {% endif %}
+    {% if portfolio.video %}
+    <a href="{{portfolio.video}}"><img src="{{ site.baseurl }}/assets/ic_video_library_black_24dp_1x.png"/></a>
+    {% endif %}
+  </td>
+  </tr>
+  {% endif %}
+{% endfor %}
+</table>
