@@ -4,7 +4,10 @@ layout: default
 <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
+    <br/>
+    <!-- If we want to add color to the header -->
+    <!-- <h1 style="background-color:{{page.color}}" class="post-title">{{ page.title }}</h1> -->
+    {% if page.title != "Home" %}<h1 class="post-title">{{ page.title }}</h1>{% endif %}
   </header>
 
   <article class="post-content">

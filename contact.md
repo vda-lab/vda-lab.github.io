@@ -3,6 +3,7 @@ layout: page
 title: Contact
 menu: main
 navigation_weight: 8
+color: "#f1e2cc"
 ---
 Our coordinates:
 

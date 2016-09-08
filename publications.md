@@ -3,6 +3,7 @@ layout: page
 title: Publications
 menu: main
 navigation_weight: 6
+color: "#e6f5c9"
 ---
 <ul style="list-style-type: none;">
 {% for publication in site.data.publications %}

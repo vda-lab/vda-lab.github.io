@@ -3,6 +3,7 @@ layout: page
 title: Lists
 menu: main
 navigation_weight: 7
+color: "#fff2ae"
 ---
 ## :: Books we like ::
 

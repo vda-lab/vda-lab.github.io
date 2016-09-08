@@ -3,6 +3,7 @@ layout: page
 title: People
 menu: main
 navigation_weight: 2
+color: "#b3e2cd"
 ---
 ## Current lab members
 

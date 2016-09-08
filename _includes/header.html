@@ -17,6 +17,10 @@
         {% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %}
         {% for p in navigation_pages %}
           {% if p.navigation_weight %}
+              <!--  If we want to add color to the links -->
+              <!-- <a style="background-color:{{p.color}}" href="{{ p.url }}" {% if p.url == page.url %} class="page-link current" {% else %} class="page-link" {% endif %}>
+                {{p.title}}
+              </a> -->
               <a href="{{ p.url }}" {% if p.url == page.url %} class="page-link current" {% else %} class="page-link" {% endif %}>
                 {{p.title}}
               </a>
