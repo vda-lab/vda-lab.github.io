@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Lists
-permalink: lists.html
 menu: main
+navigation_weight: 7
 ---
 ## :: Books we like ::
 

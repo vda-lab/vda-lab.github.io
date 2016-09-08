@@ -49,6 +49,10 @@
         }
     }
 
+    .page-link.current {
+      // color: #ffe000; // Change style of link that is active (e.g. "Blog posts")
+    }
+
     @include media-query($on-palm) {
         position: absolute;
         top: 9px;

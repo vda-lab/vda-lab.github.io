@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  Home
+navigation_weight: 1
 ---
 <img src="{{site.baseurl}}/assets/datatrieste.jpg"/>
 <p align="right"><small>Design session at CODATA-RDA Summer School, Trieste (Italy), Summer 2016</small></p>

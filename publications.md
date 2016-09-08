@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Publications
-permalink: publications.html
 menu: main
+navigation_weight: 6
 ---
 <ul style="list-style-type: none;">
 {% for publication in site.data.publications %}

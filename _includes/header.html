@@ -14,11 +14,12 @@
       </a>
 
       <div class="trigger">
-        {% for page in site.pages %}
-          {% if page.menu == 'main' %}
-            {% if page.title %}
-            <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-            {% endif %}
+        {% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %}
+        {% for p in navigation_pages %}
+          {% if p.navigation_weight %}
+              <a href="{{ p.url }}" {% if p.url == page.url %} class="page-link current" {% else %} class="page-link" {% endif %}>
+                {{p.title}}
+              </a>
           {% endif %}
         {% endfor %}
       </div>

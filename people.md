@@ -1,8 +1,8 @@
 ---
 layout: page
 title: People
-permalink: people.html
 menu: main
+navigation_weight: 2
 ---
 ## Current lab members
 

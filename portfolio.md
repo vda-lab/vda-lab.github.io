@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Portfolio
-permalink: portfolio.html
 menu: main
+navigation_weight: 3
 ---
 A selection of projects, tools and designs developed in the lab…
 

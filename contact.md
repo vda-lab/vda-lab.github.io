@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Contact
-permalink: contact.html
 menu: main
+navigation_weight: 8
 ---
 Our coordinates:
 
