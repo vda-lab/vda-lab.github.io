@@ -5,152 +5,263 @@ menu: main
 navigation_weight: 4
 color: "#cbd5e8"
 ---
-<ul>
-  <li><a href="#bytag">By tag</a></li>
-  <li><a href="#byauthor">By author</a></li>
-  <li><a href="#chronological">Chronological list</a></li>
-</ul>
-
 <table>
 <tr>
-    <td valign="top">
+    <td colspan="2" valign="top">
 <div id="visual"></div>
 <script type="text/javascript" src="d3.min.js"></script>
-<script type="text/javascript" src="underscore-min.js"></script>
+<script type="text/javascript" src="d3.layout.cloud.js"></script>
+<!-- <script type="text/javascript" src="underscore-min.js"></script> -->
 <script>
-function pairwise(list) {
-  if (list.length < 2) { return []; }
-  var first = list[0],
-      rest  = list.slice(1),
-      pairs = rest.map(function (x) { return [first, x]; });
-  return pairs.concat(pairwise(rest));
-}
-function partition(items, size) {
-    var result = _.groupBy(items, function(item, i) {
-        return Math.floor(i/size);
-    });
-    return _.values(result);
-}
+// var Canvas = require("canvas");
+// var cloud = require("../");
 
-// Get the nodes
-{% capture posts %}
+{% capture tags %}
 [
 {% for post in site.categories.main %}
 {% unless post.private %}
-{
-"title"    : "{{ post.title }}",
-"url"      : "{{ post.url }}",
-"date"     : "{{ post.date | date: "%B %d, %Y" }}",
-"tags"     : "{{ post.tags | join: ';' }}"
-} {% if forloop.last %}{% else %},{% endif %}
+{% for tag in post.tags %}
+"{{tag}}"|
+{% endfor %}
 {% endunless %}
 {% endfor %}
 ]
 {% endcapture %}
-var posts = {{posts | strip_newlines}}
-posts.map(function(p) {
-  return p.tags = p.tags.split(';')
-})
 
-var nodesObject = _.flatten(posts.map(function(n) {
-  return n.tags.map(function(t) {
-    return {'tag':t, 'url':n.url}
-  })
-})).reduce(function(prev, curr) {
-  var thisCollection = prev
-  if ( ! (curr['tag'] in thisCollection) ) {
-    thisCollection[curr['tag']] = []
-  }
-  thisCollection[curr['tag']].push(curr['url'])
-  return thisCollection
-},{})
-var nodes = _.keys(nodesObject).map(function(n,i) {
-  return {"index": i, "tag":n, "urls":nodesObject[n]}
-})
-var nodeIndices = {};
-nodes.map(function(n) {
-  nodeIndices[n.tag] = n.index
-})
-
-// Get the links
-var linksList = _.flatten(posts.filter(function(p) {
-  return p.tags.length > 1
-}).map(function(p) {
-  return pairwise(p.tags)
-}))
-var linkPairs = partition(linksList,2).map(function(l) {
-  if ( l[0] > l[1] ) {
-    return [l[1],l[0]]
+var words = {{ tags | strip_newlines | replace: "|", ","}}
+var cloudData = {};
+words.forEach(function(w) {
+  if (cloudData.hasOwnProperty(w)) {
+    cloudData[w] = cloudData[w] + 1
   } else {
-    return [l[0],l[1]]
+    cloudData[w] = 1
   }
 })
-var linkCounted = linkPairs.reduce(function(prev, curr) {
-  var thisCollection = prev
-  if ( curr in thisCollection ) {
-    thisCollection[curr] += 1
-  } else {
-    thisCollection[curr] = 1
-  }
-  return thisCollection
-}, {})
-var links = _.keys(linkCounted).map(function(k) {
-  var source_target = k.split(',')
-  return {"source": nodeIndices[source_target[0]], "target": nodeIndices[source_target[1]], "weight": linkCounted[k]}
+var data = []
+data = Object.keys(cloudData).map(function(w) {
+  return {text: w, size: cloudData[w]*10}
 })
-
-var width = 300,
-    height = 300;
-
-var force = d3.layout.force()
-    .charge(-120)
-    .linkDistance(30)
-    .size([width, height]);
-
-var svg = d3.select("#visual").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-force
-    .nodes(nodes)
-    .links(links)
+console.log(JSON.stringify(data))
+var fill = d3.scale.category20();
+d3.layout.cloud().size([800, 500])
+    .words(data)
+    // .words(data.map(function(d) {
+    //   return {text: d.word, size: d.weight};
+    // }))
+    .padding(5)
+    .rotate(function() { return ~~(Math.random() * 2) * 90; })
+    .font("Impact")
+    .fontSize(function(d) { return d.size; })
+    .on("end", draw)
     .start();
 
-var link = svg.selectAll(".link")
-    .data(links)
-  .enter().append("line")
-    .attr("class", "link")
-    .style({
-      "stroke-width": function(d) { return d.weight; },
-      "stroke": "black",
-      "opacity": 0.5
-    })
+function draw(words) {
+    d3.select("#visual").append("svg")
+      .attr("width", 800)
+      .attr("height", 500)
+    .append("g")
+      .attr("transform", "translate(400,250)")
+    .selectAll("text")
+      .data(words)
+    .enter()
+      .append("a")
+      .attr("xlink:href", function(d) { return "#" + d.text }).append("text")
+      .style("font-size", function(d) { return d.size + "px"; })
+      .style("font-family", "Impact")
+      .style("fill", function(d, i) { return fill(i); })
+      .attr("text-anchor", "middle")
+      .attr("transform", function(d) {
+
+        return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+      })
+      .text(function(d) { return d.text; });
+  }
+  function drawUpdate(words){
+   d3.layout.cloud().size([800, 500])
+      .words(words)
+      .padding(5)
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .font("Impact")
+      .fontSize(function(d) { return d.size; })
+      .start();
 
 
-var node = svg.selectAll(".node")
-    .data(nodes)
-  .enter()
-  .append("a")
-    .attr("xlink:href", function(d) { return "#" + d.tag })
-  .append("circle")
-    .attr("class", "node")
-    .attr("r", 5)
-    .style("fill", "black")
-    .style("opacity", 0.5)
-    .call(force.drag)
+      d3.select("svg")
+      .selectAll("g")
+        .attr("transform", "translate(400,250)")
+      .selectAll("text")
+        .data(words).enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function(d, i) { return fill(i); })
 
-node.append("title")
-    .text(function(d) { return d.tag; });
+        .attr("transform", function(d) {
 
-force.on("tick", function() {
-  link.attr("x1", function(d) { return d.source.x; })
-      .attr("y1", function(d) { return d.source.y; })
-      .attr("x2", function(d) { return d.target.x; })
-      .attr("y2", function(d) { return d.target.y; });
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function(d) { return d.text; });
 
-  node.attr("cx", function(d) { return d.x; })
-      .attr("cy", function(d) { return d.y; });
-});
+
+
+  }
+
+  setInterval(function () {
+        var d_new = data;
+        d_new.push({word:randomWord(),weight:randomWeight()});
+
+         drawUpdate(d_new.map(function(d) {
+        return {text: d.word, size: d.weight};
+      }));
+      }, 1500);
+
+  function randomWord() {
+          var text = "";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+          for( var i=0; i < 5; i++ )
+              text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+          return text;
+      }
+      function randomWeight(){
+        var r = Math.round(Math.random() * 100);
+        return r;
+      }
+//######################
+
+// function pairwise(list) {
+//   if (list.length < 2) { return []; }
+//   var first = list[0],
+//       rest  = list.slice(1),
+//       pairs = rest.map(function (x) { return [first, x]; });
+//   return pairs.concat(pairwise(rest));
+// }
+// function partition(items, size) {
+//     var result = _.groupBy(items, function(item, i) {
+//         return Math.floor(i/size);
+//     });
+//     return _.values(result);
+// }
+//
+// // Get the nodes
+// {% capture posts %}
+// [
+// {% for post in site.categories.main %}
+// {% unless post.private %}
+// {
+// "title"    : "{{ post.title }}",
+// "url"      : "{{ post.url }}",
+// "date"     : "{{ post.date | date: "%B %d, %Y" }}",
+// "tags"     : "{{ post.tags | join: ';' }}"
+// } {% if forloop.last %}{% else %},{% endif %}
+// {% endunless %}
+// {% endfor %}
+// ]
+// {% endcapture %}
+// var posts = {{posts | strip_newlines}}
+// posts.map(function(p) {
+//   return p.tags = p.tags.split(';')
+// })
+//
+// var nodesObject = _.flatten(posts.map(function(n) {
+//   return n.tags.map(function(t) {
+//     return {'tag':t, 'url':n.url}
+//   })
+// })).reduce(function(prev, curr) {
+//   var thisCollection = prev
+//   if ( ! (curr['tag'] in thisCollection) ) {
+//     thisCollection[curr['tag']] = []
+//   }
+//   thisCollection[curr['tag']].push(curr['url'])
+//   return thisCollection
+// },{})
+// var nodes = _.keys(nodesObject).map(function(n,i) {
+//   return {"index": i, "tag":n, "urls":nodesObject[n]}
+// })
+// var nodeIndices = {};
+// nodes.map(function(n) {
+//   nodeIndices[n.tag] = n.index
+// })
+//
+// // Get the links
+// var linksList = _.flatten(posts.filter(function(p) {
+//   return p.tags.length > 1
+// }).map(function(p) {
+//   return pairwise(p.tags)
+// }))
+// var linkPairs = partition(linksList,2).map(function(l) {
+//   if ( l[0] > l[1] ) {
+//     return [l[1],l[0]]
+//   } else {
+//     return [l[0],l[1]]
+//   }
+// })
+// var linkCounted = linkPairs.reduce(function(prev, curr) {
+//   var thisCollection = prev
+//   if ( curr in thisCollection ) {
+//     thisCollection[curr] += 1
+//   } else {
+//     thisCollection[curr] = 1
+//   }
+//   return thisCollection
+// }, {})
+// var links = _.keys(linkCounted).map(function(k) {
+//   var source_target = k.split(',')
+//   return {"source": nodeIndices[source_target[0]], "target": nodeIndices[source_target[1]], "weight": linkCounted[k]}
+// })
+//
+// var width = 300,
+//     height = 300;
+//
+// var force = d3.layout.force()
+//     .charge(-120)
+//     .linkDistance(30)
+//     .size([width, height]);
+//
+// var svg = d3.select("#visual").append("svg")
+//     .attr("width", width)
+//     .attr("height", height);
+//
+// force
+//     .nodes(nodes)
+//     .links(links)
+//     .start();
+//
+// var link = svg.selectAll(".link")
+//     .data(links)
+//   .enter().append("line")
+//     .attr("class", "link")
+//     .style({
+//       "stroke-width": function(d) { return d.weight; },
+//       "stroke": "black",
+//       "opacity": 0.5
+//     })
+//
+//
+// var node = svg.selectAll(".node")
+//     .data(nodes)
+//   .enter()
+//   .append("a")
+//     .attr("xlink:href", function(d) { return "#" + d.tag })
+//   .append("circle")
+//     .attr("class", "node")
+//     .attr("r", 5)
+//     .style("fill", "black")
+//     .style("opacity", 0.5)
+//     .call(force.drag)
+//
+// node.append("title")
+//     .text(function(d) { return d.tag; });
+//
+// force.on("tick", function() {
+//   link.attr("x1", function(d) { return d.source.x; })
+//       .attr("y1", function(d) { return d.source.y; })
+//       .attr("x2", function(d) { return d.target.x; })
+//       .attr("y2", function(d) { return d.target.y; });
+//
+//   node.attr("cx", function(d) { return d.x; })
+//       .attr("cy", function(d) { return d.y; });
+// });
 </script>
 </td></tr>
 
@@ -186,7 +297,7 @@ force.on("tick", function() {
     </td>
     <td valign="top">
 
-<h2 id="byauthor">:: By author ::</h2>
+<!-- <h2 id="byauthor">:: By author ::</h2>
 {% capture authors %}
 {% for post in site.categories.main %}
   {% if post.author %}
@@ -211,7 +322,7 @@ force.on("tick", function() {
     </li>
   {% endunless %}
 {% endfor %}
-</ul>
+</ul> -->
 
 <h2 id="chronological">:: Chronological ::</h2>
 <ul>
