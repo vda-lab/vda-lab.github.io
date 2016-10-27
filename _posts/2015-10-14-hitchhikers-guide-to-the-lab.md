@@ -128,6 +128,15 @@ Some more biology-oriented conferences that might be relevant are ISMB, ECCB and
 
 Apart from these more general conferences, there will be other more **domain-specific** ones that might be relevant to you, but not other members of the lab. These conferences might for example be about geo-spatial visualization or virology. Please make sure that you know which conferences you should keep an eye on.
 
+#### What to take home from a conference?
+
+Attending a conference can really help boost your research, or give it another direction. The trick is to get in with the right mindset.
+
+It's really important to **talk to people** at the conference. Ask questions after a talk, just walk to the person you want to talk to, ... Interaction is key. That's also the reason why *giving* a talk at a conference is good: people know who you are and can start discussions. The most interesting research happens when you talk to people and you end up collaborating. Think about what they can do for you, and what you can do for them.
+
+When attending the talks, don't make the error of taking them as they are if they are not about your specific topic. **Look wide**. Even though the topic or domain of the talk might be very different from your own, it might contain ideas or approaches that - when adapted - might be relevant for your own work as well.
+Also: **take notes**. Conferences like IEEE VIS and ISMB will bombard you with so much information that it's impossible to recollect much of it afterwards. When back in Belgium, I expect you to give a **talk** for the rest of the group about things that were interesting, and how some of these things might influence your work.
+
 ### Journal papers
 Alongside conference papers, we also submit manuscript to different journals. In contrast to conference papers, they do not lead to giving a talk somewhere, which gets the discussion going and from which we can learn a lot. However, they have the huge advantage that there is no strict deadline: journals accept submission throughout the year. Relevant journals include [**Bioinformatics**](http://bioinformatics.oxfordjournals.org/), [**BMC Bioinformatics**](http://www.biomedcentral.com/bmcbioinformatics), [**PLoS One**](http://www.plosone.org/) and [**PeerJ**](http://peerj.com).
 
