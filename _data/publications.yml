@@ -92,6 +92,12 @@
   url: http://doi.org/10.1093/bioinformatics/btt367
   pdf: Sakai et al. - 2013 - Pipit visualizing functional impacts of structural variations.pdf
 
+- authors: Pavlopoulos G, Oulas A, Iacucci E, Sifrim A, Moreau Y, Schneider R, Aerts J & Iliopoulos I
+  title: "Unraveling genomic variation from next generation sequencing data"
+  reference: "BioData Mining, 6 (13), 1-25"
+  year: 2013
+  url: https://biodatamining.biomedcentral.com/articles/10.1186/1756-0381-6-13
+
 - authors: Sakai R, Sifrim A, Vande Moere A & Aerts J
   title: "TrioVis: A Visualisation Approach for Filtering Genomic Variants of Parent-Child Trios."
   reference: "Bioinformatics (Oxford, England) (May 8): 2–3"
