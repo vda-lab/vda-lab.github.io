@@ -97,6 +97,7 @@
   reference: "BioData Mining, 6 (13), 1-25"
   year: 2013
   url: https://biodatamining.biomedcentral.com/articles/10.1186/1756-0381-6-13
+  pdf: unraveling_genomic_variation.pdf
 
 - authors: Sakai R, Sifrim A, Vande Moere A & Aerts J
   title: "TrioVis: A Visualisation Approach for Filtering Genomic Variants of Parent-Child Trios."
