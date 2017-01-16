@@ -11,17 +11,6 @@
 
     Jan is on the organizing committees of BioVis and Beyond The Genome, and has chaired visualization-related sessions at conferences including VIZBI, the Bioinformatics Open Source Conference BOSC and EuroVis/VMLS. He is also Associate Editor for the BioMedCentral Thematic Series on Biological Data Visualization, and academic editor for PLoS One. He is member of the Young Academy – Royal Flemish Academy of Belgium for Sciences and the Arts.
 
-- name: Toni Verbeiren
-  class: current
-  title: Postdoctoral researcher
-  orcid: http://orcid.org/0000-0002-7007-6866
-  image: photo_toni.jpg
-  email: toni.verbeiren@kuleuven.be
-  bio: |
-    Toni is a strong believer in multi-disciplinary science. Where people from different fields meet, new ideas are born. Visual analytics is such a place. His current focus is on the visualization of large amounts of data (big data) and multiple dimensions.
-    Prior to joining Prof Aerts’ lab, Toni worked as an independent consultant in a broad set of areas all related to technology: virtualization, service management, project management and enterprise architecture. His background in the technical as well as the organizational aspects of technology come in very handy in his current work as a researcher.
-    Toni obtained his PhD from the department of Theoretical Physics at the KU Leuven where he studied models for artificial neural networks.
-
 - name: Thomas Moerman
   class: current
   title: PhD student
@@ -66,6 +55,14 @@
     With background in computer science and communication, Houda is interested in making software easy to use and understand. She believes in the importance of including end users in the design process and enjoys finding out their needs and translating them into functional requirements.
     Houda has a bachelor's degree in Computer Science from Al Akhawayn University in Ifrane, Morocco, and a joint Masters degree in Human-Computer Interaction from the ENAC and the Université Paul Sabatier in Toulouse, France.
 
+- name: Thomas De Bodt
+  class: current
+  title: PhD student
+  email: thomas.debodt@kuleuven.be
+  image: photo_thomasdb.png
+  bio: |
+    Thomas has a background in computer science. His research focus is using visual analytics on location data to enable insight generation. This has many applications, for example early identification of illegal activity at sea or improving people flow in a train station. This project is a collaboration between KULeuven and Luciad. Thomas has worked for 8 years as an R&D software engineer at Luciad, designing and realizing a high-performance visualization library for geospatial data. Through this research Luciad wants to scale its technology to the huge amount of location data available today.
+
 - name: Jaume Nualart
   class: current
   title: Postdoctoral researcher
@@ -75,6 +72,17 @@
   orcid: https://orcid.org/0000-0003-4954-5303
   bio: |
     Jaume is a free knowledge advocate who works in the intersection of art, science and technology. More specifically, he is interested in the interface between human beings and reality, that is, data visualization. He studied how to combine natural text collections analysis, visualization, and exploration techniques. With a background in sciences (chemistry), he worked as a researcher in media art in Ars Electronica (Austria), and in  development projects as engineer (Angola, Kenya, and Pakistan). In 2010 he moved to academic research (Catalonia and Australia). His current interests (2015) are: big collections of texts, interface simplicity, visual uncertainty, and technology adoption.
+
+- name: Toni Verbeiren
+  class: alumnus
+  title: Postdoctoral researcher
+  orcid: http://orcid.org/0000-0002-7007-6866
+  image: photo_toni.jpg
+  email: toni.verbeiren@kuleuven.be
+  bio: |
+    Toni is a strong believer in multi-disciplinary science. Where people from different fields meet, new ideas are born. Visual analytics is such a place. His focus was on the visualization of large amounts of data (big data) and multiple dimensions.
+    Prior to joining Prof Aerts’ lab, Toni worked as an independent consultant in a broad set of areas all related to technology: virtualization, service management, project management and enterprise architecture. His background in the technical as well as the organizational aspects of technology come in very handy in his current work as a researcher.
+    Toni obtained his PhD from the department of Theoretical Physics at the KU Leuven where he studied models for artificial neural networks.
 
 - name: Raf Winand
   class: alumnus
