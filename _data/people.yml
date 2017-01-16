@@ -59,7 +59,7 @@
   class: current
   title: PhD student
   email: thomas.debodt@kuleuven.be
-  image: photo_thomasdb.png
+  image: photo_thomasdb.jpg
   bio: |
     Thomas has a background in computer science. His research focus is using visual analytics on location data to enable insight generation. This has many applications, for example early identification of illegal activity at sea or improving people flow in a train station. This project is a collaboration between KULeuven and Luciad. Thomas has worked for 8 years as an R&D software engineer at Luciad, designing and realizing a high-performance visualization library for geospatial data. Through this research Luciad wants to scale its technology to the huge amount of location data available today.
 
