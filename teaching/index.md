@@ -7,6 +7,7 @@ exclude: true
 ## Courses run by the lab
 
 * [Summerschool Biological Data Visualization]({{ site.baseurl }}/teaching/summerschool/)
+* [G0R72A - Data Visualization in Data Science]({{ site.baseurl }}/teaching/g0r72a/)
 * [G0W36A - Capita Selecta in Statistics]({{ site.baseurl }}/teaching/g0w36a/)
 * [H09B7A - Beginselen van cel- en weefselbiologie]({{ site.baseurl }}/teaching/h09b7a/)
 * [I0U19A - Management of Large-Scale Omics Data]({{ site.baseurl }}/teaching/i0u19a/)
