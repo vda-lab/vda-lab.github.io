@@ -17,6 +17,7 @@ The schedule below lists 3 types:
 
 ## Teaching assistants
 * Thomas Moerman (thomas.moerman@esat.kuleuven.be) - scalability
+* Thomas De Bodt (thomas.debodt@luciad.be) - scalability
 * Daniel Alcaide (daniel.alcaide@esat.kuleuven.be) - visualization
 * Jansi Thiyagarajan (jansi.thiyagarajan@esat.kuleuven.be) - visualization
 * Houda Lamqaddam (houda.lamqaddam@esat.kuleuven.be) - visualization
@@ -26,23 +27,24 @@ The schedule below lists 3 types:
 
 | <small>Week</small> | <small>Date</small> | <small>Room</small> | <small>Type</small> | <small>Topic</small> |
 |:-----|:-----|:-----|:-----|:------|
-| <small>1</small> | <small>11/02/2016</small> | <small>200C 01.01 (PC class D)</small> | <small>lecture</small> | <small>What is big data?</small> |
-| <small>2</small> | <small>18/02/2016</small> | <small>200C 01.01 (PC class D)</small> | <small>lecture</small> | <small>Visual data analysis</small> |
-| <small>3</small> | <small>25/02/2016</small> | <small>200C 01-01 (PC class D)</small> | <small>exercise</small> | <small>Visual Data Analysis: p5.js</small> |
-| <small>4</small> | <small>03/03/2016</small> | <small>200C 01-01 (PC class D)</small> | <small>lecture</small> | <small>Lambda Architecture</small> |
-| <small>5</small> | <small>10/03/2016</small> | <small>no lecture</small> | <small></small> | <small></small> |
-| <small>6</small> | <small>17/03/2016</small> | <small>200C 01-01 (PC class D)</small> | <small>lecture</small> | <small>Data processing</small> |
-| <small>7</small> | <small>24/03/2016</small> | <small>no lecture</small> | <small></small> | <small></small> |
-| <small>8</small> | <small>14/04/2016</small> | <small>200C 01-01 (PC class D)</small> | <small>exercise</small> | <small>Data processing</small> |
-| <small>9</small> | <small>21/04/2016</small> | <small>ESAT B91.100</small> | <small>lecture</small> | <small>Document and graph databases</small> |
-| <small>10</small> | <small>28/04/2016</small> | <small>ESAT B91.100</small> | <small>exercise</small> | <small>Document databases</small> |
-| <small>11</small> | <small>12/05/2016</small> | <small>ESAT B91.100</small> | <small>exercise</small> | <small>Graph databases</small> |
-| <small>12</small> | <small>19/05/2016</small> | <small>no lecture</small> | <small></small> | <small></small> |
+| <small>1</small> | <small>16/02/2017</small> | <small>200C 01.01 (PC class D)</small> | <small>lecture</small> | <small>What is big data? + Dataviz</small> |
+| <small>2</small> | <small>23/02/2017</small> | <small>200C 01.01 (PC class D)</small> | <small>lecture</small> | <small>Visual data analysis</small> |
+| <small>3</small> | <small>02/03/2017</small> | <small>200C 01-01 (PC class D)</small> | <small>exercise</small> | <small>Visual Data Analysis: p5.js</small> |
+| <small>4</small> | <small>09/03/2017</small> | <small>200C 01-01 (PC class D)</small> | <small>lecture</small> | <small>Lambda Architecture</small> |
+| <small>5</small> | <small>16/03/2017</small> | <small>no lecture => MMDS</small> | <small></small> | <small></small> |
+| <small>6</small> | <small>23/03/2017</small> | <small>200C 01-01 (PC class D)</small> | <small>lecture</small> | <small>Data processing</small> |
+| <small>7</small> | <small>30/03/2017</small> | <small>200C 01-01 (PC class D)</small> | <small>exercise</small> | <small>Data processing</small> |
+| <small>8</small> | <small>20/04/2017</small> | <small>no lecture</small> | <small></small> | <small></small> |
+| <small>9</small> | <small>27/04/2017</small> | <small>ESAT B91.100</small> | <small>lecture</small> | <small>Document and graph databases</small> |
+| <small>10</small> | <small>04/05/2017</small> | <small>ESAT B91.100</small> | <small>exercise</small> | <small>Document databases</small> |
+| <small>11</small> | <small>11/05/2017</small> | <small>ESAT B91.100</small> | <small>exercise</small> | <small>Graph databases</small> |
+| <small>12</small> | <small>18/05/2017</small> | <small>no lecture</small> | <small></small> | <small></small> |
 
 
 <!---
 Note to self: to hide the lectures/sessions that are not relevant yet for the students, put them in a comment section, just like this note.
 -->
+<!---
 
 ## Sessions
 * 11/2/2016 - Introduction
@@ -54,8 +56,6 @@ Note to self: to hide the lectures/sessions that are not relevant yet for the st
   * [Exercise session]({{ site.baseurl }}/teaching/i0u19a/assets/lecture-week3-design.pdf)
 * 3/3/2016 - Lambda Architecture
   * [Lecture]({{ site.baseurl }}/teaching/i0u19a/assets/lecture-week4-lambdaarchitecture.pdf)
-
-<!---
 * 18/2/2016 Visual Data Analysis
   * [Assignment on SQL]({{ site.baseurl }}/teaching/i0u19a/sessions/RDBMS-exercises.html) => upload on Toledo before 18/2/2016
   * *Lecture* - to be done
