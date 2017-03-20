@@ -37,4 +37,4 @@ Evaluation will be based on a project. Using data from experts or open datasets,
 
 ## Previous years
 
-* [2015-2016]({{site.baseurl/teaching/g0w36a/2015/)
+* [2015-2016]({{site.baseurl/teaching/g0w36a/2015/}})
