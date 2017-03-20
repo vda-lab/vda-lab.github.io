@@ -1,5 +1,5 @@
 ---
-title: G0R72A
+title: G0R72A - Data Visualization in Data Science
 layout: page
 ---
 ## Teaching assistants
