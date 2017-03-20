@@ -1,5 +1,5 @@
 ---
-title: G0W36A - Capita Selecta in Statistics
+title: G0W36A - Capita Selecta in Statistics 2015-2016
 layout: page
 ---
 ## Teaching assistants
