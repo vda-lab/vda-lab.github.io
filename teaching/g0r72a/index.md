@@ -41,6 +41,9 @@ Evaluation will be based on a project. Using data from experts or open datasets,
   * [AvailabilityAssessment](https://availabilityassessment.wordpress.com/): Tom Van Acker
 * Tapestry dataset:
   * [Cornelia Visual](https://corneliavisual.wordpress.com/): Tho Nguyen and Tra Nguyen
+* Flight tracking:
+  * [Pixels](http://visualsfordata.wordpress.com/): Harini Jayashankar, Hong Yang and William Ngamou Tchuana
+
 
 ## Previous years
 
