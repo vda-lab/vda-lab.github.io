@@ -35,6 +35,13 @@ Evaluation will be based on a project. Using data from experts or open datasets,
 * 16/5: 
 * 23/5: full report on blog + final presentation 2nd iteration (2 min video + 7 min Q&A)
 
+## Projects
+
+* Industrial energy system:
+  * [AvailabilityAssessment](https://availabilityassessment.wordpress.com/): Tom Van Acker
+* Tapestry dataset:
+  * [Cornelia Visual](https://corneliavisual.wordpress.com/): Tho Nguyen and Tra Nguyen
+
 ## Previous years
 
 * [2015-2016]({{site.baseurl}}/teaching/g0w36a/2015/)
