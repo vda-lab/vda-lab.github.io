@@ -43,7 +43,8 @@ Evaluation will be based on a project. Using data from experts or open datasets,
   * [Cornelia Visual](https://corneliavisual.wordpress.com/): Tho Nguyen and Tra Nguyen
 * Flight tracking:
   * [Pixels](http://visualsfordata.wordpress.com/): Harini Jayashankar, Hong Yang and William Ngamou Tchuana
-
+* Traffic data:
+  * [DVisualization](https://dvisualization.wordpress.com/): Krina Menounou, Danai Kafetzaki and Michael Christidis
 
 ## Previous years
 
