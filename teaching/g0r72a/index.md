@@ -43,8 +43,13 @@ Evaluation will be based on a project. Using data from experts or open datasets,
   * [Cornelia Visual](https://corneliavisual.wordpress.com/): Tho Nguyen and Tra Nguyen
 * Flight tracking:
   * [Pixels](http://visualsfordata.wordpress.com/): Harini Jayashankar, Hong Yang and William Ngamou Tchuana
+  * [VizWiz](https://vizwizblog.wordpress.com/): Michael Gierscher, Louise Theeuwes and Vladimira Varbanova
 * Traffic data:
   * [DVisualization](https://dvisualization.wordpress.com/): Krina Menounou, Danai Kafetzaki and Michael Christidis
+* Work engagement:
+  * [NewExpectations](http://newexpectationsdatavisualization.blogspot.be/): Amanda Wintermans and Carlos Ortega Vázquez
+* Drug repurposing:
+  * [Visualig-prot](https://visualigprot.wordpress.com/): Anna Solin, Sebastian Rojas Gonzalez and Thomas De Bodt
 
 ## Previous years
 
