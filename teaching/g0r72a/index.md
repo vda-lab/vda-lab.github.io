@@ -28,7 +28,7 @@ Evaluation will be based on a project. Using data from experts or open datasets,
 * 14/3: advanced P5
 * 21/3: introduction to datasets
 * 28/3: present visuals in the wild (literature): submit to blog; TAs will select some to discuss
-* 18/4: 1st iteration: submit to blog; one-to-one feedback during session
+* 18/4: 1st iteration: submit to blog; presentation to rest of students (5 min + 5 min Q&A)
 * 25/4: 
 * 2/5: 2nd iteration (including coded sanity check): submit to blog; one-to-one feedback during session
 * 9/5: 
