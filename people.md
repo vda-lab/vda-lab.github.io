@@ -17,8 +17,8 @@ color: "#b3e2cd"
 <a href="http://www.twitter.com/{{person.twitter}}"><img src="{{site.baseurl}}/assets/twitter-logo.png" /></a>
 {% endif %}{% if person.website %}
 <a href="{{person.website}}"><img src="{{site.baseurl}}/assets/ic_link_black_24dp_1x.png" /></a>
-{% endif %}<br/>
-{{person.bio}}<br/>
+{% endif %}
+<br/>{{person.bio}}<br/>
 <br/>
 {% endif %}
 {% endfor %}
@@ -35,7 +35,7 @@ color: "#b3e2cd"
 {% endif %}{% if person.website %}
 <a href="{{person.website}}"><img src="{{site.baseurl}}/assets/ic_link_black_24dp_1x.png" /></a>
 {% endif %}{% if person.bio %}
-{{person.bio}}<br/>
+<br/>{{person.bio}}
 {% endif %}
 <br/>
 {% endif %}
@@ -46,9 +46,9 @@ color: "#b3e2cd"
 {% if person.class == 'visitor' %}
 <img src="{{site.baseurl}}/assets/{{person.image}}"/><br/>
 <b>{{person.name}}</b><br/>
-{{person.title}}<br/>
+{{person.title}}
 {% if person.bio %}
-{{person.bio}}<br/>
+<br/>{{person.bio}}
 {% endif %}
 <br/>
 {% endif %}
