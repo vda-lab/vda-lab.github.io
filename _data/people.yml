@@ -86,6 +86,7 @@
 
 - name: Raf Winand
   class: alumnus
+  title: PhD student
   image: photo_raf.jpg
   bio: |
     With a background in biology and bioinformatics Raf's work focused on biological data visualization and visual analytics. His research involved visualizing large phylogenetic trees and associated metadata. In particular he worked on the visualization of transmission of drug resistance mutations in a cohort of HIV patients.
@@ -93,16 +94,19 @@
 
 - name: Ryo Sakai
   class: alumnus
+  title: PhD student
   image: photo_ryo.jpeg
   bio: |
     Having a background in medical illustration and user experience design, Ryo's main research interests in the lab were visual analytics and biological data visualization. His work focused on developing interactive visualization systems in close collaboration with domain experts in life science to support exploration and analysis of the unprecedented scale and variety of data.
     Ryo Sakai obtained a Master’s degree in Biomedical Communications from the University of Toronto in 2008, a Master’s degree in Computing and Information Systems from Queen Mary University of London in 2009, and a Professional Doctorate in Engineering from the User System Interaction Program at Eindhoven University of Technology in 2011. He then joined the Bioinformatics Research Group in the Department of Electrical Engineering at KU Leuven for PhD research in biological data visualization. He defended his PhD in May 2016.
 
 - name: Georgios Pavlopoulos
+  title: Postdoctoral researcher
   class: alumnus
   image: photo_georgios.jpg
 
 - name: Alejandro Sifrim
+  title: PhD student
   class: alumnus
   image: photo_alejandro.jpg
 
