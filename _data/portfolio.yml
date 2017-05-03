@@ -4,6 +4,12 @@
   url: http://vda-lab.github.io/card_sorting.html
   image: cardsorting_segment.png
 
+- title: FlyPlot
+  class: viz
+  description: Visualizing dosage-related drug response for L1000 data
+  url: http://vda-lab.github.io/flyplot.html
+  image: FlyPlot_segment.png
+
 - title: Triovis
   class: viz
   description: Using trio-information to filter NGS reads
