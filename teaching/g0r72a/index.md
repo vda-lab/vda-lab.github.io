@@ -33,7 +33,7 @@ Evaluation will be based on a project. Using data from experts or open datasets,
 * 2/5: 2nd iteration (including coded sanity check): submit to blog; one-to-one feedback during session
 * 9/5: 
 * 16/5: 
-* 23/5: full report on blog + final presentation 2nd iteration (2 min video + 7 min Q&A)
+* 23/5: full report submitted to Toledo + final presentation 2nd iteration (2 min video + 7 min Q&A)
 
 ## Projects
 
