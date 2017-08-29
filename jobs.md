@@ -6,9 +6,47 @@ navigation_weight: 5
 color: "#f4cae4"
 ---
 
-We don't have specific open positions available at the moment. However, we do welcome inquiries regarding PhD or postdoc research if these address major questions in visual data analysis (e.g. visual design, computational or perceptual scalability, interaction with the expert user). In case of a good fit we can apply for specific funding for this.
+## :: PhD position in data visualization and analytics in archaeology ::
+
+The Visual Data Analysis Lab and Research[x]Design Lab at the KU Leuven (Belgium) have a joint open PhD position in the field of data science and visualization / interaction design. The candidate will be part of a multidisciplinary team of researchers around the **Sagalassos Archaeological Research Project, covering the domains of archaeology, geography, ecology and spatial planning**.
+
+### The project
+
+We seek to unravel the interdisciplinary understanding of change and its space/time dimensions within already existing and future data sources of the Sagalassos project (running since 1986), which investigates an archaeological site in Turkey and studies its uninterrupted occupation over nearly 2,000 years in all its aspects, from daily life, diet, religious beliefs, to architecture, production, trade and its mechanisms, as well as natural resources and environmental conditions of the past.
+
+This is a joint project between research groups of archaeology, ecology, geography, architecture and data analysis/visualization (STADIUS and RxD). The candidate will be supervised by Profs Aerts and Vande Moere at STADIUS and RxD, respectively, in close collaborations with the other partners in the project.
+
+Links:
+
+* Research[x]Design: http://rxd.architectuur.kuleuven.be/
+* Visual Data Analysis Lab: http://vda-lab.be
+* Sagalassos Archaeological Research Project: http://www.sagalassos.be
+
+### Profile
+
+Candidates must have a **Master's degree or equivalent in computer science, computational design or a related field**, and have very good knowledge of **data visualization or data analytics, and human-computer interaction**, or demonstrate the ability to acquire sufficient skills in all of these areas. Solid programming skills and fluency in spoken and written English are required and could be evidenced by examples of working visualisations.
+
+Tasks will include the **user-centered and iterative design of visualisations that are able to meaningfully combine inherently disparate data sources from different disciplines** (i.e. archaeology; geography; ecology; spatial planning) that are involved in the Sagalassos project, and the **evaluation of these visualisations in terms of (synchronous) cross-disciplinary and collaborative insight and hypothesis generation**.
+
+As such, the candidate is expected to merge the expertise from the fields of **human-computer interaction** (i.e. user studies, interaction design, prototyping, evaluation) with that of **visual analytics** (i.e. combining representation with machine learning; incl. clustering and dimensionality reduction). Depending on the potential interaction requirements, explorations towards promising emerging technologies such as augmented reality (AR) and/or physicalisation are possible.
+
+Please note short-listed candidates might be asked to fulfil concise assignments to test their proficiency.
+
+### Offer 
+
+We offer:
+
+* Full-time employment starting January 1st 2018 for a period of four years, with the aim of obtaining a PhD degree
+* A competitive salary
+* A stimulating scientific working environment, within one of Europe's leading research universities
+
+### Contact
+
+For more information please contact Prof. dr. ir. Jan Aerts, tel.: +32 16 32 10 53, jan.aerts@kuleuven.be or Prof. dr. Andrew Vande Moere, tel.: +32 16 32 13 62, andrew.vandemoere@kuleuven.be. Please apply through this website: http://icts.kuleuven.be/apps/jobsite/vacatures/54312858
 
 {% comment %}
+
+We don't have specific open positions available at the moment. However, we do welcome inquiries regarding PhD or postdoc research if these address major questions in visual data analysis (e.g. visual design, computational or perceptual scalability, interaction with the expert user). In case of a good fit we can apply for specific funding for this.
 
 ## :: Visualizing text from patient records ::
 
