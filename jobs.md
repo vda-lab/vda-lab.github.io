@@ -18,9 +18,9 @@ This is a joint project between research groups of archaeology, ecology, geograp
 
 Links:
 
-* Research[x]Design: http://rxd.architectuur.kuleuven.be/
-* Visual Data Analysis Lab: http://vda-lab.be
-* Sagalassos Archaeological Research Project: http://www.sagalassos.be
+* Research[x]Design: [http://rxd.architectuur.kuleuven.be/](http://rxd.architectuur.kuleuven.be/)
+* Visual Data Analysis Lab: [http://vda-lab.be](http://vda-lab.be)
+* Sagalassos Archaeological Research Project: [http://www.sagalassos.be](http://www.sagalassos.be)
 
 ### Profile
 
@@ -42,7 +42,7 @@ We offer:
 
 ### Contact
 
-For more information please contact Prof. dr. ir. Jan Aerts, tel.: +32 16 32 10 53, jan.aerts@kuleuven.be or Prof. dr. Andrew Vande Moere, tel.: +32 16 32 13 62, andrew.vandemoere@kuleuven.be. Please apply through this website: http://icts.kuleuven.be/apps/jobsite/vacatures/54312858
+For more information please contact Prof. dr. ir. Jan Aerts, tel.: +32 16 32 10 53, jan.aerts@kuleuven.be or Prof. dr. Andrew Vande Moere, tel.: +32 16 32 13 62, andrew.vandemoere@kuleuven.be. Please apply through the [KU Leuven open positions website](http://icts.kuleuven.be/apps/jobsite/vacatures/54312858)
 
 {% comment %}
 
