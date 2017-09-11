@@ -66,3 +66,9 @@
   class: HIV
   description: See our paper Winand R et al (2015) Assessing transmissibility of HIV-1 drug resistance mutations from treated and from drug-naive individuals. Aids, 29(15), 2045–2052
   image: hiv_segment.png
+
+- title: VisIT
+  class: viz
+  description: Visualizing iterations over text
+  url: http://vda-lab.github.io/visit.html
+  image: visit_segment.png
