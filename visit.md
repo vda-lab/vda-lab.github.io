@@ -11,10 +11,10 @@ In this work, Seiji developed visualizations at two levels: large-scale and smal
 
 **Large scale visualization**
 
-The large-scale visualization provides an overview of the changes over the total lengths of the documents. Two visuals are presented: an alluvial diagram and dotplot (see Figure 1). The alluvial diagram basically shows the two version on top of each other and draws arcs between those parts that are common. In Figure 1, consecutive blocks of text that have matching blocks in the same order are merged, hence the grey triangular shapes. Without this aggregation, some patterns may or may not become more clear (see Figure 2). The bioinformatics-inspired dotplot gives another view on the same data. The two versions of text are laid out on the horizontal and vertical axis. Any match between the two is represented as a line in this plot.
+The large-scale visualization provides an overview of the changes over the total lengths of the documents. Two visuals are presented: an alluvial diagram and dotplot (see Figure 1). The alluvial diagram basically shows the two version on top of each other and draws arcs between those parts that are common. In Figure 1, consecutive blocks of text that have matching blocks in the same order are merged, hence the grey triangular shapes. Without this aggregation, some patterns may or may not become more clear (see Figure 2). The bioinformatics-inspired [dotplot](https://en.wikipedia.org/wiki/Dot_plot_(bioinformatics)) gives another view on the same data. The two versions of text are laid out on the horizontal and vertical axis. Any match between the two is represented as a line in this plot.
 
 ![visit_large]({{ site.baseurl }}/assets/visit_largescale.png)<br/>
-<small><i>Figure 1 - Large-scale visualization. Left: alluvial diagram; right: [dotplot](https://en.wikipedia.org/wiki/Dot_plot_(bioinformatics))</i></small>
+<small><i>Figure 1 - Large-scale visualization. Left: alluvial diagram; right: dotplot</i></small>
 
 ![visit_noaggregation]({{ site.baseurl }}/assets/visit_noaggregation.png)<br/>
 <small><i>Figure 2 - Alluvial diagram without aggregation</i></small>
