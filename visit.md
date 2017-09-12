@@ -5,7 +5,7 @@ permalink: visit.html
 ---
 One of the issues when co-writing/editing a larger document (be it a paper or a project proposal) is that it becomes tricky to keep track of how a document changed over time. Comments that I often give on drafts include sections to be moved, thoughts to be rephrased, etc. Yes, Microsoft Word does have _track changes_, but that is not able to show structural changes. Moving a paragraph to another part in a document will result in a _deletion_ and an unrelated _insertion_, rather a _translocation_ (in genomics-speak). The same is true for, for example, version control in Google Documents. We have long felt that other solutions should be available to help in better understanding how different versions of a text relate to each other.
 
-In his MSc thesis, Seiji Kumagai developed a tool for exploring large- and small-scale differences between different iterations of a text document. This represents one step towards a method for editing documents that takes their history into account.
+In his MSc thesis and based on preliminary work done by Houda from our group, Seiji Kumagai developed a tool for exploring large- and small-scale differences between different iterations of a text document. This represents one step towards a method for editing documents that takes their history into account.
 
 In this work, Seiji developed visualizations at two levels: large-scale and small-scale. Two versions of a text are first analyzed to check which parts are common between them (based on the Burrows-Wheeler transform of the text).
 
