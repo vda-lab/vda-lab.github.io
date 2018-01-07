@@ -47,3 +47,5 @@ The bar is a rectangle of fixed height, where the width is proportional to the l
 <img src="{{ site.baseurl }}/assets/coral_final.png">
 
 <small><i>Final design</i></small>
+
+The final tool is available [here](http://homes.esat.kuleuven.be/~hlamqadd/coral/timeLineView.html).
