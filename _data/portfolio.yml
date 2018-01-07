@@ -1,3 +1,9 @@
+- title: Coral
+  class: viz
+  description: Visualization on early modern Flemish art
+  url: http://vda-lab.github.io/coral.html
+  image: coral.png
+
 - title: Card sorting
   class: viz
   description: A methodology for identifying a user's underlying goals
