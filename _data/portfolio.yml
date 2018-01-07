@@ -2,7 +2,7 @@
   class: viz
   description: Visualization on early modern Flemish art
   url: http://vda-lab.github.io/coral.html
-  image: coral.png
+  image: coral_segment.png
 
 - title: Card sorting
   class: viz
