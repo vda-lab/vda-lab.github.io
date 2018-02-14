@@ -19,11 +19,30 @@ The schedule below lists 3 types:
 * Thomas Moerman (thomas.moerman@esat.kuleuven.be) - scalability
 * Thomas De Bodt (thomas.debodt@luciad.be) - scalability
 * Daniel Alcaide (daniel.alcaide@esat.kuleuven.be) - visualization
-* Jansi Thiyagarajan (jansi.thiyagarajan@esat.kuleuven.be) - visualization
-* Houda Lamqaddam (houda.lamqaddam@esat.kuleuven.be) - visualization
 
 
 ## Schedule
+
+| <small>Week</small> | <small>Date</small> | <small>Room</small> | <small>Type</small> | <small>Topic</small> |
+|:-----|:-----|:-----|:-----|:------|
+| <small>1</small> | <small>15/02/2017</small> | <small>200C 01.01 (PC class D)</small> | <small>lecture</small> | <small>What is big data? + Docker + Dataviz</small> |
+| <small>2</small> | <small>22/02/2017</small> | <small>200C 01.01 (PC class D)</small> | <small>lecture</small> | <small>Dataviz</small> |
+| <small>3</small> | <small>01/03/2017</small> | <small>200C 01-01 (PC class D)</small> | <small>lecture</small> | <small>Lambda architecture</small> |
+| <small>4</small> | <small>08/03/2017</small> | <small>200C 01-01 (PC class D)</small> | <small>lecture</small> | <small>Document & graph databases</small> |
+| <small>5</small> | <small>15/03/2017</small> | <small>200C 01-01 (PC class D)</small> | <small>exercise</small> | <small>Document databases</small> |
+| <small>6</small> | <small>22/03/2017</small> | <small>200C 01-01 (PC class D)</small> | <small>exercise</small> | <small>Graph databases</small> |
+| <small>7</small> | <small>29/03/2017</small> | <small>200C 01-01 (PC class D)</small> | <small>lecture</small> | <small>Data processing</small> |
+| <small>8</small> | <small>19/04/2017</small> | <small>200C 01-01 (PC class D)</small> | <small>exercise</small> | <small>Data processing</small> |
+| <small>9</small> | <small>26/04/2017</small> | <small>ESAT B91.100</small> | <small>lecture</small> | <small>Dimensionality reduction & clustering</small> |
+| <small>10</small> | <small>03/05/2017</small> | <small>ESAT B91.100</small> | <small>lecture</small> | <small>Ethics</small> |
+| <small>11</small> | <small>17/05/2017</small> | <small>ESAT B91.100</small> | <small>lecture</small> | <small>Ethics</small> |
+| <small>12</small> | <small>24/05/2017</small> | <small>ESAT B91.100</small> | <small>lecture</small> | <small>Ethics</small> |
+
+
+<!---
+Note to self: to hide the lectures/sessions that are not relevant yet for the students, put them in a comment section, just like this note.
+-->
+<!---
 
 | <small>Week</small> | <small>Date</small> | <small>Room</small> | <small>Type</small> | <small>Topic</small> |
 |:-----|:-----|:-----|:-----|:------|
@@ -39,12 +58,6 @@ The schedule below lists 3 types:
 | <small>10</small> | <small>04/05/2017</small> | <small>ESAT B91.100</small> | <small>exercise</small> | <small>Document databases</small> |
 | <small>11</small> | <small>11/05/2017</small> | <small>ESAT B91.100</small> | <small>exercise</small> | <small>Graph databases</small> |
 | <small>12</small> | <small>18/05/2017</small> | <small>no lecture</small> | <small></small> | <small></small> |
-
-
-<!---
-Note to self: to hide the lectures/sessions that are not relevant yet for the students, put them in a comment section, just like this note.
--->
-<!---
 
 ## Sessions
 * 11/2/2016 - Introduction
