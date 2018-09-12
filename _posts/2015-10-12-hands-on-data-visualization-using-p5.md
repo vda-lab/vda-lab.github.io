@@ -11,7 +11,7 @@ tags:
 - howto
 ---
 <script type="text/javascript" src="{{site.baseurl}}/p5.min.js"></script>
-This is the p5 ([http://p5js.org](http://p5js.org)) version of the Processing tutorial that I published [earlier]({{ site.baseurl }}/2015/03/hands-on-data-visualization-using-processing-the-python-version/index.html). P5 is a javascript version of the very popular [Processing](http://processing.org) tool. This tutorial holds numerous code snippets that can by copy/pasted and modified for your own purpose. The contents of this tutorial is available under the CC-BY license.
+This is a p5 ([http://p5js.org](http://p5js.org)) version of the Processing tutorial that I published [earlier]({{ site.baseurl }}/2015/03/hands-on-data-visualization-using-processing-the-python-version/index.html). P5 is a javascript version of the very popular [Processing](http://processing.org) tool. This tutorial holds numerous code snippets that can by copy/pasted and modified for your own purpose. The contents of this tutorial is available under the CC-BY license.
 
 ![cc-by]({{ site.baseurl }}/assets/ccby.png)
 
@@ -30,6 +30,8 @@ P5 is a language based on javascript. You can either use its own development env
 
 ### Download and install the p5 development environment
 We'll make things easy and just use the P5 integrated development environment. Download it from [http://p5js.org/download/](http://p5js.org/download/). There are Mac and Windows versions available.
+
+**UPDATE 2018**: The IDE mentioned here to download has been deprecated and is no longer supported. A webinterface has been released to replace this, at [http://editor.p5js.org](http://editor.p5js.org). Another user interface is available at [http://www.openprocessing.org](http://www.openprocessing.org) which is geared towards e.g. creating scripts for courses etc.
 
 ### A minimal script
 A minimal script is provided below.
@@ -69,6 +71,8 @@ Finally, we set the colour of lines to blue (`stroke(0,0,255)`), the stroke weig
 Both `fill` and `stroke` are used to set colour: `fill` to set the colour of the shape, `stroke` to set the colour of the border around that shape. In case of *lines*, only the `stroke` colour can be set.
 
 Several drawing primitives exist, including `line`, `rect`, `triangle`, and `ellipse` (a circle is an ellipse with the same horizontal and vertical radius). A treasure trove of information for these is available in the [P5 reference pages](http://p5js.org/reference/).
+
+![P5 reference]({{ site.baseurl }}/assets/p5_reference.png)
 
 Apart from these primitives, P5 contains functions that modify properties of these primitives. These include setting the fill color (`fill`), color of lines (`stroke`), and line weight (`lineWeight`). Again, the reference pages host all information.
 
