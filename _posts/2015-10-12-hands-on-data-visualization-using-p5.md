@@ -1229,6 +1229,211 @@ The resulting figure should look like this (without the annotated text):
 
 *Figure 13 - Brushing and linking between departure and arrival airports*
 
+#### Speeding things up: only drawing what needs to be drawn
+
+In the example above, every time we move the mouse we draw *all* airports: the ones that are not selected in blue and the ones that are in red. Obviously it takes time to draw all those blue points even if they don't change. But there is a better way: drawing to buffer. The main idea here is to draw all airports to an offline image that can be loaded quickly. Every time the user moves the mouse that image is just displayed (and not all airports have to be drawn separately again), and only the selected airports are drawn. The function to be used is [`createGraphics`](https://p5js.org/reference/#/p5/createGraphics). So:
+
+1. In the `setup()` function: create an image (technically a P5.Renderer object) by looping over all datapoints
+1. In the `draw()` function: load the image, and if necessary draw other things on top
+
+What it looks like in code (script 18):
+
+*Script 18*
+{% highlight javascript linenos %}
+var table;
+var flights = [];
+
+var pg
+
+var flight = function(d,flo,fla,tlo,tla,fc,tc) {
+  this.distance = d
+  this.from_long = flo
+  this.from_lat = fla
+  this.to_long = tlo
+  this.to_lat = tla
+  this.from_country = fc
+  this.to_country = tc
+
+  this.departureX = map(this.from_long, -180,180,0,width)
+  this.departureY = map(this.from_lat, -90,90,height/2,0)
+  this.arrivalX = map(this.to_long, -180,180,0,width)
+  this.arrivalY = map(this.to_lat, -90,90,height,height/2)
+
+  this.selected = function() {
+    if ( dist(mouseX, mouseY, this.departureX, this.departureY) < 10 ) {
+        return true
+    } else {
+        return false
+    }
+  }
+
+  this.drawBackgroundAirport = function() {
+    pg.ellipse(this.departureX, this.departureY, 5,5)
+    pg.ellipse(this.arrivalX, this.arrivalY, 5,5)
+  }
+	
+  this.drawSelectedAirport = function() {
+    if ( this.selected() ) {
+      fill(255,0,0,25)
+      ellipse(this.departureX, this.departureY, 5,5)
+      ellipse(this.arrivalX, this.arrivalY, 5,5)
+    }
+  }
+}
+
+function preload() {
+  table = loadTable("flights.csv","csv","header")
+}
+
+function setup() {
+  createCanvas(800, 800);
+  noStroke()
+  noLoop()
+	
+  var rows = table.getRows()
+  for ( var i in rows ) {
+    var from_airport = rows[i].getString("from_airport")
+    var from_city = rows[i].getString("from_city")
+    var from_country = rows[i].getString("from_country")
+    var from_long = rows[i].getNum("from_long")
+    var from_lat = rows[i].getNum("from_lat")
+    var to_airport = rows[i].getString("to_airport")
+    var to_city = rows[i].getString("to_city")
+    var to_country = rows[i].getString("to_country")
+    var to_long = rows[i].getNum("to_long")
+    var to_lat = rows[i].getNum("to_lat")
+    var airline = rows[i].getString("airline")
+    var airline_country = rows[i].getString("airline_country")
+    var distance = rows[i].getNum("distance")
+
+    var this_flight = new flight(distance, from_long, from_lat, to_long, to_lat, from_country, to_country)
+    flights.push(this_flight)
+  }
+
+  pg = createGraphics(800,800);
+  pg.background(255,255,255);
+  pg.noStroke();
+  pg.fill(0,0,0,1);
+  for ( var i in flights ) {
+    flights[i].drawBackgroundAirport()
+	}
+}
+
+function draw() {
+  background(255,255,255)
+  image(pg,0,0)
+  for ( var i in flights ) {
+    flights[i].drawSelectedAirport()
+  }
+}
+
+function mouseMoved() {
+  redraw()
+}
+{% endhighlight %}
+
+The interactive version:
+<div id="draw_to_buffer"></div>
+<script>
+var dtb = function(p) {
+  var table;
+  var flights = [];
+
+  var pg;
+
+  var flight = function(d,flo,fla,tlo,tla,fc,tc) {
+    this.distance = d
+    this.from_long = flo
+    this.from_lat = fla
+    this.to_long = tlo
+    this.to_lat = tla
+    this.from_country = fc
+    this.to_country = tc
+
+    this.departureX = p.map(this.from_long, -180,180,0,p.width)
+    this.departureY = p.map(this.from_lat, -90,90,p.height/2,0)
+    this.arrivalX = p.map(this.to_long, -180,180,0,p.width)
+    this.arrivalY = p.map(this.to_lat, -90,90,p.height,p.height/2)
+
+    this.selected = function() {
+      if ( p.dist(p.mouseX, p.mouseY, this.departureX, this.departureY) < 10 ) {
+          return true
+      } else {
+          return false
+      }
+    }
+
+    this.drawBackgroundAirport = function() {
+      pg.ellipse(this.departureX, this.departureY, 5,5)
+      pg.ellipse(this.arrivalX, this.arrivalY, 5,5)
+    }
+
+    this.drawSelectedAirport = function() {
+      if ( this.selected() ) {
+        p.fill(255,0,0,25)
+        p.ellipse(this.departureX, this.departureY, 5,5)
+        p.ellipse(this.arrivalX, this.arrivalY, 5,5)
+      }
+    }
+  }
+
+  p.preload = function() {
+    table = p.loadTable("{{site.baseurl}}/assets/flights_part.csv","csv","header")
+  }
+
+  p.setup = function() {
+    var myCanvas = p.createCanvas(600, 600)
+    myCanvas.parent('draw_to_buffer')
+    p.noStroke()
+    p.noLoop()
+
+    var rows = table.getRows()
+    for ( var i in rows ) {
+      var from_airport = rows[i].getString("from_airport")
+      var from_city = rows[i].getString("from_city")
+      var from_country = rows[i].getString("from_country")
+      var from_long = rows[i].getNum("from_long")
+      var from_lat = rows[i].getNum("from_lat")
+      var to_airport = rows[i].getString("to_airport")
+      var to_city = rows[i].getString("to_city")
+      var to_country = rows[i].getString("to_country")
+      var to_long = rows[i].getNum("to_long")
+      var to_lat = rows[i].getNum("to_lat")
+      var airline = rows[i].getString("airline")
+      var airline_country = rows[i].getString("airline_country")
+      var distance = rows[i].getNum("distance")
+
+      var this_flight = new flight(distance, from_long, from_lat, to_long, to_lat, from_country, to_country)
+      flights.push(this_flight)
+    }
+
+    pg = p.createGraphics(800,800)
+    pg.background(255,255,255)
+    pg.noStroke()
+    pg.fill(0,0,0,1)
+    for ( var i in flights ) {
+      flights[i].drawBackgroundAirport()
+    }
+  }
+
+  p.draw = function() {
+    p.background(255,255,255)
+    p.image(pg,0,0)
+    for ( var i in flights ) {
+      flights[i].drawSelectedAirport()
+    }
+  }
+
+  p.mouseMoved = function() {
+    if ( p.mouseX > 0 && p.mouseX < p.width && p.mouseY > 0 && p.mouseY < p.height ) {
+      p.redraw()
+      return false
+    }
+  }
+}
+var dtb_viz = new p5(dtb)
+</script>
+
 ## Whereto from here?
 
 There are many different ways to show this information. This exact same dataset was visualized by Till Nagel during the visualization challenge in 2012 from visualising.org. Part of his entry is shown in Figure 14.
