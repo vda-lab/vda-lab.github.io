@@ -1,21 +1,48 @@
 - name: Jan Aerts
   class: current
-  title: Associate professor
+  title: Full professor
   orcid: http://orcid.org/0000-0002-6416-2717
   image: photo_jan.jpeg
-  email: jan.aerts@kuleuven.be
+  email: jan.aerts@uhasselt.be
   twitter: jandot
   blog: http://saaientist.blogspot.com
   bio: |
-    Jan has a background in genetics and genomics, and performed his doctoral research at the University of Wageningen (Netherlands) on the Chicken Genome Sequencing Project. He then moved to Scotland to work as a postdoctoral researcher at the Roslin Institute on the Cow Genome Sequencing Project. Next, he continued his research at the Wellcome Trust Sanger Institute near Cambridge (UK) focusing on structural variation in the human and other primate genomes. At his return to Belgium in 2010, he shifted focus to data visualization and visual analytics, with the aim of finding interesting questions in large datasets (big data). His main research topics revolve around visual design, interaction design, and (human and computational) scalability. He collects inspiration for (both good and bad) visualizations on his pinterest board.
+    Jan has a background in genetics and genomics, and performed his doctoral research at the University of Wageningen (Netherlands) on the Chicken Genome Sequencing Project. He then moved to Scotland to work as a postdoctoral researcher at the Roslin Institute on the Cow Genome Sequencing Project. Next, he continued his research at the Wellcome Trust Sanger Institute near Cambridge (UK) focusing on structural variation in the human and other primate genomes. At his return to Belgium at the KU Leuven in 2010 (as assistent and later associate professor), he shifted focus to data visualization and visual analytics, with the aim of finding interesting questions in large datasets (big data). His main research topics revolve around visual design, interaction design, and (human and computational) scalability. Since 2019, he is professor at Hasselt University where he continues his visual analytics work and helps build a new Data Science Institute.
 
-    Jan is on the organizing committees of BioVis and Beyond The Genome, and has chaired visualization-related sessions at conferences including VIZBI, the Bioinformatics Open Source Conference BOSC and EuroVis/VMLS. He is also Associate Editor for the BioMedCentral Thematic Series on Biological Data Visualization, and academic editor for PLoS One. He is member of the Young Academy – Royal Flemish Academy of Belgium for Sciences and the Arts.
+    Jan has been on the organising committees of several conferences (including BioVis and Beyond The Genome), and has chaired visualization-related sessions at conferences including VIZBI, the Bioinformatics Open Source Conference BOSC and EuroVis/VMLS. He is also Associate Editor for the BioMedCentral Thematic Series on Biological Data Visualization, and academic editor for PLoS One. He was founding member of the Young Academy – Royal Flemish Academy of Belgium for Sciences and the Arts.
 
-- name: Thomas Moerman
+- name: Daniel Alcaide
   class: current
   title: PhD student
+  email: daniel.alcaide@kuleuven.be
+  image: photo_daniel.jpg
+  bio: |
+    Daniel Alcaide is a PhD student at the Department of Electrical Engineering at KU Leuven. He conducts research in interactive visualisation and data analysis to bring insight into large and complex data. He worked as a statistician in various areas related to clinical development in Barcelona where he learned about the power of visual representation to communicate information.
+    Daniel obtained a Master’s in Statistics and Operational Research at Universitat Politècnica de Catalunya in 2012 and a Master’s in Visual Analytics and Big Data at Universidad Internacional de la Rioja in 2015.
+
+- name: Houda Lamqaddam
+  class: current
+  title: PhD student
+  email: houda.lamqaddam@kuleuven.be
+  image: photo_houda.png
+  bio: |
+    [w/ Katrien Verbert & Koen Brosens] With background in computer science and communication, Houda is interested in making software easy to use and understand. She believes in the importance of including end users in the design process and enjoys finding out their needs and translating them into functional requirements. She currently works under the main supervison of Katrien Verbert and Koenraad Brosens on the visual representation of social networks in the domain of art history.
+    Houda has a bachelor's degree in Computer Science from Al Akhawayn University in Ifrane, Morocco, and a joint Masters degree in Human-Computer Interaction from the ENAC and the Université Paul Sabatier in Toulouse, France.
+
+- name: Georgia Panagiotidou
+  class: current
+  title: PhD student
+  email: georgia.panagiotidou@kuleuven.be
+  image: photo_georgia.jpg
+  twitter: geodotzip
+  bio: |
+    [w/ Andrew Vande Moere & Jeroen Poblome] Georgia is currently doing her PhD as part of the Sagalassos research team where she is analysing the potential of data visualization on cross-disciplinary data exploration (under the main supervision of Andrew Vande Moere). Before joining KU Leuven, she was working as a media designer, offering her expertise to data journalism and data-driven projects with NGOs such as Open Knowledge Finland and as part of Finnish daily Helsingin Sanomat. During her MA she received a Finnish Culture Grant with which she created experimental visualizations of the Finnish epic, the Kalevala. She has a BSc in Informatics and Telecommunications from the National and Capodistrian University of Athens and an MA in New Media from Aalto School of Arts, Design and Architecture, Finland.
+
+- name: Thomas Moerman
+  class: alumnus
+  title: PhD student
   image: photo_thomas.jpg
-  email: thomas.moerman@esat.kuleuven.be
+  email: thomas.moerman@gmail.com
   twitter: thomasjmoerman
   bio: |
     Thomas is a PhD student at both the Universiteit Antwerpen and KU Leuven (joint PhD).
@@ -29,14 +56,14 @@
     Thomas obtained a Master’s degree in Informatics in 2002 and an Advanced Master’s
     degree in Artificial Intelligence in 2003 at the KU Leuven.
 
-- name: Daniel Alcaide
-  class: current
+- name: Thomas De Bodt
+  class: alumnus
   title: PhD student
-  email: daniel.alcaide@kuleuven.be
-  image: photo_daniel.jpg
+  email: thomas.debodt@kuleuven.be
+  orcid: http://orcid.org/0000-0002-3813-6064
+  image: photo_thomasdb.jpg
   bio: |
-    Daniel Alcaide is a PhD student at the Department of Electrical Engineering at KU Leuven. He conducts research in interactive visualisation and data analysis to bring insight into large and complex data. He worked as a statistician in various areas related to clinical development in Barcelona where he learned about the power of visual representation to communicate information.
-    Daniel obtained a Master’s in Statistics and Operational Research at Universitat Politècnica de Catalunya in 2012 and a Master’s in Visual Analytics and Big Data at Universidad Internacional de la Rioja in 2015.
+    Thomas has a background in computer science. His research focus is using visual analytics on location data to enable insight generation. This has many applications, for example early identification of illegal activity at sea or improving people flow in a train station. This project is a collaboration between KULeuven and Luciad. Thomas has worked for 8 years as an R&D software engineer at Luciad, designing and realizing a high-performance visualization library for geospatial data. Through this research Luciad wants to scale its technology to the huge amount of location data available today.
 
 - name: Jansi Thiyagarajan
   class: alumnus
@@ -45,24 +72,6 @@
   image: photo_jansi.jpg
   bio: |
     Jansi has a techno-functional background. She obtained her Bachelor degree in Electrical Engineering from Anna University in India and a Master degree in International Business from ESC Grenoble in France. She started her career as a marketer and then moved to the area of commercial data analytics owing to her interest in making sense of data to drive business. She strongly believes that visualisation is the most effective way to communicate the insights and finds it exciting to visualise data from different domains. Her current research focuses on visualising genomic and healthcare data.
-
-- name: Houda Lamqaddam
-  class: current
-  title: PhD student
-  email: houda.lamqaddam@kuleuven.be
-  image: photo_houda.png
-  bio: |
-    With background in computer science and communication, Houda is interested in making software easy to use and understand. She believes in the importance of including end users in the design process and enjoys finding out their needs and translating them into functional requirements.
-    Houda has a bachelor's degree in Computer Science from Al Akhawayn University in Ifrane, Morocco, and a joint Masters degree in Human-Computer Interaction from the ENAC and the Université Paul Sabatier in Toulouse, France.
-
-- name: Thomas De Bodt
-  class: current
-  title: PhD student
-  email: thomas.debodt@kuleuven.be
-  orcid: http://orcid.org/0000-0002-3813-6064
-  image: photo_thomasdb.jpg
-  bio: |
-    Thomas has a background in computer science. His research focus is using visual analytics on location data to enable insight generation. This has many applications, for example early identification of illegal activity at sea or improving people flow in a train station. This project is a collaboration between KULeuven and Luciad. Thomas has worked for 8 years as an R&D software engineer at Luciad, designing and realizing a high-performance visualization library for geospatial data. Through this research Luciad wants to scale its technology to the huge amount of location data available today.
 
 - name: Jaume Nualart
   class: alumnus
