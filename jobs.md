@@ -17,7 +17,6 @@ The candidate will work in close collaboration with a genomics researcher, and b
 
 * Analysis and deconstruction of prior work
 * Co-develop data schema, develop data storage solution, and data loading scripts for omics-specific data
-* Develop methods for semantics-aware data clustering and dimensionality reduction (based on tSNE, ...)
 * Develop proof-of-concept interface which links different visualisations
 * Implementation of custom visuals designed by visualisation experts
 
@@ -38,7 +37,7 @@ Please submit - in PDF format:
 * curriculum vitae
 * motivation letter
 * a brief description how you would approach this problem, and which technologies you would use
-* link(s) to work that you already did regarding webdevelopment
+* link(s) to work that you already did regarding web-development
 
 {% comment %}
 

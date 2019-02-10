@@ -13,7 +13,7 @@ Agoralaan Gebouw D - B-3590 Diepenbeek<br/>
 Belgium<br/>
 office: E126<br/>
 phone: +32 (0)11 268197
-<br/>
+
 KU Leuven, ESAT/STADIUS<br/>
 Kasteelpark Arenberg 10, bus 2446<br/>
 B-3001 Leuven<br/>
