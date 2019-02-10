@@ -5,6 +5,42 @@ menu: main
 navigation_weight: 5
 color: "#f4cae4"
 ---
+## :: Scientific programmer in data visualisation ::
+
+Although different generic data visualisation tools exist (such as Tableau and Spotfile), there is a specific need for custom visualisation (eg hive plots, horizon charts, and plots that incorporate domain-specific information) when working with complex datasets. In this project we will build a **framework for creating custom visualisations and combining these in a dashboard-setting**. The aim is to create the necessary **front- and backend** to allow for (1) easily creating and incorporating new visual modules (conceptually similar to https://github.com/jandot/bio-graphics), (2) combining these visual modules in a single interface, and (3) incorporating a biological ontology which links biological concepts to features in the visuals.
+
+The code developed in this project will be partly open sourced, and we aim for reaching a large community in the biological sciences initially, but later also in other domains.
+
+### Job description
+
+The candidate will work in close collaboration with a genomics researcher, and be responsible for:
+
+* Analysis and deconstruction of prior work
+* Co-develop data schema, develop data storage solution, and data loading scripts for omics-specific data
+* Develop methods for semantics-aware data clustering and dimensionality reduction (based on tSNE, ...)
+* Develop proof-of-concept interface which links different visualisations
+* Implementation of custom visuals designed by visualisation experts
+
+### Profile
+
+We offer a challenging position within a dynamic and stimulating environment and ask for a highly motivated, enthusiastic and pro-active person. The applicant needs to have demonstrable experience in web-development and software management. This includes strong programming skills in javascript and if possible python, and/or clojurescript.
+
+### Appointment
+
+The successful candidate will be appointed for a period of 2 years at KU Leuven, starting at or as soon as possible after April 1st 2019.
+
+### How to apply
+
+For more information regarding this function, please contact jan.aerts@uhasselt.be or vera.vannoort@kuleuven.be.
+
+Please submit - in PDF format:
+
+* curriculum vitae
+* motivation letter
+* a brief description how you would approach this problem, and which technologies you would use
+* link(s) to work that you already did regarding webdevelopment
+
+{% comment %}
 
 ## :: PhD position in data visualization and analytics in archaeology ::
 
@@ -32,7 +68,7 @@ As such, the candidate is expected to merge the expertise from the fields of **
 
 Please note short-listed candidates might be asked to fulfil concise assignments to test their proficiency.
 
-### Offer 
+### Offer
 
 We offer:
 
@@ -44,7 +80,7 @@ We offer:
 
 For more information please contact Prof. dr. ir. Jan Aerts, tel.: +32 16 32 10 53, jan.aerts@kuleuven.be or Prof. dr. Andrew Vande Moere, tel.: +32 16 32 13 62, andrew.vandemoere@kuleuven.be. Please apply through the [KU Leuven open positions website](http://icts.kuleuven.be/apps/jobsite/vacatures/54312858)
 
-{% comment %}
+## Placeholder
 
 We don't have specific open positions available at the moment. However, we do welcome inquiries regarding PhD or postdoc research if these address major questions in visual data analysis (e.g. visual design, computational or perceptual scalability, interaction with the expert user). In case of a good fit we can apply for specific funding for this.
 
