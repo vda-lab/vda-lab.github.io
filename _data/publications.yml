@@ -1,3 +1,50 @@
+- authors: Faria R, Triant D, Perdomo-Sabogal A, Overduin B, Bleidorn C, Isabel Bermudez Santana C, Langenberger D, Marco Dall’Olio G, Indrischek H, Aerts J, Engelhardt J, Engelken J, Liebal K, Fasold M, Robb S, Grath S, Raj Kolora SR, Carvalho T, Salzburger W, Jovanovic V & Nowick K
+  title: Introducing evolutionary biologists to the analysis of big data: guidelines to organize extended bioinformatics training courses
+  reference: Evolution: Education and Outreach, 11:8
+  pdf: faria2018.pdf
+  year: 2018
+
+- authors: Moerman T, Aibar Santos S, Bravo González-Blas C, Simm J, Moreau Y, Aerts J & Aerts S
+  title: GRNBoost2 and Arboreto: efficient and scalable inference of gene regulatory networks
+  reference: Bioinformatics
+  year: 2018
+
+- authors: Lamqaddam H, Aerts J, Brosens K & Verbert K
+  title: NAHR: a visual representation of social networks as support for art history research
+  reference: Proceedings of the 10th Nordic Conference on Human-Computer Interaction: 634-641
+  pdf: nahr.pdf
+  year: 2018
+
+- authors: Alcaide D & Aerts J
+  title: MCLEAN: Multilevel Clustering Exploration As Network
+  reference: PeerJ Computer Science 4:e145
+  pdf: mclean.pdf
+  year: 2018
+
+- authors: Aerts J, Gehlenborg N, Marai GE & Nieselt KK
+  title: Visualization of Biological Data - Crossroads (Dagstuhl Seminar 18161)
+  reference: Dagstuhl Reports 8(4):32-71
+  pdf: dagstuhl2018.pdf
+  year: 2018
+
+- authors: Brosens K, Aerts J, Alen K, Beerens RJ, Cardoso B, De Prekel I, Ivanova A, Lamqaddam H, Molenberghs G, Slegten A, Truyen F, Van der Stighelen K & Verbert K
+  title: Slow Digital Art History in Action: Project Cornelia’s Computational Approach to Seventeenth-century Flemish Creative Communities
+  reference: Visual Resources 35
+  pdf: slow_dah.pdf
+  year: 2018
+
+- authors: Kyndt E & Aerts J
+  title: Op maat matchen, een wicked probleem dat een innovatieve aanpak vraagt
+  reference: Leren Duaal Leren. Dekocker V. & Sodermans A.K. (Red.); Leuven: Acco
+  pdf: opmaatmatchen.pdf
+  year: 2018
+
+- authors: Aibar S, Bravo González-Blas C, Moerman T, Imrichova H, Hulselmans G, Rambow F, Marine JC, Geurts P, Aerts J, van den Oord J, Kalender Atak Z, Wouters J & Aerts S
+  title: SCENIC: single-cell regulatory network inference and clustering
+  reference: Nature Methods 14(11):1083
+  pdf: scenic.pdf
+  year: 2017
+
 - authors: Brosens K, Aerts J, Alen K, Slegten A & Truyen F
   title: Visualizing and Analyzing Complex and Dynamic Networks of Flemish Tapestry Entrepreneurs (1640–1720)
   reference: Leonardo - Art, Science and Technology, 49 (2), art.nr. 10.1162/LEON_a_01276
