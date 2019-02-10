@@ -1,5 +1,5 @@
 - authors: Faria R, Triant D, Perdomo-Sabogal A, Overduin B, Bleidorn C, Isabel Bermudez Santana C, Langenberger D, Marco Dall’Olio G, Indrischek H, Aerts J, Engelhardt J, Engelken J, Liebal K, Fasold M, Robb S, Grath S, Raj Kolora SR, Carvalho T, Salzburger W, Jovanovic V & Nowick K
-  title: Introducing evolutionary biologists to the analysis of big data: guidelines to organize extended bioinformatics training courses
+  title: "Introducing evolutionary biologists to the analysis of big data: guidelines to organize extended bioinformatics training courses"
   reference: Evolution: Education and Outreach, 11:8
   pdf: faria2018.pdf
   year: 2018
@@ -43,6 +43,12 @@
   title: SCENIC: single-cell regulatory network inference and clustering
   reference: Nature Methods 14(11):1083
   pdf: scenic.pdf
+  year: 2017
+
+- authors: Brosens K, Aerts J, Alen K, Slegten A & Truyen F
+  title: Visualizing and Analyzing Complex and Dynamic Networks of Flemish Tapestry Entrepreneurs (1640–1720)
+  reference: Leonardo 50(5):503
+  pdf: leonardo.pdf
   year: 2017
 
 - authors: Brosens K, Aerts J, Alen K, Slegten A & Truyen F
