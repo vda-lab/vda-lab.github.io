@@ -26,13 +26,13 @@ We offer a challenging position within a dynamic and stimulating environment and
 
 ### Appointment
 
-The successful candidate will be appointed for a period of 2 years at KU Leuven, starting at or as soon as possible after April 1st 2019.
+The successful candidate will be appointed for a period of 2 years at KU Leuven, starting at or as soon as possible after April 1st 2019. Salary will depend on diploma ("barema") and experience ("trede"). [Barema 44](https://admin.kuleuven.be/personeel/wedde/graadbarema/ap/barema44.pdf) applies to applicants who completed a doctorate; [barema 43](https://admin.kuleuven.be/personeel/wedde/graadbarema/ap/barema43.pdf) applies to applicants without.
 
 ### How to apply
 
 For more information regarding this function, please contact jan.aerts@uhasselt.be or vera.vannoort@kuleuven.be.
 
-Please submit - in PDF format:
+Please send - in PDF format:
 
 * curriculum vitae
 * motivation letter
