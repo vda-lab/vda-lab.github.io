@@ -15,6 +15,8 @@ color: "#fff2ae"
 * https://mimic.physionet.org (need registration and passing test)
 * https://www.microsoft.com/en-us/research/academic-program/data-science-microsoft-research/
 * https://neo4j.com/sandbox-v2/ : incl Panama papers, Russion twitter trolls, Trumpworld, ...
+* http://www.socialcontactdata.org/data/
+* https://github.com/grandjeanmartin/intellectual-cooperation : network of intellectual cooperation
 
 ## :: Visualization ::
 
