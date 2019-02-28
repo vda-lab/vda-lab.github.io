@@ -7,6 +7,7 @@ color: "#fff2ae"
 ---
 ## :: Public datasets ::
 
+* https://toolbox.google.com/datasetsearch : Google for data
 * https://zenodo.org/record/1215979
 * http://www.datasciencecentral.com/profiles/blogs/big-data-sets-available-for-free
 * https://snap.stanford.edu/data/loc-gowalla.html
