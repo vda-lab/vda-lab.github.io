@@ -7,16 +7,16 @@ color: "#fff2ae"
 ---
 ## :: Public datasets ::
 
-* https://toolbox.google.com/datasetsearch : Google for data
-* https://zenodo.org/record/1215979
-* http://www.datasciencecentral.com/profiles/blogs/big-data-sets-available-for-free
-* https://snap.stanford.edu/data/loc-gowalla.html
-* http://opendata.cern.ch
-* https://mimic.physionet.org (need registration and passing test)
-* https://www.microsoft.com/en-us/research/academic-program/data-science-microsoft-research/
-* https://neo4j.com/sandbox-v2/ : incl Panama papers, Russion twitter trolls, Trumpworld, ...
-* http://www.socialcontactdata.org/data/
-* https://github.com/grandjeanmartin/intellectual-cooperation : network of intellectual cooperation
+* [Google Dataset Search](https://toolbox.google.com/datasetsearch)
+* [Open Care Data](https://zenodo.org/record/1215979)
+* [List of datasets through Data Science Central](http://www.datasciencecentral.com/profiles/blogs/big-data-sets-available-for-free)
+* [Location-based social networking data](https://snap.stanford.edu/data/loc-gowalla.html)
+* [Data from CERN](http://opendata.cern.ch)
+* [Patient record data](https://mimic.physionet.org) (need registration and passing test)
+* [List of datasets in different categories by Microsoft](http://msropendata.com)
+* [Network data](https://neo4j.com/sandbox-v2/): incl Panama papers, Russion twitter trolls, Trumpworld, ...
+* [Social contact data](http://www.socialcontactdata.org/data/)
+* [Network of intellectual cooperation](https://github.com/grandjeanmartin/intellectual-cooperation)
 
 ## :: Visualization ::
 
