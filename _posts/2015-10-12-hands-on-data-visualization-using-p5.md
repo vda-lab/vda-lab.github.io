@@ -173,7 +173,8 @@ The data for this exercise can be downloaded [here]({{site.baseurl}}/assets/flig
 * distance
 
 #### Installing P5 as a library
-Unfortunately, it is not possible to work with datafiles when using the P5 development environment. Therefore, we will have to install P5 as a library and run a local webserver. For more information, see [http://p5js.org/get-started/](http://p5js.org/get-started/). The description below is the quickest way to get you going; not necessarily the best long-term solution. For that, look into [bower](http://bower.io), for example.
+Although it is possible to load data files into the openprocessing environment, you cannot do so when using the P5 online editor at [editor.p5js.org](http://editor.p5js.org). Also, the space you get in openprocessing is limited, so when doing any real P5 development, it makes sense to install it as a library and run a local web server.
+For more information, see [http://p5js.org/get-started/](http://p5js.org/get-started/). The description below is the quickest way to get you going; not necessarily the best long-term solution. For that, look into [bower](http://bower.io), for example.
 
 ##### Getting the library
 Download "p5.js complete" from [http://p5js.org/download/](http://p5js.org/download/) onto your computer and unzip.
