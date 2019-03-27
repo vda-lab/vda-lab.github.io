@@ -19,7 +19,5 @@ Check out [**who we are**]({{ site.baseurl }}/people.html) and some of the [**pr
 
 Blog posts are contributed by all members of the group and act more as an external memory for ourselves than anything else...
 
-[![Data Visualization Lab logo]({{ site.baseurl }}/assets/logo_dvl_small.png)](http://datavislab.org)
-[![STADIUS logo]({{ site.baseurl }}/assets/logo_stadius_small.png)](http://esat.kuleuven.be/stadius)
+[![UHasselt logo]({{ site.baseurl }}/assets/logo_uhasselt_small.jpg)](http://www.uhasselt.be)
 [![KU Leuven logo]({{ site.baseurl }}/assets/logo_kuleuven_small.png)](http://www.kuleuven.be)
-[![iMinds logo]({{ site.baseurl }}/assets/logo_iminds_small.png)](http://www.iminds.be)
