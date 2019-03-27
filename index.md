@@ -19,5 +19,5 @@ Check out [**who we are**]({{ site.baseurl }}/people.html) and some of the [**pr
 
 Blog posts are contributed by all members of the group and act more as an external memory for ourselves than anything else...
 
-[![UHasselt logo]({{ site.baseurl }}/assets/logo_uhasselt_small.jpg)](http://www.uhasselt.be)
+[![UHasselt logo]({{ site.baseurl }}/assets/logo_uhasselt_small.png)](http://www.uhasselt.be)
 [![KU Leuven logo]({{ site.baseurl }}/assets/logo_kuleuven_small.png)](http://www.kuleuven.be)
