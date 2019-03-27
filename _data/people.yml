@@ -20,14 +20,15 @@
     Daniel Alcaide is a PhD student at the Department of Electrical Engineering at KU Leuven. He conducts research in interactive visualisation and data analysis to bring insight into large and complex data. He worked as a statistician in various areas related to clinical development in Barcelona where he learned about the power of visual representation to communicate information.
     Daniel obtained a Master’s in Statistics and Operational Research at Universitat Politècnica de Catalunya in 2012 and a Master’s in Visual Analytics and Big Data at Universidad Internacional de la Rioja in 2015.
 
-- name: Houda Lamqaddam
+- name: Danai Kafetzaki
   class: current
   title: PhD student
-  email: houda.lamqaddam@kuleuven.be
-  image: photo_houda.png
+  email: danai.kafetzaki@kuleuven.be
+  image: photo_danae.jpg
+  twitter: DanaeKafetzaki
+  orcid: https://orcid.org/0000-0001-7002-5850
   bio: |
-    [w/ Katrien Verbert & Koen Brosens] With background in computer science and communication, Houda is interested in making software easy to use and understand. She believes in the importance of including end users in the design process and enjoys finding out their needs and translating them into functional requirements. She currently works under the main supervison of Katrien Verbert and Koenraad Brosens on the visual representation of social networks in the domain of art history.
-    Houda has a bachelor's degree in Computer Science from Al Akhawayn University in Ifrane, Morocco, and a joint Masters degree in Human-Computer Interaction from the ENAC and the Université Paul Sabatier in Toulouse, France.
+    Danai Kafetzaki obtained her master in Statistics at KU Leuven and her dissertation explored a duality between time series and complex networks. She is particularly interested in data visualization, machine-learning and statistical consulting. She partook in multidisciplinary collaborations, as during her master she was associated with the Euthority Research Project in the Faculty of Law, and the Sagalassos Archaeological Research Project. Prior to coming to Leuven, Danai completed a bachelor in Business Administration at Athens University of Economics and Business and worked as a financial analyst at Antenna TV in Greece. In her doctoral research, she develops graph-based visual and data analytics methods and applies these to reconstruct the typology and chronology of material culture at Sagalassos in order to build data driven solutions for the discipline of archaeology.
 
 - name: Georgia Panagiotidou
   class: current
@@ -39,15 +40,14 @@
   bio: |
     [w/ Andrew Vande Moere & Jeroen Poblome] Georgia is currently doing her PhD as part of the Sagalassos research team where she is analysing the potential of data visualization on cross-disciplinary data exploration (under the main supervision of Andrew Vande Moere). Before joining KU Leuven, she was working as a media designer, offering her expertise to data journalism and data-driven projects with NGOs such as Open Knowledge Finland and as part of Finnish daily Helsingin Sanomat. During her MA she received a Finnish Culture Grant with which she created experimental visualizations of the Finnish epic, the Kalevala. She has a BSc in Informatics and Telecommunications from the National and Capodistrian University of Athens and an MA in New Media from Aalto School of Arts, Design and Architecture, Finland.
 
-- name: Danai Kafetzaki
+- name: Houda Lamqaddam
   class: current
   title: PhD student
-  email: danai.kafetzaki@kuleuven.be
-  image: photo_danae.jpg
-  twitter: DanaeKafetzaki
-  orcid: https://orcid.org/0000-0001-7002-5850
+  email: houda.lamqaddam@kuleuven.be
+  image: photo_houda.png
   bio: |
-    Danai Kafetzaki obtained her master in Statistics at KU Leuven and her dissertation explored a duality between time series and complex networks. She is particularly interested in data visualization, machine-learning and statistical consulting. She partook in multidisciplinary collaborations, as during her master she was associated with the Euthority Research Project in the Faculty of Law, and the Sagalassos Archaeological Research Project. Prior to coming to Leuven, Danai completed a bachelor in Business Administration at Athens University of Economics and Business and worked as a financial analyst at Antenna TV in Greece. In her doctoral research, she develops graph-based visual and data analytics methods and applies these to reconstruct the typology and chronology of material culture at Sagalassos in order to build data driven solutions for the discipline of archaeology.
+    [w/ Katrien Verbert & Koen Brosens] With background in computer science and communication, Houda is interested in making software easy to use and understand. She believes in the importance of including end users in the design process and enjoys finding out their needs and translating them into functional requirements. She currently works under the main supervison of Katrien Verbert and Koenraad Brosens on the visual representation of social networks in the domain of art history.
+    Houda has a bachelor's degree in Computer Science from Al Akhawayn University in Ifrane, Morocco, and a joint Masters degree in Human-Computer Interaction from the ENAC and the Université Paul Sabatier in Toulouse, France.
 
 - name: Thomas Moerman
   class: alumnus
