@@ -1,4 +1,0 @@
----
-title: NoSQL
-layout: page
----
