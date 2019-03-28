@@ -49,7 +49,7 @@ See sequenceiq's [github page](https://github.com/sequenceiq/hadoop-docker) for 
 Make a new directory on your machine, and download the data in there.
 
 <pre>
-wget http://vda-lab.github.io/teaching/i0u19a/assets/beer-exercise.tar.gz
+wget http://vda-lab.github.io/assets/beer-exercise.tar.gz
 tar -xvzf beer-exercise.tar.gz
 cd beer</pre>
 
