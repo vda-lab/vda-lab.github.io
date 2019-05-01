@@ -17,6 +17,7 @@ color: "#fff2ae"
 * [Network data](https://neo4j.com/sandbox-v2/): incl Panama papers, Russion twitter trolls, Trumpworld, ...
 * [Social contact data](http://www.socialcontactdata.org/data/)
 * [Network of intellectual cooperation](https://github.com/grandjeanmartin/intellectual-cooperation)
+* [Data for Climate Action D4CA](http://dataforclimateaction.org/)
 
 ## :: Visualization ::
 
