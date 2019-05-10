@@ -5,6 +5,10 @@ menu: main
 navigation_weight: 5
 color: "#f4cae4"
 ---
+We don't have specific open positions available at the moment. However, we do welcome inquiries regarding PhD or postdoc research if these address major questions in visual data analysis (e.g. visual design, computational or perceptual scalability, interaction with the expert user). In case of a good fit we can apply for specific funding for this.
+
+{% comment %}
+
 ## :: Scientific programmer in data visualisation ::
 
 Although different generic data visualisation tools exist (such as Tableau and Spotfile), there is a specific need for custom visualisation (eg hive plots, horizon charts, and plots that incorporate domain-specific information) when working with complex datasets. In this project we will build a **framework for creating custom visualisations and combining these in a dashboard-setting**. The aim is to create the necessary **front- and backend** to allow for (1) easily creating and incorporating new visual modules (conceptually similar to https://github.com/jandot/bio-graphics), (2) combining these visual modules in a single interface, and (3) incorporating a biological ontology which links biological concepts to features in the visuals.
@@ -38,8 +42,6 @@ Please send - in PDF format:
 * motivation letter
 * a brief description how you would approach this problem, and which technologies you would use
 * link(s) to work that you already did regarding web-development
-
-{% comment %}
 
 ## :: PhD position in data visualization and analytics in archaeology ::
 
@@ -78,10 +80,6 @@ We offer:
 ### Contact
 
 For more information please contact Prof. dr. ir. Jan Aerts, tel.: +32 16 32 10 53, jan.aerts@kuleuven.be or Prof. dr. Andrew Vande Moere, tel.: +32 16 32 13 62, andrew.vandemoere@kuleuven.be. Please apply through the [KU Leuven open positions website](http://icts.kuleuven.be/apps/jobsite/vacatures/54312858)
-
-## Placeholder
-
-We don't have specific open positions available at the moment. However, we do welcome inquiries regarding PhD or postdoc research if these address major questions in visual data analysis (e.g. visual design, computational or perceptual scalability, interaction with the expert user). In case of a good fit we can apply for specific funding for this.
 
 ## :: Visualizing text from patient records ::
 
