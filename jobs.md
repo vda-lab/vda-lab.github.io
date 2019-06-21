@@ -5,9 +5,37 @@ menu: main
 navigation_weight: 5
 color: "#f4cae4"
 ---
-We don't have specific open positions available at the moment. However, we do welcome inquiries regarding PhD or postdoc research if these address major questions in visual data analysis (e.g. visual design, computational or perceptual scalability, interaction with the expert user). In case of a good fit we can apply for specific funding for this.
+## :: Doctoral student in network analysis and visualisation ::
+
+The UHasselt Data Science Institute in Belgium (www.uhasselt.be/dsi) fosters collaboration among data science experts across disciplines. As part of this new institute, the Visual Data Analysis Lab is interested in applying interactive data visualisation to support data scientists in gaining insight in their complex data.
+
+To further extend our expertise in contextualisation of data analysis, the lab will be hiring a doctoral student in the field of topological data analysis where we convert high-dimensional datasets into networks in order to extract meaningful patterns. More specifically, this involves research in the definition of feature vectors in multiple domains, graph distance metrics, and generation and qualitative analysis and comparison of networks. Application domains include life sciences (epidemiology, genomics, patient stratification, ...), archaeology and others.
+
+### Profile
+
+* A strong MSc degree in computer science or design, or a field related to human-computer interaction
+* Some experience in visual design or data visualisation (e.g. using D3)
+* Good programming skills (preferably python and/or javascript) and algorithmic thinking
+* Fluent in spoken and written English
+
+### Appointment
+
+The successful candidate will be appointed for a period of 4 years at UHasselt.
+
+### How to apply
+
+For more information regarding this function, please contact jan.aerts@uhasselt.be.
+
+Please send - in PDF format:
+
+* curriculum vitae
+* motivation letter
+* examples of previous work
+* list of 3 people (including contact details) who can act as references
 
 {% comment %}
+
+We don't have specific open positions available at the moment. However, we do welcome inquiries regarding PhD or postdoc research if these address major questions in visual data analysis (e.g. visual design, computational or perceptual scalability, interaction with the expert user). In case of a good fit we can apply for specific funding for this.
 
 ## :: Scientific programmer in data visualisation ::
 
