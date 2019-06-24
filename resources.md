@@ -21,6 +21,7 @@ color: "#fff2ae"
 
 ## :: Visualization ::
 
+* [Shirley Wu](http://sxywu.com/)
 
 ### Concepts
 
