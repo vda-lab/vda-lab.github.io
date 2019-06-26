@@ -20,7 +20,7 @@ To further extend our expertise in contextualisation of data analysis, the lab w
 
 ### Appointment
 
-The successful candidate will be appointed for a period of 4 years at UHasselt.
+The successful candidate will be appointed for a period of 2+2 years at UHasselt.
 
 ### How to apply
 
