@@ -18,6 +18,7 @@ color: "#fff2ae"
 * [Social contact data](http://www.socialcontactdata.org/data/)
 * [Network of intellectual cooperation](https://github.com/grandjeanmartin/intellectual-cooperation)
 * [Data for Climate Action D4CA](http://dataforclimateaction.org/)
+* [Cool Datasets](https://www.cooldatasets.com)
 
 ## :: Visualization ::
 
