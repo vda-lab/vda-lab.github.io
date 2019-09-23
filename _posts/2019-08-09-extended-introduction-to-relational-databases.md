@@ -4,18 +4,17 @@ title:  "Extended introduction to relational databases"
 date:   2019-08-09 11:55
 author: Jan Aerts
 categories: main
-custom_css: with_tables
+custom_css:
+- with_tables
+- with_assignment
 tags:
 - sql
 ---
-**TO ADD: GROUP BY and HAVING**
-
-
 This post is part of an extended version of the [introduction to relational databases]({{ site.baseurl }}/2015/02/introduction-to-relational-databases) post, to be served as course material for the Software and Data Management course at UHasselt. The contents of this post is licensed as CC-BY: feel free to copy/remix/tweak/... it, but please credit your source.
 
 - Part 1 (this post): Introduction to data management, database schema design and SQL
-- [Part 2](): Practical exercises in SQL - TBD
-- [Part 3](): NoSQL - TBD
+- [Part 2](): NoSQL - TBD
+- [Part 3](): Practical exercises in SQL - TBD
 
 ![CC-BY]({{ site.baseurl }}/assets/ccby.png)
 
@@ -462,7 +461,9 @@ Relationships between tables are often categorised as:
 - _one-to-many_: one row in a table can be linked to 0, 1 or multiple rows in another table (e.g. a mother can have 0, 1 or more children)
 - _many-to-many_: 0, 1 or many rows in one table can be linked to 0, 1 or many rows in another (e.g. links between books and authors)
 
-**TODO: ADD DRAWING**
+![]({{ site.baseurl }}/assets/one-to-one.png)<br/>
+![]({{ site.baseurl }}/assets/one-to-many.png)<br/>
+![]({{ site.baseurl }}/assets/many-to-many.png)
 
 ### 4.5 Other best practices
 
@@ -489,6 +490,15 @@ There might be columns that you will often use for filtering. For example, you e
 CREATE INDEX idx_ethnicity ON genotypes (ethnicity);
 {% endhighlight %}
 
+### 4.8 Conclusion: key concepts
+
+So some key concepts in relational database design:
+
+- relational database = collection of tables
+- table = collection of columns (attributes) describing a relation
+- tuple = row of data in the table
+- attribute = a characteristic or descriptor of tuples
+- primary key = a unique identifier for a tuple. This can be a single column, or a collection of columns.
 
 ## 5. SQL - Structured Query Language
 
@@ -950,30 +960,38 @@ Whenever you want the **unique values** in a column: use DISTINCT in the SELECT 
 
 {% highlight sql %}
 SELECT category FROM animal;
-Fish
-Dog
-Fish
-Cat
-Cat
-Dog
-Fish
-Dog
-Dog
-Dog
-Fish
-Cat
-Dog
-...
-
-SELECT DISTINCT category FROM animal;
-Bird
-Cat
-Dog
-Fish
-Mammal
-Reptile
-Spider
 {% endhighlight %}
+
+| category |
+|:-------- |
+| Fish |
+| Dog |
+| Fish |
+| Cat |
+| Cat |
+| Dog |
+| Fish |
+| Dog |
+| Dog |
+| Dog |
+| Fish |
+| Cat |
+| Dog |
+| ... |
+
+{% highlight sql %}
+SELECT DISTINCT category FROM animal;
+{% endhighlight %}
+
+| distinct(category) |
+|:------ |
+| Bird |
+| Cat |
+| Dog |
+| Fish |
+| Mammal |
+| Reptile |
+| Spider |
 
 DISTINCT automatically sorts the results.
 
@@ -998,17 +1016,29 @@ SELECT COUNT(*) FROM genotypes WHERE genotype_amb = 'G';
 ...act as you would expect (only works with numbers, obviously):
 
 {% highlight sql %}
-sqlite> SELECT MAX(position) FROM snps;
+SELECT MAX(position) FROM snps;
+{% endhighlight %}
+
+Output is:
+
+| max(position) |
+|:-- |
+| 291732  |
+
+#### AS
+In some cases you might want to rename the output column name. For instance, in the example above you might want to have `maximum_position` instead of `max(position)`. The `AS` keyword can help us with that.
+
+{% highlight sql %}
+SELECT MAX(position) AS maximum_position FROM snps;
 {% endhighlight %}
 
 #### GROUP BY
 
-GROUP BY can be very useful in that it first **aggregates data**. It is often used together with COUNT, MAX, MIN or AVG:
+GROUP BY can be very useful in that it first **aggregates data**. It is often used together with `COUNT`, `MAX`, `MIN` or `AVG`:
 
 {% highlight sql %}
 SELECT genotype_amb, COUNT(*) FROM genotypes GROUP BY genotype_amb;
 SELECT genotype_amb, COUNT(*) AS c FROM genotypes GROUP BY genotype_amb ORDER BY c DESC;
-SELECT chromosome, MAX(position) FROM snps GROUP BY chromosome ORDER BY chromosome;
 {% endhighlight %}
 
 | genotype_amb | c |
@@ -1019,11 +1049,61 @@ SELECT chromosome, MAX(position) FROM snps GROUP BY chromosome ORDER BY chromoso
 | M            | 1 |
 | R            | 1 |
 
+{% highlight sql %}
+SELECT chromosome, MAX(position) FROM snps GROUP BY chromosome ORDER BY chromosome;
+{% endhighlight %}
+
 | chromosome | MAX(position) |
 |:---------- |:------------- |
 | 1          | 98765         |
 | 2          | 11223         |
 | 5          | 28465         |
+
+#### HAVING
+Whereas the `WHERE` clause puts conditions on certain columns, the `HAVING` clause puts these on groups created by `GROUP BY`.
+
+For example, given the following `snps` table:
+
+| id | accession | chromosome | position | gene   |
+|:-- |:--------- |:---------- |:-------- |:------ |
+| 1  | rs12345   | 1          | 12345    | gene_A |
+| 2  | rs98765   | 1          | 98765    | gene_A |
+| 3  | rs28465   | 5          | 28465    | gene_B |
+| 4  | rs92873   | 7          | 7382     |        |
+| 5  | rs10238   | 11         | 291732   | gene_C |
+| 6  | rs92731   | 17         | 10283    | gene_C |
+
+{% highlight sql %}
+SELECT chromosome, count(*) as c
+FROM snps
+GROUP BY chromosome;
+{% endhighlight %}
+
+will return
+
+| chromosome | c |
+|:---------- |:- |
+| 1          | 2 |
+| 5          | 1 |
+| 7          | 1 |
+| 11         | 1 |
+| 17         | 1 |
+
+whereas
+{% highlight sql %}
+SELECT chromosome, count(*) as c
+FROM snps
+GROUP BY chromosome
+HAVING c > 1
+{% endhighlight %}
+
+will return
+
+| chromosome | c |
+|:---------- |:- |
+| 1          | 2 |
+
+The `HAVING` clause must follow a `GROUP BY`, and precede a possible `ORDER BY`.
 
 #### UNION, INTERSECT
 
@@ -1168,7 +1248,10 @@ FROM expressions
 GROUP BY gene;
 {% endhighlight %}
 
-### 5.4 Normalisation exercise
+### 5.6 Normalisation homework
+{:.assignment}
+**This is the assignment for homework 1. For the due date, see [the website for this part of the course]({{ site.baseurl }}/sdm.html).**.
+
 Let's see if we can design a normalised database to hold the data for a pet shop. "Sally's Pet Shop" sells animal care merchandise and also lets you adopt an animal. The goal is to create a database to track the store operations: sales, orders, customer tracking, and basic animal data. The input that you have are:
 - sales forms
 - purchase order forms for animals

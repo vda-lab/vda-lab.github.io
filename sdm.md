@@ -2,6 +2,7 @@
 layout: page
 title: Software and data management
 permalink: sdm.html
+custom_css: with_tables
 ---
 [ECTS file](https://uhintra03.uhasselt.be/studiegidswww/opleidingsonderdeel.aspx?a=2016&i=3561&n=4&t=04)
 
@@ -12,8 +13,8 @@ This page concerns the "concepts of data management and structured query languag
 This part is organised in 2 lectures and 1 practical session. **Study material** is available as 3 blog posts on [http://vda-lab.be/teaching]({{site.baseurl}}/teaching), of which PDFs are also available on [blackboard](https://bb.uhasselt.be).
 
   1. [Session 1: Introduction and database design]({{ site.baseurl }}/2019/08/extended-introduction-to-relational-databases)
-  1. [Session 2: SQL queries]()
-  1. [Session 3: Practical session]()
+  1. [Session 2: NoSQL]({{ site.baseurl }}/2019/09/arangodb)
+  1. [Session 3: Practical session](): Querying the [chinook database](https://www.sqlitetutorial.net/sqlite-sample-database/)
 
 ### Practical information
 
@@ -38,7 +39,7 @@ The **exam** is pen-and-paper, and closed book.
 12:30 and afternoon session 13:30 – 17:00._</small>
 
 ### Goal of (this part of) the course
-Students should be able to construct and retrieve information from a normalised database using Structured Query Language (SQL) in sqlite.
+Students should be able to construct and retrieve information from a normalised database using Structured Query Language (SQL) in sqlite, as well as understand the possibilities of NoSQL databases (i.c. ArangoDB).
 
 - normalised database = a collection of data tables with desirable relational properties respecting particular data requirements. This enables unambiguous data retrieval, efficient data storage, data protection, etc
 - SQL = standardised system used to combine data tables in a normalised relational database. This enables retrieval of data, answers to ad-hoc questions, etc
@@ -47,5 +48,5 @@ language, produces reports, and creates data entry screens. Other examples are M
 
 The data management part covers:
 - what data do we need to record and how are we going to collect them?
-- how to store this data in an efficient way (i.c. in a relational database)
+- how to store this data in an efficient way (i.c. in a relational database or a NoSQL database)
 - how to ask this data questions
