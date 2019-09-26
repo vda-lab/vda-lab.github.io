@@ -7,7 +7,7 @@ permalink: teaching.html
 * [Software and Data Management]({{site.baseurl}}/sdm.html)
 
 ## UAntwerpen
-* [Data Management]({{site.baseurl}}/sdm.html)
+* [Data Management and Statistical Software]({{site.baseurl}}/dmss.html)
 
 ## KU Leuven
 * [H09B7A - Beginselen van cel- en weefselbiologie]({{site.baseurl}}/h09b7a.html)
