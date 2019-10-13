@@ -10,4 +10,4 @@ custom_css: with_tables
 
 This page concerns the "Data normalisation" part of the Data Management and Statistical Software (DMSS) course of MSc Epidemiology at UAntwerpen (see ECTS file above). For R and SAS, see blackboard.
 
-All lecture material for this section is available [here]({{ site.baseurl }}/2019/08/extended-introduction-to-relational-databases).
+All lecture material for this section is available [here]({{ site.baseurl }}/2019/08/extended-introduction-to-relational-databases). Note that for this course _only_ part 1 is relevant on that link; parts 2 and 3 aren't.
