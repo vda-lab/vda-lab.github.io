@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "NoSQL databases"
+title:  "Beyond SQL"
 date:   2019-09-17
 author: Jan Aerts
 categories: main
