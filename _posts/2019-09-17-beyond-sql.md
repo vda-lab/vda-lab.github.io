@@ -13,7 +13,7 @@ This post is part of the course material for the Software and Data Management co
 
 ![CC-BY]({{ site.baseurl }}/assets/ccby.png)
 
-- [Part 1]({{ site.baseurl }}/2019/08/extended-introduction-to-relational-databases): Relational database design
+- [Part 1]({{ site.baseurl }}/2019/08/extended-introduction-to-relational-databases): Relational database design and SQL
 - Part 2: this section
 - [Part 3]({{ site.baseurl }}/2019-08-09-extended-introduction-to-relational-databases-sql): SQL
 
@@ -30,7 +30,7 @@ This post is part of the course material for the Software and Data Management co
 Although relational databases have been used for multiple decades and are easy to get started with, they do have some shortcomings, particularly in the big data era that we're in now.
 
 ### 1.1 Querying scalability: joins
-Best practices in relational database design suggest that you should aim for a normalised design (see in our [previous post](REF)). This means that the different concepts in the data are separated out into tables, and can be _joined_ together again in a query. Unfortunately, joins can be very expensive. For example, the Ensembl database (www.ensembl.org) is fully normalised containing a total of 74 tables. For example, to get the exon positions for a given gene, one needs to run 3 joins.
+Best practices in relational database design call for a normalised design (see in our [previous post](REF)). This means that the different concepts in the data are separated out into tables, and can be _joined_ together again in a query. Unfortunately, joins can be very expensive. For example, the Ensembl database (www.ensembl.org) is a fully normalised omics database, containing a total of 74 tables. For example, to get the exon positions for a given gene, one needs to run 3 joins.
 
 ![joins]({{ site.baseurl }}/assets/rdbms-joins.png)
 
@@ -50,12 +50,11 @@ AND et.exon_id = e.exon_id;
 Suppose that you begin to store genomic mutations in a mysql database. All goes well, until you notice that the database becomes too large for the computer you are running mysql on. There are different solutions for this:
 1. Buy a bigger computer (= _vertical scaling_) which will typically be much more expensive
 1. _Shard_ your data across different databases on different computers (= _horizontal scaling_): data for chromosome 1 is stored in a mysql database on computer 1, chromosome 2 is stored in a mysql database on computer 2, etc. Unfortunately, this does mean that in your application code (i.e. when you're trying to access this data from R or python), you need to know what computer to connect to. It gets worse if you later notice that one of these other servers becomes the bottleneck. Then you'd have to get additional computers and e.g. store the first 10% of chromosome 1 on computer 1, the next 10% on computer 2, etc. Again: this makes it very complicated in your R and/or python scripts as you have to know what is stored where.
-1. _Shard_ your data across different databases on different computers but _let the system take care of what is stored where_.
 
 <img src="{{ site.baseurl }}/assets/scalability.png" width="400px" />
 
 ### 1.3 Relational data
-Suppose you need to work on a social graph and the data is stored in a relational database. People have names, and know other people. Every "know" is reciprocal (so if I know you then you know me too).
+Imagine you have a social graph and the data is stored in a relational database. People have names, and know other people. Every "know" is reciprocal (so if I know you then you know me too).
 
 ![friends]({{ site.baseurl }}/assets/friends-relational.png)
 
@@ -109,17 +108,16 @@ WHERE knowee IN (
 This clearly does not scale, and we'll have to look for another solution.
 
 ### 1.4 The end of SQL?
-So does this mean that we should leave SQL behind? No. What we'll be looking at is _polyglot persistence_: depending on what data you're working with, some of that might still be stored in an SQL database, while other parts are stored in a document store and graph database (see below). So instead of having a single database, we can end up with a collection of databases with different approaches.
+So does this mean that we should leave SQL behind? No. What we'll be looking at is _polyglot persistence_: depending on what data you're working with, some of that might still be stored in an SQL database, while other parts are stored in a document store and graph database (see below). So instead of having a single database, we can end up with a collection of databases to support a single application.
 
 ![polyglot persistence]({{ site.baseurl }}/assets/polyglot_persistence.png)
 <small>Source: https://martinfowler.com/articles/nosql-intro-original.pdf</small>
 
 This figure shows how in the hypothetical case of a retailer's web application we might be using a combination of 8 different database technologies to store different types of information. Note that RDBMS are still part of the picture!
 
-You'll often hear the term NoSQL as is No-SQL, but this should be interpreted as Not-Only-SQL.
+You'll often hear the term NoSQL as in "No-SQL", but this should be interpreted as "Not-Only-SQL".
 
-## 2. Intermezzo
-### 2.1 JSON
+## 2. Intermezzo: JSON
 Before we proceed, we'll have a quick look at the JSON ("JavaScript Object Notation") text format, which is often used in different database systems. JSON follows the same principle as XML, in that it describes the data in the object itself. An example JSON object:
 
 {% highlight json %}
@@ -128,13 +126,13 @@ Before we proceed, we'll have a quick look at the JSON ("JavaScript Object Notat
   lecturer:"Jan Aerts",
   keywords:["data management","NoSQL","big data"],
   students:[
-    {student_id:"u0359851", name:"Jariani Abbas"},
-    {student_id:"u0290360", name:"Anurag Chaturvedi"},
-    {student_id:"u0193120", name:"Stefanie De Coster"}]}
+    {student_id:"u0123456", name:"student 1"},
+    {student_id:"u0234567", name:"student 2"},
+    {student_id:"u0345678", name:"student 3"}]}
 {% endhighlight %}
 
 JSON has very simple syntax rules:
-- Data is in key/value pairs. Each are in quotes, separated by a colon. In some cases you might omit the quotes around the key, but not always.
+- Data is in key/value pairs. Each is in quotes, separated by a colon. In some cases you might omit the quotes around the key, but not always.
 - Data is separated by commas.
 - Curly braces hold objects.
 - Square brackets hold arrays.
@@ -145,157 +143,24 @@ These are two JSON arrays:
 {% highlight json %}
 ["data management","NoSQL","big data"]
 
-[{student_id:"u0372837", name:"Jariani Abbas"},
- {student_id:"u9274918", name:"Anurag Chaturvedi"},
- {student_id:"u0183928", name:"Stefanie De Coster"}]
+[{student_id:"u0123456", name:"student 1"},
+ {student_id:"u0234567", name:"student 2"},
+ {student_id:"u0345678", name:"student 3"}]
 {% endhighlight %}
 
 And a simple JSON object:
 {% highlight json %}
-{student_id:"u0372837", name:"Jariani Abbas"}
+{student_id:"u0345678", name:"student 3"}
 {% endhighlight %}
 
 And objects can be nested as in the first example.
 
-### 2.2 REST
-REST stands for REpresentational State Transfer, and is a way to interact with data through HTTP. The basic design principles are to:
-
-- be stateless
-- expose directory-like URIs
-- return XML or JSON
-
-Many online databases (as well as the databases that we will set up ourselves further below) have REST interfaces. To get a sense of what it means to "interact with data through HTTP", let's look at the REST interface of the [Ensembl](http://ensembl.org) database. Ensembl is one of the 3 major resources for obtaining genetic information. Searching for the gene with accession `ENSG00000157764` on the website returns the following:
-
-![BRAF_website]({{ site.baseurl }}/assets/braf_website.png)
-
-That's all nice and handy, but of course we want to get to this information without having to click through websites. That's where the REST interface comes in: we can get the same information from going to [https://rest.ensembl.org/lookup/id/ENSG00000157764](https://rest.ensembl.org/lookup/id/ENSG00000157764)
-
-Result:
-{% highlight csv %}
-assembly_name: GRCh38
-biotype: protein_coding
-db_type: core
-description: B-Raf proto-oncogene, serine/threonine kinase [Source:HGNC Symbol;Acc:HGNC:1097]
-display_name: BRAF
-end: 140924928
-id: ENSG00000157764
-logic_name: ensembl_havana_gene
-object_type: Gene
-seq_region_name: 7
-source: ensembl_havana
-species: homo_sapiens
-start: 140719327
-strand: -1
-version: 13
-{% endhighlight %}
-
-Granted it doesn't look as fancy, but it's about the information not the representation.
-
-As another example, let's ask Ensembl which genes are on chromosome 7 between position 140,424,943 and 140,624,564. We can just go to the URL [http://rest.ensembl.org/overlap/region/human/7:140424943-140624564?feature=gene](http://rest.ensembl.org/overlap/region/human/7:140424943-140624564?feature=gene). See the Ensembl REST API documentation for more information.
-
-You'll see the following in your webbrowser:
-{% highlight csv %}
--
-  assembly_name: GRCh38
-  biotype: protein_coding
-  description: RAB19, member RAS oncogene family [Source:HGNC Symbol;Acc:HGNC:19982]
-  end: 140426250
-  external_name: RAB19
-  feature_type: gene
-  gene_id: ENSG00000146955
-  id: ENSG00000146955
-  logic_name: ensembl_havana_gene
-  seq_region_name: 7
-  source: ensembl_havana
-  start: 140404043
-  strand: 1
-  version: 10
--
-  assembly_name: GRCh38
-  biotype: processed_pseudogene
-  description: non-metastatic cells 4, protein expressed in (NME4) pseudogene
-  end: 140435787
-  external_name: AC069335.1
-  feature_type: gene
-  gene_id: ENSG00000103200
-  id: ENSG00000103200
-  logic_name: havana
-  seq_region_name: 7
-  source: havana
-  start: 140435316
-  strand: -1
-  version: 6
--
-  assembly_name: GRCh38
-  biotype: protein_coding
-  description: makorin ring finger protein 1 [Source:HGNC Symbol;Acc:HGNC:7112]
-  end: 140479536
-  external_name: MKRN1
-  feature_type: gene
-  gene_id: ENSG00000133606
-  id: ENSG00000133606
-  logic_name: ensembl_havana_gene
-  seq_region_name: 7
-  source: ensembl_havana
-  start: 140453033
-  strand: -1
-  version: 11
--
-  assembly_name: GRCh38
-  biotype: protein_coding
-  description: DENN domain containing 2A [Source:HGNC Symbol;Acc:HGNC:22212]
-  end: 140673993
-  external_name: DENND2A
-  feature_type: gene
-  gene_id: ENSG00000146966
-  id: ENSG00000146966
-  logic_name: ensembl_havana_gene
-  seq_region_name: 7
-  source: ensembl_havana
-  start: 140518420
-  strand: -1
-  version: 13
--
-  assembly_name: GRCh38
-  biotype: misc_RNA
-  description: ~
-  end: 140609955
-  external_name: RF00019
-  feature_type: gene
-  gene_id: ENSG00000201354
-  id: ENSG00000201354
-  logic_name: ncrna
-  seq_region_name: 7
-  source: ensembl
-  start: 140609847
-  strand: 1
-  version: 1
-{% endhighlight %}
-
-#### Be stateless
-A REST interface should include within the HTTP headers and body of a request all of the parameters, context, and data needed by the server to generate the report.
-
-Imagine you're developing a website with a list of objects, and you want your users to be able to go to the next page. There are multiple ways of doing this. You could for example let them click on a button that sends the command `getNextPage`
-
-<img src="{{ site.baseurl }}/assets/rest_statefull.png" width="600px"/>
-
-Notice the `getNextPage`... This is all nice, but what is send back to them depends on the page that they were already on. If they were on page 5 it would return page 6; if they were on page 112 it would return 113. This is what we call "state".
-
-A _stateless_ approach for this would be to actually detach it from the current state, for example by using `page=2` instead of `getNextPage`:
-
-<img src="{{ site.baseurl }}/assets/rest_stateless.png" width="600px"/>
-
-#### Expose directory structure-like URIs
-URIs are unique resource identifiers, and basically a more general name for URLs. A well-designed REST interface should have URIs that are so simple that they are easy to guess. In other words, the interface should be "self-documenting". A good example is the URL used for blog posts, where the date is encoded in the URL itself: `http://www.myservice.org/posts/2008/12/10/mytopic.html` or the above-mentioned [https://rest.ensembl.org/lookup/id/ENSG00000157764](https://rest.ensembl.org/lookup/id/ENSG00000157764).
-
-There's a plethora of NoSQL database systems, but the most common are [key/value stores]({{ site.baseurl }}/2019/09/arangodb#3-key-value-stores), document-oriented databases, column-oriented databases and graph databases.
-
 ## 3. Key-value stores
-Key/value stores are a very simple type of database, in which it is not possible to run queries. The only thing it does, is link an arbitrary blob of data (the value) to a key (a string). This blob of data can be a piece of text, an image, etc. Key-value stores therefore basically act as dictionaries:
+Key/value stores are a very simple type of database. The only thing they do, is link an arbitrary blob of data (the value) to a key (a string). This blob of data can be a piece of text, an image, etc. It is not possible top run queries. Key-value stores therefore basically act as dictionaries:
 
 ![]({{site.baseurl}}/assets/gouge.png)
 
-A key/value store only allows 3 operations: `put`, `get` and `delete`. You can _not_ query.
+A key/value store only allows 3 operations: `put`, `get` and `delete`. Again: you can _not_ query.
 
 ![]({{site.baseurl}}/assets/keyvalue-1.png)
 
@@ -303,10 +168,10 @@ For example:
 
 ![]({{site.baseurl}}/assets/keyvalue-2.png)
 
-This type of database is very scalable, and allows for fast retrieval of values regardless of the number of items in the database. In addition, you can store whatever you want as a value; you don't have to specify the data type for the value.
+This type of database is very scalable, and allows for fast retrieval of values regardless of the number of items in the database. In addition, you can store whatever you want as a value; you don't have to specify the data type for that value.
 
 There basically exist only 2 rules when using a key/value store:
-1. Keys should be distinct: you can _never_ have two things with the same key.
+1. Keys should be unique: you can _never_ have two things with the same key.
 1. Queries on values are not possible: you cannot select a key/value pair based on something that is in the value. This is different from e.g. a relational database, where you use a `WHERE` clause to constrain a result set. The value should be considered as opaque.
 
 <img src="{{site.baseurl}}/assets/keyvalue-3.png" width="600px"/>
@@ -314,10 +179,10 @@ There basically exist only 2 rules when using a key/value store:
 Although (actually: because) they are so simple, there are very specific use cases for key/value stores, for example to store webpages: the key is the URL, the value is the HTML. If you go to a webpage that you visited before, your web browser will first check if it has stored the contents of that website locally beforehand, before doing the costly action of downloading the webpage over the internet.
 
 ### 3.1 Implementations
-Many implementations of key/value stores exist, probably the easiest to with being Redis ([http://redis.io](http://redis.io)). Try it out on [http://try.redis.io](http://try.redis.io). [ArangoDB](www.arangodb.org) is a multi-model database which also allows to store key/values (see below).
+Many implementations of key/value stores exist, probably the easiest to use being Redis ([http://redis.io](http://redis.io)). Try it out on [http://try.redis.io](http://try.redis.io). [ArangoDB](www.arangodb.org) is a multi-model database which also allows to store key/values (see below).
 
 ## 4. Document-oriented databases
-In contrast to relational databases (RDBMS) which define their columns at the _table_ level, document-oriented databases (also called document stores) define their fields at the _document_ level. You can imagine that a single row in a RDBMS table corresponds to a single document where the keys in the document correspond to the column names in the RDBMS. A typical way to represent this is as in JSON format. Let's look at an example table in a RDBMS containing information about buildings:
+In contrast to relational databases (RDBMS) which define their columns at the _table_ level, document-oriented databases (also called document stores) define their fields at the _document_ level. You can imagine that a single row in a RDBMS table corresponds to a single document where the keys in the document correspond to the column names in the RDBMS. Let's look at an example table in a RDBMS containing information about buildings:
 
 | id  | name      | address | city  | type   | nr_rooms | primary_or_secondary |
 |:--  |:--------- |:------- |:----- |:-----  |:-------- |:-------------------- |
@@ -328,9 +193,9 @@ In contrast to relational databases (RDBMS) which define their columns at the _t
 | 5   | building5 | street5 | city5 | house  |          |                      |
 | ... | ...       | ...     | ...   | ...    | ...      | ...                  |
 
-This is a far from ideal way for storing this data because many cells will remain empty based on the type of building their rows represent: the `primary_or_secondary` column will be empty for every single building except for the schools. Also: what if we want to add a new row for a type building that we don't have yet? For example: a shop for which we also need to store the weekly closing day. To be able to do that, we'd need to first alter the whole table by adding a new column.
+This is a far from ideal way for storing this data because many cells will remain empty based on the type of building their rows represent: the `primary_or_secondary` column will be empty for every single building except for schools. Also: what if we want to add a new row for a type of building that we don't have yet? For example: a shop for which we also need to store the weekly closing day. To be able to do that, we'd need to first alter the whole table by adding a new column.
 
-In document-oriented databases, these keys are however stored with the documents themselves. This can be represented as such:
+In document-oriented databases, these keys are however stored with the documents themselves. A typical way to represent this is as in JSON format, and can be represented as such:
 {% highlight json %}
 [
   { id: 1,
@@ -372,7 +237,7 @@ In document-oriented databases, these keys are however stored with the documents
 Notice that in the document for a house (`id` of 5), there is no mention of `primary_of_secondary` because it is not relevant as it is for a hotel.
 
 ### 4.1 Nomenclature
-The way that things are named in document stores is a bit different than in RDBMS, but in general you can state that a _collection_ in a document store corresponds to a _table_ in a RDBMS, and a _document_ corresponds to a _row_.
+The way that things are named in document stores is a bit different than in RDBMS, but in general a _collection_ in a document store corresponds to a _table_ in a RDBMS, and a _document_ corresponds to a _row_.
 
 ### 4.2 Joining vs embedding
 Whereas you use a table _join_ in a RDBMS to combine different concepts/tables, you'd use _linking_ (which is equivalent to a join) or _embedding_ in document stores.
@@ -436,17 +301,24 @@ In contrast, a document per SNP looks like:
 
 We'll go into loading data into and querying data from a document-related database [later](http://localhost:4000/2019/09/arangodb#6-arangodb-as-a-document-oriented-database).
 
+If your data documents are structured along individuals, it will bve cvery fast to get all genotypes for a given individual, but very slow to get all genotypes for a given SNP. Therefore, in a big data setting, it is not unusual to have both, and to generate one of these collections based on the other.
+
 ### 4.5 Implementations
 Probably the best known document store is mongodb ([http://mongodb.com](http://mongodb.com)). This database system is single-model in that it does not handle key/values and graphs; it's only meant for storing documents.
 
 ## 5. Graph databases
+Graphs are used in a wide range of applications, from fraud detection (see the Panama Papers) and anti-terrorism and social marketing to drug interaction research and genome sequencing.
 
 <img src="{{ site.baseurl }}/assets/hairball.png" width="400px"/>
 
 Graphs or networks are data structures where the most important information is the _relationship_ between entities rather than the entities themselves, such as friendship relationships. Whereas in relational databases you typically aggregate operations on sets, in graph databases you'll more typically hop around relationships between records. Graphs are very expressive, and any type of data can be modelled as one (although that is no guarantee that a particular graph is fit for purpose).
 
+Graphs come in all shapes and forms. Links can be directed or undirected, weighted or unweighted. They can be directed acyclic graphs (where no loops exist), consist of one or more connected components, and actually consist of multiple graphs themselves. The latter (so-called multi-layer networks) can e.g. be a first network representing friendships between people, a second network representing cities and how they are connected through public transportation, and both being linked by which people work in which cities.
+
+<img src="{{ site.baseurl }}/assets/graph-types.png" width="600px" />
+
 ### 5.1 Nomenclature
-A graph consists of vertices (aka nodes) and edges (aka links), where an edge is a connection between two vertices. Both vertices and edges can have properties.
+A graph consists of vertices (aka nodes, aka objects) and edges (aka links, aka relations), where an edge is a connection between two vertices. Both vertices and edges can have properties.
 
 $$
 G = (V,E)
@@ -495,7 +367,7 @@ In the image below, nodes in A are coloured based on betweenness centrality, in 
 <br/><small>Source of image: to add</small>
 
 ### 5.3 Graph mining
-**TODO**
+Graphs are very generic data structures, but are amenable to very complex analyses. These include the following.
 
 #### Community detection
 A community in a graph is a group of nodes that are densely connected internally. You can imagine that e.g. in social networks we can identify groups of friends this way.
@@ -510,7 +382,7 @@ Several approaches exist to finding communities:
 The _infomap_ algorithm is an example of a flow model (for a demo, see [http://www.mapequation.org/apps/MapDemo.html](http://www.mapequation.org/apps/MapDemo.html)).
 
 #### Link prediction
-When data is acquired from a real-world source, this data might be incomplete and links that should actually be there are not in the dataset. For example, you gather historical data on births, marriages and deaths from church and city records. There is therefore a high chance that you don't have all data. Other domains where this is important is in protein-protein interactions)
+When data is acquired from a real-world source, this data might be incomplete and links that should actually be there are not in the dataset. For example, you gather historical data on births, marriages and deaths from church and city records. There is therefore a high chance that you don't have all data. Another domain where this is important is in protein-protein interactions.
 
 Link prediction can be done in different ways, and can happen in a dynamic or static setting. In the _dynamic setting_, we try to predict the likelihood of a future association between two nodes; in the _static setting_, we try to infer missing links. These algorithms are based on a similarity matrix between the network nodes, which can take different forms:
 
@@ -535,7 +407,7 @@ Subgraph mining is another type of query that is very important in e.g. bioinfor
 
 ![network motifs]({{ site.baseurl }}/assets/network-motifs.png)
 
-It is for example important when developing a drug for a certain disease by knocking out the effect of a gene that that gene is not in a bi-parallel pattern (`V2` in the image above) because activation of node `V4` is saved by `V3`.
+It is for example important when developing a drug for a certain disease by knocking out the effect of a gene that that gene is not in a bi-parallel pattern (`V2` in image `E` above) because activation of node `V4` is saved by `V3`.
 
 ### 5.4 Data modelling
 In general, vertices are used to represent _things_ and edges are used to represent _connections_. Vertex properties can include e.g. metadata such as timestamp, version number etc; edges properties often include the weight of a connection, but can also cover things like the quality of a relationship and other metadata of that relationship.
@@ -581,7 +453,7 @@ FILTER i.ethnicity = 'African'
 RETURN i.genotypes
 {% endhighlight %}
 
-The same is true for graph databases. A query in the popular Neo4j database can look like this (in what called the _cypher_ language):
+The same is true for graph databases. A query in the popular Neo4j database can look like this (in what is called the _cypher_ language):
 {% highlight csv %}
 MATCH (a)-[:WORKS_FOR]->(b:Company {name: "Microsoft"}) RETURN a
 {% endhighlight %}
@@ -604,7 +476,7 @@ We will first need to install ArangoDB. It is available on a variety of operatin
 
 <img src="{{ site.baseurl }}/assets/arangodb-positioning.png" width="600px"/>
 
-For getting started with ArangoDB, see [here](https://www.arangodb.com/docs/stable/getting-started.html). Some of the following is extracted from that documentation. After installing ArangoDB, you can access the web interface at [http://localhost:8529](http://localhost:8529); log in as user `root` (without a password) and connect to the `_system` database.
+For getting started with ArangoDB, see [here](https://www.arangodb.com/docs/stable/getting-started.html). Some of the following is extracted from that documentation. After installing ArangoDB, you can access the web interface at [http://localhost:8529](http://localhost:8529); log in as user `root` (without a password) and connect to the `_system` database. (Note that in a real setup, the root user would only be used for administrative purposes, and you would first create a new username. For the sake of simplicity, we'll take a shortcut here.)
 
 #### Web interface vs arangosh
 In the context of this course, we will use the web interface for ArangoDB. Although very easy to use, it does have some shortcomings compared to the command line `arangosh`, or using ArangoDB from within programs written in python or other languages. For example, we won't be able to run centrality queries using the web interface. If you're even a little bit serious about using databases, you should get yourself acquainted with the shell as well.
@@ -633,11 +505,11 @@ You should end up with something like this:
 Notice that every document has a `_key` defined.
 
 #### Link data
-Let's now have a look at using ArangoDB as a graph database. ArangoDB documents can have several special keys. We've seen the key `_key` already above. In a graph context, links are nothing more than regular documents, but which have a `_from` and `_to` key to refer to other documents that are the nodes. So links in ArangoDB are basically also just documents, but with the special keys `_from` and `_to`. This means that we can also query them as documents (which is what we will actually do in "[6.2 Querying document data](#62-querying-document-data)").
+In addition to `_key`, ArangoDB documents can have other special keys. In a graph context, links are nothing more than regular documents, but which have a `_from` and `_to` key to refer to other documents that are the nodes. So links in ArangoDB are basically also just documents, but with the special keys `_from` and `_to`. This means that we can also query them as documents (which is what we will actually do in "[6.2 Querying document data](#62-querying-document-data)").
 
 ![]({{ site.baseurl }}/assets/nodes_and_link.png)
 
-We have a flight dataset, that you can download from [{{ site.baseurl }}/assets/flights.json]({{site.baseurl}}/assets/flights.json). Similar to loading the airports dataset, we go to the `Collections` page in the webinterface, and click `Upload`. This time, however, we need to set the type to `Edge` rather than `Document`.
+We have a flight dataset, that you can download from [here]({{site.baseurl}}/assets/flights.json). Similar to loading the airports dataset, we go to the `Collections` page in the webinterface, and click `Upload`. This time, however, we need to set the type to `Edge` rather than `Document`.
 
 <img src="{{site.baseurl}}/assets/arangodb_createcollection_edges.png" width="600px" />
 
@@ -665,11 +537,11 @@ This is what a single flight looks like:
 {% endhighlight %}
 
 ### 6.3 Querying key/values: ArangoDB as a key/value store
-Key/value stores are very quick for returning documents given a certain key. ArangoDB can be used as a key/value store as well. Remember from above that a key/value store should only do these things:
+As mentioned above, key/value stores are very quick for returning documents given a certain key. ArangoDB can be used as a key/value store as well. Remember from above that a key/value store should only do these things:
 
 * Create a document with a given key
 * Return a document given a key
-* Delete a document with a given key
+* Delete a document given a key
 
 Let's try these out. But before we do so, it'd be cleaner if we created a new collection just for this purpose. Go to `Collections` and create a new collection named `keyvalues`.
 
@@ -704,7 +576,7 @@ REMOVE b FROM keyvalues
 Retrieving and removing key/value pairs are very fast in ArangoDB, because the `_key` attribute is indexed by default.
 
 ### 6.4 Querying document data: ArangoDB as a document store
-You can query the data from the web interface as well in the `Queries` section. An overview of the possible high-level operations can be found here: [https://www.arangodb.com/docs/stable/aql/operations.html](https://www.arangodb.com/docs/stable/aql/operations.html). From that website:
+Having stored our data in the `airports` and `flights` collections, we can query these in the `Query` section. An overview of the possible high-level operations can be found here: [https://www.arangodb.com/docs/stable/aql/operations.html](https://www.arangodb.com/docs/stable/aql/operations.html). From that website:
 
 - `FOR`: Iterate over a collection or View, all elements of an array or traverse a graph
 - `RETURN`: Produce the result of a query.
@@ -733,11 +605,6 @@ You can also get multiple documents if you provide an array of keys instead of a
 RETURN DOCUMENT(["airports/JFK","airports/03D"])
 {% endhighlight %}
 Notice the square brackets around the keys!
-
-Thirdly, you can also return objects:
-{% highlight sql %}
-RETURN { "a": 5, "b": 3}
-{% endhighlight %}
 
 #### `FOR`: Looping over all documents
 Remember that in SQL, a query looked like this:
@@ -769,7 +636,7 @@ You can nest `FOR` statements, in which case you'll get the cross project:
 {% highlight sql %}
 FOR a IN [1,2,3]
   FOR b IN [10,20,30]
-    RETURN { "a": a, "b": b }
+    RETURN [a, b]
 {% endhighlight %}
 
 This will return:
@@ -882,14 +749,14 @@ In AQL, the different filters, sorts, limits, etc are applied top to bottom. Thi
 FOR a IN airports
   FILTER a.vip == true
   FILTER a.state == 'CA'
-  LIMIT 1
+  LIMIT 5
   RETURN a
 {% endhighlight %}
 
 {% highlight sql %}
 FOR a IN airports
   FILTER a.vip == true
-  LIMIT 1
+  LIMIT 5
   FILTER a.state == 'CA'
   RETURN a
 {% endhighlight %}
@@ -967,7 +834,7 @@ Remember that in SQL, we can replace the table mentioned in the `FROM` clause wi
 {% highlight sql %}
 SELECT COUNT(*) FROM (
   SELECT name FROM airports
-  WHERE state = 'TX';
+  WHERE state = 'TX');
 {% endhighlight %}
 
 We can do something similar with AQL. For argument's sake, let's wrap a simple query into another one which just returns the result of the inner query:
@@ -1013,6 +880,9 @@ airports/ACV  airports/SMF  207
 airports/ACV  airports/CEC  56
 ...
 {% endhighlight %}
+
+(Remember from above that using links in a document setting consitute a code smell. If you're doing this a lot, check if your data should be modelled as a graph.)
+
 
 What if we want to show the departure and arrival airports full names instead of their codes, and have an additional filter on the arrival airport? To do this, we need an additional join with the airports table:
 
@@ -1064,6 +934,8 @@ Camarillo        []
 ...
 {% endhighlight %}
 
+You'll see that e.g. Buchanan and Camarillo are also listed, which was not the case before.
+
 #### Grouping
 To group results, AQL provides the `COLLECT` keyword. Note that this does grouping, but no aggregation. With `COLLECT` you create a new variable that will be used for the grouping.
 
@@ -1114,7 +986,9 @@ This code goes through each airport, and _collects_ the state that it's in. It'l
       ...
 {% endhighlight %}
 
-Not ideal... We basically just want to have the airport codes instead of the complete document.
+The `a` in the output above refers to the `FOR a IN airports`. Using `FOR x IN airports` would have used `x` for each of the subdocuments above.
+
+This output is however not ideal... We basically just want to have the airport codes instead of the complete document.
 
 {% highlight sql %}
 FOR a IN airports
@@ -1212,8 +1086,6 @@ FOR f IN flights
 
 The answer is 729.93 kilometers.
 
-What is the average flight distance
-
 What is the shortest flight for each day of the week?
 {% highlight sql %}
 FOR f IN flights
@@ -1283,9 +1155,9 @@ Result:
 ### 6.5 Querying link data: ArangoDB as a graph store
 Although both `airports` and `flights` are collections in ArangoDB, we set `flights` to be an "Edge" collection, which means that it should have a `_from` and a `_to` key as it is used to link documents in other collections to each other.
 
-There are 2 types of graphs in ArangoDB: named graphs and anonymous graphs. Although named graphs are more powerful, we will limit ourselves here to anonymous graphs because these support the AQL language that we've been using up to now.
+There are 2 types of graphs in ArangoDB: named graphs and anonymous graphs.
 
-To run any graph queries, we first need to _create_ the graph. To do so, click on `Graphs` and then on `Add Graph`. You will be presented with the following box:
+Before we run the queries below, we will first create a named graph. To do so, click on `Graphs` and then on `Add Graph`. You will be presented with the following box:
 
 <img src="{{ site.baseurl }}/assets/arangodb_creategraph.png" width="600px"/>
 
@@ -1316,7 +1188,13 @@ This means (going from right to left):
 
 The whole path `p` contains the full list of vertices from source to target, as well as the list of edges between them.
 
-Note that the key and the name of the graph need to be in quotes. The result of this query is:
+Note that the key and the name of the graph need to be in quotes. The result of the query
+{% highlight sql %}
+FOR v,e,p IN 2..2 ANY "airports/JFK" GRAPH "flights"
+LIMIT 5
+RETURN v._id
+{% endhighlight %}
+is:
 {% highlight csv %}
 [
   "airports/IAH",
@@ -1368,7 +1246,7 @@ FILTER v.state == 'CA'
 RETURN DISTINCT v._id
 {% endhighlight %}
 
-The difference is that we don't use the keyword `GRAPH`, and the name of the collection is not in quotes.
+Here we don't use the keyword `GRAPH`, and the name of the collection is not in quotes.
 
 ##### Shortest path
 The `SHORTEST_PATH` function (see [here](https://www.arangodb.com/docs/stable/aql/graphs-kshortest-paths.html)) allows you to find the shortest path between two nodes. For example: how to get in the smallest number of steps from the airport of Pellston Regional of Emmet County (PLN) to Adak (ADK)?
@@ -1430,7 +1308,7 @@ FILTER f.TailNum == 'N937AT'
 RETURN f
 {% endhighlight %}
 
-This takes more than 3 seconds to run. If we _explain_ this query, we see the following:
+This takes more than 3 seconds to run. If we _explain_ this query (click the "Explain" button instead of "Execute"), we see the following:
 {% highlight sql %}
 Query String:
  FOR f IN flights
@@ -1452,7 +1330,7 @@ Optimization rules applied:
  none
 {% endhighlight %}
 
-We see that the query loops over all 286463 documents and checks for each if its `TailNum` is equal to `N937AT`. This is very expensive, as a _profile_ also shows:
+We see that the query loops over all 286463 documents and checks for each if its `TailNum` is equal to `N937AT`. This is very expensive, as a _profile_ (Click the "Profile" button) also shows:
 {% highlight sql %}
 Query String:
  FOR f IN flights
@@ -1493,11 +1371,11 @@ What we should do here, is create an index on `TailNum`. This will allow the sys
 
 <img src="{{ site.baseurl }}/assets/arangodb_indices_1.png" width="600px" />
 
-We'll want to create a persistent index with the following settings (i.e. tail number is not unique across all flights, and is not sparse (i.e. tail number is almost always provided)):
+We'll want to create a persistent index with the following settings (i.e. tail number is not unique across all flights, and is not sparse (in other words: tail number is almost always provided)):
 
 <img src="{{ site.baseurl }}/assets/arangodb_indices_2.png" width="400px" />
 
-After creating the index, the _explain_ shows that we are not doing a full collection scan anymore:
+After creating the index, an _explain_ shows that we are not doing a full collection scan anymore:
 {% highlight sql %}
 Query String:
  FOR f IN flights
@@ -1569,12 +1447,15 @@ With the index, our query is 406 times faster. Instead of going over all 286463 
 _Super nodes_ are nodes in a graph with very high connectivity. Queries that touch those nodes will have to follow all those edges. Consider a database with songs information that is modelled like this:
 
 <img src="{{ site.baseurl }}/assets/arangodb_songs.png" width="600px" />
+<small>White paper mentioned above</small>
 
-This means that there are 4 document collections (`Song`, `Artist`, `Album` and `Genre`), and 3 edge collections (`Made`, `PartOf` and `Has`).
+
+There are 4 document collections (`Song`, `Artist`, `Album` and `Genre`), and 3 edge collections (`Made`, `PartOf` and `Has`).
 
 Some of Aerosmith's data might look like this:
 
 <img src="{{ site.baseurl }}/assets/arangodb_aerosmith.png" width="400px" />
+<small>White paper mentioned above</small>
 
 Suppose that we want to answer this question: "“I just listened to a song called, Tribute and I liked it very much. I suspect that there may be other songs of the same genre as this song that I might enjoy. So, I want to find all of the albums of the same genre that were released in the same year". Here's a first stab at such query.
 
@@ -1596,7 +1477,7 @@ FOR s IN Song
 
 <img src="{{ site.baseurl }}/assets/supernode_1.png" width="600px" />
 
-All goes well until we hit `FOR otherAlbum IN 1 INBOUND genre Has`, because at that point it will have to check _all_ albums in that genre which will be a lot. Also, the list of genres is unlikely to grow fast. It's therefore better to first select all albums of the same year, and _filter_ for the genre. This way we'll only get a limited number of albums, and each of them has only one genre.
+All goes well until we hit `FOR otherAlbum IN 1 INBOUND genre Has`, because at that point it will follow all links to the albums of that genre. It's therefore better to first select all albums of the same year, and _filter_ for the genre. This way we'll only get a limited number of albums, and each of them has only one genre.
 
 Version 2:
 {% highlight sql %}
