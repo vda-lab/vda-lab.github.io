@@ -25,18 +25,49 @@ The 3 **homework assignments** should be performed _individually_ and _after eac
 The **exam** is pen-and-paper, and closed book.
 
 ### Schedule
+The schedule below is for information purposes only; the _official_ schedule is available on BlackBoard!
+
+#### 1. On-campus version
 
 | Date | Time | Topic | Location |
 | :-- | :-- | :-- | :-- |
-| Tue 24/09 | 9:30 - 12:30 | Introduction and database design | |
+| Tue 24/09 | 9:30-12:30 | Session 1: Relational database design and SQL | |
 | Mon 14/10 | 23:59 | Due date: Homework 1 | BlackBoard |
-| Fri 18/10 | 09:00 – 12:30 | Session 2: SQL | |
-| Thu 07/11 | 23:59 | Due date: Homework 2 | BlackBoard |
-| Fri 08/11 | 09:00 – 17:00* | Practical Session | C108B / C113 |
-| Thu 28/11 | 23:59 | Due date: Homework 3 | BlackBoard |
+| Fri 18/10 | 09:00–12:30 | Session 2: SQL | |
+| Mon 04/11 | 23:59 | Due date: Homework 2 | BlackBoard |
+| Fri 08/11 | 09:00–17:00* | Practical Session | C108B / C113 |
+| Mon 25/11 | 23:59 | Due date: Homework 3 | BlackBoard |
 
 <small>* _For the practical session, the group will be split in half. Morning session 09:00 –
 12:30 and afternoon session 13:30 – 17:00._</small>
+
+Optional but recommended
+
+| Date | Time | Topic | Location |
+| :-- | :-- | :-- | :-- |
+| Tue 12/11 | 9:00-12:30 or 13:30-17:00 | Practical session 1 | C108, C113 |
+| Mon 02/12 | 9:00-12:30 or 13:30-17:00 | Practical session 2 | C108, C113 |
+| Tue 17/11 | 9:00-12:30 or 13:30-17:00 | Practical session 3 | C108, C113 |
+
+#### 2. Distance-learning version
+Suggested timings
+
+| Week | Topic |
+| :-- | :-- |
+| Week 3: 30/09-04/10 | Relational database design and SQL |
+| Week 5: 14/10-18/10 | Beyond SQL |
+| Week 9: 11/11-15/11 | Structured self study |
+
+Key dates
+
+| Date | Time | Activity |
+| :-- | :-- | :-- | :-- |
+| Wed 16/10 | 17:00-19:00 | Contact moment 1 |
+| Mon 21/10 | 23:59 | Deadline Homework 1 |
+| Mon 28/10 | 17:00-19:00 | Contact moment 2 |
+| Wed 30/10 | 23:59 | Deadline Homework 2 |
+| Wed 06/11 | 17:00-19:00 | Contact moment 3 |
+| Tue 12/11 | 23:59 | Deadline Homework 3 |
 
 ### Goal of (this part of) the course
 Students should be able to construct and retrieve information from a normalised database using Structured Query Language (SQL) in sqlite, as well as understand the possibilities of NoSQL databases (i.c. ArangoDB).
