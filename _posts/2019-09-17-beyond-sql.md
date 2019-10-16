@@ -1504,3 +1504,30 @@ FOR s IN Song
 <img src="{{ site.baseurl }}/assets/supernode_2.png" width="600px" />
 
 Again, a look at _explain_ helps a lot here.
+
+## 7. Using ArangoDB from R
+You'll often jump straight into the web interface or `arangosh` to do quick searches, but you will eventually also want to access that data from you analysis software, i.c. R. Most database systems have drivers for R, including ArangoDB: see [here](https://gitlab.com/krpack/arango-driver). The same is true for python (multiple libraries even, including [ArangoPy](https://github.com/saeschdivara/ArangoPy) and [python-arango](https://github.com/Joowani/python-arango)) and [javascript](https://github.com/arangodb/arangojs), for example.
+
+See the links for documentation on how to use ArangoDB from R and other languages. Just as an illustration: here's a document query in R:
+{% highlight R %}
+all.cities <- cities %>% all_documents()
+all.persons <- persons %>% all_documents()
+
+if(all.cities$London$getValues()$capital){
+  print("London is still the capital of UK")
+} else {
+  print("What's happening there???")
+}
+{% endhighlight %}
+
+And a graph query:
+
+{% highlight R %}
+london.residence <- residenceGraph %>%
+  traversal(vertices = c(all.cities$London), depth = 2)
+london.residence %>% visualize()
+{% endhighlight %}
+
+will return:
+
+![]({{ site.baseurl }}/assets/aRangodb-graph.png)
