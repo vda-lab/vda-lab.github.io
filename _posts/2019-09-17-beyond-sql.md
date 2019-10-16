@@ -1446,16 +1446,16 @@ With the index, our query is 406 times faster. Instead of going over all 286463 
 
 _Super nodes_ are nodes in a graph with very high connectivity. Queries that touch those nodes will have to follow all those edges. Consider a database with songs information that is modelled like this:
 
-<img src="{{ site.baseurl }}/assets/arangodb_songs.png" width="600px" />
-<small>White paper mentioned above</small>
+<img src="{{ site.baseurl }}/assets/arangodb_songs.png" width="600px" /><br/>
+<small>Source: White paper mentioned above</small>
 
 
 There are 4 document collections (`Song`, `Artist`, `Album` and `Genre`), and 3 edge collections (`Made`, `PartOf` and `Has`).
 
 Some of Aerosmith's data might look like this:
 
-<img src="{{ site.baseurl }}/assets/arangodb_aerosmith.png" width="400px" />
-<small>White paper mentioned above</small>
+<img src="{{ site.baseurl }}/assets/arangodb_aerosmith.png" width="400px" /><br/>
+<small>Source: White paper mentioned above</small>
 
 Suppose that we want to answer this question: "“I just listened to a song called, Tribute and I liked it very much. I suspect that there may be other songs of the same genre as this song that I might enjoy. So, I want to find all of the albums of the same genre that were released in the same year". Here's a first stab at such query.
 
