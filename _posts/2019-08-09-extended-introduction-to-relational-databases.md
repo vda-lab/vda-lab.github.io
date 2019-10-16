@@ -12,9 +12,9 @@ tags:
 ---
 This post is part of an extended version of the [introduction to relational databases]({{ site.baseurl }}/2015/02/introduction-to-relational-databases) post, to be served as course material for the Software and Data Management course at UHasselt. The contents of this post is licensed as CC-BY: feel free to copy/remix/tweak/... it, but please credit your source.
 
-- Part 1 (this post): Introduction to data management, database schema design and SQL
+- Part 1 (this post): Relational database design and SQL
 - [Part 2]({{site.baseurl}}/2019/09/beyond-sql): Beyond SQL
-- [Part 3](): Practical exercises in SQL - TBD
+- Part 3: Practical session: Querying the [chinook database](https://www.sqlitetutorial.net/sqlite-sample-database/)
 
 ![CC-BY]({{ site.baseurl }}/assets/ccby.png)
 

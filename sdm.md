@@ -12,9 +12,9 @@ This page concerns the "concepts of data management and structured query languag
 
 This part is organised in 2 lectures and 1 practical session. **Study material** is available as 3 blog posts on [http://vda-lab.be/teaching]({{site.baseurl}}/teaching), of which PDFs are also available on [blackboard](https://bb.uhasselt.be).
 
-  1. [Session 1: Introduction and database design]({{ site.baseurl }}/2019/08/extended-introduction-to-relational-databases)
-  1. [Session 2: Beyond SQL]({{site.baseurl}}/2019/09/beyond-sql)
-  1. [Session 3: Practical session](): Querying the [chinook database](https://www.sqlitetutorial.net/sqlite-sample-database/)
+  1. [Part 1: Relational database design and SQL]({{ site.baseurl }}/2019/08/extended-introduction-to-relational-databases)
+  1. [Part 2: Beyond SQL]({{site.baseurl}}/2019/09/beyond-sql)
+  1. Part 3: Practical session: Querying the [chinook database](https://www.sqlitetutorial.net/sqlite-sample-database/)
 
 ### Practical information
 
