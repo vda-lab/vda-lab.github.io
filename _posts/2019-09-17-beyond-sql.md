@@ -398,10 +398,10 @@ Link prediction can be done in different ways, and can happen in a dynamic or st
 #### Subgraph mapping
 Subgraph mining is another type of query that is very important in e.g. bioinformatics. Some example patterns:
 
-- [A] feed-forward loop
+- [A] three-node feedback loop
 - [B] tree chain
 - [C] four-node feedback loop
-- [D] three-node feedback loop
+- [D] feedforward loop
 - [E] bi-parallel pattern
 - [F] bi-fan
 
@@ -426,7 +426,7 @@ Basically all types of data can be modelled as a graph. Consider our buildings t
 | 5   | building5 | street5 | city5 | house  |          |                      |
 | ... | ...       | ...     | ...   | ...    | ...      | ...                  |
 
-This can be represented as such:
+This can also be represented as a network, where:
 - every building is a vertex
 - every value for a property is a vertex as well
 - the column becomes the relation
@@ -881,7 +881,7 @@ airports/ACV  airports/CEC  56
 ...
 {% endhighlight %}
 
-(Remember from above that using links in a document setting consitute a code smell. If you're doing this a lot, check if your data should be modelled as a graph.)
+(Remember from above that using links in a document setting consitute a code smell. If you're doing this a lot, check if your data should be modelled as a graph. Further down when we're talking about ArangoDB as a graph database we'll write a version of this same query that uses a graph approach.)
 
 
 What if we want to show the departure and arrival airports full names instead of their codes, and have an additional filter on the arrival airport? To do this, we need an additional join with the airports table:
@@ -1188,7 +1188,7 @@ This means (going from right to left):
 
 The whole path `p` contains the full list of vertices from source to target, as well as the list of edges between them.
 
-Note that the key and the name of the graph need to be in quotes. The result of the query
+Note that the key  graph need to be in quotes. The result of the query
 {% highlight sql %}
 FOR v,e,p IN 2..2 ANY "airports/JFK" GRAPH "flights"
 LIMIT 5
@@ -1246,37 +1246,100 @@ FILTER v.state == 'CA'
 RETURN DISTINCT v._id
 {% endhighlight %}
 
-Here we don't use the keyword `GRAPH`, and the name of the collection is not in quotes.
+Here we don't use the keyword `GRAPH`,  collection is not in quotes.
 
-##### Shortest path
+#### Rewriting the document query that used joins
+Above we said that we'd rewrite a query that used the document approach to one that uses a graph approach. The original query listed all airports in California, and listed where any flights were going to and what the distance is.
+
+{% highlight sql %}
+FOR a IN airports
+  FILTER a.state == 'CA'
+  FOR f IN flights
+    FILTER f._from == a._id
+    RETURN DISTINCT {departure: a._id, arrival: f._to, distance: f.Distance}
+{% endhighlight %}
+
+We can approach this from a graph perspective as well. Instead of checking the `_from` key in the `flights` documents, we consider the flights as a graph: we take all Californian airports, and follow all outbound links with a distance of 1.
+
+{% highlight sql %}
+FOR a IN airports
+  FILTER a.state == 'CA'
+  FOR v,e,p IN 1..1 OUTBOUND a flights
+    RETURN DISTINCT { departure: a._id, arrival: v._id, distance: e.Distance}
+{% endhighlight %}
+
+This gives the same results.
+{% highlight csv %}
+airports/ACV  airports/SFO  250
+airports/ACV  airports/SMF  207
+airports/ACV  airports/CEC  56
+...
+{% endhighlight %}
+
+Remember that we actually had quite a bit of work if we wanted to show the airport _names_ instead of their codes:
+{% highlight sql %}
+FOR a1 IN airports
+  FILTER a1.state == 'CA'
+  FOR f IN flights
+    FILTER f._from == a1._id
+    FOR a2 in airports
+      FILTER a2._id == f._to
+      FILTER a2.state == 'CA'
+      RETURN DISTINCT {
+        departure: a1.name,
+        arrival: a2.name,
+        distance: f.Distance }
+{% endhighlight %}
+
+In constrast, we only need to make a minor change in the `RETURN` statement of the graph query:
+
+{% highlight sql %}
+FOR a IN airports
+  FILTER a.state == 'CA'
+  FOR v,e,p IN 1..1 OUTBOUND a flights
+    RETURN DISTINCT { departure: a.name, arrival: v.name, distance: e.Distance}
+{% endhighlight %}
+
+#### Shortest path
 The `SHORTEST_PATH` function (see [here](https://www.arangodb.com/docs/stable/aql/graphs-kshortest-paths.html)) allows you to find the shortest path between two nodes. For example: how to get in the smallest number of steps from the airport of Pellston Regional of Emmet County (PLN) to Adak (ADK)?
 
 {% highlight sql %}
 FOR path IN OUTBOUND SHORTEST_PATH 'airports/PLN' TO 'airports/ADK' flights
-LIMIT 50
 RETURN path
 {% endhighlight %}
 
 The result looks like this:
 
-<img src="{{ site.baseurl }}/assets/PLN_to_ADK_1.png" width="600px" />
+{% highlight csv %}
+_key  _id           _rev         name                                 city       state  country  lat          long          vip
+PLN   airports/PLN  _ZbpOKyy--Q  Pellston Regional of Emmet County    Pellston   MI     USA      45.5709275   -84.796715    false
+DTW   airports/DTW  _ZbpOKxu-_S  Detroit Metropolitan-Wayne County    Detroit    MI     USA      42.21205889  -83.34883583  false
+IAH   airports/IAH  _ZbpOKyK---  George Bush Intercontinental         Houston    TX     USA      29.98047222  -95.33972222  false
+ANC   airports/ANC  _ZbpOKxW-Am  Ted Stevens Anchorage International  Anchorage  AK     USA      61.17432028  -149.9961856  false
+ADK   airports/ADK  _ZbpOKxW--o  Adak                                 Adak       AK     USA      51.87796389  -176.6460306  false
+{% endhighlight %}
 
 The above does not take into account the distance that is flown. We can add that as the weight:
 {% highlight sql %}
 FOR path IN OUTBOUND SHORTEST_PATH 'airports/PLN' TO 'airports/ADK' flights
 OPTIONS {
-  weightAttribute: "Distance",
-  defaultWeight: 1000
+  weightAttribute: "Distance"
 }
-LIMIT 50
 RETURN path
 {% endhighlight %}
 
-This returns:
+This shows that flying of Minneapolis instead of Houston would cut down on the number of miles flown:
 
-<img src="{{ site.baseurl }}/assets/PLN_to_ADK_2.png" width="600px" />
+{% highlight csv %}
+_key  _id           _rev         name                                 city         state  country  lat          long          vip
+PLN   airports/PLN  _ZbpOKyy--Q  Pellston Regional of Emmet County    Pellston     MI     USA      45.5709275   -84.796715    false
+DTW   airports/DTW  _ZbpOKxu-_S  Detroit Metropolitan-Wayne County    Detroit      MI     USA      42.21205889  -83.34883583  false
+MSP   airports/MSP  _ZbpOKyi--9  Minneapolis-St Paul Intl             Minneapolis  MN     USA      44.88054694  -93.2169225   false
+ANC   airports/ANC  _ZbpOKxW-Am  Ted Stevens Anchorage International  Anchorage    AK     USA      61.17432028  -149.9961856  false
+ADK   airports/ADK  _ZbpOKxW--o  Adak                                 Adak         AK     USA      51.87796389  -176.6460306  false
+{% endhighlight %}
 
-##### Pattern matching
+#### Pattern matching
 What if we want to find a complex pattern in a graph, such as loops, triangles, alternative paths, etc (see [above](#subgraph-mapping))? Let's say we want to find any alternative paths of length 3: where there are flights from airport 1 to airport 2 and from airport 2 to airport 4, but also from airport 1 to airport 3 and from airport 3 to airport 4.
 
 ![saves]({{ site.baseurl }}/assets/saves.png)
@@ -1293,7 +1356,7 @@ It seems that there are many, including Atlanta (ATL), Boston (BOS), Phoenix (PH
 
 For an in-depth explanation on pattern matching, see [here](https://www.arangodb.com/arangodb-training-center/graphs/pattern-matching/).
 
-##### Centrality
+#### Centrality
 As mentioned [above](#61-starting-with-arangodb), not all ArangoDB functonality is available through the web interface. For centrality queries and community detection, we'll have to refer you to the [arangosh documentation](https://www.arangodb.com/docs/stable/programs-arangosh.html) and [community detection tutorial](https://www.arangodb.com/pregel-community-detection/).
 
 ### 6.5 Improving performance of ArangoDB queries
