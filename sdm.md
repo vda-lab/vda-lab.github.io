@@ -33,7 +33,7 @@ The schedule below is for information purposes only; the _official_ schedule is 
 | :-- | :-- | :-- | :-- |
 | Tue 24/09 | 9:30-12:30 | Session 1: Relational database design and SQL | |
 | Mon 14/10 | 23:59 | Due date: Homework 1 | BlackBoard |
-| Fri 18/10 | 09:00–12:30 | Session 2: SQL | |
+| Fri 18/10 | 09:00–12:30 | Session 2: Beyond SQL | |
 | Mon 04/11 | 23:59 | Due date: Homework 2 | BlackBoard |
 | Fri 08/11 | 09:00–17:00* | Practical Session | C108B / C113 |
 | Mon 25/11 | 23:59 | Due date: Homework 3 | BlackBoard |
