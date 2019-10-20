@@ -65,7 +65,7 @@ Key dates
 | Wed 16/10 | 17:00-19:00 | Contact moment 1 |
 | Mon 21/10 | 23:59 | Deadline Homework 1 |
 | Mon 28/10 | 17:00-19:00 | Contact moment 2 |
-| Wed 30/10 | 23:59 | Deadline Homework 2 |
+| Wed 04/11 | 23:59 | Deadline Homework 2 |
 | Wed 06/11 | 17:00-19:00 | Contact moment 3 |
 | Tue 12/11 | 23:59 | Deadline Homework 3 |
 
