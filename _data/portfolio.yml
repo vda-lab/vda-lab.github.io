@@ -1,3 +1,9 @@
+- title: STAD
+  class: viz
+  description: Improving the Projection of Global Structures in Data through Spanning Trees
+  url: http://vda-lab.github.io/stad.html
+  image: stad_segment.png
+
 - title: Coral
   class: viz
   description: Visualization on early modern Flemish art
