@@ -1,6 +1,6 @@
 ---
 layout: page
-title: STAD - Understanding large complex datasets
+title: STAD - Understanding the shape of complex datasets
 permalink: stad.html
 ---
 _This is work performed by Daniel Alcaide, unless otherwise mentioned._
