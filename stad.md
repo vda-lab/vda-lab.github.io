@@ -1,6 +1,6 @@
 ---
 layout: page
-title: STAD - Simplified Topological Approximation of Data
+title: STAD - Understanding large complex datasets
 permalink: stad.html
 ---
 _This is work performed by Daniel Alcaide, unless otherwise mentioned._
