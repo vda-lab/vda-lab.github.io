@@ -330,7 +330,7 @@ SELECT COUNT('x') FROM (
   MINUS
   SELECT to_who
   FROM first_table
-  WHERE action = 'REMOVE'
+  WHERE action = 'remove'
   AND timestamp < 20191101 );
 {% endhighlight %}
 
