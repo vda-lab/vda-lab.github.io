@@ -14,7 +14,7 @@ This post is part of an extended version of the [introduction to relational data
 
 - Part 1 (this post): Relational database design and SQL
 - [Part 2]({{site.baseurl}}/2019/09/beyond-sql): Beyond SQL
-- Part 3: Practical session: Querying the [chinook database](https://www.sqlitetutorial.net/sqlite-sample-database/)
+- [Part 3]({{ site.baseurl }}/2019/10/lambda-architecture): Lambda architecture
 
 ![CC-BY]({{ site.baseurl }}/assets/ccby.png)
 

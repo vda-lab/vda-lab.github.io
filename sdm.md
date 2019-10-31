@@ -14,7 +14,7 @@ This part is organised in 2 lectures and 1 practical session. **Study material**
 
   1. [Part 1: Relational database design and SQL]({{ site.baseurl }}/2019/08/extended-introduction-to-relational-databases)
   1. [Part 2: Beyond SQL]({{site.baseurl}}/2019/09/beyond-sql)
-  1. Part 3: Practical session: Querying the [chinook database](https://www.sqlitetutorial.net/sqlite-sample-database/)
+  1. [Part 3: Lambda architecture]({{ site.baseurl }}/2019/10/lambda-architecture)
 
 ### Practical information
 

@@ -15,7 +15,7 @@ This post is part of the course material for the Software and Data Management co
 
 - [Part 1]({{ site.baseurl }}/2019/08/extended-introduction-to-relational-databases): Relational database design and SQL
 - Part 2: this section
-- Part 3: Practical session: Querying the [chinook database](https://www.sqlitetutorial.net/sqlite-sample-database/)
+- [Part 3]({{ site.baseurl }}/2019/10/lambda-architecture): Lambda architecture
 
 **For a particular year's practicalities, see [http://vda-lab.be/teaching]({{ site.baseurl }}/teaching)**
 
