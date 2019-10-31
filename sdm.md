@@ -56,7 +56,7 @@ Suggested timings
 | :-- | :-- |
 | Week 3: 30/09-04/10 | Relational database design and SQL |
 | Week 5: 14/10-18/10 | Beyond SQL |
-| Week 9: 11/11-15/11 | Structured self study |
+| Week 9: 11/11-15/11 | Lambda architecture |
 
 Key dates
 
