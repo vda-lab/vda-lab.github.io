@@ -35,7 +35,7 @@ The schedule below is for information purposes only; the _official_ schedule is 
 | Mon 14/10 | 23:59 | Due date: Homework 1 | BlackBoard |
 | Fri 18/10 | 09:00–12:30 | Session 2: Beyond SQL | |
 | Mon 04/11 | 23:59 | Due date: Homework 2 | BlackBoard |
-| Fri 08/11 | 09:00–17:00* | Practical Session | C108B / C113 |
+| Fri 08/11 | 09:00–17:00* | Session 3: Lambda architecture & answers for homeworks | C108B / C113 |
 | Mon 25/11 | 23:59 | Due date: Homework 3 | BlackBoard |
 
 <small>* _For the practical session, the group will be split in half. Morning session 09:00 –
