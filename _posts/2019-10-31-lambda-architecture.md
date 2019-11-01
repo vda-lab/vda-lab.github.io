@@ -24,14 +24,14 @@ This post is part of the course material for the Software and Data Management co
 * Do not remove this line (it will not be displayed)
 {:toc}
 
-In this post, we'll revisit some of the more conceptual differences between using SQL and NoSQL databases, and touch upon the lambda architecture, which is a model that can help you think about working with large and/or complex datasets.
+In this post, we'll revisit some of the more conceptual differences between using SQL and NoSQL databases, and touch upon the lambda architecture, which is a model to help you think about working with large and/or complex datasets.
 
 Input for this post comes for a large part from the book by Marz and Warren "Big Data: Principles and best practices of scalable realtime data systems" (Manning Publications, 2015).
 
-Note: whenever I mention "application" below, I'm not necessarily talking about a program complete with user interface that you can install on your Windows machine as a `.exe` or something that ends up in your `Applications` folder is you're using OSX. "Application" is more generic than this, and also covers cases where you're investigating data in R or SAS (either in an interactive or non-interactive way).
+Note: whenever I mention "application" below, I'm not necessarily talking about a program complete with user interface that you can install on your Windows machine as a `.exe` or something that ends up in your `Applications` folder if you're using OSX. "Application" is more generic than this, and also covers cases where you're investigating data in R or SAS (either in an interactive or non-interactive way).
 
-## SQL "vs" NoSQL
-Yes, that's right, it's the _versus_ that's in quotes, and not the NoSQL. As mentioned in the previous post, NoSQL is not about not using SQL, but about picking the right _combination_ of database architectures.
+## SQL vs NoSQL
+As mentioned in the previous post, NoSQL is not about not using SQL, but about picking the right _combination_ of database architectures.
 
 We've seen that NoSQL is about a set of concepts that allow the rapid and efficient processing of datasets with a focus on performance, reliability and agility. Core themes are that these solutions:
 
@@ -41,7 +41,7 @@ We've seen that NoSQL is about a set of concepts that allow the rapid and effici
 - can use shared-nothing commodity computers
 - support linear scalability
 
-To clarify this a bit more, we'll go over some of the central NoSQL concepts again.
+To clarify this a bit more, we'll dig a bit deeper into some of the central NoSQL concepts again.
 
 ### Keep components simple
 NoSQL systems are often created by integrating a number of modular functions that work together, in contrast to traditional RDBMS which are typically more integrated (mammoth) systems. Such simple components are set up in such way that they can be easily combined. You can compare this to the (very clever) linux pipeline system. When working on the linux command line, even knowing only a very limited number of commands you can do very complex things by piping these commands together: the output of one command becomes the input of the next.
@@ -51,18 +51,18 @@ Consider, for example,
 cat data.csv | grep "chr1" | cut -f 2 | sort | uniq -c
 </pre>
 
-This pipeline takes all data from the file `data.csv`, filters out the lines that contain `chr1`, takes the second column, sorts this column, and returns the unique entries and how many there are for each.
+This pipeline takes all data from the file `data.csv`, only keeps the lines that contain `chr1`, takes the second column, sorts this column, and returns the unique entries and how many there are for each. The same could have been done with a single script that we'd call `count_of_unique_entries_in_column_2_for_chr1_in_datacsv.py`. But by combining a set of commands that each only address part of the problem we can be much more agile, and it's much easier to debug as well.
 
-NoSQL system interfaces are broader than regular standard input and standard output (i.e. using line delimiters), but can be documents, REST, JSON, XML, etc.
+I like to think of NoSQL systems in a similar way: instead of using a single complex application, you glue together multiple simple components. In an application we wrote several years ago for clinical geneticists, we kept most data about patients, mutations and genes in a relational database. However, we also needed to access conservation scores across the genome. Basically this means that for every 3.1 billion bases in the genome we had 3 values. There is no way you'd use a relational database with 3x3.1 billion records in a table... For that we used a key/value store which is very good at this. This illustrates that in a NoSQL setting you look at what is necessary, and combine components that are good at solving parts of the problem. You can combine these afterwards in your application layer.
 
 ### Use different application tiers
 This is closely related to the lambda architecture that we'll dig into further below.
 
-Splitting up functionality in different tiers helps a lot to simplify the design of your application. By segregating an application into tiers you have the option of modifying or adding a specific layer instead of reworking an entire application, leading to a separation of concerns. The lambda architecture is a prime example of this. Also consider an application with a graphical user interface, which consists of a database layer, a computational layer which converts the raw data in the database to something that can be displayed, and the graphical user interface. These 3 make up the tiers of the complete application.
+Splitting up functionality in different tiers helps a lot to simplify the design of your application. By segregating an application into tiers you have the option of modifying or adding a specific layer instead of reworking an entire application, leading to a separation of concerns. The lambda architecture is a prime example of this. Also consider an application with a graphical user interface, which consists of a database layer, a computational layer which converts the raw data in the database to something that can be displayed, and the graphical user interface.
 
 An important question to answer here is where to put the functionality of your application? In the last example: do you let the database compute (with e.g. SQL statements) the things you need in the graphical interface directly? Do you let the graphical user interface get the raw data from the database and do all the necessary munging of that data at the user end? Or do you insert a separate layer in between (i.e. the computational layer mentioned above)? It's all about a _separation of concerns_.
 
-In general, RDBMS have been along for a long time and are very mature. As a result, a lot of functionality has been added to the database tier. In applications using NoSQL solutions, however, much of the application functionality is in a middle tier.
+In general, RDBMS have been around for a long time and are very mature. As a result, a lot of functionality has been added to the database tier. In applications using NoSQL solutions, however, much of the application functionality is in a middle tier.
 
 ![tiers]({{ site.baseurl }}/assets/tiers.png)
 
@@ -76,11 +76,11 @@ To make sure that the performance of your application is adequate for your purpo
 It might be clear to you that cleverly keeping things in RAM is a good way to speed up your application or analysis :-) Which brings us to the next point:
 
 ### Keep your cache current using consistent hashing
-So keeping things in RAM makes it possible to very quickly access them. You can do this for example by storing the data in a variable in your python/R/SAS/ruby/perl/... code.
+So keeping things in RAM makes it possible to very quickly access them. This is what you do when you load data into a variable in your python/R/SAS/ruby/perl/... code.
 
 Caching is used constantly by the computer you're using at this moment as well.
 
-An important aspect is caching is calculating a key that can be used to retrieve the data (remember key/value stores?). This can for example be done by calculating a checksum, which looks at each byte of a document and returns a long sequence of letters and numbers. Different algorithms exists for this, such as `MD5` or `SHA-1`. Changing a single bit in a file (this file can be binary or not) will completely change the checksum.
+An important aspect of caching is calculating a key that can be used to retrieve the data (remember key/value stores?). This can for example be done by calculating a checksum, which looks at each byte of a document and returns a long sequence of letters and numbers. Different algorithms exists for this, such as `MD5` or `SHA-1`. Changing a single bit in a file (this file can be binary or not) will completely change the checksum.
 
 Let's for example look at the checksum for the file that I'm writing right now. Here are the commands and output to get the MD5 and SHA-1 checksums for this file:
 
@@ -116,7 +116,7 @@ To give you an idea of how difficult this is:
 
 ### ACID and BASE
 #### ACID
-RDBMS systems try to follow the **ACID** model for reliable database transactions. ACID stands for atomicity, consistency, isolation and durability. The prototypical example of a database that needs to comply to the ACID rules is one which handles bank transactions.
+RDBMS systems try to follow the ACID model for reliable database transactions. ACID stands for atomicity, consistency, isolation and durability. The prototypical example of a database that needs to comply to the ACID rules is one which handles bank transactions.
 
 <img src="{{ site.baseurl }}/assets/bank.png" width="400px" />
 
@@ -125,19 +125,19 @@ RDBMS systems try to follow the **ACID** model for reliable database transaction
 - _Isolation_: Each part of the transaction occurs without knowledge of any other transaction
 - _Durability_: Once all aspects of transaction are complete, it's permanent.
 
-For a bank transaction it is crucial that either _all_ processes (withdraw and deposit) or _none_.
+For a bank transaction it is crucial that either _all_ processes (withdraw and deposit) are performed or _none_.
 
 The software to handle these rules is very complex. In some cases, 50-60% of the codebase for a database can be spent on enforcement of these rules. For this reason, newer databases often do not support database-level transaction management in their first release.
 
-As a ground rule, you can state that ACID systems are pessimistic and focus on consistency and integrity of data above all other considerations (e.g. temporarily blocking reporting mechanisms is a reasonable compromise to ensure systems return reliable and accurate information).
+As a ground rule, you can consider ACID pessimistic systems that focus on consistency and integrity of data above all other considerations (e.g. temporarily blocking reporting mechanisms is a reasonable compromise to ensure systems return reliable and accurate information).
 
 #### BASE
-**BASE** stands for:
+BASE stands for:
 - _Basic Availability_: Information and service capability are "basically available" (e.g. you can always generate a report).
 - _Soft-state_: Some inaccuracy is temporarily allowed and data may change while being used to reduce the amount of consumed resources.
 - _Eventual consistency_: Eventually, when all service logic is executed, the systems is left in a consistent state.
 
-A good example of a BASE-type system is a database that handles shopping carts in an online store. It is no problem is the back-end reports are inconsistent for a few minutes (e.g. the total number of items sold is a bit off); it's much more important that the customer can actually purchase things.
+A good example of a BASE-type system is a database that handles shopping carts in an online store. It is no problem fs the back-end reports are inconsistent for a few minutes (e.g. the total number of items sold is a bit off); it's much more important that the customer can actually purchase things.
 
 This means that BASE systems are basically optimistic as all parts of the system will eventually catch up and be consistent. BASE systems therefore tend to be much simpler and faster as they don't have to deal with locking and unlocking resources.
 
@@ -161,8 +161,11 @@ The _batch layer_ needs to be able to (1) store an immutable, constantly growing
 What does "immutable" mean? This data is _never_ updated, only added upon. In SQL databases, you can update records like this (suppose that John Doe moved from California to New York):
 {% highlight sql %}
 UPDATE individuals
-SET address = "302 Fairway Place", city = "Cold Spring Harbor", state = 'NY'
-WHERE first_name = 'John' and last_name = 'Doe';
+SET address = "302 Fairway Place",
+    city = "Cold Spring Harbor",
+    state = 'NY'
+WHERE first_name = 'John'
+AND last_name = 'Doe';
 {% endhighlight %}
 
 What this does is _change_ the address in the database; the previous address in California is lost. In other words, the data is "mutated".
@@ -200,14 +203,16 @@ Instead of having a table with friendships, you record the data in a more raw fo
 | 7  | Tony | 20101021  | add    | Flint    |
 | 8  | Tony | 20110101  | add    | Fletcher |
 
-This is often called a _facts table_: the information in this table _will always be true_. Indeed, on June 2nd in 2010 Tom and Freddy became friends, whether or not they are still friends at this moment. Contrast that to the example above: John Doe will not always live at the address in California.
+This is often called a _facts table_: the information in this table _will always be true_. Indeed, on June 2nd in 2010 Tom and Freddy became friends, whether or not they are still friends at this moment. Contrast that to the example above: John Doe will not always live at the address in California. Another way of thinking about this is that in the mutable version you record the _state_, whereas in the immutable version you record the _changes to an underlying state_.
+
+As an exercise, what would an immutable version of the address example look like?
 
 In these examples we're adding records to a table, but the lambda layer can be implemented in many different ways. Rows can be added to a csv file; files can be added to a given directory; etc.
 
-_Everything starts with this master dataset_.
+_Everything starts with this immutable master dataset_.
 
 #### Computing arbitrary functions
-Any query that we run is basically a function over the dataset: the query `SELECT * FROM individuals WHERE name = "John Doe";` runs a filter function over the dataset in the `individuals` table. Looking at the above part on immutability, you might think "How dumb is this. Just to find out who Tom's friends are we have to go over the complete dataset and add/remove friends as we go." Indeed, a table like the following would be much easier if you want to know how many friends everyone has (suppose you're running the query in on the first of November, 2019):
+Any query that we run is basically a function over the dataset: the query `SELECT * FROM individuals WHERE name = "John Doe";` runs a filter function over the dataset in the `individuals` table. Looking at the above part on immutability, you might think "This is dumb. Just to find out who Tom's friends are we have to go over the complete dataset and add/remove friends as we go." Indeed, a table like the following would be much easier if you want to know how many friends everyone has (suppose you're running the query on the first of November, 2019):
 
 | id | who  | nr_of_friends |
 |:-- |:---- |:------------- |
@@ -249,6 +254,8 @@ The serving layer contains one or more versions of the data in a form that we wa
 
 The "friend_counts" table, for example, can then be queried easily to get the number of friends for every individual. The serving layer therefore contains _versions of the data optimised for answering specific questions_.
 
+This recomputation can be triggered by different things: it might start automatically when the previous round of recomputation has finished, it might start automatically whenever new data has been added, or (as in the example at the end of this post) it might be done on the fly when you're for example using SQL views.
+
 #### Making multiple views
 Remember when we talked about [data modeling]({{ site.baseurl }}/2019/09/beyond-sql#44-data-modelling) in document-databases, that the way that the documents are embedded can have huge effects on performance. In our example there, genotypes could be organised by individual or by SNP.
 
@@ -288,13 +295,13 @@ versus
   ]}
 {% endhighlight %}
 
-In a lambda architecture, if you know that you have to be able to answer both "what are the genotypes for a particular individual" and "what are the genotypes for a particular SNP" regularly, you'll just create both versions of the data.
+In a lambda architecture, if you know that you have to be able to answer both "what are the genotypes for a particular individual" and "what are the genotypes for a particular SNP" regularly, you'll just create both versions of the data in the serving layer. You might think that this is dangerous because you might end up with inconsistencies when you have to update something. This was one of the reasons that we went for normalisation when we were talking about [relational databases](http://vda-lab.be/2019/08/extended-introduction-to-relational-databases). There is however a big difference here: when we need to make a change, that change is added to the _batch_ layer and would trickle down automatically to _both_ versions in the serving layer.
 
 #### Recomputation updates
 The code necessary to create these "views" on the data is typically very simple. The batch layer continuously _recomputes_ these views, which are then exposed in the serving layer (called _batch views_). These computations are conceptually very simple, because they always take all the data into consideration and basically _delete the view and replace it with a completely new version_. These are so-called _recomputation updates_, which are very different from _incremental updates_, in which the view remains where it is and only those parts that changed are updated. If the recomputation update is finished, it basically starts all over again.
 
 #### Serving layer is out of date
-This approach does have a drawback, and that is that the data in the serving layer will always be out of date: the recomputation takes the data that is in the batch layer _at the moment the computation begins_, and does not look at any data that is added afterwards. Consider the image below. Let's say that at timepoint t1 we have a serving layer and start its recomputation from the batch layer, and the recomputation is finished at t4. At timepoint t2 new data is added to the batch layer, but is not considered in the recomputation because that only takes data into account that is in the batch layer _at the start of the recomputation_. At t3 we want to query the database (via the serving layer), and will miss the dark and the red datapoints because they are not in the serving layer yet. If we'd perform the same query at timepoint t4 we would include the dark grey datapoint.
+This approach does have a drawback, and that is that the data in the serving layer will always be out of date: the recomputation takes the data that is in the batch layer _at the moment the computation begins_, and does not look at any data that is added afterwards. Consider the image below. Let's say that at timepoint t1 we have a serving layer and start its recomputation from the batch layer, and the recomputation is finished at t4. At timepoint t2 new data is added to the batch layer, but is not considered in the recomputation because that only took data into account that was in the batch layer at the start of the recomputation. At t3 we want to query the database (via the serving layer), and will miss the dark and the red datapoints because they are not in the serving layer yet. If we'd perform the same query at timepoint t4 we would include the dark grey datapoint.
 
 <img src="{{ site.baseurl }}/assets/servinglayer-outofdate2.png" width="400px" />
 
@@ -320,6 +327,8 @@ Only mentioning that:
 ### An example
 The batch layer master dataset can consist of files in a filesystem, records in some SQL tables, or any other way that we can store data. And although the lambda architecture is linked to the idea of Big Data and NoSQL, nothing prevents us from using a simple SQL database in this architecture if that fits our needs. Actually, the idea of _views_ in a relational database corresponds to a serving layer, whereas the original tables in that case are the batch layer.
 
+Consider the previous friends example.
+
 {% highlight sql %}
 CREATE VIEW v_nr_of_friends AS
 SELECT COUNT('x') FROM (
@@ -334,7 +343,7 @@ SELECT COUNT('x') FROM (
   AND timestamp < 20191101 );
 {% endhighlight %}
 
-We actually have set up a local database to keep track of employee status and other information at the department. This _relational_ database very much adheres to the lambda architecture paradigm. Here's how (a very small part of) it is set up:
+We have actually set up a local database to keep track of employee status and other information at the department. Although it is a relational database, it very much adheres to the lambda architecture paradigm. Here's how (a very small part of) it is set up:
 - Everything revolves around _hiring contracts_ (i.e. information about when someone is hired, paid by which project, when the contract ends, etc). One person can have many consecutive contracts, for example when it's a yearly contract that gets renewed.
 - Information about the _individual_ relates to their name, address, office number, work phone number, etc. Important: we do _not_ remove an individual from this table when they leave the university.
 - We compute a view _v-current-individuals_ which - for each individual - checks if they have a current contract. This view therefore acts as the serving layer, as it is the one that we will actually query.
@@ -362,9 +371,9 @@ We actually have set up a local database to keep track of employee status and ot
 | 3  | Tony      | A15    | 123-6789     |
 | 4  | Tina      | B3     | 123-7890     |
 
-When someone new starts in the department, they are added to the `individuals` table; when someone gets a new contract, this is added to the `contracts` table (obviously a record is also created there when some is added to the `individuals` table...). Never is a record removed from either of these tables.
+When someone new starts in the department, they are added to the `individuals` table; when someone gets a new contract, this is added to the `contracts` table (obviously a record is also created there when some is added to the `individuals` table because they'll get their first contract at that moment...). Never is a record removed from either of these tables.
 
-At the same time, we created an SQL view that computes the `current_individuals`, i.e. those individuals that have a current contract. It looks something like this:
+At the same time, we created an SQL view that computes the current individuals, i.e. those individuals that have a current contract. It looks something like this:
 {% highlight sql %}
 CREATE VIEW v_current_individuals AS
 SELECT * FROM individuals i, contracts c
@@ -387,6 +396,6 @@ We _could_ have set up the system in the regular way using updates, but we haven
 | 1  | Tom       | A1     | 123-4567     | 20191231        |
 | 3  | Tony      | A15    | 123-6789     | 20191231        |
 
-Notice that Tim and Tina are not in this table, because they would have been removed. Similarly, when Tom would sign a new contract, the `end of contract` column would have been updated. But imagine that someone is erroneously removed from the `individuals` table: we can't just add him or her again without finding out first what their address is, their office, etc.
+Notice that Tim and Tina are not in this table, because they would have been removed. Similarly, when Tom would sign a new contract, the `end of contract` column would have been updated. But imagine that someone is erroneously removed from the `individuals` table: we can't just add him or her again without finding out first what their address is, their office, etc. That data would have been lost
 
 This example shows that in most real-life cases you want to have a mix of recomputation and updates, a mix between ACID and BASE. It's almost never black-and-white: although we do not remove an individual from the `individuals` table when they leave (batch-layer approach), we _do_ update an individual's record when they change address, office, or phone number (non-lambda architecture approach).
