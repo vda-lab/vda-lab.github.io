@@ -31,9 +31,9 @@ The schedule below is for information purposes only; the _official_ schedule is 
 
 | Date | Time | Topic | Location |
 | :-- | :-- | :-- | :-- |
-| Tue 24/09 | 9:30-12:30 | Session 1: Relational database design and SQL | |
+| Tue 24/09 | 9:30-12:30 | Session 1: Relational database design and SQL | C104 |
 | Mon 14/10 | 23:59 | Due date: Homework 1 | BlackBoard |
-| Fri 18/10 | 09:00–12:30 | Session 2: Beyond SQL | |
+| Fri 18/10 | 09:00–12:30 | Session 2: Beyond SQL | C104 |
 | Mon 04/11 | 23:59 | Due date: Homework 2 | BlackBoard |
 | Fri 08/11 | 09:00–17:00* | Session 3: Lambda architecture & answers for homeworks | C108B / C113 |
 | Mon 25/11 | 23:59 | Due date: Homework 3 | BlackBoard |
@@ -66,8 +66,8 @@ Key dates
 | Mon 21/10 | 23:59 | Deadline Homework 1 |
 | Mon 28/10 | 17:00-19:00 | Contact moment 2 |
 | Wed 04/11 | 23:59 | Deadline Homework 2 |
-| Wed 06/11 | 17:00-19:00 | Contact moment 3 |
-| Tue 12/11 | 23:59 | Deadline Homework 3 |
+| Wed 19/11 | 17:00-19:00 | Contact moment 3 |
+| Tue 26/11 | 23:59 | Deadline Homework 3 |
 
 ### Goal of (this part of) the course
 Students should be able to construct and retrieve information from a normalised database using Structured Query Language (SQL) in sqlite, as well as understand the possibilities of NoSQL databases (i.c. ArangoDB).
