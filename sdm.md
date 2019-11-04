@@ -5,6 +5,9 @@ permalink: sdm.html
 custom_css: with_tables
 ---
 [ECTS file](https://uhintra03.uhasselt.be/studiegidswww/opleidingsonderdeel.aspx?a=2016&i=3561&n=4&t=04)
+[Blackboard on-campus version](https://bb.uhasselt.be/webapps/blackboard/execute/modulepage/view?course_id=_5047_1&cmp_tab_id=_14919_1)
+[Blackboard distance-learning version](https://bb.uhasselt.be/webapps/blackboard/execute/modulepage/view?course_id=_5049_1&cmp_tab_id=_14921_1)
+[Course schedules](https://uhintra03.uhasselt.be/uurroosters/Default.aspx?t=04)
 
 ## Course information 2019-2020
 
