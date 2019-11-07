@@ -19,6 +19,7 @@ color: "#fff2ae"
 * [Network of intellectual cooperation](https://github.com/grandjeanmartin/intellectual-cooperation)
 * [Data for Climate Action D4CA](http://dataforclimateaction.org/)
 * [Cool Datasets](https://www.cooldatasets.com)
+* [Armed Conflict Location & Event Data Project (ACLED)](https://www.acleddata.com/)
 
 ## :: Visualization ::
 
