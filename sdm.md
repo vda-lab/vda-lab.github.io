@@ -6,14 +6,14 @@ custom_css: with_tables
 ---
 [ECTS file](https://uhintra03.uhasselt.be/studiegidswww/opleidingsonderdeel.aspx?a=2016&i=3561&n=4&t=04) ::
 [Blackboard (on-campus)](https://bb.uhasselt.be/webapps/blackboard/execute/modulepage/view?course_id=_5047_1&cmp_tab_id=_14919_1) ::
-[Blackboard (distance-learning)](https://bb.uhasselt.be/webapps/blackboard/execute/modulepage/view?course_id=_5049_1&cmp_tab_id=_14921_1) :: 
+[Blackboard (distance-learning)](https://bb.uhasselt.be/webapps/blackboard/execute/modulepage/view?course_id=_5049_1&cmp_tab_id=_14921_1) ::
 [Course schedules](https://uhintra03.uhasselt.be/uurroosters/Default.aspx?t=04)
 
 ## Course information 2019-2020
 
 This page concerns the "concepts of data management and structured query language" part of the Software and Data Management (SDM) course of MSc Statistics at UHasselt (see ECTS file above). For R and SAS, see blackboard.
 
-This part is organised in 2 lectures and 1 practical session. **Study material** is available as 3 blog posts on [http://vda-lab.be/teaching]({{site.baseurl}}/teaching), of which PDFs are also available on [blackboard](https://bb.uhasselt.be).
+This part is organised in 3 lectures. **Study material** is available as 3 blog posts on [http://vda-lab.be/teaching]({{site.baseurl}}/teaching), of which PDFs are also available on [blackboard](https://bb.uhasselt.be).
 
   1. [Part 1: Relational database design and SQL]({{ site.baseurl }}/2019/08/extended-introduction-to-relational-databases)
   1. [Part 2: Beyond SQL]({{site.baseurl}}/2019/09/beyond-sql)
@@ -21,7 +21,7 @@ This part is organised in 2 lectures and 1 practical session. **Study material**
 
 ### Practical information
 
-**Software** used throughout the lectures and in the practical session is `sqlite`. We'll use the command line interface, as well as the graphical user interface "DB Browser for SQLite" which you can find at [http://sqlitebrowser.org](http://sqlitebrowser.org).
+**Software** used throughout the lectures and in the practical session are sqlite and ArangoDB. For sqlite we'll use the command line interface, as well as the graphical user interface "DB Browser for SQLite" which you can find at [http://sqlitebrowser.org](http://sqlitebrowser.org). ArangoDB can be downloaded from [www.arangodb.com](www.arangodb.com) to be installed on your own computer, although there is also a server running at UHasselt in case you have difficulties to do so.
 
 The 3 **homework assignments** should be performed _individually_ and _after each lecture_.
 
