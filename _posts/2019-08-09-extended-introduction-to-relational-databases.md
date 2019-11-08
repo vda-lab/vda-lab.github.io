@@ -658,6 +658,15 @@ SELECT * FROM individuals WHERE ethnicity IN ('african', 'caucasian');
 SELECT * FROM individuals WHERE ethnicity != 'asian';
 {% endhighlight %}
 
+What if you can't remember if the ethnicity was stored capitalised or not? In other words: was it 'caucasian' or 'Caucasian'? One way of approaching this is using the **`LIKE`** keyword. It behaves the same as `==`, but you can use wildcards (i.c. `%`) that can represent any character. For example, the following two are almost the same:
+
+{% highlight sql %}
+SELECT * FROM individuals WHERE ethnicity == 'Caucasian' OR ethnicity == 'caucasian';
+SELECT * FROm individuals WHERE ethnicity LIKE '%aucasian';
+{% endhighlight %}
+
+I say "almost" the same, because the `%` can stand for more than one character. A `WHERE ethnicity LIKE '%sian'` would therefore return those individuals who are "Caucasian", "caucasian", "Asian" and "asian".
+
 You often just want to see a **small subset of data** just to make sure that you're looking at the right thing. In that case: add a `LIMIT` clause to the end of your query, which has the same effect as using `head` on the linux command-line. Please *always* do this if you don't know what your table looks like because you don't want to send millions of lines to your screen.
 
 {% highlight sql %}
@@ -886,7 +895,58 @@ SELECT * FROM snps LIMIT 5;
 
 If you now exit the sqlite prompt (with `.quit`), you should see a file in the directory where you were that is called `5_snps.csv`.
 
-### 5.3 Additional functions
+### 5.3 Updating and deleting data
+Sometimes you will want to update or delete data in a table. The SQL code to do this uses a `WHERE` clause that is exactly the same as for a regular `SELECT`. A very important tip: first do a `SELECT` on your table with the `WHERE` clause that you'll use for the update or deletion just to make sure that you'll change the correct rows. When you've made changes to the wrong rows you won't be able to go back (unless you use the Lambda architecture principles as we will explain in the [third session](https://vda-lab.github.io/2019/10/lambda-architecture)).
+
+#### UPDATE
+Imagine that we've been storing the information on our individuals as above, but have not been consistent in capitalising the ethnicity. In some cases, a person can be of `asian` descent; in other cases he or she can be `Asian`. The same would go for the other ethnicities. To clean this up, let's put everything in lower case. For argument's sake we'll only look at `Asian` here. First let's check what we should get with a `SELECT`.
+{% highlight sql %}
+SELECT * FROM individuals
+WHERE ethnicity == 'Asian';
+{% endhighlight %}
+
+This will give us the rows that we will change. Are these indeed the ones? Then go forward with the update:
+
+{% highlight sql %}
+UPDATE individuals
+SET ethnicity = 'asian'
+WHERE ethnicity == 'Asian';
+{% endhighlight %}
+
+The `WHERE` clause is the same. The general syntax for an update looks like this:
+
+{% highlight sql %}
+UPDATE <table>
+SET <column> = <new value>
+WHERE <conditions>;
+{% endhighlight %}
+
+In this example the column that is updated (ethnicity) is the same as the one in the `WHERE` clause. This does not have to be the case. What would the following do?
+
+{% highlight sql %}
+UPDATE genotypes
+SET genotype_amb = 'R'
+WHERE genotype == 'A/G';
+{% endhighlight %}
+
+#### DELETE
+`DELETE` is similar to `UPDATE` but simpler: you don't use the `SET` pragma. Same as with updating data, make sure that your `WHERE` clause is correct! Test this with a `SELECT` beforehand.
+
+The general syntax:
+
+{% highlight sql %}
+DELETE FROM <table>
+WHERE <conditions>;
+{% endhighlight %}
+
+For example:
+
+{% highlight sql %}
+DELETE FROM genotypes
+WHERE genotype_amb == 'N';
+{% endhighlight %}
+
+### 5.4 Additional functions
 #### LIMIT
 
 If you only want to get the first 10 results back (e.g. to find out if your complicated query does what it should do without running the whole actual query), use LIMIT:
@@ -1167,14 +1227,14 @@ FROM (
        FROM genotypes);
 {% endhighlight %}
 
-### 5.4 Public bioinformatics databases
+### 5.5 Public bioinformatics databases
 Sqlite is a light-weight system for running relational databases. If you want to make your data available to other people it's often better to use systems such as MySQL. The data behind the Ensembl genome browser, for example, is stored in a relational database and directly accessible through SQL as well.
 
 To access the last release of human from Ensembl: `mysql -h ensembldb.ensembl.org -P 5306 -u anonymous homo_sapiens_core_70_37`. To get an overview of the tables that we can query: `show tables`.
 
 To access the `hg19` release of the UCSC database (which is also a MySQL database): `mysql --user=genome --host=genome-mysql.cse.ucsc.edu hg19`.
 
-### 5.5 Views
+### 5.6 Views
 By decomposing data into different tables as we described above (and using the different normal forms), we can significantly improve maintainability of our database and make sure that it does not contain inconsistencies. But at the other hand, this means it's a lot of hassle to look at the actual data: to know what the genotype is for SNP `rs12345` in `individual_A` we cannot just look it up in a single table, but have to write a complicated query which joins 3 tables together. The query would look like this:
 
 {% highlight sql %}
@@ -1248,7 +1308,7 @@ FROM expressions
 GROUP BY gene;
 {% endhighlight %}
 
-### 5.6 Normalisation homework
+### 5.7 Normalisation homework
 {:.assignment}
 **This is the assignment for homework 1. For the due date, see [the website for this part of the course]({{ site.baseurl }}/sdm.html).**.
 
