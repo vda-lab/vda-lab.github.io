@@ -8,5 +8,6 @@ http://vda-lab.be/lists.html
 http://vda-lab.be/people.html
 http://vda-lab.be/portfolio.html
 http://vda-lab.be/publications.html
+http://vda-lab.be/teaching.html
 {% for post in site.posts %}{% unless post.private %}
 http://vda-lab.be{{post.url}}{% endunless %}{% endfor %}

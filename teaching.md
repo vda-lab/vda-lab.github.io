@@ -2,6 +2,8 @@
 layout: page
 title: Teaching
 permalink: teaching.html
+navigation_weight: 7
+menu: main
 ---
 ## UHasselt
 * [Software and Data Management]({{site.baseurl}}/sdm.html)
