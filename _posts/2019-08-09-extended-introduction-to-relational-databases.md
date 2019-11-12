@@ -394,7 +394,77 @@ The `genotypes` table:
 
 So the `snp_id` _foreign key_ `2` in row number 2 in the `genotypes` table links this record to the row with `id` _primary key_ `2` in the `snps` table.
 
-To generate these tables, use the DB Browser again or do this command line. You can get the information you need to create the individual columns from the piece of code below, taking into account:
+##### Types of table relationships
+So how do you know in which table to create the foreign keys? Should there be a `snp_id` in the `genotypes` table? Or a `genotype_id` in the `snps` table? That all depends on the **type of relationship** between two tables. This type can be:
+
+- **one-to-one**, for example an single ISBN number can be linked to a single book and vice versa.
+- **one-to-many**, for example a single company will have many employees, but a single employee will work only for a single company
+- **many-to-many**, for example a single book can have multiple authors and a single author can have written multiple books
+
+One-to-many is obviously the same as many-to-one but looking at it from the other direction...
+
+When you have a _one-to-one relationship_, you can actually merge that information into the same table so in the end you won't even need a foreign key. In the book example mentioned above, you'd just add the ISBN number to the books table.<br/>
+When you have a _one-to-many relationship_, you'd add the foreign key to the "many" table. In the example below a _single company_ will have _many employees_, so you add the foreign key in the employees table.
+
+The `companies` table:
+
+| id  | company_name  |
+|:--- |:------------- |
+| 1   | Big company 1 |
+| 2   | Big company 2 |
+| 3   | Big company 3 |
+| ... | ...           |
+
+The `employees` table:
+
+| id  | name           | address                           | company_id |
+|:--- |:-------------- |:--------------------------------- |:---------- |
+| 1   | John Jones     | some_address, some_city           | 1          |
+| 2   | Jim James      | another_address, some_city        | 1          |
+| 3   | Fred Fredricks | yet_another_address, another_city | 1          |
+| ... | ...            | ...                               | ...        |
+
+When you have a _many-to-many relationship_ you'd typically extract that information into a new table. For the books/authors example, you'd have a single table for the books, a single table for the authors, and a separate table that links the two together. That "linking" table can also contain information that is specific for that relationship, but it does not have to. An example is the `genotypes` table above. There are many SNPs for a single individual, and a single SNP is measured for many individuals. That's why we created a separate table called `genotypes`, which in this case has additional columns that denote the value for a single individual for a single SNP. For the books/authors example, this would be:
+
+The `books` table:
+
+| id  | title                                                               | ISBN13        |
+|:--- |:------------------------------------------------------------------- |:------------- |
+| 1   | Good Omens: The Nice and Accurate Prophecies of Agnes Nutter, Witch | 9780060853983 |
+| 2   | Going Postal (Discworld #33)                                        | 9780060502935 |
+| 3   | Small Gods (Discworld #13)                                          | 9780552152976 |
+| 4   | The Stupidest Angel: A Heartwarming Tale of Christmas Terror        | 9780060842352 |
+| ... | ...                                                                 | ...           |
+
+The `authors` table:
+
+| id  | name              |
+|:--- |:----------------- |
+| 1   | Terry Pratchett   |
+| 2   | Christopher Moore |
+| 3   | Neil Gaiman       |
+| ... | ...               |
+
+The `author2book` table:
+
+| id  | author_id | book_id |
+|:--- |:--------- |:------- |
+| 1   | 1         | 1       |
+| 2   | 3         | 1       |
+| 3   | 1         | 2       |
+| 4   | 1         | 3       |
+| 5   | 2         | 4       |
+| ... | ...       | ...     |
+
+The information in these tables says that:
+
+- Terry Pratchett and Neil Gaiman co-wrote "Good Omens"
+- Terry Pratchett wrote "Going Postal" and "Small Gods" by himself
+- Christopher Moore was the single authors of "The Stupidest Angel"
+
+Now back to our individuals and their genotypes...
+
+To generate the `individuals`, `snps` and `genotypes` tables of the second normal form, use the DB Browser again or do this command line. You can get the information you need to create the individual columns from the piece of code below, taking into account:
 - that you do not have to create the `id` column
 - that you will have to select `TEXT` in the dropdown box instead of `STRING`
 
