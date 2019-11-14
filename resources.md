@@ -20,6 +20,7 @@ color: "#fff2ae"
 * [Data for Climate Action D4CA](http://dataforclimateaction.org/)
 * [Cool Datasets](https://www.cooldatasets.com)
 * [Armed Conflict Location & Event Data Project (ACLED)](https://www.acleddata.com/)
+* [Stanford Large Network Dataset Collection](https://snap.stanford.edu/data/)
 
 ## :: Visualization ::
 
