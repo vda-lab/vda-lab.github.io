@@ -4,6 +4,12 @@
   url: http://vda-lab.github.io/stad.html
   image: stad_segment.png
 
+- title: Patient text browser
+  class: viz
+  description: TODO
+  url: http://vda-lab.github.io/patienttext_infographic.html
+  image: patienttext_segment.png
+
 - title: Coral
   class: viz
   description: Visualization on early modern Flemish art
