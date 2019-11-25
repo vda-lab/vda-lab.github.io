@@ -6,7 +6,7 @@
 
 - title: Patient text browser
   class: viz
-  description: TODO
+  description: A tool for exploring machine reading results from patient records
   url: http://vda-lab.github.io/patienttext_infographic.html
   image: patienttext_segment.png
 
