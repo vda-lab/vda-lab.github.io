@@ -1,3 +1,9 @@
+- title: STAD on MIMIC-III
+  class: viz
+  description: Application of STAD on patient diagnosis codes
+  url: http://vda-lab.github.io/mimic.html
+  image: stad_mimic_segment.png
+
 - title: STAD
   class: viz
   description: Improving the Projection of Global Structures in Data through Spanning Trees
