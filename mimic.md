@@ -61,6 +61,8 @@ $$
 ## What does such network look like?
 Using this metric, the STAD network for patients in the MIMIC-III database that suffer from a "pathological fracture of vertebrae" looks like this:
 
-<img src="{{ site.baseurl }}/assets/pathological_fracture_of_vertebrae.png" width="400px" />
+<img src="{{ site.baseurl }}/assets/pathological_fracture_annotated.png" width="600px" />
 
-As usual, colours are assigned automatically using community detection. A complete user interface to explore these networks can be found at [https://dalcaide.shinyapps.io/diagnosis_explorer/](https://dalcaide.shinyapps.io/diagnosis_explorer/).
+As usual, colours are assigned automatically using community detection.
+
+A complete user interface to explore these networks can be found at [https://dalcaide.shinyapps.io/diagnosis_explorer/](https://dalcaide.shinyapps.io/diagnosis_explorer/).
