@@ -1,0 +1,8 @@
+{'nodes':
+    [{'id': 'patients/1', 'index': 0, 'group': 1},
+     {'id': 'patients/2', 'index': 1, 'group': 1},
+     {'id': 'patients/3', 'index': 2, 'group': 5}],
+'links':
+  [{'source': 0, 'target': 1, 'value': 7},
+   {'source': 0, 'target': 2, 'value': 12},
+   {'source': 1, 'target': 2, 'value': 9}]}
