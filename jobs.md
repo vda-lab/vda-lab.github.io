@@ -24,14 +24,33 @@ The successful candidate will be appointed for a period of 2+2 years at UHasselt
 
 ### How to apply
 
-For more information regarding this function, please contact jan.aerts@uhasselt.be.
+For more information regarding this function and to apply, please go to [https://www.uhasselt.be/vacancies_detail?taal=04&vacid=1836](https://www.uhasselt.be/vacancies_detail?taal=04&vacid=1836).
 
-Please send - in PDF format:
+## :: Doctoral student visual analytics and topological data analysis::
 
-* curriculum vitae
-* motivation letter
-* examples of previous work
-* list of 3 people (including contact details) who can act as references
+Recent advances in deep learning are leading to applications ranging from automatic text translation and machine reading, to style transfer (e.g. between paintings, but also applied in medical imaging) and self-driving cars. A significant drawback of deep learning networks, however, is that they act as black boxes with very limited transparency and therefore the user needs to have blind trust in whatever answer is returned to them.
+
+The Visual Data Analysis Lab - embedded in the UHasselt Data Science Institute in Belgium (www.uhasselt.be/dsi) - is interested in the application of interactive data visualisation to support researchers in the pursuit of deep insights in complex data. We employ topological data analysis (see our work in review at https://arxiv.org/abs/1907.05783) and interactive data visualisation to identify hidden patterns in highly dimensional data in domains ranging from life sciences to archaeology and bibliometrics, and aim to use this approach towards advancing the field of explainable AI.
+Therefore, we seek to employ an enthusiastic doctoral researcher, who will focus on interactive data visualisation and development of new algorithms for creating and comparing the topological graphs in the context of deep learning, as well as perform data analysis, write research papers, and present his/her work at national and international conferences.
+
+### Profile
+
+- You have obtained a Master in Informatics or Visual Analytics (or equivalent)
+- You have a clear affinity with visual analytics and/or data visualisation, ideally with expertise in D3.
+- You are familiar with techniques for deep learning, data clustering and dimensionality reduction
+- You have good programming skills (preferably python and/or javascript), including scalability of algorithms
+- You are good in algorithmic thinking.
+- You are able to work in collaboration with domain experts as well as work independenlty
+- You are good in clear and regular reporting.
+- You have high proficiency in English, both written and oral.
+
+### Appointment
+
+The successful candidate will be appointed for a period of 2+2 years at UHasselt.
+
+### How to apply
+
+For more information regarding this function and to apply, please go to [https://www.uhasselt.be/vacancies_detail?taal=04&vacid=1864](https://www.uhasselt.be/vacancies_detail?taal=04&vacid=1864).
 
 {% comment %}
 
