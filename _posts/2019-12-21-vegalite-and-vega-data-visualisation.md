@@ -22,7 +22,13 @@ This tutorial is based on material provided on the vega-lite, vega and observabl
 
 ## Preamble
 ### What are vega-lite and vega?
-You might have heard of [D3](http://d3js.org) as a library to create interactive data visualisations. Indeed, this library is considered the standard in the field. Unfortunately, it does have quite a steep learning curve which makes it not ideal if you have to learn it in 2-3 days without a background in javascript programming. In this course, we'll use vega and vega-lite instead. Both are so-called _declarative_ languages, where you tell the computer _what_ you need, not _how_ to do it. Vega and vega-lite are expressed in _JSON_ ("javascript object notation"). To give you an idea, here's a small vega-lite script that shows a barchart.
+You might have heard of [D3](http://d3js.org) as a library to create interactive data visualisations. Indeed, this library is considered the standard in the field. Unfortunately, it does have quite a steep learning curve which makes it not ideal if you have to learn it in 2-3 days without a background in javascript programming. In this course, we'll use vega and vega-lite instead. Both are so-called _declarative_ languages, where you tell the computer _what_ you need, not _how_ to do it. Vega and vega-lite are expressed in _JSON_ ("javascript object notation").
+
+This image by [Eric Marty](https://blog.ericmarty.com/the-d3-/-vega-stack) provides a good overview how the different parts are related:
+
+<img src="{{ site.baseurl }}/assets/d3-vega-vegalite-stack.png" />
+
+To give you an idea, here's a small vega-lite script that shows a barchart.
 
 {% highlight json %}
 {
@@ -58,5 +64,5 @@ Different elements in a JSON object or array have to be separated by a comma `,`
 
 ## The actual tutorials
 - Part 1: [Vega-lite]({{ site.baseurl }}/2019/12/vegalite)
-- Part 2: Vega
+- Part 2: [Vega]({{ site.baseurl }}/2019/12/vega)
 - Part 3: Observable
