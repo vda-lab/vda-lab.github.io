@@ -13,11 +13,11 @@ custom_css: with_tables
 
 This page concerns the "concepts of data management and structured query language" part of the Software and Data Management (SDM) course of MSc Statistics at UHasselt (see ECTS file above). For R and SAS, see blackboard.
 
-This part is organised in 3 lectures. **Study material** is available as 3 blog posts on [http://vda-lab.be/teaching]({{site.baseurl}}/teaching), of which PDFs are also available on [blackboard](https://bb.uhasselt.be).
+This part is organised in 3 lectures. **Study material** is available on [http://vda-lab.be/data-management]({{site.baseurl}}/data-management), of which PDFs are also available on [blackboard](https://bb.uhasselt.be).
 
-  1. [Part 1: Relational database design and SQL]({{ site.baseurl }}/2019/08/extended-introduction-to-relational-databases)
-  1. [Part 2: Beyond SQL]({{site.baseurl}}/2019/09/beyond-sql)
-  1. [Part 3: Lambda architecture]({{ site.baseurl }}/2019/10/lambda-architecture)
+  1. [Part 1: Relational database design and SQL]({{site.baseurl}}/data-management/rdbms_landing_page.html)
+  1. [Part 2: Beyond SQL]({{site.baseurl}}/data-management/nosql_landing_page.html)
+  1. [Part 3: Lambda architecture]({{site.baseurl}}/data-management/lambda_landing_page.html)
 
 ### Practical information
 
