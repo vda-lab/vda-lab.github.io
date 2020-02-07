@@ -8,6 +8,7 @@ menu: main
 ## Courses
 ### UHasselt
 * [Software and Data Management]({{site.baseurl}}/sdm.html)
+* [Data Visualisation in Data Science]({{site.baseurl}}/dvds.html)
 
 ### UAntwerpen
 * [Data Management and Statistical Software]({{site.baseurl}}/dmss.html)
@@ -18,5 +19,5 @@ menu: main
 * [G0R72A - Data visualisation in data science]({{site.baseurl}}/g0r72a.html)
 
 ## Teaching material
-* [Data management]()
+* [Data management]({{site.baseurl}}/data-management)
 * [Data visualisation in Data Science]({{ site.baseurl }}/visualisation-tutorial)

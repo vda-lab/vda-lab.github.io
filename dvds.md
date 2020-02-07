@@ -1,10 +1,10 @@
 ---
 layout: page
-title: G0R72A - Data Visualisation in Data Science
-permalink: g0r72a.html
+title: Data Visualisation in Data Science
 custom_css: with_tables
+permalink: dvds.html
 ---
-[ECTS file](https://onderwijsaanbod.kuleuven.be/syllabi/e/G0R72AE.htm)
+[ECTS file](https://uhintra03.uhasselt.be/studiegidswww/opleidingsonderdeel.aspx?a=2019&i=4142&n=4&t=04#anker32765)
 
 As data becomes easier and cheaper to generate, we are moving from a hypothesis-driven to data-driven paradigm in scientific research. As a result, we don't only need to find ways to answer any questions we have, but also to identify interesting questions/hypotheses in that data in the first place. In other words: we need to be able to dig through these large and complex datasets in search for unexpected patterns that - once discovered - can be investigated further using regular statistics and machine learning. Interactive data visualization provides a methodology for just that: to allow the user (be they domain expert or lay user) to find those questions, and to give them deep insight in their data.
 
@@ -22,41 +22,32 @@ Content:
 
 | | Date | Topic |
 |:--|:--|:--|
-| 1 | 13/2 |  |
-| 2 | 20/2 |  |
-| 3 | 27/2 |  |
-| 4 | 5/3 |  |
-| 5 | 12/3 |  |
-| 6 | 19/3 | No session |
-| 7 | 26/3 |  |
-| 8 | 2/4 |  |
-| 9 | 23/4 | No session |
-| 10 | 30/4 |  |
-| 11 | 7/5 |  |
-| 12 | 14/5 | No session |
+| 1 | 18/2 | Introduction to data visualisation. Introduction to dataset. |
+| 2 | 25/2 | Introduction to data visualisation. Data structure. |
+| 3 | 3/3 | Design & matrices |
+| 4 | 10/3 | Vega-lite and Vega |
+| 5 | 24/3 |  |
+| 6 | 7/4 |  |
+| 7 | 28/4 |  |
+| 8 | 19/5 |  |
 
 #### Assignments
 These assignments are to be prepared for the next session.
 
 | | Deadline | Assignment |
 |:--|:--|:--|
-| 1 | 20/2 |  |
-| 2 | 27/2 |  |
-| 3 | 5/3 |  |
-| 4 | 12/3 |  |
-| 5 | 19/3 |  |
-| 6 | 26/3 |  |
-| 7 | 2/4 |  |
-| 8 | 23/4 |  |
-| 9 | 30/4 |  |
-| 10 | 7/5 |  |
-| 11 | 14/5 |  |
+| 1 | 25/2 | Create blog. Preliminary analysis of dataset. |
+| 2 | 3/3 | Create data structure. |
+| 3 | 10/3 | Vega-lite tutorial. |
+| 4 | 24/3 | Use vega-lite for data. Vega tutorial. |
+| 5 | 7/4 | Use vega for data. |
+| 6 | 28/4 |  |
+| 7 | 19/5 |  |
 
 ### Grading
-Grading will be based both on continuous evaluation (15%) and a written report (85%).
+Grading will be based both on continuous evaluation (10%) and a written report (90%).
 
 ### Student blogs
-
 
 
 
@@ -113,4 +104,5 @@ In your visual, please include:
 
 Here's another very good example of a visual with annotations:
 [![library of congress]({{site.baseurl}}/assets/library-of-congress.png)](http://sappingattention.blogspot.com/2017/05/a-brief-visual-history-of-marc.html)
+
 -->
