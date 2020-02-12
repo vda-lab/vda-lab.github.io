@@ -22,33 +22,20 @@ Content:
 
 | | Date | Topic |
 |:--|:--|:--|
-| 1 | 18/2 | Introduction to data visualisation. Introduction to dataset. |
-| 2 | 25/2 | Introduction to data visualisation. Data structure. |
-| 3 | 3/3 | Design & matrices |
-| 4 | 10/3 | Vega-lite and Vega |
-| 5 | 24/3 |  |
-| 6 | 7/4 |  |
-| 7 | 28/4 |  |
-| 8 | 19/5 |  |
-
-#### Assignments
-These assignments are to be prepared for the next session.
-
-| | Deadline | Assignment |
-|:--|:--|:--|
-| 1 | 25/2 | Create blog. Preliminary analysis of dataset. |
-| 2 | 3/3 | Create data structure. |
-| 3 | 10/3 | Vega-lite tutorial. |
-| 4 | 24/3 | Use vega-lite for data. Vega tutorial. |
-| 5 | 7/4 | Use vega for data. |
-| 6 | 28/4 |  |
-| 7 | 19/5 |  |
+| 1 | 18/2 | - ex cathedra: introduction to data visualisation: history, marks/channels/...<br/>- technical: vega-lite |
+| 2 | 25/2 | - part 1: ideation \& brainstorming strategies<br/>- part 2: visual design |
+| 3 | 3/3 | vega-lite |
+| 4 | 10/3 | project pitches |
+| 5 | 24/3 | vega |
+| 6 | 7/4 | vega and python |
+| 7 | 28/4 | vega and R |
+| 8 | 19/5 | final feedback on projects |
 
 ### Grading
 Grading will be based both on continuous evaluation (10%) and a written report (90%).
 
 ### Student blogs
-
+Make sure to add your blog URL to this form: https://forms.gle/2HYugBNZYJ2LJtzg7
 
 
 <!--
