@@ -16,6 +16,11 @@ Content:
 
 ## 2019-2020
 
+Teaching assistants:
+
+- Danai Kafetzaki: danai.kafetzaki@kuleuven.be
+- Georgia Panagiotidou: georgia.panagiotidou@kuleuven.be
+
 ### Schedule
 
 #### Sessions
