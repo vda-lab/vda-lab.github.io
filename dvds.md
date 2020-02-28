@@ -32,8 +32,8 @@ Teaching assistants:
 | 3 | 3/3 | vega-lite |
 | 4 | 10/3 | project pitches |
 | 5 | 24/3 | vega |
-| 6 | 7/4 | vega and python |
-| 7 | 28/4 | vega and R |
+| 6 | 7/4 | vega and R |
+| 7 | 28/4 | vega and python |
 | 8 | 19/5 | final feedback on projects |
 
 ### Grading
