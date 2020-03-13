@@ -40,8 +40,16 @@ Teaching assistants:
 Grading will be based both on continuous evaluation (10%) and a written report (90%).
 
 ### Student blogs
-Make sure to add your blog URL to this form: https://forms.gle/2HYugBNZYJ2LJtzg7
+* [Ruben Kerkhofs](https://medium.com/@rkerkhofsbe)
+* [Francisco Javier Jara Ávila](https://medium.com/@fjaraavila)
+* [Kemtim Tamboun Stephane](https://tambounstephanekem.wixsite.com/website)
+* [Ivo Mbi Kubam](https://ivokubam.wixsite.com/website)
+* [Melvin Geubbelmans](https://medium.com/@Melvin_G)
+* [Dam Nsoh Tanih](https://nsohtanihdam.wixsite.com/website)
+* [Jesse Dauda](https://jessedaudajd.wixsite.com/Jdata)
 
+### Visualisation for communication - example
+Here's a nice example of what we mean when talking about visualisation for communication, using digitization data from the US Library of Congress: [http://sappingattention.blogspot.com/2017/05/a-brief-visual-history-of-marc.html](http://sappingattention.blogspot.com/2017/05/a-brief-visual-history-of-marc.html)
 
 <!--
 ## 2018-2019
