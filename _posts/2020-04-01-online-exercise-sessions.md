@@ -26,10 +26,10 @@ After some very brief testing, we have come up with a possible workflow. The too
 
 <img src="{{ site.baseurl }}/assets/jitsi.png" width="200px"/>
 
-- [jitsi](http://jitsi.org): a multi-platform open source video conferencing tool
+- [jitsi](http://jitsi.org): a multi-platform open source video conferencing tool (which was recommended by a student)
 - [Google sheets](http://sheets.google.com)
 
-Why jitsi (which was recommended by a student)?
+#### Why jitsi?
 - It allows for **everyone to share their screen at once**, so that we can "look over the shoulder" of our students as they are working, just like we'd do during an in-person session.
 - The procedure to **connect to a meeting is very lightweight**, which is necessary in the workflow that I'll explain below.
 - As it's open source, it can if necessary be installed locally on a university server so that we have complete control.
