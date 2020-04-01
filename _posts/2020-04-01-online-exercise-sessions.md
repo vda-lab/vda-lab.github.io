@@ -12,7 +12,7 @@ tags:
 Not being allowed to teach face-to-face at university in these COVID-19 times, we are resorting to online tools like Google Hangouts, Zoom, Blackboard Collaborate and others. Each of these has their pros and cons, but I don't intend this post to be a full review of these different tools. Let's just mention that they're not an ideal fit to what we want.
 
 ## Online exercise sessions != online lectures
-Running exercise sessions instead of regular teaching adds additional constraints on the type of tool that we can use. In a normal face-to-face setting, students will all work on their own while the teachings assistants and I walk around. Although students will typically raise their hands if they are stuck with an exercise, we have quick glances at their screens to see how they're coping as some are more active in asking questions than others. When someone is stuck, we'll look deeper into what they're doing and provide one-on-one feedback.
+Running exercise sessions instead of regular teaching adds additional constraints on the type of tool that we can use. In a normal face-to-face setting, students will all work on their own while the teachings assistants and I walk around. Although students will typically raise their hands if they are stuck with an exercise, some are more active in asking questions than others and we always have quick glances at their screens to see how they’re coping. When someone is stuck, we'll look deeper into what they're doing and provide one-on-one feedback.
 
 ### Specific requirements
 Given the above, we have some additional requirements for teleconferencing tools:
@@ -32,7 +32,7 @@ After some very brief testing, we have come up with a possible workflow. The too
 #### Why jitsi?
 - It allows for **everyone to share their screen at once**, so that we can "look over the shoulder" of our students as they are working, just like we'd do during an in-person session.
 - The procedure to **connect to a meeting is very lightweight**, which is necessary in the workflow that I'll explain below.
-- As it's open source, it can if necessary be installed locally on a university server so that we have complete control.
+- As it's open source, it can - if necessary - be installed locally on a university server so that we have complete control.
 
 This is what jitsi looks like:
 
@@ -40,7 +40,7 @@ This is what jitsi looks like:
 
 ### Preparatory work
 - Get myself a good internet connection...
-- Create a **google sheet to track progress of all students across the exercises**, and share it with all students. One row per student, one column per exercise. I set auto-formatting on all cells so that they get a background colour when something is put into the cell. As students are going through the exercises, they should indicate the finished exercises as they complete them. This makes it possible to identify who is lagging behind. Towards the end of the session, you hope the sheet to look like this:
+- Create a **google sheet to track progress of all students across the exercises**, and share it with all students. One row per student, one column per exercise. I set auto-formatting on all cells so that they get a background colour when something is put into the cell. As students are going through the exercises, they should indicate on the sheet when each specific exercise is completed. This makes it possible to identify who is lagging behind. Towards the end of the session, you hope the sheet will look like this:
 
 ![vega progress]({{ site.baseurl }}/assets/vega-progress.png)
 
