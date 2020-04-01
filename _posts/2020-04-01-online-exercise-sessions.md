@@ -61,7 +61,7 @@ Here's the overview:
 - Students start working on the exercises, and indicate in the google spreadsheet every time they finished an exercise.
 - If the teaching team sees that a **student lags a bit behind** based on the google spreadsheet, they reach out to the student in the chat window.
 - If a student has a question:
-  - they **raise their hand** using the hand icon in the bottom right.
+  - they **raise their hand** using the hand icon in the bottom left.
   - the teaching team reaches out to the student and **tries to answer the question in chat**
   - if chat is not enough:
     - the teacher **invites the student to the separate one-on-one meeting room**
