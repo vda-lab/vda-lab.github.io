@@ -5,6 +5,10 @@ menu: main
 navigation_weight: 5
 color: "#f4cae4"
 ---
+We don't have specific open positions available at the moment. However, we do welcome inquiries regarding PhD or postdoc research if these address major questions in visual data analysis (e.g. visual design, computational or perceptual scalability, interaction with the expert user). In case of a good fit we can apply for specific funding for this.
+
+{% comment %}
+
 ## :: Doctoral student in network analysis and visualisation ::
 
 The UHasselt Data Science Institute in Belgium (www.uhasselt.be/dsi) fosters collaboration among data science experts across disciplines. As part of this new institute, the Visual Data Analysis Lab is interested in applying interactive data visualisation to support data scientists in gaining insight in their complex data.
@@ -51,10 +55,6 @@ The successful candidate will be appointed for a period of 2+2 years at UHasselt
 ### How to apply
 
 For more information regarding this function and to apply, please go to [https://www.uhasselt.be/vacancies_detail?taal=04&vacid=1864](https://www.uhasselt.be/vacancies_detail?taal=04&vacid=1864).
-
-{% comment %}
-
-We don't have specific open positions available at the moment. However, we do welcome inquiries regarding PhD or postdoc research if these address major questions in visual data analysis (e.g. visual design, computational or perceptual scalability, interaction with the expert user). In case of a good fit we can apply for specific funding for this.
 
 ## :: Scientific programmer in data visualisation ::
 
