@@ -69,6 +69,25 @@ Here's the overview:
     - the **student leaves the one-on-one meeting room** (or the teacher removes them)
     - the teacher can continue monitoring the main meeting room
 
-## What we don't know yet
-- What will the audio and video quality be for a large group?
-- Is the fact that anyone can connect (initially without password) an issue?
+#### Best practices during the session itself
+As jitsi gives everyone quite a bit of power, it's important to have some clear guidelines. We tell the students the following:
+
+- **Add your first and last name to the profile**. Click on the 3 dots in the bottom right, click settings, click profile, and set your display name.
+- **Do not mute everyone**. The teacher will do this if necessary.
+- **Do not kick other people out of a session**. The teacher will do this if necessary.
+- **Do not record the session**. This would be a grave violation of privacy.
+
+## Lessons learned
+This is what an active session looks like with 38 people when everyone is sharing their screen:
+
+![jitsi-everyonesharingscreen]({{ site.baseurl }}/assets/jitsi-everyonesharingscreen.png)
+
+The 1.5hr session worked really well. We started the session with me explaining the best practices (aka the rules) above.
+
+- In contrast to previous experiences in Zoom, Google Hangouts, etc, **being able to see people's screens gives us a lot of feedback** on whether they are actually working on the exercises (or even still there). The fact that we can't see exactly what they're working on is not important; it's the connectedness that counts more.
+- The **"raising your hand" if you have a question didn't really work in the way that we expected**, initially. As there were do many students, not all could fit on the screen at the same time. This meant that we had to constantly scroll up and down to search for students who had raised their hand. But...
+- The "raising your hand" can work in a different way. As questions were asked (and answered) in the quite active chat window, some of these questions would become hidden as they would disappear from the screen. **Raising your hand didn't work that well for catching our attention, but it was very good to make sure that you wouldn't be forgotten**.
+- The **private meetings with someone from the teaching team worked really well**. If we couldn't get something solved in the chat, we'd invite the student into a separate meeting.
+- Some students sent **private messages to the TA** to ask if they could meet in the separate room. We will discourage this in future sessions, because it gets overwhelming quickly. Also: **we want to choose who to follow up with, but looking at whose hand is raised as well as where each student is in the tutorial (i.e. looking at the spreadsheet)**.
+- Little trick: wheb your microphone is muted, you can **use the spacebar for a "push to talk"**, like a walkie-talkie.
+- There were students whose browser crashed when they wanted to share their screen. So be it: they didn't share in the end.
