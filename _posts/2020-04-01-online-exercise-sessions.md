@@ -84,6 +84,7 @@ This is what an active session looks like with 38 people when everyone is sharin
 
 The 1.5hr session worked really well. We started the session with me explaining the best practices (aka the rules) above.
 
+- **Audio and video quality were quite good** and didn't pose any real issues. Can't tell if they were better or worse than e.g. Zoom, but the difference was in any case not so big that I couldn't tell without actually staring Zoom at the same time and comparing.
 - In contrast to previous experiences in Zoom, Google Hangouts, etc, **being able to see people's screens gives us a lot of feedback** on whether they are actually working on the exercises (or even still there). The fact that we can't see exactly what they're working on is not important; it's the connectedness that counts more.
 - The **"raising your hand" if you have a question didn't really work in the way that we expected**, initially. As there were do many students, not all could fit on the screen at the same time. This meant that we had to constantly scroll up and down to search for students who had raised their hand. But...
 - The "raising your hand" can work in a different way. As questions were asked (and answered) in the quite active chat window, some of these questions would become hidden as they would disappear from the screen. **Raising your hand didn't work that well for catching our attention, but it was very good to make sure that you wouldn't be forgotten**.
