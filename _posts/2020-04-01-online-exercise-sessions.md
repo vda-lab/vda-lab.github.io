@@ -90,5 +90,5 @@ The 1.5hr session worked really well. We started the session with me explaining 
 - The "raising your hand" can work in a different way. As questions were asked (and answered) in the quite active chat window, some of these questions would become hidden as they would disappear from the screen. **Raising your hand didn't work that well for catching our attention, but it was very good to make sure that you wouldn't be forgotten**.
 - The **private meetings with someone from the teaching team worked really well**. If we couldn't get something solved in the chat, we'd invite the student into a separate meeting.
 - Some students sent **private messages to the TA** to ask if they could meet in the separate room. We will discourage this in future sessions, because it gets overwhelming quickly. Also: **we want to choose who to follow up with, but looking at whose hand is raised as well as where each student is in the tutorial (i.e. looking at the spreadsheet)**.
-- Little trick: wheb your microphone is muted, you can **use the spacebar for a "push to talk"**, like a walkie-talkie.
+- Little trick: when your microphone is muted, you can **use the spacebar for a "push to talk"**, like a walkie-talkie.
 - There were students whose browser crashed when they wanted to share their screen. So be it: they didn't share in the end.
