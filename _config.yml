@@ -13,5 +13,5 @@ logo: /assets/vda-lab_logo.png
 # Build settings
 markdown: kramdown
 
-gems:
+plugins:
 - jekyll-seo-tag
