@@ -1134,7 +1134,7 @@
 {"_key": "CKU", "name": "Cordova Muni", "city": "Cordova", "state": "AK", "country": "USA", "lat": 60.54390333, "long": -145.7267042, "vip": false}
 {"_key": "CKV", "name": "Outlaw", "city": "Clarksville", "state": "TN", "country": "USA", "lat": 36.62188083, "long": -87.41495361, "vip": false}
 {"_key": "CKX", "name": "Chicken", "city": "Chicken", "state": "AK", "country": "USA", "lat": 64.07133833, "long": -141.9522792, "vip": false}
-{"_key": "CLD", "name": "MC Clellan-Palomar Airport", "city": NA, "state": NA, "country": "USA", "lat": 33.127231, "long": -117.278727, "vip": false}
+{"_key": "CLD", "name": "MC Clellan-Palomar Airport", "country": "USA", "lat": 33.127231, "long": -117.278727, "vip": false}
 {"_key": "CLE", "name": "Cleveland-Hopkins Intl", "city": "Cleveland", "state": "OH", "country": "USA", "lat": 41.41089417, "long": -81.84939667, "vip": false}
 {"_key": "CLI", "name": "Clintonville Municipal", "city": "Clintonville", "state": "WI", "country": "USA", "lat": 44.61381306, "long": -88.73126667, "vip": false}
 {"_key": "CLK", "name": "Clinton Municipal", "city": "Clinton", "state": "OK", "country": "USA", "lat": 35.53832778, "long": -98.932695, "vip": false}
@@ -1712,7 +1712,7 @@
 {"_key": "HGR", "name": "Hagerstown Regional-Richard Henson", "city": "Hagerstown", "state": "MD", "country": "USA", "lat": 39.70794444, "long": -77.7295, "vip": false}
 {"_key": "HHF", "name": "Hemphill County", "city": "Canadian", "state": "TX", "country": "USA", "lat": 35.89530778, "long": -100.4036397, "vip": false}
 {"_key": "HHG", "name": "Huntington Municipal", "city": "Huntington", "state": "IN", "country": "USA", "lat": 40.85299, "long": -85.45941917, "vip": false}
-{"_key": "HHH", "name": "Hilton Head", "city": NA, "state": NA, "country": "USA", "lat": 32.224384, "long": -80.697629, "vip": false}
+{"_key": "HHH", "name": "Hilton Head", "country": "USA", "lat": 32.224384, "long": -80.697629, "vip": false}
 {"_key": "HHR", "name": "Jack Northrop Field/Hawthorne Municipal", "city": "Hawthorne", "state": "CA", "country": "USA", "lat": 33.92283972, "long": -118.3351872, "vip": false}
 {"_key": "HHW", "name": "Stan Stamper Municipal", "city": "Hugo", "state": "OK", "country": "USA", "lat": 34.03482556, "long": -95.54190611, "vip": false}
 {"_key": "HI01", "name": "Princeville", "city": "Hanalei", "state": "HI", "country": "USA", "lat": 22.20919, "long": -159.4455339, "vip": false}
@@ -2248,7 +2248,7 @@
 {"_key": "MHT", "name": "Manchester", "city": "Manchester", "state": "NH", "country": "USA", "lat": 42.93451639, "long": -71.43705583, "vip": false}
 {"_key": "MHV", "name": "Mojave", "city": "Mojave", "state": "CA", "country": "USA", "lat": 35.05936472, "long": -118.1518561, "vip": false}
 {"_key": "MIA", "name": "Miami International", "city": "Miami", "state": "FL", "country": "USA", "lat": 25.79325, "long": -80.29055556, "vip": false}
-{"_key": "MIB", "name": "Minot AFB", "city": NA, "state": NA, "country": "USA", "lat": 48.415769, "long": -101.358039, "vip": false}
+{"_key": "MIB", "name": "Minot AFB", "country": "USA", "lat": 48.415769, "long": -101.358039, "vip": false}
 {"_key": "MIC", "name": "Crystal", "city": "Minneapolis", "state": "MN", "country": "USA", "lat": 45.06198611, "long": -93.3539375, "vip": false}
 {"_key": "MIE", "name": "Delaware County", "city": "Muncie", "state": "IN", "country": "USA", "lat": 40.24234806, "long": -85.39586, "vip": false}
 {"_key": "MIO", "name": "Miami Municipal", "city": "Miami", "state": "OK", "country": "USA", "lat": 36.90922083, "long": -94.88750028, "vip": false}
@@ -2309,7 +2309,7 @@
 {"_key": "MQB", "name": "Macomb Municipal", "city": "Macomb", "state": "IL", "country": "USA", "lat": 40.52034556, "long": -90.65246389, "vip": false}
 {"_key": "MQI", "name": "Dare County Regional", "city": "Manteo", "state": "NC", "country": "USA", "lat": 35.91898806, "long": -75.69553944, "vip": false}
 {"_key": "MQJ", "name": "Mount Comfort", "city": "Indianapolis", "state": "IN", "country": "USA", "lat": 39.84348556, "long": -85.89706389, "vip": false}
-{"_key": "MQT", "name": "Marquette County Airport", "city": NA, "state": NA, "country": "USA", "lat": 46.353639, "long": -87.395361, "vip": false}
+{"_key": "MQT", "name": "Marquette County Airport", "country": "USA", "lat": 46.353639, "long": -87.395361, "vip": false}
 {"_key": "MQW", "name": "Telfair-Wheeler", "city": "McRae", "state": "GA", "country": "USA", "lat": 32.09577778, "long": -82.88002778, "vip": false}
 {"_key": "MQY", "name": "Smyrna", "city": "Smyrna", "state": "TN", "country": "USA", "lat": 36.00897944, "long": -86.52007667, "vip": false}
 {"_key": "MRB", "name": "Eastern Wv Reg/Shephard", "city": "Martinsburg", "state": "WV", "country": "USA", "lat": 39.40193278, "long": -77.98458139, "vip": false}
@@ -2749,14 +2749,14 @@
 {"_key": "RBL", "name": "Red Bluff Municipal", "city": "Red Bluff", "state": "CA", "country": "USA", "lat": 40.15065667, "long": -122.2522903, "vip": false}
 {"_key": "RBW", "name": "Walterboro Municipal", "city": "Walterboro", "state": "SC", "country": "USA", "lat": 32.92052778, "long": -80.64125, "vip": false}
 {"_key": "RBY", "name": "Ruby", "city": "Ruby", "state": "AK", "country": "USA", "lat": 64.72721556, "long": -155.4698886, "vip": false}
-{"_key": "RCA", "name": "Ellsworth AFB", "city": NA, "state": NA, "country": "USA", "lat": 44.145094, "long": -103.103567, "vip": false}
+{"_key": "RCA", "name": "Ellsworth AFB", "country": "USA", "lat": 44.145094, "long": -103.103567, "vip": false}
 {"_key": "RCR", "name": "Fulton County", "city": "Rochester", "state": "IN", "country": "USA", "lat": 41.06554833, "long": -86.18170444, "vip": false}
 {"_key": "RCX", "name": "Rusk County", "city": "Ladysmith", "state": "WI", "country": "USA", "lat": 45.49825694, "long": -91.00186361, "vip": false}
 {"_key": "RDD", "name": "Redding Municipal", "city": "Redding", "state": "CA", "country": "USA", "lat": 40.50898361, "long": -122.2934019, "vip": false}
 {"_key": "RDG", "name": "Reading Muni_Gen Carl A Spaatz", "city": "Reading", "state": "PA", "country": "USA", "lat": 40.3785, "long": -75.96525, "vip": false}
 {"_key": "RDK", "name": "Red Oak Municipal", "city": "Red Oak", "state": "IA", "country": "USA", "lat": 41.01052778, "long": -95.25986111, "vip": false}
 {"_key": "RDM", "name": "Roberts", "city": "Redmond", "state": "OR", "country": "USA", "lat": 44.25406722, "long": -121.1499633, "vip": false}
-{"_key": "RDR", "name": "Grand Forks AFB", "city": NA, "state": NA, "country": "USA", "lat": 47.961167, "long": -97.401167, "vip": false}
+{"_key": "RDR", "name": "Grand Forks AFB", "country": "USA", "lat": 47.961167, "long": -97.401167, "vip": false}
 {"_key": "RDU", "name": "Raleigh-Durham International", "city": "Raleigh", "state": "NC", "country": "USA", "lat": 35.87763889, "long": -78.78747222, "vip": false}
 {"_key": "RDV", "name": "Red Devil", "city": "Red Devil", "state": "AK", "country": "USA", "lat": 61.78764333, "long": -157.3479344, "vip": false}
 {"_key": "RED", "name": "Red Lodge", "city": "Red Lodge", "state": "MT", "country": "USA", "lat": 45.18744472, "long": -109.2673778, "vip": false}
@@ -2791,8 +2791,8 @@
 {"_key": "ROA", "name": "Roanoke Regional/ Woodrum", "city": "Roanoke", "state": "VA", "country": "USA", "lat": 37.32546833, "long": -79.97542833, "vip": false}
 {"_key": "ROC", "name": "Greater Rochester Int'l", "city": "Rochester", "state": "NY", "country": "USA", "lat": 43.11886611, "long": -77.67238389, "vip": false}
 {"_key": "ROG", "name": "Rogers Municipal-Carter", "city": "Rogers", "state": "AR", "country": "USA", "lat": 36.37229667, "long": -94.10686972, "vip": false}
-{"_key": "ROP", "name": "Prachinburi", "city": NA, "state": NA, "country": "Thailand", "lat": 14.078333, "long": 101.378334, "vip": false}
-{"_key": "ROR", "name": "Babelthoup/Koror", "city": NA, "state": NA, "country": "Palau", "lat": 7.367222, "long": 134.544167, "vip": false}
+{"_key": "ROP", "name": "Prachinburi", "country": "Thailand", "lat": 14.078333, "long": 101.378334, "vip": false}
+{"_key": "ROR", "name": "Babelthoup/Koror", "country": "Palau", "lat": 7.367222, "long": 134.544167, "vip": false}
 {"_key": "ROS", "name": "Rush City Regional", "city": "Rush City", "state": "MN", "country": "USA", "lat": 45.69801389, "long": -92.95298972, "vip": false}
 {"_key": "ROW", "name": "Roswell Industrial Air Center", "city": "Roswell", "state": "NM", "country": "USA", "lat": 33.30155556, "long": -104.5305556, "vip": false}
 {"_key": "ROX", "name": "Roseau Municipal", "city": "Roseau", "state": "MN", "country": "USA", "lat": 48.85603806, "long": -95.69703861, "vip": false}
@@ -2897,7 +2897,7 @@
 {"_key": "SCB", "name": "Scribner State", "city": "Scribner", "state": "NE", "country": "USA", "lat": 41.61033333, "long": -96.62986111, "vip": false}
 {"_key": "SCC", "name": "Deadhorse", "city": "Deadhorse", "state": "AK", "country": "USA", "lat": 70.19475583, "long": -148.4651608, "vip": false}
 {"_key": "SCD", "name": "Merkel Field Sylacauga Municipal", "city": "Sylacauga", "state": "AL", "country": "USA", "lat": 33.17183583, "long": -86.30553778, "vip": false}
-{"_key": "SCE", "name": "University Park", "city": NA, "state": NA, "country": "USA", "lat": 40.851206, "long": -77.846302, "vip": false}
+{"_key": "SCE", "name": "University Park", "country": "USA", "lat": 40.851206, "long": -77.846302, "vip": false}
 {"_key": "SCH", "name": "Schenectady Cty", "city": "Schenectady", "state": "NY", "country": "USA", "lat": 42.85245556, "long": -73.9288675, "vip": false}
 {"_key": "SCK", "name": "Stockton Metro", "city": "Stockton", "state": "CA", "country": "USA", "lat": 37.89426694, "long": -121.2386203, "vip": false}
 {"_key": "SCM", "name": "Scammon Bay", "city": "Scammon Bay", "state": "AK", "country": "USA", "lat": 61.84454111, "long": -165.5737492, "vip": false}
@@ -2961,7 +2961,7 @@
 {"_key": "SJT", "name": "San Angelo Regional /Mathis", "city": "San Angelo", "state": "TX", "country": "USA", "lat": 31.35775, "long": -100.4963056, "vip": false}
 {"_key": "SJU", "name": "Luis Munoz Marin International", "city": "San Juan", "state": "PR", "country": "USA", "lat": 18.43941667, "long": -66.00183333, "vip": false}
 {"_key": "SJX", "name": "Beaver Island", "city": "St James", "state": "MI", "country": "USA", "lat": 45.69227778, "long": -85.56630556, "vip": false}
-{"_key": "SKA", "name": "Fairchild AFB", "city": NA, "state": NA, "country": "USA", "lat": 47.615058, "long": -117.655803, "vip": false}
+{"_key": "SKA", "name": "Fairchild AFB", "country": "USA", "lat": 47.615058, "long": -117.655803, "vip": false}
 {"_key": "SKI", "name": "Sac City Municipal", "city": "Sac City", "state": "IA", "country": "USA", "lat": 42.37908333, "long": -94.97958333, "vip": false}
 {"_key": "SKW", "name": "Skwentna", "city": "Skwentna", "state": "AK", "country": "USA", "lat": 61.965295, "long": -151.1913661, "vip": false}
 {"_key": "SKX", "name": "Taos Municipal", "city": "Taos", "state": "NM", "country": "USA", "lat": 36.45819, "long": -105.6724289, "vip": false}
@@ -2998,7 +2998,7 @@
 {"_key": "SPG", "name": "Albert Whitted Municipal", "city": "St. Petersburg", "state": "FL", "country": "USA", "lat": 27.76511111, "long": -82.62697222, "vip": false}
 {"_key": "SPH", "name": "Springhill", "city": "Springhill", "state": "LA", "country": "USA", "lat": 32.98316472, "long": -93.41081028, "vip": false}
 {"_key": "SPI", "name": "Capital", "city": "Springfield", "state": "IL", "country": "USA", "lat": 39.84395194, "long": -89.67761861, "vip": false}
-{"_key": "SPN", "name": "Tinian International Airport", "city": NA, "state": NA, "country": "N Mariana Islands", "lat": 14.996111, "long": 145.621384, "vip": false}
+{"_key": "SPN", "name": "Tinian International Airport", "country": "N Mariana Islands", "lat": 14.996111, "long": 145.621384, "vip": false}
 {"_key": "SPS", "name": "Sheppard AFB/Wichita Falls Municipal", "city": "Wichita Falls", "state": "TX", "country": "USA", "lat": 33.98879611, "long": -98.49189333, "vip": false}
 {"_key": "SPW", "name": "Spencer Municipal", "city": "Spencer", "state": "IA", "country": "USA", "lat": 43.16552778, "long": -95.20280556, "vip": false}
 {"_key": "SPX", "name": "Houston-Gulf", "city": "Houston", "state": "TX", "country": "USA", "lat": 29.50836111, "long": -95.05133333, "vip": false}
@@ -3352,7 +3352,7 @@
 {"_key": "Y83", "name": "Sandusky City", "city": "Sandusky", "state": "MI", "country": "USA", "lat": 43.45418694, "long": -82.84938028, "vip": false}
 {"_key": "Y93", "name": "Atlanta Municipal", "city": "Atlanta", "state": "MI", "country": "USA", "lat": 45.00000833, "long": -84.13333667, "vip": false}
 {"_key": "YAK", "name": "Yakutat", "city": "Yakutat", "state": "AK", "country": "USA", "lat": 59.50336056, "long": -139.6602261, "vip": false}
-{"_key": "YAP", "name": "Yap International", "city": NA, "state": NA, "country": "Federated States of Micronesia", "lat": 9.5167, "long": 138.1, "vip": false}
+{"_key": "YAP", "name": "Yap International", "country": "Federated States of Micronesia", "lat": 9.5167, "long": 138.1, "vip": false}
 {"_key": "YIP", "name": "Willow Run", "city": "Detroit", "state": "MI", "country": "USA", "lat": 42.2379275, "long": -83.53040889, "vip": false}
 {"_key": "YKM", "name": "Yakima Air Terminal", "city": "Yakima", "state": "WA", "country": "USA", "lat": 46.56816972, "long": -120.5440594, "vip": false}
 {"_key": "YKN", "name": "Chan Gurney Municipal", "city": "Yankton", "state": "SD", "country": "USA", "lat": 42.91669444, "long": -97.38594444, "vip": false}
