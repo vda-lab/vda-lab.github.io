@@ -14,6 +14,43 @@ Content:
 * Programming visualizations: static and dynamic
 * Project: visualization of expert dataset
 
+
+## 2020-2021
+
+Teaching assistants:
+- Jannes Peeters: jannes.peeters@uhasselt.be
+- Danai Kafetzaki: danai.kafetzaki@uhasselt.be
+- Jelmer Bot: jelmer.bot@uhasselt.be
+
+### Schedule
+
+**Important**: the schedules below are tentative and are only to be taken as indicative. Assignments are only to be made if they are on Blackboard.
+
+#### Sessions
+
+| | Date | Topic |
+|:--|:--|:--|
+| 1 | 23/2 | Introduction |
+| 2 | 2/3 | Introduction Tableau + project requirements |
+| 3 | 16/3 | Design session |
+| 4 | 23/3 | Peer-feedback on intermediate designs |
+| 5 | 30/3 | HTML & SVE; introduction to libraries: vega/p5/D3 |
+| 6 | 21/4 | Peer-feedback on intermediate implementation |
+| 7 | 28/4 | No session |
+| 8 | 19/5 | Poster session |
+
+#### Assignments
+These assignments are to be prepared for the next session.
+
+| | Deadline | Assignment |
+|:--|:--|:--|
+| 1 | 16/3 | - Choose data for project, make data exploration, define research questions<br>- Try out miro |
+| 2 | 23/3 | - Present data to teaching team for go/no-go<br>- Create additional designs and put on miro |
+| 3 | 30/3 | Deadline for blog post on design |
+| 4 | 14/4 | - Look at online tutorials<br>- Create simple plot using different technologies<br>- Start programming on project |
+| 5 | 12/5 | Deadline on intermediate blog post on implementation |
+
+<!-- 
 ## 2019-2020
 
 Teaching assistants:
@@ -51,7 +88,6 @@ Grading will be based both on continuous evaluation (10%) and a written report (
 ### Visualisation for communication - example
 Here's a nice example of what we mean when talking about visualisation for communication, using digitization data from the US Library of Congress: [http://sappingattention.blogspot.com/2017/05/a-brief-visual-history-of-marc.html](http://sappingattention.blogspot.com/2017/05/a-brief-visual-history-of-marc.html)
 
-<!--
 ## 2018-2019
 ### Student blogs
 * [Eline Mangelschots](https://medium.com/@elinemangelschots)
