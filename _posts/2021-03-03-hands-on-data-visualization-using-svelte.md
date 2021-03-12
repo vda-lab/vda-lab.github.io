@@ -540,7 +540,7 @@ The dataset also contains the latitude and longitude of the departure airports, 
 
 This is the result:
 
-<img src="{{ site.baseurl }}/assets/svelte-vis1.png" width=400 />
+<img src="{{ site.baseurl }}/assets/svelte-vis1.png" width=600 />
 
 ...which is completely different from what we expected.
 
@@ -587,7 +587,7 @@ The new function is defined on lines 7 to 9 and used in lines 23 and 24.
 
 Our new image:
 
-<img src="{{ site.baseurl }}/assets/svelte-vis2.png" width=400 />
+<img src="{{ site.baseurl }}/assets/svelte-vis2.png" width=600 />
 
 This is better, but the world is upside down. This is because the origin [0,0] in SVG is in the top left, not the bottom left. We therefore have to flip the scale as well, and set the range to `400,0` instead of `0,400` for `cy`. If we do that we'll get the world the right side up.
 
@@ -626,7 +626,7 @@ We also want to scale the size of the circles: small for short distance flights,
 
 Our new image:
 
-<img src="{{ site.baseurl }}/assets/svelte-vis3.png" width=400 />
+<img src="{{ site.baseurl }}/assets/svelte-vis3.png" width=600 />
 
 ### HTML class: setting the colour
 Next, we want domestic flights to be blue and international flights to be red. We can do this because each flight has a `from_country` and a `to_country`. If these are the same we have a domestic flight, otherwise it is international. Here's we'll have to start using _classes_ and CSS selectors (see above). We can for example set the default colour of the circles to blue, but give those flights that are international the class attribute of `international`. We can then use that class attribute in the CSS to set the colour to red.
@@ -709,7 +709,7 @@ Our final code looks like this:
 
 Which gives the following (final) image:
 
-<img src="{{ site.baseurl }}/assets/svelte-vis4.png" width=400 />
+<img src="{{ site.baseurl }}/assets/svelte-vis4.png" width=600 />
 
 ### Making the plot interactive with a slider
 Let's add an additional feature to the plot. We want to add a slider to filter the airports that are shown on the screen. As svelte is regular HTML, we can easily make use of all HTML elements, and there appears to be one for a slider.
@@ -791,12 +791,12 @@ Airports serving flights in this range (km): {slider_value - 1000} - {slider_val
 
 This gives our final interactive tool:
 
-<img src="{{ site.baseurl }}/assets/svelte-vis5.png" width=400 />
+<img src="{{ site.baseurl }}/assets/svelte-vis5.png" width=600 />
 
 ## Quick exercise: lines
 See if you can adapt the previous script to generate the following image where departure airports are linked to their arrival airports.
 
-<img src="{{ site.baseurl }}/assets/svelte-vis6.png" width=400 />
+<img src="{{ site.baseurl }}/assets/svelte-vis6.png" width=600 />
 
 ## What we did not go into
 Obviously svelte is much more than what we've seen above. Actually, the most important things we have not even looked into. I will explain them _very briefly_ below, but make sure that you have a look at the svelte tutorial at [http://svelte.dev/tutorial](http://svelte.dev/tutorial).
