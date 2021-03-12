@@ -10,7 +10,6 @@ tags:
 - svelte
 - howto
 ---
-<script type="text/javascript" src="{{site.baseurl}}/p5.min.js"></script>
 This is a svelte ([http://svelte.dev](http://svelte.dev)) version of the Processing/p5/vega tutorials that we published earlier. Svelte is a framework for creating web content, and very accessible for creating data visualisations. This tutorial holds numerous code snippets that can by copy/pasted and modified for your own purpose. The contents of this tutorial is available under the CC-BY license.
 
 ![cc-by]({{ site.baseurl }}/assets/ccby.png)
