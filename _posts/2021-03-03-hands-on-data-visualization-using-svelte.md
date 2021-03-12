@@ -736,7 +736,7 @@ We can do the same as we did with international vs domestic flights: `class:hidd
   let slider_value = 5000;
 </script>
 
-<input type="range" min="1" max="15406" value={slider_value}
+<input type="range" min="1" max="15406" value={slider_value} />
 
 <svg>
     ...
@@ -797,3 +797,252 @@ This gives our final interactive tool:
 See if you can adapt the previous script to generate the following image where departure airports are linked to their arrival airports.
 
 <img src="{{ site.baseurl }}/assets/svelte-vis6.png" width=400 />
+
+## What we did not go into
+Obviously svelte is much more than what we've seen above. Actually, the most important things we have not even looked into. I will explain them _very briefly_ below, but make sure that you have a look at the svelte tutorial at [http://svelte.dev/tutorial](http://svelte.dev/tutorial).
+
+Below is just an idea of some of the important concepts; I will not explain them in detail.
+
+### Components
+What if we want to create two scatterplots instead of one, e.g. one for departure airports and one for arrival airports? We could duplicate the code for the SVG, like so:
+
+{% highlight html %}
+<svg width=1000 height=500>
+  {#each datapoints as datapoint}
+    <circle cx={rescale(datapoint.from_long, -180, 180, 0, 800)}
+            cy={rescale(datapoint.from_lat, -90, 90, 400, 0)}
+            r={rescale(datapoint.distance, 1, 15406, 2,10)}
+            class:international="{datapoint.from_country != datapoint.to_country}"
+            class:hidden="{Math.abs(datapoint.distance - slider_value) > 1000}" />
+
+  {/each}
+</svg>
+
+<svg width=1000 height=500>
+  {#each datapoints as datapoint}
+    <circle cx={rescale(datapoint.to_long, -180, 180, 0, 800)}
+            cy={rescale(datapoint.to_lat, -90, 90, 400, 0)}
+            r={rescale(datapoint.distance, 1, 15406, 2,10)}
+            class:international="{datapoint.from_country != datapoint.to_country}"
+            class:hidden="{Math.abs(datapoint.distance - slider_value) > 1000}" />
+  {/each}
+</svg>
+{% endhighlight %}
+
+It would be nicer if we could something like this instead:
+
+{% highlight html %}
+<Scatterplot />
+{% endhighlight %}
+
+#### Static image using Scatterplot component
+Create a new subfolder of `src` with the name `components`, and create a new file named `Scatterplot.svelte`.
+
+We'll move everything that is relevant to the scatterplot itself into this new file:
+
+{% highlight html %}
+<script>
+  export let datapoints = [];
+
+  const rescale = function(x, domain_min, domain_max, range_min, range_max) {
+    return ((range_max - range_min)*(x-domain_min))/(domain_max-domain_min) + range_min
+  }
+</script>
+
+<style>
+  circle {
+    opacity: 0.5;
+    fill: blue;
+  }
+  circle.international {
+    fill: red;
+  }
+</style>
+
+<svg width=1000 height=500>
+  {#each datapoints as datapoint}
+    <circle cx={rescale(datapoint.from_long, -180, 180, 0, 800)}
+            cy={rescale(datapoint.from_lat, -90, 90, 400, 0)}
+            r={rescale(datapoint.distance, 1, 15406, 2,10)}
+            class:international="{datapoint.from_country != datapoint.to_country}" />
+  {/each}
+</svg>
+{% endhighlight %}
+
+This component defines a `datapoints` variable. Because of the `export let` instead of just `let` we can access this variable from outside. Now how do we do that? We have moved all scatterplot specific code from `App.svelte` into this new component. `App.svelte` will now look like this:
+
+{% highlight html %}
+<script>
+	import Scatterplot from './components/Scatterplot.svelte';
+	let datapoints_from_app = []
+	fetch("http://vda-lab.github.io/assets/svelte-flights.json")
+		.then(res => res.json())
+		.then(data => datapoints_from_app = data.slice(1,5000))
+</script>
+
+<h1>Airports</h1>
+<Scatterplot datapoints={datapoints_from_app}/>
+{% endhighlight %}
+
+We first import this new `Scatterplot` element that we created. We still have to load the data using the fetch API, but now we use the `Scatterplot` element instead of the original SVG. Just to make things a bit more clear, we have renamed the original `datapoints` to `datapoints_from_app`. The `Scatterplot` element takes a `datapoints` attribute. This attribute exists because we defined the `export let datapoints` in the component. The value of that `datapoints` variable is what comes from `datapoints_from_app`.
+
+In this case, the SVG still always shows the departure airports. How do we change that so that we can also show the arrival airports? We have to replace the `from_long` and `from_lat` in the component with a variable. Let's do that while setting `from_long` and `from_lat` as the default:
+
+{% highlight html %}
+<script>
+  export let datapoints = [];
+  export let long = 'from_long';
+  export let lat = 'from_lat';
+
+  const rescale = function(x, domain_min, domain_max, range_min, range_max) {
+    return ((range_max - range_min)*(x-domain_min))/(domain_max-domain_min) + range_min
+  }
+</script>
+
+<style>
+  circle {
+    opacity: 0.5;
+    fill: blue;
+  }
+  circle.international {
+    fill: red;
+  }
+</style>
+
+<svg width=1000 height=500>
+  {#each datapoints as datapoint}
+    <circle cx={rescale(datapoint[long], -180, 180, 0, 800)}
+            cy={rescale(datapoint[lat], -90, 90, 400, 0)}
+            r={rescale(datapoint.distance, 1, 15406, 2,10)}
+            class:international="{datapoint.from_country != datapoint.to_country}" />
+  {/each}
+</svg>
+{% endhighlight %}
+
+Notice that we added 2 new variables (`long` and `lat`) and use these in the value for `cx` and `cy` instead of the original `from_long` and `from_lat`.
+
+Because we export these variables, they are now available in the `App.svelte` and we can do this:
+
+{% highlight html %}
+<script>
+  import Scatterplot from './components/Scatterplot.svelte';
+  let datapoints_from_app = []
+  fetch("http://vda-lab.github.io/assets/svelte-flights.json")
+    .then(res => res.json())
+    .then(data => datapoints_from_app = data.slice(1,5000))
+</script>
+
+<h1>Airports</h1>
+<Scatterplot datapoints={datapoints_from_app} long="from_long" lat="from_lat"/>
+<Scatterplot datapoints={datapoints_from_app} long="to_long" lat="to_lat"/>
+{% endhighlight %}
+
+### Reactivity
+Another strong feature of svelte is its support for _reactivity_. Reactivity means that when some variable `a` depends on a variable `b`, and `b` is changed, that the value for `a` is automatically updated as well. This is what makes a tool like Excel so strong as well: if you have a cell in a spreadsheet with a formula `=A1*2`, it will have the value of cell A1 multiplied by 2. If you change the value of A1, the value in this derived is _automatically_ updated as well. Most programming languages do not have this baked in, but with svelte you do have that functionality.
+
+We do this using the `$:` pragma. For example:
+
+{% highlight html %}
+<script>
+  let slider_value = 50;
+
+  $: multiplied_value = slider_value * 2;
+</script>
+
+<input type="range" min="0" max="100" bind:value={slider_value}
+<p>The value {slider_value} multiplied by 2 is {multiplied_value}.</p>
+{% endhighlight %}
+
+Notice that we use `bind:value` in the slider. Sliding left and right will now update the multiplied value as well.
+
+## Custom visuals
+We can actually create quite complex visuals. But let's just make a pie chart as a proof-of-principle.
+
+`App.svelte`
+{% highlight html %}
+<script>
+  import Pie from './Pie.svelte';
+  let data = [90,50,120,70,30] // sum = 360
+</script>
+
+<Pie data={data} />
+{% endhighlight %}
+
+`Pie.svelte`
+{% highlight html %}
+<script>
+  import PieSlice from './PieSlice.svelte';
+  export let data = []
+
+  let slices = []
+  let running_sum = 0
+  $: {
+    data.forEach(function(d) {
+      let new_running_sum = running_sum + d;
+      slices.push([running_sum, new_running_sum])
+      running_sum = new_running_sum;
+    })
+  }
+</script>
+
+<style>
+  svg {
+    background-color: whitesmoke;
+  }
+</style>
+
+<svg width=200 height=200>
+  {#each slices as slice}
+    <PieSlice cx=100 cy=100
+              r=50
+              start_degree={slice[0]} stop_degree={slice[1]} />
+  {/each}
+</svg>
+{% endhighlight %}
+
+`PieSlice.svelte`
+{% highlight html %}
+<script>
+  export let cx = 0;
+  export let cy = 0;
+  export let r = 50;
+  export let start_degree = 0;
+  export let stop_degree = 0;
+  export let colour = 'steelblue';
+
+  const degree2radians = function(degree) {
+    return Math.PI*(degree)/180
+  }
+
+  const x = function(cx, radius, theta) {
+    return Number(cx) + radius*Math.cos(theta)
+  }
+
+  const y = function(cy, radius, theta) {
+    return Number(cy) + radius*Math.sin(theta)
+  }
+
+  const pieslice = function(cx, cy, r, start_degree, stop_degree) {
+    let start_theta = degree2radians(start_degree)
+    let stop_theta = degree2radians(stop_degree)
+    let start_x = x(cx,r,start_theta)
+    let start_y = y(cy,r,start_theta)
+    let stop_x = x(cy,r,stop_theta)
+    let stop_y = y(cx,r,stop_theta)
+    return "M " + cx + " " + cy + " " +
+           "L " + start_x + " " + start_y + " " +
+           "A " + r + " " + r + " 0 0 1 " + stop_x + " " + stop_y + " " +
+           "Z"
+  }
+</script>
+
+<style>
+  path {
+    stroke: white;
+  }
+</style>
+
+<path d={pieslice(cx, cy, r, start_degree, stop_degree)}, style="fill:{colour};" />
+{% endhighlight %}
+
+With this you can start changing colours of the slices, have different radii for different slices, add hover effects, etc.
