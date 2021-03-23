@@ -477,6 +477,10 @@ The above CSV and JSON files are on a remote server. But what if we have the dat
 - `Papa.parse('http://localhost:5000/beers.csv', { ... })`, or
 - `fetch('http://localhost:5000/beers.json')`
 
+You can even just leave the URL itself:
+- `Papa.parse('./beers.csv', { ... })`, or
+- `fetch('./beers.json')`
+
 ## Recreating the flights visualisation
 We now have the very basic components to use svelte for data visualisation. Let's use that to recreate the flights visualisation that we use in the other tutorials. This is what we'll be building:
 
@@ -1046,3 +1050,15 @@ We can actually create quite complex visuals. But let's just make a pie chart as
 {% endhighlight %}
 
 With this you can start changing colours of the slices, have different radii for different slices, add hover effects, etc.
+
+## Deploying your visualisations
+It's easy to deploy your app as well, for example using [vercel](vercel.com). Create an account on vercel.com, install the `vercel` NPM module, and run the `vercel` command:
+
+{% highlight bash %}
+npm install vercel
+vercel
+{% endhighlight %}
+
+You will have to answer a couple of questions, but these are straightforward. As an example of such deployment, see [here](https://football-gold.vercel.app/).
+
+<img src="{{ site.baseurl }}/assets/football.png" width=600 />
