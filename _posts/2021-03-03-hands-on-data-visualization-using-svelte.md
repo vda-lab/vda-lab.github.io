@@ -1052,7 +1052,7 @@ We can actually create quite complex visuals. But let's just make a pie chart as
 With this you can start changing colours of the slices, have different radii for different slices, add hover effects, etc.
 
 ## Deploying your visualisations
-It's easy to deploy your app as well, for example using [vercel](vercel.com). Create an account on vercel.com, install the `vercel` NPM module, and run the `vercel` command:
+It's easy to deploy your app as well, for example using [vercel](http://vercel.com). Create an account on vercel.com, install the `vercel` NPM module, and run the `vercel` command:
 
 {% highlight bash %}
 npm install vercel
