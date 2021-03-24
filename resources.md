@@ -26,11 +26,20 @@ color: "#fff2ae"
 
 * [Shirley Wu](http://sxywu.com/)
 
-### Concepts
+### Visual encoding overviews
+
+<img src="{{site.baseurl}}/assets/timeviz-browser.png" width=600 />
+
+* Time: [https://vcg.informatik.uni-rostock.de/~ct/timeviz/timeviz.html](https://vcg.informatik.uni-rostock.de/~ct/timeviz/timeviz.html)
+* Uncertainty: [https://amitjenaiitbm.github.io/uncertaintyVizBrowser/](https://amitjenaiitbm.github.io/uncertaintyVizBrowser/)
+* Trees: [https://treevis.net/](https://treevis.net/)
+* Text: [https://textvis.lnu.se/](https://textvis.lnu.se/)
+* Trust (in ML): [https://trustmlvis.lnu.se/](https://trustmlvis.lnu.se/)
 
 
 ### Tools
 
+* [Svelte](http://svelte.dev) - General framework for creating web content and visuals
 * [D3](d3js.org) - Javascript visualisation library
 * [P5](p5js.org) - Another javascript visualisation library
 * [OpenProcessing](openprocessing.org) - classroom platform for teaching P5
