@@ -1059,6 +1059,4 @@ npm install vercel
 vercel
 {% endhighlight %}
 
-You will have to answer a couple of questions, but these are straightforward. As an example of such deployment, see [here](https://football-gold.vercel.app/).
-
-<img src="{{ site.baseurl }}/assets/football.png" width=600 />
+You will have to answer a couple of questions, but these are straightforward. As an example of such deployment, see [here](https://svelte-flights.vercel.app/).
