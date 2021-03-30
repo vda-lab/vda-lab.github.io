@@ -114,7 +114,7 @@ or, as we will do in this tutorial, by selecting a parent element from your HTML
         const {width, height} = parent.node().getBoundingClientRect();
         console.log(`Found parent of size: ${width}x${height}`);
 
-        const SVG = parent.append('SVG')
+        const svg = parent.append('svg')
           .attr("width", width)
           .attr("height", height);
         console.log('Added SVG to parent');
