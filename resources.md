@@ -26,11 +26,20 @@ color: "#fff2ae"
 
 * [Shirley Wu](http://sxywu.com/)
 
-### Concepts
+### Visual encoding overviews
+
+<img src="{{site.baseurl}}/assets/timeviz-browser.png" width=600 />
+
+* Time: [https://vcg.informatik.uni-rostock.de/~ct/timeviz/timeviz.html](https://vcg.informatik.uni-rostock.de/~ct/timeviz/timeviz.html)
+* Uncertainty: [https://amitjenaiitbm.github.io/uncertaintyVizBrowser/](https://amitjenaiitbm.github.io/uncertaintyVizBrowser/)
+* Trees: [https://treevis.net/](https://treevis.net/)
+* Text: [https://textvis.lnu.se/](https://textvis.lnu.se/)
+* Trust (in ML): [https://trustmlvis.lnu.se/](https://trustmlvis.lnu.se/)
 
 
 ### Tools
 
+* [Svelte](http://svelte.dev) - General framework for creating web content and visuals
 * [D3](d3js.org) - Javascript visualisation library
 * [P5](p5js.org) - Another javascript visualisation library
 * [OpenProcessing](openprocessing.org) - classroom platform for teaching P5
@@ -45,6 +54,7 @@ color: "#fff2ae"
 * Kim Albrecht [Untangling tennis](www.youtube.com/watch?v=Ufjm_LD_d0o)
 * Bret Victor [Inventing on Principle](vimeo.com/36579366)
 * Bret Victor [Interactive Exploration of a Dynamical System](worrydream.com/InteractiveExplorationOfADynamicalSystem/)
+* Bret Victor [Blindly Manipulating Symbols](https://www.youtube.com/watch?v=ef2jpjTEB5U)
 * James Bednar [Visualize any Data Easily, from Notebooks to Dashboards :: Scipy 2019 Tutorial](https://www.youtube.com/watch?v=7deGS4IPAQ0)
 
 ## :: Interesting pieces of writing (papers, blogs, ...) ::
