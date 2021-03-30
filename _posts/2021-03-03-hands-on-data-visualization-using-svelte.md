@@ -1311,6 +1311,73 @@ By the way, we don't need to create those new variables `sl`, `sw`, etc. That is
 
 This is a nice example of how you can create a visual design for a single datapoint and then combine these into larger plots.
 
+Or we can draw the actual flowers where the size of the sepals and petals of the image correspond to the data.
+
+{% highlight html %}
+<script>
+  export let datapoint = {}
+
+  let scale = 3;
+  $: sl = scale*datapoint.sepal_length
+  $: sw = scale*datapoint.sepal_width
+  $: pl = scale*datapoint.petal_length
+  $: pw = scale*datapoint.petal_width
+  $: sepal_path = "M 0,0 " +
+                  "C " + sl + ",-" + sw +
+                   " " + sl + "," + sw +
+                   " 0,0 Z"
+  $: petal_path = "M 0,0 " +
+                  "C " + pl + ",-" + pw +
+                  " " + pl + "," + pw +
+                  " 0,0 Z"
+</script>
+
+<style>
+  .flower {
+    fill: steelblue;
+    fill-opacity: 0.3;
+  }
+  .flower:hover {
+    fill: red;
+    fill-opacity: 0.8;
+  }
+</style>
+<g transform="translate({50*datapoint.sepal_length}, {50*datapoint.sepal_width})"
+   class="flower">
+    <path style="transform: rotate(270deg)" d={sepal_path} />
+    <path style="transform: rotate(30deg)" d={sepal_path} />
+    <path style="transform: rotate(150deg)" d={sepal_path} />
+    <path style="transform: rotate(325deg)" d={petal_path} />
+    <path style="transform: rotate(90deg)" d={petal_path} />
+    <path style="transform: rotate(210deg)" d={petal_path} />
+</g>
+{% endhighlight %}
+
+<img src="{{ site.baseurl }}/assets/svelte-iris-four.png" width=400 />
+
+... or to generate a grid of flowers:
+
+{% highlight html %}
+{#each datapoints as datapoint}
+  <svg width=30 height=30>
+    <Flower datapoint={datapoint} />
+  </svg>
+{/each}
+{% endhighlight %}
+(Note that we have the `each` _outside_ of the `svg` instead of inside.)
+{% highlight html %}
+<g transform="translate({15}, {15})" class="flower">
+  <path style="transform: rotate(270deg)" d={sepal_path} />
+  <path style="transform: rotate(30deg)" d={sepal_path} />
+  <path style="transform: rotate(150deg)" d={sepal_path} />
+  <path style="transform: rotate(325deg)" d={petal_path} />
+  <path style="transform: rotate(90deg)" d={petal_path} />
+  <path style="transform: rotate(210deg)" d={petal_path} />
+</g>
+{% endhighlight %}
+
+<img src="{{ site.baseurl }}/assets/svelte-iris-five.png" width=400 />
+
 ## Deploying your visualisations
 It's easy to deploy your app as well, for example using [vercel](http://vercel.com). Create an account on vercel.com, install the `vercel` NPM module, and run the `vercel` command:
 
