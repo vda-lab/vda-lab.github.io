@@ -1100,6 +1100,10 @@ Sepal length of selected flower: {selected_datapoint.sepal_length}
 {/if}
 {% endhighlight %}
 
+Here is what that looks like if you hover over a datapoint:
+
+<img src="{{ site.baseurl }}/assets/svelte-iris-one.png" width=400 />
+
 (If your don't have the iris dataset, you can point to [this url](https://gist.githubusercontent.com/curran/a08a1080b88344b0c8a7/raw/0e7a9b0a5d22642a06d3d5b9bcbad9890c8ee534/iris.csv), but make sure you remove the last empty line.)
 
 So what happens here? We load the data using Papaparse as shown before, but also create a new variable `selected_datapoint` and set it to `undefined.` In the SVG element, each datapoint is drawn as a circle on the screen with the `cx` and `cy` depending on the sepal length and sepal width of data datapoint. The `*50` is a quick hack here to spread the points more on the screen; you should use scaling here.
@@ -1163,6 +1167,10 @@ Sepal length of selected flower: {selected_datapoint.sepal_length}
 </div>
 {/if}
 {% endhighlight %}
+
+What we get with this code:
+
+<img src="{{ site.baseurl }}/assets/svelte-iris-two.png" width=400 />
 
 In the `on:mouseover` event handler, we now update a `mouse_x` and `mouse_y` variable which reflect the current mouse position. This `mouse_x` and `mouse_y` are then used in the `style` attribute of the `div` at the bottom:
 
