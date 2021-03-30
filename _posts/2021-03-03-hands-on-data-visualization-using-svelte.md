@@ -1294,6 +1294,10 @@ Wat is new here, is the second line `import Flower from './Flower.svelte';`, and
     fill: steelblue;
     fill-opacity: 0.3;
   }
+  path:hover {
+    fill: red;
+    fill-opacity: 0.8;
+  }
 </style>
 <g transform="translate({sl*50}, {sw*50})">
   <path d={path} />
