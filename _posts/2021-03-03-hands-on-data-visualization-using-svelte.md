@@ -1240,6 +1240,73 @@ const lineGenerator = function(d) {
 
 In this last bit of code, we first set e.g. `sl` to `+d.sepal_length`. We do this to force `sl` to be a number, otherwise you'll notice that the string generated for the `return` statement will be incorrect. See the [`path` documentation](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths) for information on how to interpret the full string. But for example in the second line (`" L " + (25+3*pl) + " 25"`) we draw a line to a certain point with x position `25+3*pl` and y position `25`. We multiplied the petal length with 3 just to make it scale a bit nicer using trial-and-error. Normally you'd write a little nice scaling function for this.
 
+### Merging the tooltip into the scatterplot itself
+We can even go further, and actually have the circles that represent iris flowers not be circles but the actual shapes that we use for the tooltip. This is what we'll create:
+
+<img src="{{ site.baseurl }}/assets/svelte-iris-three.png" width=400 />
+
+(Note that this is not an ideal visual due to the overlaps, but let's look at this as a proof-of-principle...)
+
+This is where svelte shines, as we can create custom HTML elements. So instead of `circle` we can use `Flower`. The `App.svelte` can now be much smaller (because we also remove interactivity in this example):
+
+{% highlight html %}
+<script>
+  import Papa from 'papaparse';
+  import Flower from './Flower.svelte';
+
+  let datapoints = []
+  Papa.parse("iris.csv", {
+    header: true,
+    download: true,
+    complete: function(results) {
+      datapoints = results.data
+    }
+  })
+</script>
+
+<svg width=500 height=500>
+  {#each datapoints as datapoint}
+    <Flower datapoint={datapoint} />
+  {/each}
+</svg>
+<br/>
+{% endhighlight %}
+
+Wat is new here, is the second line `import Flower from './Flower.svelte';`, and the fact that we replace `circle` with a `Flower` element. But we need to have the `Flower.svelte` file for this which describes the `Flower` component:
+
+{% highlight html %}
+<script>
+  export let datapoint = {}
+
+  $: sl = datapoint.sepal_length
+  $: sw = datapoint.sepal_width
+  $: pl = datapoint.petal_length
+  $: pw = datapoint.petal_width
+  $: path = "M      25 "     +  (25-3*sl) +
+           " L " + (25+3*pl) + " 25" +
+           " L      25 "     +  (25+3*sw) +
+           " L " + (25-3*pw) + " 25 " +
+           "Z"
+</script>
+
+<style>
+  path {
+    fill: steelblue;
+    fill-opacity: 0.3;
+  }
+</style>
+<g transform="translate({sl*50}, {sw*50})">
+  <path d={path} />
+  <circle cx=25 cy=25 r=2 style="fill: white; fill-opacity: 1;" />
+</g>
+{% endhighlight %}
+
+The flower component returns a single group `g` (see [documentation](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/g)) containing all information to draw a single datapoint. In this case, a `path` is created and we put a little white circle at its center.
+
+By the way, we don't need to create those new variables `sl`, `sw`, etc. That is just to make the `path` string easier to read.
+
+This is a nice example of how you can create a visual design for a single datapoint and then combine these into larger plots.
+
 ## Deploying your visualisations
 It's easy to deploy your app as well, for example using [vercel](http://vercel.com). Create an account on vercel.com, install the `vercel` NPM module, and run the `vercel` command:
 
