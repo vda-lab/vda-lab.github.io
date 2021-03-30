@@ -54,6 +54,7 @@ color: "#fff2ae"
 * Kim Albrecht [Untangling tennis](www.youtube.com/watch?v=Ufjm_LD_d0o)
 * Bret Victor [Inventing on Principle](vimeo.com/36579366)
 * Bret Victor [Interactive Exploration of a Dynamical System](worrydream.com/InteractiveExplorationOfADynamicalSystem/)
+* Bret Victor [Blindly Manipulating Symbols](https://www.youtube.com/watch?v=ef2jpjTEB5U)
 * James Bednar [Visualize any Data Easily, from Notebooks to Dashboards :: Scipy 2019 Tutorial](https://www.youtube.com/watch?v=7deGS4IPAQ0)
 
 ## :: Interesting pieces of writing (papers, blogs, ...) ::
