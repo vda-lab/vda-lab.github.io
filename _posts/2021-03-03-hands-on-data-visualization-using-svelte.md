@@ -374,7 +374,7 @@ Although extremely useful, you will at some point outgrow the REPL that we've us
 
 We can also develop svelte applications (i.c. visualisations) locally, on our own machine. See the [Getting Started for new developers](https://svelte.dev/blog/svelte-for-new-developers) page on how to get set up.
 
-Although it is out of scope for this tutorial, it comes down to running `npx degit sveltejs/template my-new-project`, and running `npm install` in the new `my-new-project` folder. When that's finished you can run `npm run dev` which will make the application available on http://localhost:5000 and automatically reload that page when you make changes to any of the files.
+Although it is out of scope for this tutorial, it comes down to running `npx degit sveltejs/template my-new-project`, and running `npm install` in the new `my-new-project` folder. See [here](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) for instructions on how to install `npm` itself. When that's finished you can run `npm run dev` which will make the application available on http://localhost:5000 and automatically reload that page when you make changes to any of the files.
 
 ## Loading data
 Data visualisation relies on data. We can load data in several ways in javascript.
@@ -1051,6 +1051,187 @@ We can actually create quite complex visuals. But let's just make a pie chart as
 
 With this you can start changing colours of the slices, have different radii for different slices, add hover effects, etc.
 
+## Overview first, search and filter, and details on demand
+Above we have see how to create single visuals using svelte. But what if we want to combine these, for example when you want to show an overview of some dataset, with next to it a more detailed view?
+
+There are many ways of doing this
+
+Let's use the iris dataset for this.
+
+### Conditionally showing content
+
+Consider the following code:
+
+{% highlight html linenos %}
+<script>
+  import Papa from 'papaparse';
+
+  let datapoints = []
+  Papa.parse("iris.csv", {
+    header: true,
+    download: true,
+    complete: function(results) {
+      datapoints = results.data
+    }
+  })
+  let selected_datapoint = undefined;
+</script>
+
+<style>
+  circle {
+    fill: steelblue;
+    fill-opacity: 0.5;
+  }
+</style>
+
+<svg width=400 height=400>
+  {#each datapoints as datapoint}
+    <circle cx={datapoint.sepal_length*50}
+            cy={datapoint.sepal_width*50}
+            r=3
+            on:mouseover={() => {selected_datapoint = datapoint}}
+            on:mouseout={() => {selected_datapoint = undefined}}/>
+  {/each}
+</svg>
+<br/>
+
+{#if selected_datapoint != undefined}
+Sepal length of selected flower: {selected_datapoint.sepal_length}
+{/if}
+{% endhighlight %}
+
+(If your don't have the iris dataset, you can point to [this url](https://gist.githubusercontent.com/curran/a08a1080b88344b0c8a7/raw/0e7a9b0a5d22642a06d3d5b9bcbad9890c8ee534/iris.csv), but make sure you remove the last empty line.)
+
+So what happens here? We load the data using Papaparse as shown before, but also create a new variable `selected_datapoint` and set it to `undefined.` In the SVG element, each datapoint is drawn as a circle on the screen with the `cx` and `cy` depending on the sepal length and sepal width of data datapoint. The `*50` is a quick hack here to spread the points more on the screen; you should use scaling here.
+
+In the `on:mouseover` and `on:mouseout` attributes for the circle, we set or unset the `selected_datapoint`. We don't even need to create a separate function for that: in svelte you can include javascript code anywhere you use curley brackets. (Have you read the svelte tutorial yet at [svelte.dev/tutorial](http://svelte.dev/tutorial)? Check out the section "Events / Inline handlers".) So when the mouse hovers over a circle, the variable `selected_datapoint` is set to equal the datapoint linked to that circle; when the mouse leaves a circle, the `selected_datapoint` is set to `undefined`.
+
+Now the magic happens in the last 3 lines: if the `selected_datapoint` is _not_ `undefined`, a piece of text is shown with the `sepal_length` of that datapoint. This is a very simple way of showing details.
+
+### A tooltip
+In the example above, the piece of text is shown _below_ the image itself. But of course we can put that anywhere we want. So why not let it follow the mouse like what a tooltip would do?
+
+We can do this by giving the `div` a "fixed" position which is located at the mouse coordinates, like so:
+
+{% highlight html linenos %}
+<script>
+  import Papa from 'papaparse';
+
+  let datapoints = []
+  Papa.parse("iris.csv", {
+    header: true,
+    download: true,
+    complete: function(results) {
+      datapoints = results.data
+    }
+  })
+  let selected_datapoint = undefined;
+  let mouse_x, mouse_y;
+
+  const setMousePosition = function(event) {
+    mouse_x = event.clientX;
+    mouse_y = event.clientY;
+  }
+</script>
+
+<style>
+  circle {
+    fill: steelblue;
+    fill-opacity: 0.5;
+  }
+  #tooltip {
+    position: fixed;
+    background-color: white;
+  }
+</style>
+
+<svg width=400 height=400>
+  {#each datapoints as datapoint}
+    <circle
+      cx={datapoint.sepal_length*50}
+      cy={datapoint.sepal_width*50}
+      r=3
+      on:mouseover={(event) => {selected_datapoint = datapoint; setMousePosition(event)}}
+      on:mouseout={() => {selected_datapoint = undefined}}/>
+  {/each}
+</svg>
+<br/>
+
+{#if selected_datapoint != undefined}
+<div id="tooltip" style="left: {mouse_x + 10}px; top: {mouse_y - 10}px">
+Sepal length of selected flower: {selected_datapoint.sepal_length}
+</div>
+{/if}
+{% endhighlight %}
+
+In the `on:mouseover` event handler, we now update a `mouse_x` and `mouse_y` variable which reflect the current mouse position. This `mouse_x` and `mouse_y` are then used in the `style` attribute of the `div` at the bottom:
+
+{% highlight html %}
+<div id="tooltip" style="left: {mouse_x + 10}px; top: {mouse_y - 10}px">
+{% endhighlight %}
+
+Finally in this example, we add CSS in two different ways: part of it (`position` and `background-color`) in the `style` section, and the actual position (`left` and `top` in the `style` attribute of the element itself. We can't directly use `{mouse_x}` or similar in the `style` CSS section.
+
+Add some padding and shadow, and you have a nice-looking tooltip.
+
+{% highlight html %}
+#tooltip {
+  position: fixed;
+  background-color: rgb(242, 241, 241);
+  box-shadow: 2px 3px lightgray;
+  padding: 5px;
+}
+{% endhighlight %}
+
+### An image as tooltip
+We now have a `div` that floats around the screen, but this can be anything, including an SVG. So let's change that little `div` with the following:
+
+{% highlight html %}
+{#if selected_datapoint != undefined}
+<svg width=40 height=40 style="background-color: whitesmoke; border: 1px solid grey;">
+	<line x1={selected_datapoint.sepal_length*5} y1={selected_datapoint.sepal_width*5}
+	      x2={selected_datapoint.petal_length*5} y2={selected_datapoint.petal_width*5}
+		  style="stroke: black;"/>
+</svg>
+{/if}
+{% endhighlight %}
+
+This is just a proof-of-principle showing that the line depends on the actual datapoint. So let's make something a little bit nicer: a small shape that depends on the actual data.
+
+<img src="{{ site.baseulr }}/assets/svelte-tooltip.png" width=400 />
+
+In this little image, the white circle is the center. Up represents sepal length, right petal length, down sepal width, and left petal width. We can create this by changing the `line` in the `svg` to a `path`:
+
+{% highlight html %}
+{#if selected_datapoint != undefined}
+<svg width=50 height=50
+     id="tooltip"
+     style="left: {mouse_x + 10}px; top: {mouse_y - 10}px">
+  <line class="axis" x1=0 x2=50 y1=25 y2=25 />
+  <line class="axis" x1=25 x2=25 y1=0 y2=50 />
+  <path d={lineGenerator(selected_datapoint)} />
+  <circle cx=25 cy=25 r=2 style="fill: white; fill-opacity: 1;" />
+</svg>
+{/if}
+{% endhighlight %}
+
+As we had set the `#tooltip` to `fixed` in the CSS, the image will now follow the mouse. We use a `lineGenerator` function (you can call it whatever you want) to create the actual path:
+
+{% highlight html %}
+const lineGenerator = function(d) {
+  let sl = +d.sepal_length;
+  let pl = +d.petal_length;
+  let sw = +d.sepal_width;
+  let pw = +d.petal_width
+  return "M 25 " + (25-3*sl) +
+         " L " + (25+3*pl) + " 25" +
+         " L 25 " + (25+3*sw) +
+         " L " + (25-3*pw) + " 25 Z"
+}
+{% endhighlight %}
+
+In this last bit of code, we first set e.g. `sl` to `+d.sepal_length`. We do this to force `sl` to be a number, otherwise you'll notice that the string generated for the `return` statement will be incorrect. See the [`path` documentation](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths) for information on how to interpret the full string. But for example in the second line (`" L " + (25+3*pl) + " 25"`) we draw a line to a certain point with x position `25+3*pl` and y position `25`. We multiplied the petal length with 3 just to make it scale a bit nicer using trial-and-error. Normally you'd write a little nice scaling function for this.
+
 ## Deploying your visualisations
 It's easy to deploy your app as well, for example using [vercel](http://vercel.com). Create an account on vercel.com, install the `vercel` NPM module, and run the `vercel` command:
 
@@ -1060,3 +1241,5 @@ vercel
 {% endhighlight %}
 
 You will have to answer a couple of questions, but these are straightforward. As an example of such deployment, see [here](https://svelte-flights.vercel.app/).
+
+You can for example find a version of the flight visualisation [here](https://svelte-flights.vercel.app/) and the iris visualisation [here](https://iris-janaerts.vercel.app).
