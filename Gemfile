@@ -5,5 +5,5 @@ require 'open-uri'
 versions = JSON.parse(open('https://pages.github.com/versions.json').read)
 
 gem 'github-pages', group: :jekyll_plugins
-gem 'kramdown'
+gem 'kramdown', ">= 2.3.1"
 gem 'jekyll-seo-tag'
