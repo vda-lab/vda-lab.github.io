@@ -24,8 +24,6 @@ Teaching assistants:
 
 ### Schedule
 
-**Important**: the schedules below are tentative and are only to be taken as indicative. Assignments are only to be made if they are on Blackboard.
-
 #### Sessions
 
 | | Date | Topic |
@@ -36,7 +34,7 @@ Teaching assistants:
 | 4 | 23/3 | Peer-feedback on intermediate designs |
 | 5 | 30/3 | HTML & SVE; introduction to libraries: vega/p5/D3 |
 | 6 | 21/4 | Peer-feedback on intermediate implementation |
-| 7 | 28/4 | No session |
+| 7 | 28/4 | Q&A: teaching team available for feedback |
 | 8 | 19/5 | Poster session |
 
 #### Assignments
@@ -48,9 +46,11 @@ These assignments are to be prepared for the next session.
 | 2 | 23/3 | - Present data to teaching team for go/no-go<br>- Create additional designs and put on miro |
 | 3 | 30/3 | Deadline for blog post on design |
 | 4 | 14/4 | - Look at online tutorials<br>- Create simple plot using different technologies<br>- Start programming on project |
-| 5 | 12/5 | Deadline on intermediate blog post on implementation |
+| 5 | 22/4 | Blog post on intermediate implementation 1 |
+| 6 | 6/5 | Blog post on intermediate implementation 2 |
+| 7 | 21/5 | Final report and video submitted |
 
-<!-- 
+<!--
 ## 2019-2020
 
 Teaching assistants:
