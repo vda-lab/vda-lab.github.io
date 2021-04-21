@@ -48,7 +48,7 @@ These assignments are to be prepared for the next session.
 | 4 | 14/4 | - Look at online tutorials<br>- Create simple plot using different technologies<br>- Start programming on project |
 | 5 | 22/4 | Blog post on intermediate implementation 1 |
 | 6 | 6/5 | Blog post on intermediate implementation 2 |
-| 7 | 21/5 | Final report and video submitted |
+| 7 | 28/5 | Final report and video submitted |
 
 <!--
 ## 2019-2020
