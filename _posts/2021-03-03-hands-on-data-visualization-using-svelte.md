@@ -959,6 +959,79 @@ We do this using the `$:` pragma. For example:
 
 Notice that we use `bind:value` in the slider. Sliding left and right will now update the multiplied value as well.
 
+## Animations
+It isn't that hard to create animations using svelte and javascript. We'll use the built-in `setInterval` function. This function will run something over and over again at specific intervals (in milliseconds). For example, the following code will print "Hello" to the console every 3 seconds: `setInterval(function(){ console.log("Hello"); }, 3000);`.
+
+Let's move a little rectangle across the screen:
+
+{% highlight html %}
+<script>
+  let counter = 0;
+
+  const interval = setInterval(() => {
+    counter += 1;
+    if ( counter > 400 ) {
+      counter = 0
+    }
+  }, 100)
+</script>
+
+<style>
+  rect {
+    fill: red;
+  }
+</style>
+
+{counter}<br/>
+<svg width=400 height=50>
+  <rect x={counter} y=15 width=20 height=20 />
+</svg>
+{% endhighlight %}
+
+In the following example, we rotate a line.
+
+<img src="{{ site.baseurl }}/assets/setInterval.png" width=400 />
+
+{% highlight html %}
+<script>
+  let degree = 0;
+  let dim = 200;
+
+  $: theta = degree*Math.PI/180
+  const x = function(r, theta) {
+    return r*Math.cos(theta)
+  }
+  const y = function(r, theta) {
+    return r*Math.sin(theta)
+  }
+
+  const interval = setInterval(() => {
+    degree += 1;
+    if ( degree == 360 ) {
+      degree = 0
+    }
+  }, 10);
+</script>
+
+<style>
+  line {
+    stroke: black;
+  }
+  circle {
+    stroke: black;
+    fill: none;
+  }
+</style>
+
+{degree}<br/>
+<svg width={dim+10} height={dim+10}>
+  <g transform="translate({dim/2+5},{dim/2+5})">
+    <circle cx=0 cy=0 r={dim/2} />
+    <line x1=0 y1=0 x2={x(dim/2, theta)} y2={y(dim/2, theta)} />
+  </g>
+</svg>
+{% endhighlight %}
+
 ## Custom visuals
 We can actually create quite complex visuals. But let's just make a pie chart as a proof-of-principle.
 
