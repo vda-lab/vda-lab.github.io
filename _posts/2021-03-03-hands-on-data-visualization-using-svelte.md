@@ -10,6 +10,14 @@ tags:
 - svelte
 - howto
 ---
+<script
+  defer
+  src="{{ site.baseurl }}/dist/svelte-bundle.js"
+></script>
+
+<HelloWorld />
+<div id="hello-world-container"></div>
+
 This is a svelte ([http://svelte.dev](http://svelte.dev)) version of the Processing/p5/vega tutorials that we published earlier. Svelte is a framework for creating web content, and very accessible for creating data visualisations. This tutorial holds numerous code snippets that can by copy/pasted and modified for your own purpose. The contents of this tutorial is available under the CC-BY license.
 
 ![cc-by]({{ site.baseurl }}/assets/ccby.png)
@@ -793,9 +801,10 @@ Airports serving flights in this range (km): {slider_value - 1000} - {slider_val
 </svg>
 {% endhighlight %}
 
-This gives our final interactive tool:
+This gives our final interactive tool (drag the slider: this visual is live):
 
-<img src="{{ site.baseurl }}/assets/svelte-vis5.png" width=600 />
+<div id="svelte-airports"></div>
+<!-- <img src="{{ site.baseurl }}/assets/svelte-vis5.png" width=600 /> -->
 
 ## Quick exercise: lines
 See if you can adapt the previous script to generate the following image where departure airports are linked to their arrival airports.
@@ -963,6 +972,7 @@ Notice that we use `bind:value` in the slider. Sliding left and right will now u
 It isn't that hard to create animations using svelte and javascript. We'll use the built-in `setInterval` function. This function will run something over and over again at specific intervals (in milliseconds). For example, the following code will print "Hello" to the console every 3 seconds: `setInterval(function(){ console.log("Hello"); }, 3000);`.
 
 Let's move a little rectangle across the screen:
+<div id="svelte-animation1"></div>
 
 {% highlight html %}
 <script>
@@ -978,7 +988,7 @@ Let's move a little rectangle across the screen:
 
 <style>
   rect {
-    fill: red;
+    fill: steelblue;
   }
 </style>
 
@@ -990,7 +1000,8 @@ Let's move a little rectangle across the screen:
 
 In the following example, we rotate a line.
 
-<img src="{{ site.baseurl }}/assets/setInterval.png" width=400 />
+<div id="svelte-animation2"></div>
+
 
 {% highlight html %}
 <script>
@@ -1277,8 +1288,11 @@ We now have a `div` that floats around the screen, but this can be anything, inc
 {/if}
 {% endhighlight %}
 
-This is just a proof-of-principle showing that the line depends on the actual datapoint. So let's make something a little bit nicer: a small shape that depends on the actual data.
+This is just a proof-of-principle showing that the line depends on the actual datapoint. So let's make something a little bit nicer: a small shape that depends on the actual data. **INTERACTIVE**: Hover your mouse over a datapoint below, and see how for example the tooltips from datapoints on the right are different from those on the left.
 
+<div id="svelte-iris"></div>
+
+(Here's a screenshot)<br/>
 <img src="{{ site.baseulr }}/assets/svelte-tooltip.png" width=400 />
 
 In this little image, the white circle is the center. Up represents sepal length, right petal length, down sepal width, and left petal width. We can create this by changing the `line` in the `svg` to a `path`:

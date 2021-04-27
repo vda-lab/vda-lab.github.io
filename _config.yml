@@ -15,3 +15,6 @@ markdown: kramdown
 
 plugins:
 - jekyll-seo-tag
+
+exclude:
+  - svelte-components
