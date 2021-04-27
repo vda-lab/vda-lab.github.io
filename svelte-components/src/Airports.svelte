@@ -2,7 +2,7 @@
     let slider_value = 5000;
   
     let datapoints = []
-    fetch("http://vda-lab.github.io/assets/svelte-flights.json")
+    fetch("https://vda-lab.github.io/assets/svelte-flights.json")
       .then(res => res.json())
       .then(data => datapoints = data.slice(1,5000))
   

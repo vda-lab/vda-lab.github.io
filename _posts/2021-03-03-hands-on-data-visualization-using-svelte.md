@@ -15,8 +15,7 @@ tags:
   src="{{ site.baseurl }}/dist/svelte-bundle.js"
 ></script>
 
-<HelloWorld />
-<div id="hello-world-container"></div>
+<!-- See https://davidtang.io/2020-01-25-adding-svelte-3-to-a-jekyll-site/ on how to incorporate svelte components -->
 
 This is a svelte ([http://svelte.dev](http://svelte.dev)) version of the Processing/p5/vega tutorials that we published earlier. Svelte is a framework for creating web content, and very accessible for creating data visualisations. This tutorial holds numerous code snippets that can by copy/pasted and modified for your own purpose. The contents of this tutorial is available under the CC-BY license.
 
@@ -804,7 +803,9 @@ Airports serving flights in this range (km): {slider_value - 1000} - {slider_val
 This gives our final interactive tool (drag the slider: this visual is live):
 
 <div id="svelte-airports"></div>
-<!-- <img src="{{ site.baseurl }}/assets/svelte-vis5.png" width=600 /> -->
+
+Here's a static screenshot:<br/>
+<img src="{{ site.baseurl }}/assets/svelte-vis5.png" width=600 />
 
 ## Quick exercise: lines
 See if you can adapt the previous script to generate the following image where departure airports are linked to their arrival airports.

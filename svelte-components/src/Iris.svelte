@@ -2,7 +2,7 @@
     import Papa from 'papaparse';
   
     let datapoints = []
-    Papa.parse("http://vda-lab.github.io/assets/iris.csv", {
+    Papa.parse("https://vda-lab.github.io/assets/iris.csv", {
       header: true,
       download: true,
       complete: function(results) {
