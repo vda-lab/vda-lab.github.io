@@ -38,7 +38,7 @@ Miro is an online collaborative whiteboard environment, which we believe is easy
 
 <iframe width="768" height="432" src="https://miro.com/app/live-embed/o9J_l5k1Yng=/?moveToViewport=-2037,-1351,6917,3670" frameBorder="0" scrolling="no" allowFullScreen></iframe>
 
-![Rachel Nagrecha's Miro Basics: Guide for New Participants template | Miroverse](https://miro.com/miroverse/miro-basics-guide-for-new-participants/)
+<iframe src="//fast.wistia.net/embed/iframe/lh33rqorv6?videoFoam=true&amp;playerColor=111111" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen=""></iframe>
 
 Because of the large number of students in the course (i.c., more than 90), three parallel collaboration boards were prepared, each managed by one teaching assistant. Within each board, different sections were created per group of four students. Each section was numbered corresponding to a table in the communication platform. Different areas were created which would guide the consecutive parts (warm-up, and diverge-emerge-converge) of the visual design exercise.
 
