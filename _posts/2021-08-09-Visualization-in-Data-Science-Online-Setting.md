@@ -9,6 +9,9 @@ tags:
 - Visual design
 ---
 
+* Do not remove this line (it will not be displayed)                            
+{:toc}
+
 # Visualization in Data Science — Online setting
 
 # Technical setup
@@ -39,13 +42,13 @@ Miro is an online collaborative whiteboard environment, which we believe is easy
 
 Because of the large number of students in the course (i.c., more than 90), three parallel collaboration boards were prepared, each managed by one teaching assistant. Within each board, different sections were created per group of four students. Each section was numbered corresponding to a table in the communication platform. Different areas were created which would guide the consecutive parts (warm-up, and diverge-emerge-converge) of the visual design exercise.
 
-![assets/miro_overview.png](assets/miro_overview.png)
+![assets/miro_overview.png]({{site.baseurl}}/assets/miro_overview.png)
 
 ## Gather.town
 
 Gather is a video chat platform designed to make virtual interactions more human. Users can build their own custom, intractable spaces (e.g. virtual offices, university campuses and conferences). For the Data Visualization in Data Science course, a workshop room was established in the by UHasselt provided online campus. This room provides proximity chat (i.e., people can hear each other when they are located close to each other), but also featured a single “spotlight square” (i.e., standing in this position makes everyone in the room hear you, see you, and optionally view your screen). This spotlight square was used for giving general instructions and announcements to the students. In addition, different“private spaces” were set up, consisting of a table and six chairs. Everyone can hear each other in a private space, but cannot be heard by someone outside of the space (i.c., not sitting on a chair at the same table) and vice versa. Each table is numbered; this number corresponds to a working space in the collaboration platform, as mentioned before.
 
-![assets/gather_cropped.png](assets/gather_cropped.png)
+![assets/gather_cropped.png]({{site.baseurl}}/assets/gather_cropped.png)
 
 Figure 1: (Part of) virtual classroom in communication platform. Students are distributed across different tableswhich correspond to different private spaces. Teaching assistants and lecturer can join a table to join thatconversation. The spotlight position allows for addressing everyone in the room. Table numbers correspond toworking space numbers in the collaborative boards.
 
@@ -55,7 +58,7 @@ In order for the students to get familiar with the environment, an introduction 
 
 the students are introduced to the general concepts and the idea of diverge-emerge-converge (or open-explore-close; [Gray, Brown, Macanufo., 2010]). This is followed by warm-up exercises, and two iterations of diverge-emerge-converge (Figure 2). A detailed overview of the instructions and information provided to the students can be found in the 'Design Session (template)' miro board, and in the subsections below.
 
-![assets/cdb837d30e4168b57f8b0a560a1780fb.jpg](assets/cdb837d30e4168b57f8b0a560a1780fb.jpg)
+![assets/cdb837d30e4168b57f8b0a560a1780fb.jpg]({{site.baseurl}}/assets/cdb837d30e4168b57f8b0a560a1780fb.jpg)
 
 Figure 2: diverge-emerge-converge workflow.
 
@@ -63,11 +66,11 @@ Figure 2: diverge-emerge-converge workflow.
 
 The warm-up exercises acted as a way to get the students familiar with their working material, to put them at ease for a type of workshop that they were not used to, and to test if taking pictures and uploading worked well; all in a fun setting.  Exercises consist of (a) “taking a line for a walk” where students draw a single line while a poem is recited by the lecturer, (b) drawing eight concepts of increasing complexity in three seconds each, ranging from “table” and “chair”, to “Wednesday” and “existentialism”, and (c) drawing two data points in eight different ways.
 
-![assets/217724561_216531677040251_5526025973084130175_n.jpg](assets/217724561_216531677040251_5526025973084130175_n.jpg)
+![assets/217724561_216531677040251_5526025973084130175_n.jpg]({{site.baseurl}}/assets/217724561_216531677040251_5526025973084130175_n.jpg)
 
-![assets/218283329_142172971378604_2083953732834668446_n.jpg](assets/218283329_142172971378604_2083953732834668446_n.jpg)
+![assets/218283329_142172971378604_2083953732834668446_n.jpg]({{site.baseurl}}/assets/218283329_142172971378604_2083953732834668446_n.jpg)
 
-![assets/218498531_779529126061355_7196609511686388384_n.jpg](assets/218498531_779529126061355_7196609511686388384_n.jpg)
+![assets/218498531_779529126061355_7196609511686388384_n.jpg]({{site.baseurl}}/assets/218498531_779529126061355_7196609511686388384_n.jpg)
 
 ### Diverge
 
@@ -75,7 +78,7 @@ The primary purpose of the divergent phase is to create the raw material that ca
 
 As some students are overwhelmed with the range of possibilities for sketching and get stuck as a result of overchoice, we also present them with a way to structure their sketches using two conceptual matrices (see Figure 4). In one matrix, the columns represent the different dimensions in the dataset, whereas the rows represent the number of observations depicted in one visual (i.e. “one”, “a selection” or “all”). The student can randomly pick a cell in this matrix (e.g., fora dataset on COVID-19, drawing the number of reported infections on a single day, all Mondays, or all days of the last month) and create a sketch for that particular combination. In addition, a second matrix lists the different dimensions both as columns and as rows. Using this matrix as a guide, the student can, for example, focus on drawing infections by city, or tests versus infections. It is made clear that the rows are the base of the sketch, so that, for example, number of tests by virus strain is not the same as virus strain by number of tests.
 
-![assets/matrices.png](assets/matrices.png)
+![assets/matrices.png]({{site.baseurl}}/assets/matrices.png)
 
 Figure 4: Conceptual matrices. In the top matrix, columns represent the different dimensions in the data set whereas rows represent the number of observations depicted in one visual (i.e. “one”, “a selection” or “all”). The bottom matrix lists the different dimensions both as columns and as rows. Students can use these matrices as guidance to create sketches that fit inside these cells.
 
@@ -85,7 +88,7 @@ For the emerge stage, students are asked to discuss the generated sketches in sm
 
 This collaborative emergent phase is sched-uled for approximately 30 minutes.
 
-![assets/emerge2.png](assets/emerge2.png)
+![assets/emerge2.png]({{site.baseurl}}/assets/emerge2.png)
 
 Figure 5: Explorations suggested to the students in the Emerge phase. [A] Make an affinity map: organizesketches based on the intent that they have; [B] Link sketches together where one provides an overview atlower resolution and the other goes into detail; [C] Merge different sketches into one.
 
