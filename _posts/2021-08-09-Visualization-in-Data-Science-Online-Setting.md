@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Visualization in Data Science - Online Setting"
-date:   2014-01-08 11:00:00
+date:   2021-01-08 11:00:00
 author: Jan Aerts
 categories: main
 tags:
