@@ -30,6 +30,15 @@
   bio: |
     Danai Kafetzaki obtained her master in Statistics at KU Leuven and her dissertation explored a duality between time series and complex networks. She is particularly interested in data visualization, machine-learning and statistical consulting. She partook in multidisciplinary collaborations, as during her master she was associated with the Euthority Research Project in the Faculty of Law, and the Sagalassos Archaeological Research Project. Prior to coming to Leuven, Danai completed a bachelor in Business Administration at Athens University of Economics and Business and worked as a financial analyst at Antenna TV in Greece. In her doctoral research, she develops graph-based visual and data analytics methods and applies these to reconstruct the typology and chronology of material culture at Sagalassos in order to build data driven solutions for the discipline of archaeology.
 
+- name: Jannes Peeters
+  class: current
+  title: PhD student
+  email: jannes.peeters@uhasselt.be
+  image: photo_jannes.png
+  orcid: https://orcid.org/0000-0002-5227-3815
+  bio: |
+    Jannes has a background in Sociology and graduated with a master of Statistics at KU Leuven in 2020. During his master's degree, he became interested in data visualization and visual analytics and wrote his master thesis about exploration of social contact data using Topological Data Analysis. Currently, Jannes is enrolled as a PhD student at the data science institute at UHasselt, where he studies how interactive data visualization and visual analytics can be used to aid domain experts in acquiring knowledge from complex (high-dimensional) domain specific data, with an emphasis on microbiome data.
+
 - name: Jelmer Bot
   class: current
   title: PhD student
