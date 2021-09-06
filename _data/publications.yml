@@ -1,3 +1,33 @@
+- authors: Alcaide D & Aerts J
+  title: "Spanning Trees as Approximation of Data Structures"
+  reference: "IEEE Transactions on Visualization and Computer 27(10): 3994-4008"
+  year: 2021
+
+- authors: Correa Rojo A, Heylen D, Aerts J, Thas O, Hooyberghs J, Ertaylan G & Valkenborg D
+  title: "Towards building a quantitative proteomics toolbox in precision medicine: a mini-review"
+  reference: "Front Physiol 12:723510 (2021)"
+  year: 2021
+
+- authors: Alcaide D, Aerts J.
+  title: "A visual analytic approach for the identification of ICU patient subpopulations using ICD diagnostic codes"
+  reference: "PeerJ Computer Science 7:e430"
+  year: 2021
+
+- authors: Neyens N et al.
+  title: "Can COVID-19 symptoms as reported in a large-scale online survey be used to optimise spatial predictions of COVID-19 incidence risk in Belgium?"
+  reference: "Spatial and Spatio-temporal Epidemiology, 35:100379"
+  year: 2020
+
+- authors: Panagiotidou G, Aerts J & Vande Moere A
+  title: "GoCo: A Gamified Activity for Winnowing Visualization Projects with Interdisciplinary Experts"
+  reference: "IEEE VIS Workshop on Data Vis Activities"
+  year: 2020
+
+- authors: Molenberghs G et al.
+  title: "Belgian COVID-19 mortality, excess deaths, number of deaths per million, and infection fatality rates (8 March - 9 May 2020)"
+  reference: "Preprint at https://doi.org/10.1101/2020.06.20.20136234"
+  year: 2020
+
 - authors: Papadimitriou S, Gazzo A, Versbraegen N, Nachtegael C, Aerts J et al.
   title: "Predicting disease-causing variant combinations"
   reference: "Proceedings of the National Academy of Sciences 116(24):11878-11887"
