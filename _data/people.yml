@@ -72,6 +72,7 @@
   title: PhD student
   email: dries.huylen@uhasselt.be
   image: photo_dries.jpeg
+  orcid: https://orcid.org/0000-0001-7112-9651
   bio: |
     [w/ Gokhan Ertaylan and Jef Hooyberghts] Dries obtained his master's degree in biomedical sciences at KU Leuven in 2020. During that degree, he became interested in the use of bioinformatics and data analyses in the context of precision medicine. This brought him towards a dissertation focusing on a systems biology approach for chronic diseases at VITO health. He is enrolled as a PhD student connected to the Data Science Institute in Hasselt and VITO, where he focuses on applying visual analytics and data visualisation approaches on high-dimensional medical data to gain insights into intermediate changes between health and disease.
 
