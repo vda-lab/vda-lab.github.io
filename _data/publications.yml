@@ -1,17 +1,45 @@
+- authors: Panagiotidou G, Poblome J, Aerts J & Vande Moere A
+  title: "Interdisciplinary Data Visualisation: Acknowledging the Frictions between Different Epistemologies"
+  reference: ""
+  year: 2021
+
+- authors: Peeters J, Thas O, Shkedy Z, Kodalci L et al.
+  title: "Exploring the Microbiome Analysis and Visualization Landscape"
+  reference: "Frontiers in Bioinformatics"
+  year: 2021
+
+- authors: Bot DM, Peeters J, Kafetzaki D & Aerts J
+  title: "Human-in-the-Loop Integration of Complex and Noisy Data (VAST MC2)"
+  reference: ""
+  year: 2021
+
+- authors: Aerts J, Peeters J, Bot J, Kafetzaki D & Lamqaddam H
+  title: "Remote Instruction for Data Visualization Design - A Report From the Trenches"
+  reference: "IEEE Computer Graphics and Applications"
+  year: 2021
+  pdf: remote_instruction_viz.pdf
+  doi: 10.1109/MCG.2021.3116042
+
 - authors: Alcaide D & Aerts J
   title: "Spanning Trees as Approximation of Data Structures"
   reference: "IEEE Transactions on Visualization and Computer 27(10): 3994-4008"
   year: 2021
+  doi: 10.1109/TVCG.2020.2995465
+  pdf: Spanning_Trees_as_Approximation_of_Data_Structures.pdf
 
 - authors: Correa Rojo A, Heylen D, Aerts J, Thas O, Hooyberghs J, Ertaylan G & Valkenborg D
   title: "Towards building a quantitative proteomics toolbox in precision medicine: a mini-review"
   reference: "Front Physiol 12:723510 (2021)"
   year: 2021
+  pdf: fphys-12-723510.pdf
+  doi: 10.3389/fphys.2021.723510
 
 - authors: Alcaide D, Aerts J.
   title: "A visual analytic approach for the identification of ICU patient subpopulations using ICD diagnostic codes"
   reference: "PeerJ Computer Science 7:e430"
   year: 2021
+  doi: 10.7717/peerj-cs.430
+  pdf: peerj-cs-430.pdf
 
 - authors: Neyens N et al.
   title: "Can COVID-19 symptoms as reported in a large-scale online survey be used to optimise spatial predictions of COVID-19 incidence risk in Belgium?"
