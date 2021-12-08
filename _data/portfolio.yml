@@ -1,3 +1,9 @@
+- title: VAST2021 Award in Visual Analytics
+  class: viz
+  description: Human-in-the-Loop Integration of Complex and Noisy Data
+  url: http://vda-lab.github.io/vast2021.html
+  image: vast2021_matches_segment.jpeg
+
 - title: STAD on MIMIC-III
   class: viz
   description: Application of STAD on patient diagnosis codes
