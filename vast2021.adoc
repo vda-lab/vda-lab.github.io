@@ -1,9 +1,8 @@
 = VAST Challenge 2021 - Award for Strong Support for Visual Exploration
 :page-layout: page
 :page-permalink: /vast2021.html
-:url-asciidoctor: http://asciidoctor.org
 
-image:{site-baseurl}/assets/vast2021_teaser.jpeg[rotate=25]
+image:{site-url}/assets/vast2021_teaser.jpeg[rotate=25]
 
 From the https://vast-challenge.github.io/2021/about.html[VAST challenge webpage]: "The goal of the annual IEEE Visual Analytics Science and Technology (VAST) Challenge is to advance the field of visual analytics through competition."
 
@@ -11,7 +10,7 @@ The VAST challenge is a prime opportunity for teambuilding in a visual analytics
 
 In this year's challenge, we try to find out why and how a group of employees disappear from a natural gas production site. All fictitious, of course.
 
-Note: a more complete description of this work can be found in {site-baseurl}/assets/vast2021_paper.pdf[our paper]. {site-baseurl}/assets/vast2021_video.wmv[This video] also goes over the same material in more detail and shows the actual interactivity.
+Note: a more complete description of this work can be found in {site-url}/assets/vast2021_paper.pdf[our paper]. {site-url}/assets/vast2021_video.wmv[This video] also goes over the same material in more detail and shows the actual interactivity.
 
 == The question
 For the complete brief, see https://vast-challenge.github.io/2021/MC2.html[https://vast-challenge.github.io/2021/MC2.html]. All names, companies and locations (e.g. islands) are fictional.
@@ -58,11 +57,11 @@ What the data looks like:
 
 * tourist map of the area
 
-image:{site-baseurl}/assets/vast2021_touristmap.jpg[width=75%]
+image:{site-url}/assets/vast2021_touristmap.jpg[width=75%]
 
 * shapefile of the island (3,290 records)
 
-image:{site-baseurl}/assets/vast2021_geojson.png[width=50%]
+image:{site-url}/assets/vast2021_geojson.png[width=50%]
 
     { "type": "Feature",
       "properties": { "Name": "N Hallanol Dr"},
@@ -76,7 +75,7 @@ image:{site-baseurl}/assets/vast2021_geojson.png[width=50%]
 
 Here's an overview of the data and how they are related:
 
-image:{site-baseurl}/assets/vast2021_data_overview.png[width=75%]
+image:{site-url}/assets/vast2021_data_overview.png[width=75%]
 
 Three of these data sources share time as a common attribute. However, their granularity differed: GPS traces were accurate to the second, credit card transactions to the minute, and loyalty card transactions to the day.
 
@@ -84,22 +83,22 @@ Three of these data sources share time as a common attribute. However, their gra
 First, we matched the transactions of loyalty cards and credit cards, assuming each employee has one of each but allowing for more complex relations. Then, we simultaneously matched cars to loyalty-credit card matches and businesses to GPS positions where cars were stationary (i.e. points of interest; POIs). Finally, we analysed meetings of people, looking for suspicious patterns.
 
 === Matching credit cards with loyalty cards
-image:{site-baseurl}/assets/vast2021_data_match1.png[width=50%]
+image:{site-url}/assets/vast2021_data_match1.png[width=50%]
 
 We first matched credit cards with loyalty cards. We used two metrics: (1) the correlation between vectors indicating the total amount of money spent at each business on each day, and (2) the Jaccard index of card’s transaction sets, where transactions are equal when they occur at the same business on the same day for the same price.
 
 We created two main visuals: a bipartite graph linking these two types of cards and a detailed view showing each selected credit
 card’s transactions on a time-axis coloured by the matching loyalty card in a small multiple for each day.
-image:{site-baseurl}/assets/vast2021_matches.jpeg[]
-image:{site-baseurl}/assets/vast2021_transactionmatches.png[width=75%]
+image:{site-url}/assets/vast2021_matches.jpeg[]
+image:{site-url}/assets/vast2021_transactionmatches.png[width=75%]
 
 Using these interfaces we were able to correctly match the cards and also discovered two data issues: transactions for one particular business always occurred one day earlier in the loyalty card data than in the credit card data, and some credit card transactions were precisely 20, 24, 60, or 80 units higher than their only potential matching loyalty card transaction.
 
 === Matching credit cards to cars, and finding businesses
-image:{site-baseurl}/assets/vast2021_data_match2.png[width=50%]
+image:{site-url}/assets/vast2021_data_match2.png[width=50%]
 
 Here's an overview of the approach used:
-image:{site-baseurl}/assets/vast2021_fig18.png[]
+image:{site-url}/assets/vast2021_fig18.png[]
 
 Transactions of high-rated matches were manually assigned to periods when cars were stationary, introducing POI-to-business constraints and removing the transaction and stationary period from consideration in other matches.
 
@@ -108,6 +107,6 @@ Using these interfaces we found several data issues, including a business whose 
 === Investigating interactions between employees
 Now that all links are made (i.e. we know who was where at what time) we wanted to investigate any suspicious patterns. We found a surprise party for a particular employee one evening, a nightly guard duty at executives’ homes, two employees who meet for long lunches at the hotel, and executives who played golf together. Apart from identifying the businesses and employees' homes, we also found other locations of interest, that were later explained to be safe houses.
 
-For a more complete description of the analyses and visuals, as well as more of the insights we obtained, see {site-baseurl}/assets/vast2021_paper.pdf[our paper].
+For a more complete description of the analyses and visuals, as well as more of the insights we obtained, see {site-url}/assets/vast2021_paper.pdf[our paper].
 
 
