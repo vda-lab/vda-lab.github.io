@@ -10,15 +10,11 @@ twitter_username: jandot
 permalink: /:year/:month/:title
 logo: /assets/vda-lab_logo.png
 
-asciidoc: {}
-asciidoctor: {}
-
 # Build settings
 markdown: kramdown
 
 plugins:
 - jekyll-seo-tag
-- jekyll-asciidoc
 
 exclude:
   - svelte-components
