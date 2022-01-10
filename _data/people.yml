@@ -1,9 +1,9 @@
 - name: Jan Aerts
   class: current
-  title: Full professor
+  title: Principal Investigator / Guest Professor
   orcid: http://orcid.org/0000-0002-6416-2717
   image: photo_jan.jpeg
-  email: jan.aerts@uhasselt.be
+  email: jan.aerts@vda-lab.io
   twitter: jandot
   blog: http://saaientist.blogspot.com
   bio: |
@@ -12,13 +12,13 @@
     Jan has been on the organising committees of several conferences (including BioVis and Beyond The Genome), and has chaired visualization-related sessions at conferences including VIZBI, the Bioinformatics Open Source Conference BOSC and EuroVis/VMLS. He is also Associate Editor for the BioMedCentral Thematic Series on Biological Data Visualization, and academic editor for PLoS One. He was founding member of the Young Academy – Royal Flemish Academy of Belgium for Sciences and the Arts.
 
 - name: Daniel Alcaide
-  class: current
+  class: alumnus
   title: PhD student
   email: daniel.alcaide@kuleuven.be
   image: photo_daniel.jpg
   bio: |
     Daniel Alcaide is a PhD student at the Department of Electrical Engineering at KU Leuven. He conducts research in interactive visualisation and data analysis to bring insight into large and complex data. He worked as a statistician in various areas related to clinical development in Barcelona where he learned about the power of visual representation to communicate information.
-    Daniel obtained a Master’s in Statistics and Operational Research at Universitat Politècnica de Catalunya in 2012 and a Master’s in Visual Analytics and Big Data at Universidad Internacional de la Rioja in 2015.
+    Daniel obtained a Master's in Statistics and Operational Research at Universitat Politècnica de Catalunya in 2012 and a Master’s in Visual Analytics and Big Data at Universidad Internacional de la Rioja in 2015.
 
 - name: Danai Kafetzaki
   class: current
