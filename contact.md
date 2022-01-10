@@ -2,28 +2,16 @@
 layout: page
 title: Contact
 menu: main
-navigation_weight: 9
+navigation_weight: 8
 color: "#f1e2cc"
 ---
-Our coordinates:
+Visual Data Analysis Lab
 
-Visual Data Analysis Lab<br/>
-UHasselt, Campus Diepenbeek<br/>
-Agoralaan Gebouw D - B-3590 Diepenbeek<br/>
-Belgium<br/>
-office: E126<br/>
-phone: +32 (0)11 268197
+Rue Duchene 4<br/>
+1320 Beauvechain<br/>
+Belgium
 
-KU Leuven, ESAT/STADIUS<br/>
-Kasteelpark Arenberg 10, bus 2446<br/>
-B-3001 Leuven<br/>
-Belgium<br/>
-office: B00.20<br/>
-phone: +32 (0)16 321053<br/>
-
-jan.aerts@uhasselt.be
-
-Skype: dr.j.aerts<br/>
-twitter: [@jandot](http://twitter.com/jandot)<br/>
-Google+: [+Jan Aerts](https://plus.google.com/u/0/110144902760205526841)<br/>
-Personal blog: [SaaienTist](http://saaientist.blogspot.com)
+|:--|:--|:--|
+| <img src="{{site.baseurl}}/assets/ic_email_black_24dp_1x.png" /> | | [jan.aerts@vda-lab.io](mailto:jan.aerts@vda-lab.io) |
+| <img src="{{site.baseurl}}/assets/twitter-logo.png" /> | | [@jandot](http://twitter.com/jandot) |
+| <img src="{{site.baseurl}}/assets/orcid_24x24.gif" /> | | [ORCID profile](http://orcid.org/0000-0002-6416-2717) |
