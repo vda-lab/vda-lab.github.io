@@ -2,7 +2,7 @@
 layout: page
 title: Portfolio
 menu: main
-navigation_weight: 3
+navigation_weight: 4
 color: "#fdcdac"
 ---
 A selection of projects, tools and designs developed in the lab…

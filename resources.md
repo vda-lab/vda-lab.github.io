@@ -2,7 +2,7 @@
 layout: page
 title: Resources
 menu: main
-navigation_weight: 8
+navigation_weight: 7
 color: "#fff2ae"
 ---
 ## :: Public datasets ::

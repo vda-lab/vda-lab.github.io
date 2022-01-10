@@ -2,7 +2,7 @@
 layout: page
 title: Teaching
 permalink: teaching.html
-navigation_weight: 7
+# navigation_weight: 7
 menu: main
 ---
 ## Courses
