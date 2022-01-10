@@ -5,7 +5,7 @@ menu: main
 navigation_weight: 3
 color: "#f4cae4"
 ---
-We don't have specific open positions available at the moment. However, we do welcome inquiries regarding PhD or postdoc research if these address major questions in visual data analysis (e.g. visual design, computational or perceptual scalability, interaction with the expert user). In case of a good fit we can apply for specific funding for this.
+TBD
 
 {% comment %}
 
