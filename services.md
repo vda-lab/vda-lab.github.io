@@ -5,8 +5,21 @@ menu: main
 navigation_weight: 3
 color: "#f4cae4"
 ---
-TBD
+<img src="{{site.baseurl}}/assets/datatrieste.jpg" width="50%"/><br/>
+<small>Design session at CODATA-RDA Summer School, Trieste (Italy), Summer 2016</small><br/>
 
+We are available for lectures/workshops and development of:
+
+- custom visual design for complex data
+- prototype development for exploration of complex data
+- data visualisation as a tool for thought
+- topological data analysis of domain-specific data
+
+<img src="{{site.baseurl}}/assets/custom_visuals.png" width="50%"/><br/>
+<small>Custom visualisations in life sciences</small><br/>
+
+<img src="{{ site.baseurl }}/assets/stad_airquality.png" width="50%"/><br/>
+<small>Topological network of air quality in northern Spain</small>
 {% comment %}
 
 ## :: Doctoral student in network analysis and visualisation ::

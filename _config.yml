@@ -2,10 +2,10 @@
 title: Visual Data Analysis Lab
 author:
   name: Jan Aerts
-  email: jan.aerts@uhasselt.be
+  email: jan.aerts@vda-lab.io
 description: > # this means to ignore newlines until "baseurl:"
-  Data-driven, human-aware – Putting the human back in the loop of data analysis
-url: "http://vda-lab.be" # the base hostname & protocol for your site
+  Augmenting Intelligence - Making sense of complex data
+url: "http://vda-lab.io" # the base hostname & protocol for your site
 twitter_username: jandot
 permalink: /:year/:month/:title
 logo: /assets/vda-lab_logo.png
