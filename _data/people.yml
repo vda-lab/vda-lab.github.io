@@ -1,5 +1,5 @@
 - name: Jan Aerts
-  class: current
+  class: pi
   title: Principal Investigator / Guest Professor
   orcid: http://orcid.org/0000-0002-6416-2717
   image: photo_jan.jpeg
@@ -13,7 +13,7 @@
 
 - name: Daniel Alcaide
   class: alumnus
-  title: PhD student
+  title: PhD student KU Leuven
   email: daniel.alcaide@kuleuven.be
   image: photo_daniel.jpg
   bio: |
@@ -22,7 +22,7 @@
 
 - name: Danai Kafetzaki
   class: current
-  title: PhD student
+  title: PhD student KU Leuven / UHasselt
   email: danai.kafetzaki@kuleuven.be
   image: photo_danae.jpg
   twitter: DanaeKafetzaki
@@ -32,7 +32,7 @@
 
 - name: Jannes Peeters
   class: current
-  title: PhD student
+  title: PhD student UHasselt
   email: jannes.peeters@uhasselt.be
   image: photo_jannes.png
   orcid: https://orcid.org/0000-0002-5227-3815
@@ -41,7 +41,7 @@
 
 - name: Jelmer Bot
   class: current
-  title: PhD student
+  title: PhD student UHasselt
   email: jelmer.bot@uhasselt.be
   image: photo_jelmer.jpg
   orcid: https://orcid.org/0000-0001-5495-4502
@@ -50,7 +50,7 @@
 
 - name: Georgia Panagiotidou
   class: current
-  title: PhD student
+  title: PhD student KU Leuven
   email: georgia.panagiotidou@kuleuven.be
   image: photo_georgia.jpg
   twitter: geodotzip
@@ -60,7 +60,7 @@
 
 - name: Houda Lamqaddam
   class: current
-  title: PhD student
+  title: PhD student KU Leuven
   email: houda.lamqaddam@kuleuven.be
   image: photo_houda.png
   bio: |
@@ -69,7 +69,7 @@
 
 - name: Dries Heylen
   class: current
-  title: PhD student
+  title: PhD student UHasselt
   email: dries.huylen@uhasselt.be
   image: photo_dries.jpeg
   orcid: https://orcid.org/0000-0001-7112-9651
