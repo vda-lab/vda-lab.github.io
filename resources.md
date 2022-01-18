@@ -31,7 +31,7 @@ color: "#fff2ae"
 <img src="{{site.baseurl}}/assets/timeviz-browser.png" width=600 />
 
 * Time: [https://vcg.informatik.uni-rostock.de/~ct/timeviz/timeviz.html](https://vcg.informatik.uni-rostock.de/~ct/timeviz/timeviz.html)
-* Uncertainty: [https://amitjenaiitbm.github.io/uncertaintyVizBrowser/](https://amitjenaiitbm.github.io/uncertaintyVizBrowser/)
+* Uncertainty: [https://namastevis.github.io/uncertaintyVizBrowser/](https://namastevis.github.io/uncertaintyVizBrowser/)
 * Trees: [https://treevis.net/](https://treevis.net/)
 * Text: [https://textvis.lnu.se/](https://textvis.lnu.se/)
 * Trust (in ML): [https://trustmlvis.lnu.se/](https://trustmlvis.lnu.se/)
