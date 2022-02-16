@@ -5,6 +5,8 @@ navigation_weight: 1
 ---
 ### Augmented Intelligence: data-driven, human-aware
 
+<img style="width: 100px" src="{{ site.baseurl }}/assets/vda-lab_logo_large.png" />
+
 <!-- <img style="float: left;" width="100" style="float:left; margin: 0px 10px 10px 0px;" src="{{ site.baseurl }}/assets/vda-lab_logo.png"> -->
 The **Visual Data Analysis Lab** (with students at UHasselt and KU Leuven) supports domain experts and lay users to make sense of large and/or complex datasets. Using a visual analytics approach, automated analysis techniques are combined with interactive data visualization to enable reasoning and hypothesis generation.
 
@@ -12,3 +14,9 @@ The methodology is particularly well-fit for the **discovery of unexpected pheno
 
 <!-- [![UHasselt logo]({{ site.baseurl }}/assets/logo_uhasselt_small.png)](http://www.uhasselt.be)
 [![KU Leuven logo]({{ site.baseurl }}/assets/logo_kuleuven_small.png)](http://www.kuleuven.be) -->
+
+<div id="particle-canvas" style="width: 100%; height: 100px; "></div>
+
+<div style="text-align: right"><font size="1"><em>(Animation by Julian Laval)</em></font></div>
+
+<script src="particle_animation.js"></script>
