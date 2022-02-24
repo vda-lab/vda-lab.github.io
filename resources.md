@@ -14,6 +14,8 @@ color: "#fff2ae"
 * [Data from CERN](http://opendata.cern.ch)
 * [Patient record data](https://mimic.physionet.org) (need registration and passing test)
 * [List of datasets in different categories by Microsoft](http://msropendata.com)
+  * [Chromosome 22 VCF files](https://msropendata.com/datasets/0d473c7f-6ddf-4881-aa6d-5ef048e7eaf5)
+  * ...
 * [Network data](https://neo4j.com/sandbox-v2/): incl Panama papers, Russion twitter trolls, Trumpworld, ...
 * [Social contact data](http://www.socialcontactdata.org/data/)
 * [Network of intellectual cooperation](https://github.com/grandjeanmartin/intellectual-cooperation)
@@ -21,6 +23,10 @@ color: "#fff2ae"
 * [Cool Datasets](https://www.cooldatasets.com)
 * [Armed Conflict Location & Event Data Project (ACLED)](https://www.acleddata.com/)
 * [Stanford Large Network Dataset Collection](https://snap.stanford.edu/data/)
+* [List by Motaz Saad](https://mksaad.wordpress.com/2020/06/30/datasets-for-visualization/)
+* [Journey of Analytics](https://blog.journeyofanalytics.com/50-free-datasets-for-data-science-projects/)
+* [Harvard Dataverse](https://dataverse.harvard.edu)
+* [Commercial Energy Load US](https://catalog.data.gov/dataset/commercial-and-residential-hourly-load-profiles-for-all-tmy3-locations-in-the-united-state-bbc75/resource/c093a565-cf73-4c11-b964-52ebb9e876e9)
 
 ## :: Visualization ::
 
