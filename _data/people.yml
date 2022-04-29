@@ -11,15 +11,6 @@
 
     Jan has been on the organising committees of several conferences (including BioVis and Beyond The Genome), and has chaired visualization-related sessions at conferences including VIZBI, the Bioinformatics Open Source Conference BOSC and EuroVis/VMLS. He is also Associate Editor for the BioMedCentral Thematic Series on Biological Data Visualization, and academic editor for PLoS One. He was founding member of the Young Academy – Royal Flemish Academy of Belgium for Sciences and the Arts.
 
-- name: Daniel Alcaide
-  class: alumnus
-  title: PhD student KU Leuven
-  email: daniel.alcaide@kuleuven.be
-  image: photo_daniel.jpg
-  bio: |
-    Daniel Alcaide is a PhD student at the Department of Electrical Engineering at KU Leuven. He conducts research in interactive visualisation and data analysis to bring insight into large and complex data. He worked as a statistician in various areas related to clinical development in Barcelona where he learned about the power of visual representation to communicate information.
-    Daniel obtained a Master's in Statistics and Operational Research at Universitat Politècnica de Catalunya in 2012 and a Master’s in Visual Analytics and Big Data at Universidad Internacional de la Rioja in 2015.
-
 - name: Danai Kafetzaki
   class: current
   title: PhD student KU Leuven / UHasselt
@@ -66,6 +57,15 @@
   bio: |
     [w/ Katrien Verbert & Koen Brosens] With background in computer science and communication, Houda is interested in making software easy to use and understand. She believes in the importance of including end users in the design process and enjoys finding out their needs and translating them into functional requirements. She currently works under the main supervison of Katrien Verbert and Koenraad Brosens on the visual representation of social networks in the domain of art history.
     Houda has a bachelor's degree in Computer Science from Al Akhawayn University in Ifrane, Morocco, and a joint Masters degree in Human-Computer Interaction from the ENAC and the Université Paul Sabatier in Toulouse, France.
+
+- name: Daniel Alcaide
+  class: alumnus
+  title: PhD student KU Leuven
+  email: daniel.alcaide@kuleuven.be
+  image: photo_daniel.jpg
+  bio: |
+    Daniel Alcaide is a PhD student at the Department of Electrical Engineering at KU Leuven. He conducts research in interactive visualisation and data analysis to bring insight into large and complex data. He worked as a statistician in various areas related to clinical development in Barcelona where he learned about the power of visual representation to communicate information.
+    Daniel obtained a Master's in Statistics and Operational Research at Universitat Politècnica de Catalunya in 2012 and a Master’s in Visual Analytics and Big Data at Universidad Internacional de la Rioja in 2015.
 
 - name: Dries Heylen
   class: current
