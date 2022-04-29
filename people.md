@@ -55,11 +55,3 @@ color: "#b3e2cd"
 {{person.title}}{% if person.bio %}<br/>{{person.bio}}{% endif %}<br/>
 {% endif %}
 {% endfor %}
-
-## MSc thesis students
-
-{% for person in site.data.people %}
-{% if person.class == 'student' %}
-{{person.year}}: <b>{{person.name}}</b> ({{person.master}}) - {{person.topic}}
-{% endif %}
-{% endfor %}
