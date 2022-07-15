@@ -112,14 +112,13 @@ You have two choices to obtain these instructions:
 
 1. Update your existing website by following the [Receiving new instructions](https://datavis-exercises.vercel.app/instructions/working_on_exercises) section.
 2. Create a fresh website for this term:
-** Create a new fork of the [exercise repository](https://gitlab.com/vda-lab/datavis_exercises). 
-** Create a Vercel deployment for your new fork. 
-** Send us your new Gitlab and Vercel urls per email!!! 
+    1. Create a new fork of the [exercise repository](https://gitlab.com/vda-lab/datavis_exercises). 
+    2. Create a Vercel deployment for your new fork. 
+    3. Send us your new Gitlab and Vercel urls per email!!! 
 
 **Do not delay asking for help if you run in to issues at this stage!**
 
 ## How to submit
 For the **designs**, we want you to submit a single zip-file which contains 2 folders: one called "diverge" with pictures of your diverge sketches, and one called "emerge" with pictures of your emerge sketches. We will create a Toledo/Blackboard assignment where you can upload them.
 
-For the **implementation**, we have created an additional folder in the git repository, just like we did for the final visualisations in May. Remember that
-your visualisations have to show up on Vercel to get graded.
+For the **implementation**, we have created an additional folder in the git repository ("resit_project"), just like we did for the final visualisations in May. Remember that your visualisations have to show up on Vercel to get graded.
