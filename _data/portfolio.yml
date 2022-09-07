@@ -1,3 +1,9 @@
+- title: EProM - Exploration of Protein Modifications
+  class: viz
+  description: Our contribution to the Bio/Medvis challenge 2022 
+  url: https://biovis2022.vercel.app/
+  image: biovis2022_segment.png
+
 - title: VAST2021 Award in Visual Analytics
   class: viz
   description: Human-in-the-Loop Integration of Complex and Noisy Data
