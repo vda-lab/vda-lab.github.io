@@ -69,4 +69,10 @@ color: "#fff2ae"
   * [Ladder of Abstraction](worrydream.com/LadderOfAbstraction/)
   * [Explorable Explanations](worrydream.com/ExplorableExplanations/)
   * [Scientific Communication as Sequential Art](worrydream.com/ScientificCommunicationAsSequentialArt/)
-*
+
+## :: Own teaching material ::
+
+* Data visualisation:
+  * [Intro, visual design and implementation (vega-lite, vega and holoviz)](https://vda-lab.gitlab.io/datavis-material/)
+  * [Implementation focussing on svelte](https://vda-lab.gitlab.io/datavis-technologies)
+* [Topological Data Analysis](https://vda-lab.gitlab.io/topological-data-analysis)
