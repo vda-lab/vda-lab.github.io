@@ -103,9 +103,6 @@ GEM
       pathutil (~> 0.9)
       rouge (>= 1.7, < 4)
       safe_yaml (~> 1.0)
-    jekyll-asciidoc (3.0.0)
-      asciidoctor (>= 1.5.0)
-      jekyll (>= 3.0.0)
     jekyll-avatar (0.7.0)
       jekyll (>= 3.0, < 5.0)
     jekyll-coffeescript (1.1.1)
@@ -263,7 +260,6 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  jekyll-asciidoc
   jekyll-seo-tag
   kramdown (>= 2.3.1)
 
