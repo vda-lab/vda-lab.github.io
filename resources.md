@@ -7,6 +7,7 @@ color: "#fff2ae"
 ---
 ## :: Public datasets ::
 
+* [Yelp Open Dataset](https://www.yelp.com/dataset) <= Used in some of our courses
 * [Google Dataset Search](https://toolbox.google.com/datasetsearch)
 * [Open Care Data](https://zenodo.org/record/1215979)
 * [List of datasets through Data Science Central](http://www.datasciencecentral.com/profiles/blogs/big-data-sets-available-for-free)
