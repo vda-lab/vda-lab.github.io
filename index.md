@@ -20,3 +20,5 @@ The methodology is particularly well-fit for the **discovery of unexpected pheno
 <div style="text-align: right"><font size="1"><em>(Animation by Julian Laval)</em></font></div>
 
 <script src="particle_animation.js"></script>
+
+For **consulting services**, see [BelVis Consulting](http://belvis.io).
