@@ -14,6 +14,8 @@ Content:
 * Programming visualizations: static and dynamic
 * Project: visualization of expert dataset
 
+## 2021-2022
+Information about the retake exam in August 2022 is available [here]({{site.baseurl}}/visds_resit2022.html).
 
 ## 2020-2021
 
