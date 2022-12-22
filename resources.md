@@ -48,6 +48,7 @@ color: "#fff2ae"
 
 * [Svelte](http://svelte.dev) - General framework for creating web content and visuals
 * [D3](d3js.org) - Javascript visualisation library
+* [D3 Discovery](d3-discovery.net) - Finding D3 plugins with ease
 * [P5](p5js.org) - Another javascript visualisation library
 * [OpenProcessing](openprocessing.org) - classroom platform for teaching P5
 * [Quil](quil.info) - clojure implementation of P5
