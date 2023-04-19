@@ -1,5 +1,11 @@
 [
     {
+	"key": "work",
+	"name": "GAStech",
+	"lat": 36.0481,
+	"long": 24.87956878
+    },
+    {
         "key": "D7242FD6",
         "name": "Abila Airport",
         "lat": 36.050941895,
