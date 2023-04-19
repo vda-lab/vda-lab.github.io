@@ -1,0 +1,394 @@
+[
+    {
+        "key": "D7242FD6",
+        "name": "Abila Airport",
+        "lat": 36.050941895,
+        "long": 24.825938335
+    },
+    {
+        "key": "B9DC476C",
+        "name": "Abila Scrapyard",
+        "lat": 36.07439615,
+        "long": 24.8459315
+    },
+    {
+        "key": "15753D46",
+        "name": "Abila Zacharo",
+        "lat": 36.06343707,
+        "long": 24.85100036
+    },
+    {
+        "key": "AF6E4103",
+        "name": "Ahaggo Museum",
+        "lat": 36.07713388,
+        "long": 24.87619413
+    },
+    {
+        "key": "3B864D9C",
+        "name": "Albert's Fine Clothing",
+        "lat": 36.0752679,
+        "long": 24.85631411
+    },
+    {
+        "key": "7E0CD834",
+        "name": "Bean There Done That",
+        "lat": 36.081762905,
+        "long": 24.85093111
+    },
+    {
+        "key": "D1C3B0B9",
+        "name": "Brew've Been Served",
+        "lat": 36.054068564999994,
+        "long": 24.901223244999997
+    },
+    {
+        "key": "6696C35",
+        "name": "Brewed Awakenings",
+        "lat": 36.07332552,
+        "long": 24.864188204999998
+    },
+    {
+        "key": "1D29A446",
+        "name": "Carlyle Chemical Inc.",
+        "lat": 36.0585396,
+        "long": 24.88089748
+    },
+    {
+        "key": "9481C519",
+        "name": "Chostus Hotel",
+        "lat": 36.070665455,
+        "long": 24.895204794999998
+    },
+    {
+        "key": "1C50FF75",
+        "name": "Coffee Cameleon",
+        "lat": 36.054661455,
+        "long": 24.889784505
+    },
+    {
+        "key": "CCA2119C",
+        "name": "Coffee Shack"
+    },
+    {
+        "key": "857573A9",
+        "name": "Desafio Golf Course",
+        "lat": 36.089558995000004,
+        "long": 24.86068113
+    },
+    {
+        "key": "3732F074",
+        "name": "Frank's Fuel",
+        "lat": 36.07217077,
+        "long": 24.841320279999998
+    },
+    {
+        "key": "4D69CC4D",
+        "name": "Frydos Autosupply n' More",
+        "lat": 36.054987115,
+        "long": 24.90179967
+    },
+    {
+        "key": "B1F74A76",
+        "name": "Gelatogalore",
+        "lat": 36.05974659,
+        "long": 24.85802309
+    },
+    {
+        "key": "EFE763AC",
+        "name": "General Grocer",
+        "lat": 36.060366189999996,
+        "long": 24.8565623
+    },
+    {
+        "key": "5B94812B",
+        "name": "Guy's Gyros",
+        "lat": 36.05579202,
+        "long": 24.90252774
+    },
+    {
+        "key": "372BC35",
+        "name": "Hallowed Grounds",
+        "lat": 36.063652919999996,
+        "long": 24.885911489999998
+    },
+    {
+        "key": "A6655F0D",
+        "name": "Hippokampos",
+        "lat": 36.076659295,
+        "long": 24.857617125
+    },
+    {
+        "key": "2909FA7D",
+        "name": "home1",
+        "lat": 36.066466395,
+        "long": 24.88259662
+    },
+    {
+        "key": "AC070BC4",
+        "name": "home10",
+        "lat": 36.076803354999996,
+        "long": 24.8658797
+    },
+    {
+        "key": "5E6C88C7",
+        "name": "home11",
+        "lat": 36.08414055,
+        "long": 24.859008915
+    },
+    {
+        "key": "4D3C7B33",
+        "name": "home12",
+        "lat": 36.06776312,
+        "long": 24.899131445000002
+    },
+    {
+        "key": "BF57F830",
+        "name": "home13",
+        "lat": 36.060371020000005,
+        "long": 24.905600749999998
+    },
+    {
+        "key": "6B9D9CDB",
+        "name": "home14",
+        "lat": 36.063360615,
+        "long": 24.896128824999998
+    },
+    {
+        "key": "99F61FD8",
+        "name": "home15",
+        "lat": 36.060371020000005,
+        "long": 24.905600749999998
+    },
+    {
+        "key": "8AA6EC2C",
+        "name": "home16",
+        "lat": 36.060371020000005,
+        "long": 24.905600749999998
+    },
+    {
+        "key": "26DE530B",
+        "name": "home18",
+        "lat": 36.063360615,
+        "long": 24.896128824999998
+    },
+    {
+        "key": "D4B5D008",
+        "name": "home19",
+        "lat": 36.08786479,
+        "long": 24.85630463
+    },
+    {
+        "key": "3A590989",
+        "name": "home2",
+        "lat": 36.08544876,
+        "long": 24.860409869999998
+    },
+    {
+        "key": "98E0A35D",
+        "name": "home20",
+        "lat": 36.065860665,
+        "long": 24.901042455000002
+    },
+    {
+        "key": "6A8B205E",
+        "name": "home21",
+        "lat": 36.060371020000005,
+        "long": 24.905600749999998
+    },
+    {
+        "key": "79DBD3AA",
+        "name": "home22",
+        "lat": 36.05846675,
+        "long": 24.90103895
+    },
+    {
+        "key": "8BB050A9",
+        "name": "home23",
+        "lat": 36.05846675,
+        "long": 24.90103895
+    },
+    {
+        "key": "5F7A3442",
+        "name": "home24",
+        "lat": 36.062469,
+        "long": 24.8988133
+    },
+    {
+        "key": "AD11B741",
+        "name": "home25",
+        "lat": 36.0594635,
+        "long": 24.894818125
+    },
+    {
+        "key": "BE4144B5",
+        "name": "home26",
+        "lat": 36.072940355,
+        "long": 24.884009605
+    },
+    {
+        "key": "4C2AC7B6",
+        "name": "home27",
+        "lat": 36.06924618,
+        "long": 24.884218515
+    },
+    {
+        "key": "1239FB92",
+        "name": "home28",
+        "lat": 36.069130249999986,
+        "long": 24.879694715
+    },
+    {
+        "key": "E0527891",
+        "name": "home29",
+        "lat": 36.0594635,
+        "long": 24.894818125
+    },
+    {
+        "key": "C8328A8A",
+        "name": "home3",
+        "lat": 36.086651565,
+        "long": 24.85762145
+    },
+    {
+        "key": "8B423B2A",
+        "name": "home30",
+        "lat": 36.05846675,
+        "long": 24.90103895
+    },
+    {
+        "key": "6A794BDD",
+        "name": "home32",
+        "lat": 36.07216237,
+        "long": 24.874616664999998
+    },
+    {
+        "key": "9812C8DE",
+        "name": "home33",
+        "lat": 36.062469,
+        "long": 24.8988133
+    },
+    {
+        "key": "4CD8AC35",
+        "name": "home34",
+        "lat": 36.06769448,
+        "long": 24.902501155
+    },
+    {
+        "key": "BEB32F36",
+        "name": "home35",
+        "lat": 36.07623461,
+        "long": 24.874658985
+    },
+    {
+        "key": "1CF8EE61",
+        "name": "home4",
+        "lat": 36.07820236,
+        "long": 24.87209891
+    },
+    {
+        "key": "EE936D62",
+        "name": "home5",
+        "lat": 36.06732604,
+        "long": 24.877915145000003
+    },
+    {
+        "key": "FDC39E96",
+        "name": "home6",
+        "lat": 36.0594635,
+        "long": 24.894818125
+    },
+    {
+        "key": "FA81D95",
+        "name": "home7",
+        "lat": 36.084446045,
+        "long": 24.864214914999998
+    },
+    {
+        "key": "51BB21B1",
+        "name": "home8",
+        "lat": 36.067239965,
+        "long": 24.885913435
+    },
+    {
+        "key": "A3D0A2B2",
+        "name": "home9",
+        "lat": 36.08428823,
+        "long": 24.85638433
+    },
+    {
+        "key": "C66DD23E",
+        "name": "Jack's Magical Beans",
+        "lat": 36.0675303,
+        "long": 24.873358945
+    },
+    {
+        "key": "CA623E5E",
+        "name": "Kalami Kafenion",
+        "lat": 36.06583001,
+        "long": 24.8523876
+    },
+    {
+        "key": "C659647E",
+        "name": "Katerina's Cafe",
+        "lat": 36.054484865,
+        "long": 24.899920025
+    },
+    {
+        "key": "70ED5589",
+        "name": "Kronos Mart"
+    },
+    {
+        "key": "E27B16F0",
+        "name": "Kronos Pipe and Irrigation",
+        "lat": 36.065292825,
+        "long": 24.833101534999997
+    },
+    {
+        "key": "B98C6553",
+        "name": "Maximum Iron and Steel",
+        "lat": 36.064072405,
+        "long": 24.841356505
+    },
+    {
+        "key": "A5AD05CF",
+        "name": "Nationwide Refinery",
+        "lat": 36.058449955,
+        "long": 24.8855141
+    },
+    {
+        "key": "E01AE50C",
+        "name": "Octavio's Office Supplies",
+        "lat": 36.05856542,
+        "long": 24.857953515
+    },
+    {
+        "key": "776B8C8A",
+        "name": "Ouzeri Elian",
+        "lat": 36.05194817,
+        "long": 24.87081616
+    },
+    {
+        "key": "A464E9EA",
+        "name": "Roberts and Sons",
+        "lat": 36.063255655,
+        "long": 24.85230103
+    },
+    {
+        "key": "1C541276",
+        "name": "Shoppers' Delight",
+        "lat": 36.0528404,
+        "long": 24.8686119
+    },
+    {
+        "key": "314F2442",
+        "name": "Stewart and Sons Fabrication",
+        "lat": 36.054154225,
+        "long": 24.90814623
+    },
+    {
+        "key": "DC9AB10A",
+        "name": "U-Pump",
+        "lat": 36.067737660000006,
+        "long": 24.871503060000002
+    }
+]
