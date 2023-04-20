@@ -38544,22 +38544,6 @@
         }
     },
     {
-        "key": "67905440",
-        "car": 101,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "GAStech",
-            "location_type": "professional"
-        }
-    },
-    {
         "key": "67905441",
         "car": 104,
         "start": {
@@ -38800,22 +38784,6 @@
         }
     },
     {
-        "key": "67905456",
-        "car": 104,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "GAStech",
-            "location_type": "professional"
-        }
-    },
-    {
         "key": "67905457",
         "car": 105,
         "start": {
@@ -39024,22 +38992,6 @@
         }
     },
     {
-        "key": "67905470",
-        "car": 105,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "GAStech",
-            "location_type": "professional"
-        }
-    },
-    {
         "key": "67905471",
         "car": 106,
         "start": {
@@ -39241,22 +39193,6 @@
         "stop": {
             "day": 16,
             "time": 86400
-        },
-        "location": {
-            "name": "GAStech",
-            "location_type": "professional"
-        }
-    },
-    {
-        "key": "67905484",
-        "car": 106,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "GAStech",
@@ -39561,22 +39497,6 @@
         "stop": {
             "day": 17,
             "time": 86400
-        },
-        "location": {
-            "name": "GAStech",
-            "location_type": "professional"
-        }
-    },
-    {
-        "key": "67905504",
-        "car": 107,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "GAStech",
@@ -40016,22 +39936,6 @@
         }
     },
     {
-        "key": "67905532",
-        "car": 10,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_10",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67905533",
         "car": 11,
         "start": {
@@ -40464,22 +40368,6 @@
         }
     },
     {
-        "key": "67905560",
-        "car": 11,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_11",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67905561",
         "car": 12,
         "start": {
@@ -40880,22 +40768,6 @@
         }
     },
     {
-        "key": "67905586",
-        "car": 12,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_12",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67905587",
         "car": 13,
         "start": {
@@ -41289,22 +41161,6 @@
         "stop": {
             "day": 18,
             "time": 86400
-        },
-        "location": {
-            "name": "home_21",
-            "location_type": "housing"
-        }
-    },
-    {
-        "key": "67905612",
-        "car": 13,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "home_21",
@@ -41744,22 +41600,6 @@
         }
     },
     {
-        "key": "67905640",
-        "car": 14,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_14",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67905641",
         "car": 15,
         "start": {
@@ -42185,22 +42025,6 @@
         "stop": {
             "day": 19,
             "time": 86400
-        },
-        "location": {
-            "name": "home_21",
-            "location_type": "housing"
-        }
-    },
-    {
-        "key": "67905668",
-        "car": 15,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "home_21",
@@ -42640,22 +42464,6 @@
         }
     },
     {
-        "key": "67905696",
-        "car": 16,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_21",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67905697",
         "car": 17,
         "start": {
@@ -43088,22 +42896,6 @@
         }
     },
     {
-        "key": "67905724",
-        "car": 17,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_24",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67905725",
         "car": 18,
         "start": {
@@ -43497,22 +43289,6 @@
         "stop": {
             "day": 19,
             "time": 86400
-        },
-        "location": {
-            "name": "home_14",
-            "location_type": "housing"
-        }
-    },
-    {
-        "key": "67905750",
-        "car": 18,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "home_14",
@@ -43952,22 +43728,6 @@
         }
     },
     {
-        "key": "67905778",
-        "car": 19,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_19",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67905779",
         "car": 1,
         "start": {
@@ -44393,22 +44153,6 @@
         "stop": {
             "day": 19,
             "time": 86400
-        },
-        "location": {
-            "name": "home_1",
-            "location_type": "housing"
-        }
-    },
-    {
-        "key": "67905806",
-        "car": 1,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "home_1",
@@ -44848,22 +44592,6 @@
         }
     },
     {
-        "key": "67905834",
-        "car": 20,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_20",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67905835",
         "car": 21,
         "start": {
@@ -45289,22 +45017,6 @@
         "stop": {
             "day": 19,
             "time": 86400
-        },
-        "location": {
-            "name": "home_14",
-            "location_type": "housing"
-        }
-    },
-    {
-        "key": "67905862",
-        "car": 21,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "home_14",
@@ -45744,22 +45456,6 @@
         }
     },
     {
-        "key": "67905890",
-        "car": 22,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_30",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67905891",
         "car": 23,
         "start": {
@@ -46192,22 +45888,6 @@
         }
     },
     {
-        "key": "67905918",
-        "car": 23,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_30",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67905919",
         "car": 24,
         "start": {
@@ -46601,22 +46281,6 @@
         "stop": {
             "day": 19,
             "time": 86400
-        },
-        "location": {
-            "name": "home_24",
-            "location_type": "housing"
-        }
-    },
-    {
-        "key": "67905944",
-        "car": 24,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "home_24",
@@ -47056,22 +46720,6 @@
         }
     },
     {
-        "key": "67905972",
-        "car": 25,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_6",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67905973",
         "car": 26,
         "start": {
@@ -47504,22 +47152,6 @@
         }
     },
     {
-        "key": "67906000",
-        "car": 26,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_26",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67906001",
         "car": 27,
         "start": {
@@ -47913,22 +47545,6 @@
         "stop": {
             "day": 19,
             "time": 86400
-        },
-        "location": {
-            "name": "home_27",
-            "location_type": "housing"
-        }
-    },
-    {
-        "key": "67906026",
-        "car": 27,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "home_27",
@@ -48336,22 +47952,6 @@
         }
     },
     {
-        "key": "67906052",
-        "car": 28,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_28",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67906053",
         "car": 29,
         "start": {
@@ -48713,22 +48313,6 @@
         "stop": {
             "day": 18,
             "time": 86400
-        },
-        "location": {
-            "name": "home_6",
-            "location_type": "housing"
-        }
-    },
-    {
-        "key": "67906076",
-        "car": 29,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "home_6",
@@ -49168,22 +48752,6 @@
         }
     },
     {
-        "key": "67906104",
-        "car": 2,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_2",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67906105",
         "car": 30,
         "start": {
@@ -49616,22 +49184,6 @@
         }
     },
     {
-        "key": "67906132",
-        "car": 30,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_30",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67906133",
         "car": 31,
         "start": {
@@ -49737,22 +49289,6 @@
         "stop": {
             "day": 19,
             "time": 86400
-        },
-        "location": {
-            "name": "Chostus Hotel",
-            "location_type": "other"
-        }
-    },
-    {
-        "key": "67906140",
-        "car": 31,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "Chostus Hotel",
@@ -50192,22 +49728,6 @@
         }
     },
     {
-        "key": "67906168",
-        "car": 32,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_32",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67906169",
         "car": 33,
         "start": {
@@ -50608,22 +50128,6 @@
         }
     },
     {
-        "key": "67906194",
-        "car": 33,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_24",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67906195",
         "car": 34,
         "start": {
@@ -51017,22 +50521,6 @@
         "stop": {
             "day": 19,
             "time": 86400
-        },
-        "location": {
-            "name": "home_34",
-            "location_type": "housing"
-        }
-    },
-    {
-        "key": "67906220",
-        "car": 34,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "home_34",
@@ -51472,22 +50960,6 @@
         }
     },
     {
-        "key": "67906248",
-        "car": 35,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_35",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67906249",
         "car": 3,
         "start": {
@@ -51913,22 +51385,6 @@
         "stop": {
             "day": 19,
             "time": 86400
-        },
-        "location": {
-            "name": "home_3",
-            "location_type": "housing"
-        }
-    },
-    {
-        "key": "67906276",
-        "car": 3,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "home_3",
@@ -52368,22 +51824,6 @@
         }
     },
     {
-        "key": "67906304",
-        "car": 4,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_4",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67906305",
         "car": 5,
         "start": {
@@ -52816,22 +52256,6 @@
         }
     },
     {
-        "key": "67906332",
-        "car": 5,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_5",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67906333",
         "car": 6,
         "start": {
@@ -53225,22 +52649,6 @@
         "stop": {
             "day": 18,
             "time": 86400
-        },
-        "location": {
-            "name": "home_6",
-            "location_type": "housing"
-        }
-    },
-    {
-        "key": "67906358",
-        "car": 6,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "home_6",
@@ -53680,22 +53088,6 @@
         }
     },
     {
-        "key": "67906386",
-        "car": 7,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_7",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67906387",
         "car": 8,
         "start": {
@@ -54128,22 +53520,6 @@
         }
     },
     {
-        "key": "67906414",
-        "car": 8,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
-        },
-        "location": {
-            "name": "home_8",
-            "location_type": "housing"
-        }
-    },
-    {
         "key": "67906415",
         "car": 9,
         "start": {
@@ -54569,22 +53945,6 @@
         "stop": {
             "day": 19,
             "time": 86400
-        },
-        "location": {
-            "name": "home_9",
-            "location_type": "housing"
-        }
-    },
-    {
-        "key": "67906442",
-        "car": 9,
-        "start": {
-            "day": 20,
-            "time": 0
-        },
-        "stop": {
-            "day": 20,
-            "time": 0
         },
         "location": {
             "name": "home_9",
