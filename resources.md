@@ -29,11 +29,21 @@ color: "#fff2ae"
 * [Harvard Dataverse](https://dataverse.harvard.edu)
 * [Commercial Energy Load US](https://catalog.data.gov/dataset/commercial-and-residential-hourly-load-profiles-for-all-tmy3-locations-in-the-united-state-bbc75/resource/c093a565-cf73-4c11-b964-52ebb9e876e9)
 
-## :: Visualization ::
+## :: Visualization resources ::
 
-* [Shirley Wu](http://sxywu.com/)
+Note: if you know of other interesting blogs or resources regarding data visualisation and/or visual design, do let me know.
+
+* [Shirley Wu](http://sxywu.com/) has great visuals as well as explanations thereof. She also is co-author of the Data Sketches book where she explains the process of creating specific visuals including the data pre-processing and iterations of visual design.
+* [InformationIsBeautiful](https://informationisbeautiful.net) by David McCandless.
+* [Flowing Data](https://flowingdata.com) by Nathan Yau, author of the books "Visualize This: The FlowingData Guide to Design, Visualization, and Statistics" and "Data Points: Visualization That Means Something"
+* The [Catalogue of Data Visualisation Tools](https://visualisingdata.com/resources) by Andy Kirk, author of the book "Data Visualisation: A Handbook for Data Driven Design"
+* [Martin Krzywinski's website](http://mkweb.bcgsc.ca) is a good source of inspiration. Martin is the developer of Circos and the Hiveplot, and has a _very_ good handle on creating the best visual designs for a given task.
+* Bret Victor has interesting writings on his [website](http://worrydream.com), including the [Ladder of Abstraction](http://worrydream.com/LadderOfAbstraction), [Explorable Explanations](http://worrydream.com/ExplorableExplanations/) and [Scientific Communication as Sequential Art](http://worrydream.com/ScientificCommunicationAsSequentialArt/)
+
+* For examples of what not to do, see [viz.wtf](https://viz.wtf).
 
 ### Visual encoding overviews
+These are websites that provide a comprehensive list of approaches for visualising a certain type of information.
 
 <img src="{{site.baseurl}}/assets/timeviz-browser.png" width=600 />
 
@@ -43,16 +53,7 @@ color: "#fff2ae"
 * Text: [https://textvis.lnu.se/](https://textvis.lnu.se/)
 * Trust (in ML): [https://trustmlvis.lnu.se/](https://trustmlvis.lnu.se/)
 
-
-### Tools
-
-* [Svelte](http://svelte.dev) - General framework for creating web content and visuals
-* [D3](d3js.org) - Javascript visualisation library
-* [P5](p5js.org) - Another javascript visualisation library
-* [OpenProcessing](openprocessing.org) - classroom platform for teaching P5
-* [Quil](quil.info) - clojure implementation of P5
-
-## :: Interesting talks ::
+### Interesting talks
 
 * Ben Fry on the [principles of data visualization](vizbi.org/Videos/11551146)
 * Miriah Meyer’s [TEDx talk on biological data visualization](www.youtube.com…Cf8MA&gl=BE)
@@ -64,14 +65,15 @@ color: "#fff2ae"
 * Bret Victor [Blindly Manipulating Symbols](https://www.youtube.com/watch?v=ef2jpjTEB5U)
 * James Bednar [Visualize any Data Easily, from Notebooks to Dashboards :: Scipy 2019 Tutorial](https://www.youtube.com/watch?v=7deGS4IPAQ0)
 
-## :: Interesting pieces of writing (papers, blogs, ...) ::
+### Tools
 
-* Bret Victor:
-  * [Ladder of Abstraction](worrydream.com/LadderOfAbstraction/)
-  * [Explorable Explanations](worrydream.com/ExplorableExplanations/)
-  * [Scientific Communication as Sequential Art](worrydream.com/ScientificCommunicationAsSequentialArt/)
+* [Svelte](http://svelte.dev) - General framework for creating web content and visuals
+* [D3](d3js.org) - Javascript visualisation library
+* [P5](p5js.org) - Another javascript visualisation library
+* [OpenProcessing](openprocessing.org) - classroom platform for teaching P5
+* [Quil](quil.info) - clojure implementation of P5
 
-## :: Own teaching material ::
+## :: Our own teaching material ::
 
 * Data visualisation:
   * [Intro, visual design and implementation (vega-lite, vega and holoviz)](https://vda-lab.gitlab.io/datavis-material/)
