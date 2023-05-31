@@ -28,6 +28,7 @@ color: "#fff2ae"
 * [Journey of Analytics](https://blog.journeyofanalytics.com/50-free-datasets-for-data-science-projects/)
 * [Harvard Dataverse](https://dataverse.harvard.edu)
 * [Commercial Energy Load US](https://catalog.data.gov/dataset/commercial-and-residential-hourly-load-profiles-for-all-tmy3-locations-in-the-united-state-bbc75/resource/c093a565-cf73-4c11-b964-52ebb9e876e9)
+* [AWS Open Data](https://opendata.aws)
 
 ## :: Visualization resources ::
 
