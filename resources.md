@@ -53,6 +53,7 @@ These are websites that provide a comprehensive list of approaches for visualisi
 * Trees: [https://treevis.net/](https://treevis.net/)
 * Text: [https://textvis.lnu.se/](https://textvis.lnu.se/)
 * Trust (in ML): [https://trustmlvis.lnu.se/](https://trustmlvis.lnu.se/)
+* dataviz.cafe: https://dataviz.cafe/
 
 ### Interesting talks
 
