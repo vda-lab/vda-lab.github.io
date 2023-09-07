@@ -21,7 +21,7 @@ color: "#b3e2cd"
 {% endif %}
 {% endfor %}
 
-## In collaboration with these researchers
+### PhD and postdoctoral researchers
 
 {% for person in site.data.people %}
 {% if person.class == 'current' %}
@@ -35,7 +35,7 @@ color: "#b3e2cd"
 {% endif %}
 {% endfor %}
 
-## Alumni
+### Alumni
 {% for person in site.data.people %}
 {% if person.class == 'alumnus' %}
 <img src="{{site.baseurl}}/assets/{{person.image}}"/><br/>
@@ -47,7 +47,7 @@ color: "#b3e2cd"
 {% endif %}
 {% endfor %}
 
-## Visitors
+### Visitors
 {% for person in site.data.people %}
 {% if person.class == 'visitor' %}
 <img src="{{site.baseurl}}/assets/{{person.image}}"/><br/>

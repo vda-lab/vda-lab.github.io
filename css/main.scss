@@ -4,8 +4,8 @@
 @charset "utf-8";
 
 // Our variables
-$base-font-family: 'Lato', 'Roboto', 'Open Sans', sans-serif;
-$base-font-size:   16px;
+$base-font-family: 'Helvetica'; //'Lato', 'Roboto', 'Open Sans', sans-serif;
+$base-font-size:   18px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 $base-font-weight: 300;
@@ -14,7 +14,7 @@ $spacing-unit:     30px;
 
 $text-color:       #111;
 $background-color: #ffffff;
-$brand-color:      #2a7ae2;
+$brand-color:      #00407A;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
@@ -24,7 +24,7 @@ $grey-color-dark:  darken($grey-color, 25%);
 $content-width:    800px;
 
 $on-palm:          600px;
-$on-laptop:        800px;
+$on-laptop:        1500px;
 
 
 

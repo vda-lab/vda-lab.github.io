@@ -1,3 +1,27 @@
+- authors: Kafetzaki D, Poblome J & Aerts J
+  title: "Fuzzy Typological (Re)Arrangement - A Prototype of Rethinking the Typology of Roman Tablewares from Sagalassos, Southwest Anatolia."
+  reference: "Journal of Archaeological Method and Theory"
+  year: 2023
+  doi: 10.1007/s10816-023-09614-9
+
+- authors: Bach B, Keck M, Rajabiyazdi F, et al.
+  title: "Challenges and Opportunities in Data Visualization Education - A Call to Action"
+  reference: arXiv
+  year: 2023
+  url: http://arxiv.org/abs/2308.07703
+
+- authors: Bot DM, Peeters J & Aerts J
+  title: "The Challenge of Branch-Aware Data Manifold Exploration"
+  reference: EuroVIS 2023
+  doi: 10.2312/evp.20231071
+  year: 2023
+
+- authors: Vranckx M, Faes C, Molenberghs G et al
+  title: "A Spatial Model to Jointly Analyze Self-reported Survey Data of COVID-19 Symptoms and Official COVID-19 Incidence Data"
+  reference: Biometrical Journal 65(1):2100186
+  year: 2023
+  doi: 10.1002/bimj.202100186
+
 - authors: Klein K, Marai GE, Nieselt KK & Zupan B
   title: "Visualization of Biological Data - From Analysis to Communication (Dagstuhl Seminar  21401)"
   reference: ""
@@ -5,15 +29,40 @@
   doi: 10.4230/DagRep.11.9.1
   year: 2022
 
+- authors: Aerts J, Aigner W, Bach B et al
+  title: "Me-ifestos for visualization empowerment in teaching (and learning?)"
+  reference: In Alt.Vis 2022 (9)
+  year: 2022
+  url: https://pure.itu.dk/en/publications/me-ifestos-for-visualization-empowerment-in-teaching-and-learning
+
 - authors: Vranckx M, Faes C, Molenberghs G, Hens N, Beutels P, Van Damme P, Aerts J & Petrof O
   title: "A Joint Spatial Model to Analyse Self-Reported Survey Data of COVID-19 Symptoms and Lagged Surveillance-Based COVID-19 Incidence Data"
   reference: "Biometrical Journal"
   year: 2022
 
 - authors: Panagiotidou G, Poblome J, Aerts J & Vande Moere A
-  title: "Interdisciplinary Data Visualisation: Acknowledging the Frictions between Different Epistemologies"
-  reference: ""
-  year: 2021
+  title: "Designing a Data Visualisation for Interdisciplinary Scientists. How to Transparently Convey Data Frictions?"
+  reference: "Computer Supported Cooperative Work (CSCW) 31(4): 633-667"
+  year: 2022
+  doi: 10.1007/s10606-022-09432-9
+
+- authors: Bot DM, Peeters J & Aerts J
+  title: "EProM - Exploration of Protein Modifications"
+  reference: "Bio+MedVis @IEEE VIS 2022"
+  year: 2022
+  url: https://hal.science/hal-04007813
+
+- authors: Kyndt E & Aerts J
+  title: "Addressing 'Wicked Problems' Using Visual Analysis."
+  reference: "In: Goller M et al (eds) Methods for Researching Professional Learning and Development. Professional and Practice-based Learning, vol 33. Springer, Cham."
+  year: 2022
+  doi: 10.1007/978-3-031-08518-5_15
+
+- authors: Molenberghs G et al
+  title: "COVID-19 Mortality, Excess Mortality, Deaths per Million and Infection Fatality Ratio, Belgium, 9 March 2020 to 28 June 2020."
+  reference: "Eurosurveillance 27 (7)"
+  year: 2022
+  doi: 10.2807/1560-7917.ES.2022.27.7.2002060
 
 - authors: Peeters J, Thas O, Shkedy Z, Kodalci L et al.
   title: "Exploring the Microbiome Analysis and Visualization Landscape"
