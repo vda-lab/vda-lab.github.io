@@ -5,6 +5,14 @@ navigation_weight: 1
 ---
 ### Augmented Intelligence: data-driven, human-aware
 
+---
+
+#### :: Open position ::
+**We are looking for a motivated PhD student on the topic of Visual Exploration of Multilayer Networks.** For more information, see the [<span style="color:blue">KU Leuven jobs page</span>](https://www.kuleuven.be/personeel/jobsite/jobs/60260018).
+
+---
+<p></p>
+
 <!-- <img style="float: left;" width="100" style="float:left; margin: 0px 10px 10px 0px;" src="{{ site.baseurl }}/assets/vda-lab_logo.png"> -->
 The **Visual Data Analysis Lab** is part of the Biosystems department of the Faculty of Bioscience Engineering at KU Leuven, Belgium. The lab supports domain experts and lay users to make sense of large and/or complex datasets. Using a visual analytics approach, automated analysis techniques are combined with interactive data visualization to enable reasoning and hypothesis generation.
 
