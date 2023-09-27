@@ -5,6 +5,8 @@ menu: main
 navigation_weight: 6
 color: "#e6f5c9"
 ---
+For the official list, see <b><a href="https://kuleuven.limo.libis.be/discovery/search?query=any,contains,staffnr_u0069827&sortby=date_d&vid=32KUL_KUL:Lirias&offset=0">the KU Leuven database</a></b>.
+
 <ul style="list-style-type: none;">
 {% for publication in site.data.publications %}
   <li>
