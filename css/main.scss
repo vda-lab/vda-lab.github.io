@@ -20,8 +20,14 @@ $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
+$grid1-color: #1FABD5;
+$grid2-color: #1D8DB0;
+$grid3-color: #116E8A;
+
+$accent-color: #DD8A2E;
+
 // Width of the content area
-$content-width:    800px;
+$content-width:    80%;//800px;
 
 $on-palm:          600px;
 $on-laptop:        1500px;
