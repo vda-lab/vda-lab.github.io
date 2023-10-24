@@ -7,12 +7,12 @@ navigation_weight: 1
 
 ---
 
-<div style="background-color: #f0f0f0; padding: 10px;">
+<div style="background-color: #f0f0f0; padding: 30px;">
 <h3>:: Open positions ::</h3>
 <b>We are looking for two additional researchers</b>:
 <ul>
-<li><b>a PhD student on the topic of Visual Exploration of Multilayer Networks (<a href="https://www.kuleuven.be/personeel/jobsite/jobs/60260018">apply here</a>)</b></li>
-<li><b>a PhD student or postdoctoral researcher on the topic of Visualisation of Complex Biological Data (apply <a href="https://www.kuleuven.be/personeel/jobsite/jobs/60272765">apply here</a>)</b></li>
+<li><b>a PhD student on the topic of Visual Exploration of Multilayer Networks (<a href="https://www.kuleuven.be/personeel/jobsite/jobs/60260018" style="color: blue">apply here</a>)</b></li>
+<li><b>a PhD student or postdoctoral researcher on the topic of Visualisation of Complex Biological Data (<a href="https://www.kuleuven.be/personeel/jobsite/jobs/60272765" style="color: blue">apply here</a>)</b></li>
 </ul>
 </div>
 ---
