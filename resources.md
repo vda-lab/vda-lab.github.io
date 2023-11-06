@@ -30,6 +30,7 @@ color: "#fff2ae"
 * [Commercial Energy Load US](https://catalog.data.gov/dataset/commercial-and-residential-hourly-load-profiles-for-all-tmy3-locations-in-the-united-state-bbc75/resource/c093a565-cf73-4c11-b964-52ebb9e876e9)
 * [AWS Open Data](https://opendata.aws)
 * [UC Berkeley Agricultural & Resource Economics](https://guides.lib.berkeley.edu/ARE/finddata)
+* [Nature Scientific Data](https://www.nature.com/sdata/)
 
 ## :: Visualization resources ::
 
