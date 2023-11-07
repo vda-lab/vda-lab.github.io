@@ -11,6 +11,8 @@ tags:
 - vega
 - howto
 ---
+![cc-by]({{ site.baseurl }}/assets/ccby.png) (c) Jan Aerts, 2019-2023
+
 This blog post acts as the hub for the vega-lite and vega tutorial taught at the EBI workshop [Data Visualisation for Biology: A Practical Workshop on Design, Techniques and Tools](https://www.ebi.ac.uk/training/events/2020/data-visualisation-biology-practical-workshop-design-techniques-and-tools-1) as well as the course material for the Data Visualisation for Data Science course at [UHasselt](https://www.uhasselt.be/studiegids?n=4&a=2019&i=4142) and [KU Leuven](https://onderwijsaanbod.kuleuven.be/syllabi/e/G0R72AE.htm#activetab=doelstellingen_idm480336).
 
 In this tutorial, we will work in different phases, looking at vega-lite, vega, and observable. We'll start with vega-lite and vega itself in the [online editor](https://vega.github.io/editor/) that they provide, and move on to using [observable](http://observablehq.com/) at a later stage.
