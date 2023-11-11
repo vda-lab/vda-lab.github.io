@@ -32,6 +32,7 @@ color: "#fff2ae"
 * [UC Berkeley Agricultural & Resource Economics](https://guides.lib.berkeley.edu/ARE/finddata)
 * [Nature Scientific Data](https://www.nature.com/sdata/)
 * [Agriculture Datasets at data.world](https://data.world/datasets/agriculture)
+* [FoodData Central](https://fdc.nal.usda.gov/index.html): an "integrated data system that provides expanded nutrient profile data and links to related agricultural and experimental research"
 
 ## :: Visualization resources ::
 
