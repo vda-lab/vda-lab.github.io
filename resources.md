@@ -31,6 +31,7 @@ color: "#fff2ae"
 * [AWS Open Data](https://opendata.aws)
 * [UC Berkeley Agricultural & Resource Economics](https://guides.lib.berkeley.edu/ARE/finddata)
 * [Nature Scientific Data](https://www.nature.com/sdata/)
+* [Agriculture Datasets at data.world](https://data.world/datasets/agriculture)
 
 ## :: Visualization resources ::
 
