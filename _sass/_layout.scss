@@ -3,7 +3,7 @@
  */
 .site-header {
   background-size: 100%;
-  background-color: black;
+  background-color: $grid2-color;
   padding: 0;
   position: fixed;
   width: 100%;
@@ -20,10 +20,23 @@
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
+    // font-weight: bold;
+    color: $brand-color;
     
-    &,
-    &:visited {
-        color: $grid1-color; //$grey-color-dark;
+    // &,
+    // &:visited {
+    //     color: $brand-color; //$grey-color-dark;
+    // }
+}
+
+.block {
+    background-color: $grid2-color;
+    color: white;
+    // font-weight: bold;
+    padding: 20px;
+
+    > a {
+        text-decoration: underline;
     }
 }
 
@@ -46,7 +59,7 @@
     }
 
     .page-link.current {
-      color: $accent-color; // Change style of link that is active (e.g. "Blog posts")
+      color: $brand-color; // Change style of link that is active (e.g. "Blog posts")
     }
 }
 
