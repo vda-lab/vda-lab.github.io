@@ -33,6 +33,7 @@ color: "#fff2ae"
 * [Nature Scientific Data](https://www.nature.com/sdata/)
 * [Agriculture Datasets at data.world](https://data.world/datasets/agriculture)
 * [FoodData Central](https://fdc.nal.usda.gov/index.html): an "integrated data system that provides expanded nutrient profile data and links to related agricultural and experimental research"
+* Data from the paper "Topological data analysis reveals a core gene expression backbone that defines form and function across flowering plants" Palande et al, 2023 [https://doi.org/10.1371/journal.pbio.3002397](https://doi.org/10.1371/journal.pbio.3002397)
 
 ## :: Visualization resources ::
 
