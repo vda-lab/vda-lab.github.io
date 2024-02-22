@@ -45,6 +45,7 @@ Note: if you know of other interesting blogs or resources regarding data visuali
 * The [Catalogue of Data Visualisation Tools](https://visualisingdata.com/resources) by Andy Kirk, author of the book "Data Visualisation: A Handbook for Data Driven Design"
 * [Martin Krzywinski's website](http://mkweb.bcgsc.ca) is a good source of inspiration. Martin is the developer of Circos and the Hiveplot, and has a _very_ good handle on creating the best visual designs for a given task.
 * Bret Victor has interesting writings on his [website](http://worrydream.com), including the [Ladder of Abstraction](http://worrydream.com/LadderOfAbstraction), [Explorable Explanations](http://worrydream.com/ExplorableExplanations/) and [Scientific Communication as Sequential Art](http://worrydream.com/ScientificCommunicationAsSequentialArt/)
+* [DataVis Academy Youtube channel](https://www.youtube.com/playlist?list=PL5kIQRQ6TU8Ifu_5h2iipUmIKCqhs50zx)
 
 * For examples of what not to do, see [viz.wtf](https://viz.wtf).
 
