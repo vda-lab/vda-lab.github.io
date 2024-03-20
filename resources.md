@@ -74,6 +74,14 @@ These are websites that provide a comprehensive list of approaches for visualisi
 * Bret Victor [Blindly Manipulating Symbols](https://www.youtube.com/watch?v=ef2jpjTEB5U)
 * James Bednar [Visualize any Data Easily, from Notebooks to Dashboards :: Scipy 2019 Tutorial](https://www.youtube.com/watch?v=7deGS4IPAQ0)
 
+### Conferences
+
+* biovis: [http://biovis.net/2024/](http://biovis.net/)
+* IEEE VIS: [https://ieeevis.org](https://ieeevis.org)
+* EuroVis: [https://eurovis.org](https://eurovis.org)
+* VCBM: [https://dblp.org/db/conf/vcbm/index.html](https://dblp.org/db/conf/vcbm/index.html)
+* International Symposium on Graph Drawing: [http://graphdrawing.org/](http://graphdrawing.org/)
+
 ### Tools
 
 * [Svelte](http://svelte.dev) - General framework for creating web content and visuals
