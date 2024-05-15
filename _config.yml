@@ -1,14 +1,14 @@
 # Site settings
-title: Visual Data Analysis Lab
+title: Augmented Intelligence for Data Analytics (AIDA) Lab
 author:
   name: Jan Aerts
   email: jan.aerts@kuleuven.be
 description: > # this means to ignore newlines until "baseurl:"
   Augmenting Intelligence - Making sense of complex data
-url: "http://vda-lab.io" # the base hostname & protocol for your site
+url: "http://aida-lab.gitlab.io" # the base hostname & protocol for your site
 twitter_username: jandot
 permalink: /:year/:month/:title
-logo: /assets/vda-lab_logo.png
+logo: /assets/aida-logo-1D8DB0.png
 
 # Build settings
 markdown: kramdown

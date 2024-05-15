@@ -5,7 +5,7 @@ menu: main
 navigation_weight: 8
 color: "#f1e2cc"
 ---
-Visual Data Analysis Lab
+Augmented Intelligence for Data Analytics (AIDA) Lab
 
 Department of Biosystems<br/>
 Faculty of Bioscience Engineering

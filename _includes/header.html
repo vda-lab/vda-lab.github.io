@@ -1,6 +1,7 @@
 <header class="site-header">
 
   <div class="wrapper">
+    <a class="site-title" href="{{ site.baseurl }}/">:: AIDA-lab ::</a>
     <nav class="site-nav">
       <ul>
         {% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %}
@@ -17,7 +18,6 @@
         {% endfor %}
       </ul>
     </nav>
-    <a class="site-title" href="{{ site.baseurl }}/">:: {{ site.title }} ::</a>
   </div>
 
 </header>
