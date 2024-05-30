@@ -99,3 +99,4 @@ These are websites that provide a comprehensive list of approaches for visualisi
   * [Intro, visual design and implementation (vega-lite, vega and holoviz)](https://vda-lab.gitlab.io/datavis-material/)
   * [Implementation focussing on svelte](https://vda-lab.gitlab.io/datavis-technologies)
 * [Topological Data Analysis](https://vda-lab.gitlab.io/topological-data-analysis)
+* My talk at the ICG Lab Series: https://www.youtube.com/watch?v=rMAbW48k-Yk&ab_channel=JKUCG
