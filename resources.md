@@ -36,6 +36,7 @@ color: "#fff2ae"
 * Data from the paper "Topological data analysis reveals a core gene expression backbone that defines form and function across flowering plants" Palande et al, 2023 [https://doi.org/10.1371/journal.pbio.3002397](https://doi.org/10.1371/journal.pbio.3002397)
 * Human population maps (at high resolution) from [Kontur](https://www.kontur.io/portfolio/population-dataset/)
 * [FLAVIA: Images of leafs for classification](https://www.kaggle.com/datasets/gauravneupane/flavia-dataset/data)
+* [Naturalis biodiversity data](https://www.naturalis.nl/en/collection/netherlands-biodiversity-data-services)
 
 ## :: Visualization resources ::
 
