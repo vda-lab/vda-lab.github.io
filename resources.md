@@ -37,6 +37,7 @@ color: "#fff2ae"
 * Human population maps (at high resolution) from [Kontur](https://www.kontur.io/portfolio/population-dataset/)
 * [FLAVIA: Images of leafs for classification](https://www.kaggle.com/datasets/gauravneupane/flavia-dataset/data)
 * [Naturalis biodiversity data](https://www.naturalis.nl/en/collection/netherlands-biodiversity-data-services)
+* [AgBioData datasets](https://www.agbiodata.org/databases): agricultural biological databases involved with the AgBioData consortium
 
 ## :: Visualization resources ::
 
